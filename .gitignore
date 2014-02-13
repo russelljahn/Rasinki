@@ -26,3 +26,10 @@
 /missing
 /stamp-h1
 /autom4te.cache
+
+# resulting binary
+/Rasinki
+
+# Ogre files
+/Ogre.log
+/ogre.cfg
