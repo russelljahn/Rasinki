@@ -6,7 +6,10 @@
 #include <string>
 #include "Component.h"
 
+/* Forward declarations. */
 class Component;
+
+
 
 /* 
 	A GameObject is an aggregation of components with different functionality.
@@ -41,10 +44,7 @@ class GameObject {
 
 
 	protected:
-		// std::vector<Component> components;
-		;
-		
-
+		std::vector<Component> components;
 };
 
 
