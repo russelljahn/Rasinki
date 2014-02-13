@@ -4,7 +4,10 @@
 
 #include "GameObject.h"
 
+/* Forward declarations. */
 class GameObject;
+
+
 
 /* 
 	A Component encapsulates some functionality of a GameObject, such as the
@@ -17,7 +20,7 @@ class Component {
 		bool enabled;
 		GameObject &gameObject;
 
-		Component(GameObject &attachedGameObject) : gameObject(attachedGameObject) {};
+		Component(GameObject &attachedGameObject);
 
 		void virtual Start();
 		void virtual Update();
