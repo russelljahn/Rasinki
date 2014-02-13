@@ -1,6 +1,8 @@
 #include <Game.h>
 #include <iostream>
 
+using namespace std;
+
 Game::Game()
 {
     
@@ -20,12 +22,10 @@ void Game::run()
         // If returned true, user clicked OK so initialise
         // Here we choose to let the system create a default rendering window by passing 'true'
         mWindow = mRoot->initialise(true, "TutorialApplication Render Window");
-
-        return true;
     }
     else
     {
-        return false;
+        return;
     }
     
     // initialize input
@@ -50,6 +50,9 @@ void Game::run()
     // Set initial mouse clipping size
     windowResized(mWindow);
     
+    // Register as a Window listener
+    Ogre::WindowEventUtilities::addWindowEventListener(mWindow, this);
+    // Register as frame listener
     mRoot->addFrameListener(this);
     
     // begin render loop
@@ -58,44 +61,49 @@ void Game::run()
 
 bool Game::frameRenderingQueued(const Ogre::FrameEvent& evt)
 {
-    
+    return true;
 }
 
 bool Game::keyPressed( const OIS::KeyEvent &arg )
 {
     cout << "key press\n";
+    return true;
 }
 
 bool Game::keyReleased( const OIS::KeyEvent &arg )
 {
     cout << "key release\n";
+    return true;
 }
 
 bool Game::mouseMoved( const OIS::MouseEvent &arg )
 {
     cout << "mouse move\n";
+    return true;
 }
 
 bool Game::mousePressed( const OIS::MouseEvent &arg, OIS::MouseButtonID id )
 {
     cout << "mouse press\n";
+    return true;
 }
 
 bool Game::mouseReleased( const OIS::MouseEvent &arg, OIS::MouseButtonID id )
 {
     cout << "mouse release\n";
+    return true;
 }
 
 // Adjust mouse clipping area
 void Game::windowResized(Ogre::RenderWindow* rw)
 {
-    unsigned int width, height, depth;
-    int left, top;
-    rw->getMetrics(width, height, depth, left, top);
+    // unsigned int width, height, depth;
+    // int left, top;
+    // rw->getMetrics(width, height, depth, left, top);
 
-    const OIS::MouseState &ms = mMouse->getMouseState();
-    ms.width = width;
-    ms.height = height;
+    // const OIS::MouseState &ms = mMouse->getMouseState();
+    // ms.width = width;
+    // ms.height = height;
 }
 
 // Unattach OIS before window shutdown (very important under Linux)

@@ -1,13 +1,15 @@
 #include <OgreRenderWindow.h>
+#include <OgreRoot.h>
+#include <OgreWindowEventUtilities.h>
 
 #include <OISEvents.h>
 #include <OISInputManager.h>
 #include <OISKeyboard.h>
 #include <OISMouse.h>
 
-class Game : public Ogre::FrameListener, 
-             public Ogre::WindowEventListener, 
-             public OIS::KeyListener, 
+class Game : public Ogre::FrameListener,
+             public Ogre::WindowEventListener,
+             public OIS::KeyListener,
              public OIS::MouseListener
 {
 public:
@@ -40,4 +42,4 @@ protected:
     OIS::InputManager* mInputManager;
     OIS::Mouse* mMouse;
     OIS::Keyboard* mKeyboard;
-}
+};

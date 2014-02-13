@@ -11,3 +11,25 @@
 *.lai
 *.la
 *.a
+
+# autoconf files
+/config.*
+/configure
+/Makefile
+/Makefile.in
+/.deps
+/aclocal.m4
+/depcomp
+/install-sh
+/libtool
+/ltmain.sh
+/missing
+/stamp-h1
+/autom4te.cache
+
+# resulting binary
+/Rasinki
+
+# Ogre files
+/Ogre.log
+/ogre.cfg
