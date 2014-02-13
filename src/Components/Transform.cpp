@@ -1,24 +1,25 @@
 
-#include "Component.h"
+#include "Transform.h"
 
-Component::Component(GameObject &attachedGameObject) : gameObject(attachedGameObject) {
-	this->enabled = true;
+Transform::Transform(GameObject &attachedGameObject, SceneNode &parent) : Component(attachedGameObject), sceneNode(parent) {
 };
 
 
 
-void Component::Start() {
-
+void Transform::Start() {
+	Component::Start();
 }
 
 
 
-void Component::Update() {
+void Transform::Update() {
+	Component::Update();
 	
 }
 
 
 
-void Component::FixedUpdate() {
+void Transform::FixedUpdate() {
+	Component::FixedUpdate();
 	
 }
