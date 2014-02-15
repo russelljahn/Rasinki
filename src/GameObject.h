@@ -4,7 +4,7 @@
 
 #include <vector>
 #include <string>
-#include "Component.h"
+#include "Components/Component.h"
 
 /* Forward declarations. */
 class Component;
