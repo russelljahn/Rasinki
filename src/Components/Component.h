@@ -18,7 +18,7 @@ class Component {
 	
 	public:
 		bool enabled;
-		GameObject &gameObject;
+		GameObject *gameObject;
 
 		Component(GameObject &attachedGameObject);
 

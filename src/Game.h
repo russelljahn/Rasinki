@@ -53,6 +53,8 @@ public:
     // Ogre::FrameListener
     virtual bool frameRenderingQueued(const Ogre::FrameEvent& evt);
 
+    Ogre::SceneNode* getSceneRoot(void);
+
 protected:
     virtual bool setup();
     virtual bool configure(void);

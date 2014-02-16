@@ -4,10 +4,15 @@
 
 #include <vector>
 #include <string>
+
+#include "Game.h"
 #include "Components/Component.h"
+#include "Components/Transform.h"
 
 /* Forward declarations. */
+class Game;
 class Component;
+class Transform;
 
 
 
@@ -25,7 +30,7 @@ class GameObject {
 		std::string name;
 		bool enabled;
 
-		GameObject();
+		GameObject(Game &attachedGame);
 
 		void Start();
 		void Update();
@@ -45,6 +50,9 @@ class GameObject {
 
 	protected:
 		std::vector<Component> components;
+		Game &game;
+
+		Transform *transform;
 };
 
 

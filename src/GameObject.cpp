@@ -1,18 +1,19 @@
 
-// #include <vector>
-// #include <string>
+
 #include "GameObject.h"
 
 
 
-GameObject::GameObject() {
+GameObject::GameObject(Game &attachedGame) : game(attachedGame) {
 	this->enabled = true;
 }
 
 
 
 void GameObject::Start() {
-	// TODO
+	transform = new Transform(this, game.getSceneRoot()); 
+	// components.push_back(newTransform);
+	// this->transform = static_cast<Transform *>(&components.back());
 }
 
 

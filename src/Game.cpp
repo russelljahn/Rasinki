@@ -427,3 +427,9 @@ void Game::windowClosed(Ogre::RenderWindow* rw)
 void Game::createScene(void) {
     cout << "Creating scene!" << endl;
 }
+
+
+
+Ogre::SceneNode* Game::getSceneRoot(void) {
+    return mSceneManager->getRootSceneNode();
+}
