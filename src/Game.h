@@ -28,6 +28,7 @@
 #include <SdkTrays.h>
 #include <SdkCameraMan.h>
 
+#include "GameObject.h"
 
 #if OGRE_PLATFORM == OGRE_PLATFORM_APPLE_IOS
 #    define OGRE_IS_IOS 1
@@ -54,6 +55,8 @@ public:
     virtual bool frameRenderingQueued(const Ogre::FrameEvent& evt);
 
     Ogre::SceneNode* getSceneRoot(void);
+    Ogre::SceneManager* getSceneManager(void);
+
 
 protected:
     virtual bool setup();

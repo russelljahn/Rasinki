@@ -68,9 +68,9 @@ void Game::createCamera(void)
     mCamera = mSceneManager->createCamera("PlayerCam");
 
     // Position it at 500 in Z direction
-    mCamera->setPosition(Ogre::Vector3(1200,-0,1200));
+    mCamera->setPosition(Ogre::Vector3(500,500,500));
     // Look back along -Z
-    mCamera->lookAt(Ogre::Vector3(0,-500,0));
+    mCamera->lookAt(Ogre::Vector3(0,0,0));
     mCamera->setNearClipDistance(5);
 
     mCameraMan = new OgreBites::SdkCameraMan(mCamera);   // create a default camera controller
@@ -426,10 +426,138 @@ void Game::windowClosed(Ogre::RenderWindow* rw)
 
 void Game::createScene(void) {
     cout << "Creating scene!" << endl;
+    GameObject *gameObject = new GameObject(*this);
+
+    Ogre::Light *pointLight = mSceneManager->createLight("pointLight");
+    pointLight->setType(Ogre::Light::LT_POINT);
+    pointLight->setPosition(Ogre::Vector3(0, 150, 250));
+    pointLight->setDiffuseColour(1.0, 0.0, 0.0);
+    pointLight->setSpecularColour(1.0, 0.0, 0.0);
+
+    Ogre::Light* spotLight1 = mSceneManager->createLight("spotLight1");
+    spotLight1->setType(Ogre::Light::LT_SPOTLIGHT);
+    spotLight1->setDiffuseColour(0, 0, 1.0);
+    spotLight1->setSpecularColour(0, 0, 1.0);
+    spotLight1->setDirection(-1, -1, 0);
+    spotLight1->setPosition(Ogre::Vector3(0, 300, 0));
+    spotLight1->setSpotlightRange(Ogre::Degree(35), Ogre::Degree(50));
+
+    Ogre::Light* spotLight2 = mSceneManager->createLight("spotLight2");
+    spotLight2->setType(Ogre::Light::LT_SPOTLIGHT);
+    spotLight2->setDiffuseColour(1.0, 0, 1.0);
+    spotLight2->setSpecularColour(1.0, 0, 1.0);
+    spotLight2->setDirection(-1, 1, 0);
+    spotLight2->setPosition(Ogre::Vector3(0, -300, 0));
+    spotLight2->setSpotlightRange(Ogre::Degree(35), Ogre::Degree(50));
+
+    Ogre::Light* spotLight3 = mSceneManager->createLight("spotLight3");
+    spotLight3->setType(Ogre::Light::LT_SPOTLIGHT);
+    spotLight3->setDiffuseColour(1.0, 1.0, 0.0);
+    spotLight3->setSpecularColour(1.0, 1.0, 0.0);
+    spotLight3->setDirection(1, -1, 0);
+    spotLight3->setPosition(Ogre::Vector3(0, 300, 0));
+    spotLight3->setSpotlightRange(Ogre::Degree(35), Ogre::Degree(50));
+
+    Ogre::Light* spotLight4 = mSceneManager->createLight("spotLight4");
+    spotLight4->setType(Ogre::Light::LT_SPOTLIGHT);
+    spotLight4->setDiffuseColour(0.0, 1.0, 0.0);
+    spotLight4->setSpecularColour(0.0, 1.00, 0.0);
+    spotLight4->setDirection(1, 1, 0);
+    spotLight4->setPosition(Ogre::Vector3(0, -300, 0));
+    spotLight4->setSpotlightRange(Ogre::Degree(35), Ogre::Degree(50));
+
+    mSceneManager->setAmbientLight(Ogre::ColourValue(0, 0, 0));
+    mSceneManager->setShadowTechnique(Ogre::SHADOWTYPE_STENCIL_ADDITIVE);
+
+    Ogre::Plane plane(Ogre::Vector3::UNIT_Y, 0);
+    Ogre::MeshManager::getSingleton().createPlane("ground", Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME,
+    plane, 1500, 1500, 200, 200, true, 1, 5, 5, Ogre::Vector3::UNIT_Z);
+    Ogre::Entity* ground = mSceneManager->createEntity("GroundEntity", "ground");
+    Ogre::SceneNode *groundSceneNode = mSceneManager->getRootSceneNode()->createChildSceneNode("ground");
+    groundSceneNode->attachObject(ground);
+    groundSceneNode->setPosition(0, -750, 0);
+    ground->setMaterialName("Examples/GrassFloor");
+    ground->setCastShadows(false);
+
+    Ogre::Plane wall01(Ogre::Vector3::UNIT_Y, 0);
+    Ogre::MeshManager::getSingleton().createPlane("wall01", Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME,
+    wall01, 1500, 1500, 200, 200, true, 1, 5, 5, Ogre::Vector3::UNIT_Z);
+    Ogre::Entity* wall01Entity = mSceneManager->createEntity("wall01Entity", "wall01");
+    Ogre::SceneNode *wall01Node = mSceneManager->getRootSceneNode()->createChildSceneNode("wall01");
+    wall01Node->attachObject(wall01Entity);
+    wall01Node->setPosition(0, 0, 750);
+    wall01Node->rotate(Ogre::Vector3::UNIT_X, Ogre::Radian(Ogre::Degree(-90)));
+    wall01Entity->setMaterialName("Examples/BumpyMetal");
+    wall01Entity->setCastShadows(true);
+
+    Ogre::Plane wall02(Ogre::Vector3::UNIT_Y, 0);
+    Ogre::MeshManager::getSingleton().createPlane("wall02", Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME,
+    wall02, 1500, 1500, 200, 200, true, 1, 5, 5, Ogre::Vector3::UNIT_Z);
+    Ogre::Entity* wall02Entity = mSceneManager->createEntity("Wall02Entity", "wall02");
+    Ogre::SceneNode *wall02Node = mSceneManager->getRootSceneNode()->createChildSceneNode("wall02");
+    wall02Node->attachObject(wall02Entity);
+    wall02Node->setPosition(0, 0, -750);
+    wall02Node->rotate(Ogre::Vector3::UNIT_X, Ogre::Radian(Ogre::Degree(90)));
+    wall02Entity->setMaterialName("Examples/BumpyMetal");
+    wall02Entity->setCastShadows(true);
+
+    Ogre::Plane wall03(Ogre::Vector3::UNIT_Y, 0);
+    Ogre::MeshManager::getSingleton().createPlane("wall03", Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME,
+    wall03, 1500, 1500, 200, 200, true, 1, 5, 5, Ogre::Vector3::UNIT_Z);
+    Ogre::Entity* wall03Entity = mSceneManager->createEntity("wall03Entity", "wall03");
+    Ogre::SceneNode *wall03Node = mSceneManager->getRootSceneNode()->createChildSceneNode("wall03");
+    wall03Node->attachObject(wall03Entity);
+    wall03Node->setPosition(750, 0, 0);
+    wall03Node->rotate(Ogre::Vector3::UNIT_Z, Ogre::Radian(Ogre::Degree(90)));
+    wall03Entity->setMaterialName("Examples/BumpyMetal");
+    wall03Entity->setCastShadows(true);
+
+    Ogre::Plane wall04(Ogre::Vector3::UNIT_Y, 0);
+    Ogre::MeshManager::getSingleton().createPlane("wall04", Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME,
+    wall04, 1500, 1500, 200, 200, true, 1, 5, 5, Ogre::Vector3::UNIT_Z);
+    Ogre::Entity* wall04Entity = mSceneManager->createEntity("wall04Entity", "wall04");
+    Ogre::SceneNode *wall04Node = mSceneManager->getRootSceneNode()->createChildSceneNode("wall04");
+    wall04Node->attachObject(wall04Entity);
+    wall04Node->setPosition(-750, 0, 0);
+    wall04Node->rotate(Ogre::Vector3::UNIT_Z, Ogre::Radian(Ogre::Degree(-90)));
+    wall04Entity->setMaterialName("Examples/BumpyMetal");
+    wall04Entity->setCastShadows(true);
+
+    Ogre::Plane ceiling(Ogre::Vector3::UNIT_Y, 0);
+    Ogre::MeshManager::getSingleton().createPlane("ceiling", Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME,
+    ceiling, 1500, 1500, 200, 200, true, 1, 5, 5, Ogre::Vector3::UNIT_Z);
+    Ogre::Entity* ceilingEntity = mSceneManager->createEntity("ceilingEntity", "ceiling");
+    Ogre::SceneNode *ceilingNode = mSceneManager->getRootSceneNode()->createChildSceneNode("ceiling");
+    ceilingNode->attachObject(ceilingEntity);
+    ceilingNode->setPosition(0, 750, 0);
+    ceilingNode->rotate(Ogre::Vector3::UNIT_X, Ogre::Radian(Ogre::Degree(180)));
+    ceilingEntity->setMaterialName("Examples/Rockwall");
+    ceilingEntity->setCastShadows(true);
+
+    // for (int i = 0; i < 25; ++i) {
+    //     stringstream ss;
+    //     ss << "BallEntity" << i;
+    //     Ogre::Entity *ball01 = mSceneManager->createEntity(ss.str(), Ogre::SceneManager::PT_SPHERE);
+    //     Ogre::SceneNode *ball01Node = mSceneManager->getRootSceneNode()->createChildSceneNode(ss.str());
+    //     ball01Node->attachObject(ball01);
+    //     ball01->setMaterialName("Examples/SphereMappedRustySteel");
+    //     ball01->setCastShadows(true);
+    //     ball01Node->setPosition(
+    //         Ogre::Math::RangeRandom(-500, 500), 
+    //         Ogre::Math::RangeRandom(-500, 500), 
+    //         Ogre::Math::RangeRandom(-500, 500)
+    //     );
+    // }
 }
 
 
 
 Ogre::SceneNode* Game::getSceneRoot(void) {
     return mSceneManager->getRootSceneNode();
+}
+
+
+
+Ogre::SceneManager* Game::getSceneManager(void) {
+    return mSceneManager;
 }

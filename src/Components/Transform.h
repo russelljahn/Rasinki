@@ -19,6 +19,7 @@ class Transform {
 	
 	public:
 		GameObject *gameObject;
+		Ogre::SceneNode *parent;
 		Ogre::SceneNode *sceneNode;
 
 		Transform(GameObject *attachedGameObject, Ogre::SceneNode *parent);

@@ -2,18 +2,21 @@
 
 #include "GameObject.h"
 
+#include <sstream>
 
 
 GameObject::GameObject(Game &attachedGame) : game(attachedGame) {
 	this->enabled = true;
+	Start();
 }
 
 
 
 void GameObject::Start() {
 	transform = new Transform(this, game.getSceneRoot()); 
-	// components.push_back(newTransform);
-	// this->transform = static_cast<Transform *>(&components.back());
+	
+	entity = game.getSceneManager()->createEntity("Ninja", "ninja.mesh");
+	game.getSceneRoot()->createChildSceneNode()->attachObject(entity);
 }
 
 

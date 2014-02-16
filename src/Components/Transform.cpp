@@ -2,8 +2,9 @@
 #include "Transform.h"
 
 Transform::Transform(GameObject *attachedGameObject, Ogre::SceneNode *parent) {
-	gameObject = attachedGameObject;
-	sceneNode = parent;
+	this->gameObject = attachedGameObject;
+	this->parent = parent;
+	this->sceneNode = parent->createChildSceneNode();
 };
 
 

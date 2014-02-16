@@ -5,6 +5,8 @@
 #include <vector>
 #include <string>
 
+#include <OgreEntity.h>
+
 #include "Game.h"
 #include "Components/Component.h"
 #include "Components/Transform.h"
@@ -53,6 +55,7 @@ class GameObject {
 		Game &game;
 
 		Transform *transform;
+		Ogre::Entity *entity;
 };
 
 
