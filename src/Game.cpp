@@ -253,7 +253,7 @@ bool Game::frameRenderingQueued(const Ogre::FrameEvent& evt)
     mMouse->capture();
 
     mTrayManager->frameRenderingQueued(evt);
-
+    ninja->Update();
     if (!mTrayManager->isDialogVisible())
     {
         mCameraMan->frameRenderingQueued(evt);   // if dialog isn't up, then update the camera
@@ -268,6 +268,8 @@ bool Game::frameRenderingQueued(const Ogre::FrameEvent& evt)
             mDetailsPanel->setParamValue(7, Ogre::StringConverter::toString(mCamera->getDerivedOrientation().z));
         }
     }
+
+
 
     return true;
 }
@@ -426,7 +428,7 @@ void Game::windowClosed(Ogre::RenderWindow* rw)
 
 void Game::createScene(void) {
     cout << "Creating scene!" << endl;
-    GameObject *gameObject = new GameObject(*this);
+    ninja = new GameObject(*this);
 
     Ogre::Light *pointLight = mSceneManager->createLight("pointLight");
     pointLight->setType(Ogre::Light::LT_POINT);

@@ -30,6 +30,9 @@
 
 #include "GameObject.h"
 
+/*Foward Declarations*/
+class GameObject;
+
 #if OGRE_PLATFORM == OGRE_PLATFORM_APPLE_IOS
 #    define OGRE_IS_IOS 1
 #    include <OISMultiTouch.h>
@@ -59,6 +62,7 @@ public:
 
 
 protected:
+    GameObject *ninja;
     virtual bool setup();
     virtual bool configure(void);
     virtual void chooseSceneManager(void);
