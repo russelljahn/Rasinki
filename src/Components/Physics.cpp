@@ -18,12 +18,11 @@ Physics::Physics(GameObject& attachedGameObject, btCollisionShape* collider, btT
 Physics::~Physics() {
 	// instance of btDiscreteDynamicsWorld->removeRigidBody(mRigidBody)
 	delete mRigidBody->getMotionState();
-	delete mRigidBody->getCollisionShape();
 	delete mRigidBody;
 }
-Transform::Start() {}
-Transform::Update() {}
-Transform::FixedUpdate() {
+void Transform::Start() {}
+void Transform::Update() {}
+void Transform::FixedUpdate() {
 	btTransform trans;
 	mRigidBody->getMotionState()->getWorldTransform(trans);  // sets trans to rigidBody's transform
 
