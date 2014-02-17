@@ -7,10 +7,16 @@
 
 #include <OgreEntity.h>
 
+#include <OISEvents.h>
+#include <OISKeyboard.h>
+
+
 #include "Game.h"
 #include "Components/Component.h"
 #include "Components/Transform.h"
 #include "Components/Physics.h"
+
+
 
 /* Forward declarations. */
 class Game;
@@ -30,10 +36,14 @@ class GameObject {
 	
 	public:
 		std::string name;
+		int id;
 		bool enabled;
-		Game &game;
 
-		GameObject(Game &attachedGame);
+		Transform *transform; // TODO: Make this protected but retrievable through GetComponentOfType<>()!
+		Game *game; // TODO: Figure out how to make this unneeded to be public for abstraction-sake!
+		Physics* physics;
+		
+		GameObject(Game *attachedGame);
 
 		void Start();
 		void Update();
@@ -42,19 +52,23 @@ class GameObject {
 		void Kill();
 
 		template <typename ComponentType>
-		ComponentType GetComponentOfType();
+		ComponentType* GetComponentOfType();
 
 		template <typename ComponentType>
-		ComponentType AddComponentOfType();
+		ComponentType AddComponentOfType() {
+			ComponentType *newComponent = new ComponentType(this);
+			components.push_back(newComponent);
+		}
 
 		template <typename ComponentType>
 		void KillComponentOfType();
-		Transform *transform;
 
 	protected:
-		std::vector<Component> components;
-		Physics* physics;
+		std::vector<Component *> components;
+
 		Ogre::Entity *entity;
+
+		static int nextAvailableId;
 };
 
 

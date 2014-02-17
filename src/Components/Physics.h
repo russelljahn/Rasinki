@@ -27,9 +27,10 @@ class Physics{
 
 		void setAngularVelocity(const btVector3& veloc) { mRigidBody->setAngularVelocity(veloc); }
 		const btVector3& getAngularVelocity() const { return mRigidBody->getAngularVelocity(); }
-	
-	private:
+		
 		btRigidBody* mRigidBody;
+	private:
+		
 		Transform* mTransform;
 		GameObject* gameObject;
 };

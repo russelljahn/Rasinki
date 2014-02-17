@@ -1,17 +1,28 @@
+#include <sstream>
 #include "GameObject.h"
 
-#include <sstream>
 
-GameObject::GameObject(Game &attachedGame) : game(attachedGame) {
+
+int GameObject::nextAvailableId = 0;
+
+
+
+GameObject::GameObject(Game *attachedGame) {
+	this->game = attachedGame;
 	this->enabled = true;
+	this->id = GameObject::nextAvailableId++;
+
+	ostringstream nameCoverter;
+	nameCoverter << id;
+	this->name = nameCoverter.str();
 	Start();
 }
 
 
 void GameObject::Start() {
-	transform = new Transform(this, game.getSceneRoot()); 
+	transform = new Transform(this, game->getSceneRoot()); 
 	
-	entity = game.getSceneManager()->createEntity("Ninja", "ninja.mesh");
+	entity = game->getSceneManager()->createEntity("Ninja", "ninja.mesh");
 	transform->sceneNode->attachObject(entity);
 	physics = new Physics(*this);	
 }
@@ -19,11 +30,11 @@ void GameObject::Start() {
 
 
 void GameObject::Update() {
-	/*std::cout << "Before: " << transform->getLocalPosition() << std::endl;
-	Ogre::Vector3 pos = transform->getLocalPosition();
-	pos.x += 9;
-	transform->setLocalPosition(pos);
-	std::cout << "After: " << transform->getLocalPosition() << std::endl;*/
+	cout << "Updating GameObject '" << this->name << "'!" << endl;
+
+	for (auto componentsIter = components.begin(); componentsIter != components.end(); ++componentsIter) {
+        (*componentsIter)->Update();
+    }
 }
 
 

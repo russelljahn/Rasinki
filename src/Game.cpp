@@ -4,6 +4,8 @@
 using namespace std;
 
 #include "Game.h"
+#include "Scripts/PaddleScript.h"
+
 
 //-------------------------------------------------------------------------------------
 Game::Game(void)
@@ -28,7 +30,7 @@ Game::Game(void)
 Game::~Game(void)
 {
     if (mTrayManager) delete mTrayManager;
-    if (mCameraMan) delete mCameraMan;
+    // if (mCameraMan) delete mCameraMan;
 
     //Remove ourself as a Window listener
     Ogre::WindowEventUtilities::removeWindowEventListener(mWindow, this);
@@ -73,8 +75,8 @@ void Game::createCamera(void)
     mCamera->lookAt(Ogre::Vector3(0,0,0));
     mCamera->setNearClipDistance(5);
 
-    mCameraMan = new OgreBites::SdkCameraMan(mCamera);   // create a default camera controller
-    mCameraMan->setTopSpeed(400.0f);
+    // mCameraMan = new OgreBites::SdkCameraMan(mCamera);   // create a default camera controller
+    // mCameraMan->setTopSpeed(400.0f);
 }
 //-------------------------------------------------------------------------------------
 void Game::createFrameListener(void)
@@ -214,6 +216,7 @@ void Game::run(void)
 bool Game::setup(void)
 {
     mRoot = new Ogre::Root(mPluginsConfig);
+    mPhysicsSimulator = new PhysicsSimulator();
 
     setupResources();
 
@@ -233,10 +236,10 @@ bool Game::setup(void)
     loadResources();
 
     // Create the scene
+    createLights();
     createScene();
 
     createFrameListener();
-
     return true;
 };
 //-------------------------------------------------------------------------------------
@@ -254,10 +257,10 @@ bool Game::frameRenderingQueued(const Ogre::FrameEvent& evt)
 
     mTrayManager->frameRenderingQueued(evt);
     mPhysicsSimulator->stepSimulation(evt.timeSinceLastFrame);
-    ninja->Update();
+
     if (!mTrayManager->isDialogVisible())
     {
-        mCameraMan->frameRenderingQueued(evt);   // if dialog isn't up, then update the camera
+        // mCameraMan->frameRenderingQueued(evt);   // if dialog isn't up, then update the camera
         if (mDetailsPanel->isVisible())   // if details panel is visible, then update its contents
         {
             mDetailsPanel->setParamValue(0, Ogre::StringConverter::toString(mCamera->getDerivedPosition().x));
@@ -270,7 +273,9 @@ bool Game::frameRenderingQueued(const Ogre::FrameEvent& evt)
         }
     }
 
-
+    for (auto gameObjectIter = gameObjects.begin(); gameObjectIter != gameObjects.end(); ++gameObjectIter) {
+        (*gameObjectIter)->Update();
+    }
 
     return true;
 }
@@ -365,34 +370,34 @@ bool Game::keyPressed( const OIS::KeyEvent &arg )
         mShutDown = true;
     }
 
-    mCameraMan->injectKeyDown(arg);
+    // mCameraMan->injectKeyDown(arg);
     return true;
 }
 
 bool Game::keyReleased( const OIS::KeyEvent &arg )
 {
-    mCameraMan->injectKeyUp(arg);
+    // mCameraMan->injectKeyUp(arg);
     return true;
 }
 
 bool Game::mouseMoved( const OIS::MouseEvent &arg )
 {
-    if (mTrayManager->injectMouseMove(arg)) return true;
-    mCameraMan->injectMouseMove(arg);
+    // if (mTrayManager->injectMouseMove(arg)) return true;
+    // mCameraMan->injectMouseMove(arg);
     return true;
 }
 
 bool Game::mousePressed( const OIS::MouseEvent &arg, OIS::MouseButtonID id )
 {
     if (mTrayManager->injectMouseDown(arg, id)) return true;
-    mCameraMan->injectMouseDown(arg, id);
+    // mCameraMan->injectMouseDown(arg, id);
     return true;
 }
 
 bool Game::mouseReleased( const OIS::MouseEvent &arg, OIS::MouseButtonID id )
 {
     if (mTrayManager->injectMouseUp(arg, id)) return true;
-    mCameraMan->injectMouseUp(arg, id);
+    // mCameraMan->injectMouseUp(arg, id);
     return true;
 }
 
@@ -427,12 +432,9 @@ void Game::windowClosed(Ogre::RenderWindow* rw)
 
 
 
-void Game::createScene(void) {
-    mPhysicsSimulator = new PhysicsSimulator();
 
-    cout << "Creating scene!" << endl;
-    ninja = new GameObject(*this);
-
+void Game::createLights(void) {
+    cout << "Creating lights..." << endl;
     Ogre::Light *pointLight = mSceneManager->createLight("pointLight");
     pointLight->setType(Ogre::Light::LT_POINT);
     pointLight->setPosition(Ogre::Vector3(0, 150, 250));
@@ -473,7 +475,14 @@ void Game::createScene(void) {
 
     mSceneManager->setAmbientLight(Ogre::ColourValue(0, 0, 0));
     mSceneManager->setShadowTechnique(Ogre::SHADOWTYPE_STENCIL_ADDITIVE);
+    cout << "Done creating lights!" << endl;
+}
 
+
+
+void Game::createScene(void) {
+    cout << "Creating scene..." << endl;
+    
     Ogre::Plane plane(Ogre::Vector3::UNIT_Y, 0);
     Ogre::MeshManager::getSingleton().createPlane("ground", Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME,
     plane, 1500, 1500, 200, 200, true, 1, 5, 5, Ogre::Vector3::UNIT_Z);
@@ -553,20 +562,11 @@ void Game::createScene(void) {
     ceilingEntity->setMaterialName("Examples/Rockwall");
     ceilingEntity->setCastShadows(true);
 
-    // for (int i = 0; i < 25; ++i) {
-    //     stringstream ss;
-    //     ss << "BallEntity" << i;
-    //     Ogre::Entity *ball01 = mSceneManager->createEntity(ss.str(), Ogre::SceneManager::PT_SPHERE);
-    //     Ogre::SceneNode *ball01Node = mSceneManager->getRootSceneNode()->createChildSceneNode(ss.str());
-    //     ball01Node->attachObject(ball01);
-    //     ball01->setMaterialName("Examples/SphereMappedRustySteel");
-    //     ball01->setCastShadows(true);
-    //     ball01Node->setPosition(
-    //         Ogre::Math::RangeRandom(-500, 500), 
-    //         Ogre::Math::RangeRandom(-500, 500), 
-    //         Ogre::Math::RangeRandom(-500, 500)
-    //     );
-    // }
+    GameObject *newGameObject = new GameObject(this);
+    newGameObject->AddComponentOfType<PaddleScript>();
+    gameObjects.push_back(newGameObject);
+
+    cout << "Done creating scene!" << endl;
 }
 
 
@@ -583,4 +583,8 @@ Ogre::SceneManager* Game::getSceneManager(void) {
 
 PhysicsSimulator* Game::getPhysicsSimulator(void) {
     return mPhysicsSimulator;
+}
+
+OIS::Keyboard* Game::getKeyboard(void) {
+    return mKeyboard;
 }

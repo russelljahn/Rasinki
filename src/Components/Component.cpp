@@ -1,8 +1,8 @@
 
 #include "Component.h"
 
-Component::Component(GameObject &attachedGameObject) {
-	this->gameObject = &attachedGameObject;
+Component::Component(GameObject *attachedGameObject) {
+	this->gameObject = attachedGameObject;
 	this->enabled = true;
 };
 

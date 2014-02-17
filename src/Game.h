@@ -28,13 +28,19 @@
 #include <SdkTrays.h>
 #include <SdkCameraMan.h>
 
+#include <vector>
+
 #include "GameObject.h"
 #include "PhysicsSimulator.h"
+
 
 
 /*Foward Declarations*/
 class GameObject;
 class PhysicsSimulator;
+
+
+using namespace std;
 
 #if OGRE_PLATFORM == OGRE_PLATFORM_APPLE_IOS
 #    define OGRE_IS_IOS 1
@@ -63,16 +69,17 @@ public:
     Ogre::SceneNode* getSceneRoot(void);
     Ogre::SceneManager* getSceneManager(void);
     PhysicsSimulator* getPhysicsSimulator(void);
+    OIS::Keyboard* getKeyboard(void);
 
 
 protected:
-    GameObject *ninja;
     virtual bool setup();
     virtual bool configure(void);
     virtual void chooseSceneManager(void);
     virtual void createCamera(void);
     virtual void createFrameListener(void);
-    virtual void createScene(void); // Override me!
+    virtual void createLights(void); 
+    virtual void createScene(void); 
     virtual void destroyScene(void);
     virtual void createViewports(void);
     virtual void setupResources(void);
@@ -113,6 +120,8 @@ protected:
     OIS::Keyboard* mKeyboard;
 
     PhysicsSimulator* mPhysicsSimulator;
+    // Miscellaneous
+    vector<GameObject *> gameObjects;
 };
 
 #endif // #ifndef __Game_h_

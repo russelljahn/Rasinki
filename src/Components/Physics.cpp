@@ -18,11 +18,11 @@ Physics::Physics(GameObject& attachedGameObject, btCollisionShape* collider, flo
 
 	//Add rigidbody to world
 	//instance of btDiscreteDynamicsWorld->addRigidBody(mRigidBody)
-	gameObject->game.getPhysicsSimulator()->addObject(mRigidBody);	
+	gameObject->game->getPhysicsSimulator()->addObject(mRigidBody);	
 }
 Physics::~Physics() {
 	// instance of btDiscreteDynamicsWorld->removeRigidBody(mRigidBody)
-	gameObject->game.getPhysicsSimulator()->removeObject(mRigidBody);
+	gameObject->game->getPhysicsSimulator()->removeObject(mRigidBody);
 	delete mRigidBody->getMotionState();
 	delete mRigidBody;
 }
