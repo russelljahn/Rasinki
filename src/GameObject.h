@@ -10,13 +10,13 @@
 #include "Game.h"
 #include "Components/Component.h"
 #include "Components/Transform.h"
+#include "Components/Physics.h"
 
 /* Forward declarations. */
 class Game;
 class Component;
 class Transform;
-
-
+class Physics;
 
 /* 
 	A GameObject is an aggregation of components with different functionality.
@@ -31,6 +31,7 @@ class GameObject {
 	public:
 		std::string name;
 		bool enabled;
+		Game &game;
 
 		GameObject(Game &attachedGame);
 
@@ -48,13 +49,11 @@ class GameObject {
 
 		template <typename ComponentType>
 		void KillComponentOfType();
-
+		Transform *transform;
 
 	protected:
 		std::vector<Component> components;
-		Game &game;
-
-		Transform *transform;
+		Physics* physics;
 		Ogre::Entity *entity;
 };
 

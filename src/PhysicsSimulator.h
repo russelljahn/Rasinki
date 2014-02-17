@@ -4,14 +4,16 @@
 #include <OgreRoot.h>
 #include "GameObject.h"
 
-class PhysicsSimulator {
+/* Forward Declarations */
+class GameObject;
 
+class PhysicsSimulator {
 	public:
 		PhysicsSimulator(Ogre::Real fixedTimeStep = 1.0/60.0);
 		~PhysicsSimulator();
 		void addObject(btRigidBody* body);
 		void removeObject(btRigidBody* body);
-		void stepSimulation(Ogre::Real elapsedTime, int maxSubSteps = 1);
+		void stepSimulation(Ogre::Real elapsedTime);
 	private:
 		Ogre::Real mFixedTimeStep;
 		Ogre::Real mRemainingTime;
@@ -21,7 +23,6 @@ class PhysicsSimulator {
 		btSequentialImpulseConstraintSolver* solver;
 		btDiscreteDynamicsWorld* dynamicsWorld;
 		btConstraintSolver* mConstraintsolver;
-		// btCollisionWorld* mWorld;
 		std::list<GameObject*> objList;
 };
 

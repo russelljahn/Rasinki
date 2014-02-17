@@ -253,6 +253,7 @@ bool Game::frameRenderingQueued(const Ogre::FrameEvent& evt)
     mMouse->capture();
 
     mTrayManager->frameRenderingQueued(evt);
+    mPhysicsSimulator->stepSimulation(evt.timeSinceLastFrame);
     ninja->Update();
     if (!mTrayManager->isDialogVisible())
     {
@@ -427,6 +428,8 @@ void Game::windowClosed(Ogre::RenderWindow* rw)
 
 
 void Game::createScene(void) {
+    mPhysicsSimulator = new PhysicsSimulator();
+
     cout << "Creating scene!" << endl;
     ninja = new GameObject(*this);
 
@@ -480,6 +483,20 @@ void Game::createScene(void) {
     groundSceneNode->setPosition(0, -750, 0);
     ground->setMaterialName("Examples/GrassFloor");
     ground->setCastShadows(false);
+
+    btQuaternion rot = btQuaternion(0, 0, 0);
+    btVector3 pos = btVector3(0, -1500, 0);
+    btTransform transform = btTransform(rot, pos);
+    btDefaultMotionState* motionState = new btDefaultMotionState(transform);
+    btVector3 inertia(0,0,0);
+    btCollisionShape* collider = new btStaticPlaneShape(btVector3(0,1,0), 100);
+    btRigidBody::btRigidBodyConstructionInfo
+        rigidBodyCI(0, motionState, collider, inertia); //Last argument is inertia
+    btRigidBody* body = new btRigidBody(rigidBodyCI);
+    //Add rigidbody to world
+    //instance of btDiscreteDynamicsWorld->addRigidBody(mRigidBody)
+    mPhysicsSimulator->addObject(body);  
+
 
     Ogre::Plane wall01(Ogre::Vector3::UNIT_Y, 0);
     Ogre::MeshManager::getSingleton().createPlane("wall01", Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME,
@@ -562,4 +579,8 @@ Ogre::SceneNode* Game::getSceneRoot(void) {
 
 Ogre::SceneManager* Game::getSceneManager(void) {
     return mSceneManager;
+}
+
+PhysicsSimulator* Game::getPhysicsSimulator(void) {
+    return mPhysicsSimulator;
 }

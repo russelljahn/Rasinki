@@ -12,20 +12,22 @@ PhysicsSimulator::PhysicsSimulator(Ogre::Real fixedTimeStep) {
 	 ///the default constraint solver. For parallel processing you can use a different solver (see Extras/BulletMultiThreaded)
 	 solver = new btSequentialImpulseConstraintSolver();
 	dynamicsWorld = new btDiscreteDynamicsWorld(dispatcher,overlappingPairCache,solver,collisionConfiguration);
-	dynamicsWorld->setGravity(btVector3(0,-0.098, 0));
+	dynamicsWorld->setGravity(btVector3(0,-98, 0));
 	 //keep track of the shapes, we release memory at exit.
 	 //make sure to re-use collision shapes among rigid bodies whenever possible!
 	btAlignedObjectArray<btCollisionShape*> collisionShapes;
 }
 void PhysicsSimulator::addObject(btRigidBody* body) {
-	objList.push_back((GameObject*)body->getUserPointer());
 	dynamicsWorld->addRigidBody(body);
+	if (body->getUserPointer() == NULL)
+		return;
+	objList.push_back((GameObject*)(body->getUserPointer()));
 }
 void PhysicsSimulator::removeObject(btRigidBody* body) {
 	objList.remove((GameObject*)body->getUserPointer());
 	dynamicsWorld->removeRigidBody(body);
 }
-void PhysicsSimulator::stepSimulation(Ogre::Real elapsedTime, int maxSubsSteps) {
+void PhysicsSimulator::stepSimulation(Ogre::Real elapsedTime) {
 	/*	I may have overcomplicated this:
 	 *	Trying to keep track of number of stepSimulations
 	 *	to run on my own rather than letting bullet do it
@@ -33,8 +35,8 @@ void PhysicsSimulator::stepSimulation(Ogre::Real elapsedTime, int maxSubsSteps) 
 	 *	on each physics step
 	 */
 	mRemainingTime += elapsedTime;
-	while (elapsedTime > mFixedTimeStep) {
-		elapsedTime -= mFixedTimeStep;
+	while (mRemainingTime > mFixedTimeStep) {
+		mRemainingTime -= mFixedTimeStep;
 		dynamicsWorld->stepSimulation(mFixedTimeStep, 0);
 		for(list<GameObject*>::iterator i = objList.begin(); i != objList.end(); ++i) {
 			(*i)->FixedUpdate();

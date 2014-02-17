@@ -29,9 +29,12 @@
 #include <SdkCameraMan.h>
 
 #include "GameObject.h"
+#include "PhysicsSimulator.h"
+
 
 /*Foward Declarations*/
 class GameObject;
+class PhysicsSimulator;
 
 #if OGRE_PLATFORM == OGRE_PLATFORM_APPLE_IOS
 #    define OGRE_IS_IOS 1
@@ -59,6 +62,7 @@ public:
 
     Ogre::SceneNode* getSceneRoot(void);
     Ogre::SceneManager* getSceneManager(void);
+    PhysicsSimulator* getPhysicsSimulator(void);
 
 
 protected:
@@ -107,6 +111,8 @@ protected:
     OIS::InputManager* mInputManager;
     OIS::Mouse*    mMouse;
     OIS::Keyboard* mKeyboard;
+
+    PhysicsSimulator* mPhysicsSimulator;
 };
 
 #endif // #ifndef __Game_h_
