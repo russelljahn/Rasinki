@@ -233,6 +233,7 @@ bool Game::setup(void)
     loadResources();
 
     // Create the scene
+    createLights();
     createScene();
 
     createFrameListener();
@@ -426,10 +427,8 @@ void Game::windowClosed(Ogre::RenderWindow* rw)
 
 
 
-void Game::createScene(void) {
-    cout << "Creating scene!" << endl;
-    ninja = new GameObject(*this);
-
+void Game::createLights(void) {
+    cout << "Creating lights..." << endl;
     Ogre::Light *pointLight = mSceneManager->createLight("pointLight");
     pointLight->setType(Ogre::Light::LT_POINT);
     pointLight->setPosition(Ogre::Vector3(0, 150, 250));
@@ -470,7 +469,14 @@ void Game::createScene(void) {
 
     mSceneManager->setAmbientLight(Ogre::ColourValue(0, 0, 0));
     mSceneManager->setShadowTechnique(Ogre::SHADOWTYPE_STENCIL_ADDITIVE);
+    cout << "Done creating lights!" << endl;
+}
 
+
+
+void Game::createScene(void) {
+    cout << "Creating scene..." << endl;
+    
     Ogre::Plane plane(Ogre::Vector3::UNIT_Y, 0);
     Ogre::MeshManager::getSingleton().createPlane("ground", Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME,
     plane, 1500, 1500, 200, 200, true, 1, 5, 5, Ogre::Vector3::UNIT_Z);
@@ -536,20 +542,8 @@ void Game::createScene(void) {
     ceilingEntity->setMaterialName("Examples/Rockwall");
     ceilingEntity->setCastShadows(true);
 
-    // for (int i = 0; i < 25; ++i) {
-    //     stringstream ss;
-    //     ss << "BallEntity" << i;
-    //     Ogre::Entity *ball01 = mSceneManager->createEntity(ss.str(), Ogre::SceneManager::PT_SPHERE);
-    //     Ogre::SceneNode *ball01Node = mSceneManager->getRootSceneNode()->createChildSceneNode(ss.str());
-    //     ball01Node->attachObject(ball01);
-    //     ball01->setMaterialName("Examples/SphereMappedRustySteel");
-    //     ball01->setCastShadows(true);
-    //     ball01Node->setPosition(
-    //         Ogre::Math::RangeRandom(-500, 500), 
-    //         Ogre::Math::RangeRandom(-500, 500), 
-    //         Ogre::Math::RangeRandom(-500, 500)
-    //     );
-    // }
+    cout << "Done creating scene!" << endl;
+    ninja = new GameObject(*this);
 }
 
 

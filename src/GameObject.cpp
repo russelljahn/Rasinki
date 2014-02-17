@@ -22,11 +22,11 @@ void GameObject::Start() {
 
 
 void GameObject::Update() {
-	std::cout << "Before: " << transform->getLocalPosition() << std::endl;
-	Ogre::Vector3 pos = transform->getLocalPosition();
-	pos.x += 9;
-	transform->setLocalPosition(pos);
-	std::cout << "After: " << transform->getLocalPosition() << std::endl;
+	// std::cout << "Before: " << transform->getLocalPosition() << std::endl;
+	// Ogre::Vector3 pos = transform->getLocalPosition();
+	// pos.x += 9;
+	// transform->setLocalPosition(pos);
+	// std::cout << "After: " << transform->getLocalPosition() << std::endl;
 }
 
 

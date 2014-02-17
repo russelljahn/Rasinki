@@ -68,6 +68,7 @@ protected:
     virtual void chooseSceneManager(void);
     virtual void createCamera(void);
     virtual void createFrameListener(void);
+    virtual void createLights(void);
     virtual void createScene(void); // Override me!
     virtual void destroyScene(void);
     virtual void createViewports(void);
