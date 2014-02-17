@@ -7,11 +7,10 @@ int GameObject::nextAvailableId = 0;
 
 
 
-GameObject::GameObject(Game *attachedGame, std::string objectType) {
+GameObject::GameObject(Game *attachedGame) {
 	this->game = attachedGame;
 	this->enabled = true;
 	this->id = GameObject::nextAvailableId++;
-	this->objectType = objectType;
 
 	ostringstream nameCoverter;
 	nameCoverter << id;
@@ -21,8 +20,7 @@ GameObject::GameObject(Game *attachedGame, std::string objectType) {
 
 
 void GameObject::Start() {
-	transform = new Transform(this, game->getSceneRoot());
-	physics = new Physics(*this, 0.2);	
+	
 }
 
 

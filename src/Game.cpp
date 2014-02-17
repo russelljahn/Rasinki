@@ -580,7 +580,7 @@ void Game::createScene(void) {
     // newGameObject2->AddComponentOfType<PaddleScript>();
     // gameObjects.push_back(newGameObject2);
 
-    Sphere *newSphere = new Sphere(this, "sphere");
+    Sphere *newSphere = new Sphere(this);
     newSphere->AddComponentOfType<PaddleScript>();
     gameObjects.push_back(newSphere);
 
