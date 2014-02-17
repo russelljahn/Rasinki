@@ -562,9 +562,13 @@ void Game::createScene(void) {
     ceilingEntity->setMaterialName("Examples/Rockwall");
     ceilingEntity->setCastShadows(true);
 
-    GameObject *newGameObject = new GameObject(this);
-    newGameObject->AddComponentOfType<PaddleScript>();
-    gameObjects.push_back(newGameObject);
+    // GameObject *newGameObject = new GameObject(this, "ninja");
+    // newGameObject->AddComponentOfType<PaddleScript>();
+    // gameObjects.push_back(newGameObject);
+
+    GameObject *newGameObject2 = new GameObject(this, "sphere");
+    newGameObject2->AddComponentOfType<PaddleScript>();
+    gameObjects.push_back(newGameObject2);
 
     cout << "Done creating scene!" << endl;
 }

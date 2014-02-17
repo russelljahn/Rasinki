@@ -1,6 +1,6 @@
 #include "Physics.h"
 
-Physics::Physics(GameObject& attachedGameObject, btCollisionShape* collider, float mass) {
+Physics::Physics(GameObject& attachedGameObject, float mass, btCollisionShape* collider) {
 	//Create rigidbody
 	gameObject = &attachedGameObject;
 	mTransform = attachedGameObject.transform;

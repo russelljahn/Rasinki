@@ -7,10 +7,11 @@ int GameObject::nextAvailableId = 0;
 
 
 
-GameObject::GameObject(Game *attachedGame) {
+GameObject::GameObject(Game *attachedGame, std::string objectType) {
 	this->game = attachedGame;
 	this->enabled = true;
 	this->id = GameObject::nextAvailableId++;
+	this->objectType = objectType;
 
 	ostringstream nameCoverter;
 	nameCoverter << id;
@@ -20,11 +21,30 @@ GameObject::GameObject(Game *attachedGame) {
 
 
 void GameObject::Start() {
-	transform = new Transform(this, game->getSceneRoot()); 
+	transform = new Transform(this, game->getSceneRoot());
+
+	if (objectType == "ninja")
+	{
+		entity = game->getSceneManager()->createEntity("Ninja", "ninja.mesh");
+		transform->sceneNode->attachObject(entity);
+	}
+	else if (objectType == "sphere")
+	{
+		entity = game->getSceneManager()->createEntity("Sphere", "sphere.mesh");
+		transform->sceneNode->attachObject(entity);
+	}
+	else if (objectType == "cube")
+	{
+		entity = game->getSceneManager()->createEntity("Cube", "cube.mesh");
+		transform->sceneNode->attachObject(entity);
+		transform->sceneNode->scale(2,.25,2);
+	}
+	else
+	{
+		cout << "Specify object type" << endl;
+	} 
 	
-	entity = game->getSceneManager()->createEntity("Ninja", "ninja.mesh");
-	transform->sceneNode->attachObject(entity);
-	physics = new Physics(*this);	
+	physics = new Physics(*this, 0.2);	
 }
 
 

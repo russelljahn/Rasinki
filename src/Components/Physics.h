@@ -16,7 +16,7 @@ class Transform;
 class Physics{
 	
 	public:
-		Physics(GameObject& attachedGameObject, btCollisionShape* collider = new btSphereShape(1), float mass = 1 );
+		Physics(GameObject& attachedGameObject, float mass = 1, btCollisionShape* collider = new btSphereShape(1) );
 		~Physics();
 
 		void Start();
