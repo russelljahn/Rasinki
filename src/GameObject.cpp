@@ -22,28 +22,6 @@ GameObject::GameObject(Game *attachedGame, std::string objectType) {
 
 void GameObject::Start() {
 	transform = new Transform(this, game->getSceneRoot());
-
-	if (objectType == "ninja")
-	{
-		entity = game->getSceneManager()->createEntity("Ninja", "ninja.mesh");
-		transform->sceneNode->attachObject(entity);
-	}
-	else if (objectType == "sphere")
-	{
-		entity = game->getSceneManager()->createEntity("Sphere", "sphere.mesh");
-		transform->sceneNode->attachObject(entity);
-	}
-	else if (objectType == "cube")
-	{
-		entity = game->getSceneManager()->createEntity("Cube", "cube.mesh");
-		transform->sceneNode->attachObject(entity);
-		transform->sceneNode->scale(2,.25,2);
-	}
-	else
-	{
-		cout << "Specify object type" << endl;
-	} 
-	
 	physics = new Physics(*this, 0.2);	
 }
 

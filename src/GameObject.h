@@ -44,7 +44,7 @@ class GameObject {
 		Game *game; // TODO: Figure out how to make this unneeded to be public for abstraction-sake!
 		Physics* physics;
 		
-		GameObject(Game *attachedGame, std::string objTyp);
+		GameObject(Game *attachedGame, std::string objTyp = "ninja");
 
 		void Start();
 		void Update();
