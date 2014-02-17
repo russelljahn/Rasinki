@@ -28,10 +28,16 @@
 #include <SdkTrays.h>
 #include <SdkCameraMan.h>
 
+#include <vector>
+
 #include "GameObject.h"
+
 
 /*Foward Declarations*/
 class GameObject;
+
+
+using namespace std;
 
 #if OGRE_PLATFORM == OGRE_PLATFORM_APPLE_IOS
 #    define OGRE_IS_IOS 1
@@ -62,14 +68,13 @@ public:
 
 
 protected:
-    GameObject *ninja;
     virtual bool setup();
     virtual bool configure(void);
     virtual void chooseSceneManager(void);
     virtual void createCamera(void);
     virtual void createFrameListener(void);
-    virtual void createLights(void);
-    virtual void createScene(void); // Override me!
+    virtual void createLights(void); 
+    virtual void createScene(void); 
     virtual void destroyScene(void);
     virtual void createViewports(void);
     virtual void setupResources(void);
@@ -108,6 +113,10 @@ protected:
     OIS::InputManager* mInputManager;
     OIS::Mouse*    mMouse;
     OIS::Keyboard* mKeyboard;
+
+    // Miscellaneous
+    vector<GameObject *> gameObjects;
+
 };
 
 #endif // #ifndef __Game_h_

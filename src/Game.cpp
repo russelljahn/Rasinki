@@ -254,7 +254,7 @@ bool Game::frameRenderingQueued(const Ogre::FrameEvent& evt)
     mMouse->capture();
 
     mTrayManager->frameRenderingQueued(evt);
-    ninja->Update();
+
     if (!mTrayManager->isDialogVisible())
     {
         mCameraMan->frameRenderingQueued(evt);   // if dialog isn't up, then update the camera
@@ -270,7 +270,9 @@ bool Game::frameRenderingQueued(const Ogre::FrameEvent& evt)
         }
     }
 
-
+    for (auto gameObjectIter = gameObjects.begin(); gameObjectIter != gameObjects.end(); ++gameObjectIter) {
+        (*gameObjectIter)->Update();
+    }
 
     return true;
 }
@@ -543,7 +545,7 @@ void Game::createScene(void) {
     ceilingEntity->setCastShadows(true);
 
     cout << "Done creating scene!" << endl;
-    ninja = new GameObject(*this);
+    gameObjects.push_back(new GameObject(*this));
 }
 
 
