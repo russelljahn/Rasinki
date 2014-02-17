@@ -28,7 +28,7 @@ Game::Game(void)
 Game::~Game(void)
 {
     if (mTrayManager) delete mTrayManager;
-    if (mCameraMan) delete mCameraMan;
+    // if (mCameraMan) delete mCameraMan;
 
     //Remove ourself as a Window listener
     Ogre::WindowEventUtilities::removeWindowEventListener(mWindow, this);
@@ -73,8 +73,8 @@ void Game::createCamera(void)
     mCamera->lookAt(Ogre::Vector3(0,0,0));
     mCamera->setNearClipDistance(5);
 
-    mCameraMan = new OgreBites::SdkCameraMan(mCamera);   // create a default camera controller
-    mCameraMan->setTopSpeed(400.0f);
+    // mCameraMan = new OgreBites::SdkCameraMan(mCamera);   // create a default camera controller
+    // mCameraMan->setTopSpeed(400.0f);
 }
 //-------------------------------------------------------------------------------------
 void Game::createFrameListener(void)
@@ -257,7 +257,7 @@ bool Game::frameRenderingQueued(const Ogre::FrameEvent& evt)
 
     if (!mTrayManager->isDialogVisible())
     {
-        mCameraMan->frameRenderingQueued(evt);   // if dialog isn't up, then update the camera
+        // mCameraMan->frameRenderingQueued(evt);   // if dialog isn't up, then update the camera
         if (mDetailsPanel->isVisible())   // if details panel is visible, then update its contents
         {
             mDetailsPanel->setParamValue(0, Ogre::StringConverter::toString(mCamera->getDerivedPosition().x));
@@ -367,34 +367,34 @@ bool Game::keyPressed( const OIS::KeyEvent &arg )
         mShutDown = true;
     }
 
-    mCameraMan->injectKeyDown(arg);
+    // mCameraMan->injectKeyDown(arg);
     return true;
 }
 
 bool Game::keyReleased( const OIS::KeyEvent &arg )
 {
-    mCameraMan->injectKeyUp(arg);
+    // mCameraMan->injectKeyUp(arg);
     return true;
 }
 
 bool Game::mouseMoved( const OIS::MouseEvent &arg )
 {
-    if (mTrayManager->injectMouseMove(arg)) return true;
-    mCameraMan->injectMouseMove(arg);
+    // if (mTrayManager->injectMouseMove(arg)) return true;
+    // mCameraMan->injectMouseMove(arg);
     return true;
 }
 
 bool Game::mousePressed( const OIS::MouseEvent &arg, OIS::MouseButtonID id )
 {
     if (mTrayManager->injectMouseDown(arg, id)) return true;
-    mCameraMan->injectMouseDown(arg, id);
+    // mCameraMan->injectMouseDown(arg, id);
     return true;
 }
 
 bool Game::mouseReleased( const OIS::MouseEvent &arg, OIS::MouseButtonID id )
 {
     if (mTrayManager->injectMouseUp(arg, id)) return true;
-    mCameraMan->injectMouseUp(arg, id);
+    // mCameraMan->injectMouseUp(arg, id);
     return true;
 }
 
@@ -545,7 +545,7 @@ void Game::createScene(void) {
     ceilingEntity->setCastShadows(true);
 
     cout << "Done creating scene!" << endl;
-    gameObjects.push_back(new GameObject(*this));
+    gameObjects.push_back(new GameObject(this));
 }
 
 
@@ -558,4 +558,10 @@ Ogre::SceneNode* Game::getSceneRoot(void) {
 
 Ogre::SceneManager* Game::getSceneManager(void) {
     return mSceneManager;
+}
+
+
+
+OIS::Keyboard* Game::getKeyboard(void) {
+    return mKeyboard;
 }

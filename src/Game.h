@@ -65,6 +65,8 @@ public:
 
     Ogre::SceneNode* getSceneRoot(void);
     Ogre::SceneManager* getSceneManager(void);
+    OIS::Keyboard* getKeyboard(void);
+
 
 
 protected:

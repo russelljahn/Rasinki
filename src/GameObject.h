@@ -7,9 +7,15 @@
 
 #include <OgreEntity.h>
 
+#include <OISEvents.h>
+#include <OISKeyboard.h>
+
+
 #include "Game.h"
 #include "Components/Component.h"
 #include "Components/Transform.h"
+
+
 
 /* Forward declarations. */
 class Game;
@@ -32,7 +38,7 @@ class GameObject {
 		std::string name;
 		bool enabled;
 
-		GameObject(Game &attachedGame);
+		GameObject(Game *attachedGame);
 
 		void Start();
 		void Update();
@@ -52,7 +58,7 @@ class GameObject {
 
 	protected:
 		std::vector<Component> components;
-		Game &game;
+		Game *game;
 
 		Transform *transform;
 		Ogre::Entity *entity;
