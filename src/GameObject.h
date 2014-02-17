@@ -36,7 +36,11 @@ class GameObject {
 	
 	public:
 		std::string name;
+		int id;
 		bool enabled;
+
+		Transform *transform; // TODO: Make this protected but retrievable through GetComponentOfType<>()!
+		Game *game; // TODO: Figure out how to make this unneeded to be public for abstraction-sake!
 
 		GameObject(Game *attachedGame);
 
@@ -47,21 +51,24 @@ class GameObject {
 		void Kill();
 
 		template <typename ComponentType>
-		ComponentType GetComponentOfType();
+		ComponentType* GetComponentOfType();
 
 		template <typename ComponentType>
-		ComponentType AddComponentOfType();
+		ComponentType AddComponentOfType() {
+			ComponentType *newComponent = new ComponentType(this);
+			components.push_back(newComponent);
+		}
 
 		template <typename ComponentType>
 		void KillComponentOfType();
 
 
 	protected:
-		std::vector<Component> components;
-		Game *game;
+		std::vector<Component *> components;
 
-		Transform *transform;
 		Ogre::Entity *entity;
+
+		static int nextAvailableId;
 };
 
 

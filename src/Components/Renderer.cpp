@@ -2,8 +2,8 @@
 #include "Renderer.h"
 
 
-Renderer::Renderer(GameObject *attachedGameObject) {
-	this->gameObject = attachedGameObject;
+Renderer::Renderer(GameObject *attachedGameObject) : Component(attachedGameObject) {
+	
 };
 
 

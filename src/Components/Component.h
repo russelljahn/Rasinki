@@ -3,6 +3,7 @@
 #define __GAMEOBJECT_COMPONENT_H__
 
 #include "GameObject.h"
+#include "Transform.h"
 
 /* Forward declarations. */
 class GameObject;
@@ -20,7 +21,7 @@ class Component {
 		bool enabled;
 		GameObject *gameObject;
 
-		Component(GameObject &attachedGameObject);
+		Component(GameObject *attachedGameObject);
 
 		void virtual Start();
 		void virtual Update();

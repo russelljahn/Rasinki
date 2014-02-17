@@ -8,20 +8,14 @@
 #include "GameObject.h"
 
 
-/* Forward declarations. */
-class GameObject;
 
 /* 
 	A script allows you to code gameplay behavior for a GameObject.
 */
-class Script : Component {
+class Script : public Component {
 	
 	public:
-		GameObject *gameObject;
-		Ogre::SceneNode *parent;
-		Ogre::SceneNode *sceneNode;
-
-		Script(GameObject *attachedGameObject, Ogre::SceneNode *parent);
+		Script(GameObject *attachedGameObject);
 
 };
 

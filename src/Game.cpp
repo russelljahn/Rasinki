@@ -4,6 +4,8 @@
 using namespace std;
 
 #include "Game.h"
+#include "Scripts/PaddleScript.h"
+
 
 //-------------------------------------------------------------------------------------
 Game::Game(void)
@@ -544,8 +546,11 @@ void Game::createScene(void) {
     ceilingEntity->setMaterialName("Examples/Rockwall");
     ceilingEntity->setCastShadows(true);
 
+    GameObject *newGameObject = new GameObject(this);
+    newGameObject->AddComponentOfType<PaddleScript>();
+    gameObjects.push_back(newGameObject);
+
     cout << "Done creating scene!" << endl;
-    gameObjects.push_back(new GameObject(this));
 }
 
 

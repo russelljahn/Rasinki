@@ -1,13 +1,22 @@
 
+#include <sstream>
 
 #include "GameObject.h"
 
-#include <sstream>
+
+
+int GameObject::nextAvailableId = 0;
+
 
 
 GameObject::GameObject(Game *attachedGame) {
 	this->game = attachedGame;
 	this->enabled = true;
+	this->id = GameObject::nextAvailableId++;
+
+	ostringstream nameCoverter;
+	nameCoverter << id;
+	this->name = nameCoverter.str();
 	Start();
 }
 
@@ -23,30 +32,13 @@ void GameObject::Start() {
 
 
 void GameObject::Update() {
-	// std::cout << "Before: " << transform->getLocalPosition() << std::endl;
-	Ogre::Vector3 currentPosition = transform->getLocalPosition();
-	float movementSpeed = 1.0f;
 
-	// pos.x += 9;
-	// std::cout << "After: " << transform->getLocalPosition() << std::endl;
-	if (game->getKeyboard()->isKeyDown(OIS::KC_LEFT) || game->getKeyboard()->isKeyDown(OIS::KC_A)) {
-		cout << "Left is down!" << endl;
-		currentPosition.x -= movementSpeed;
-	}
-	if (game->getKeyboard()->isKeyDown(OIS::KC_RIGHT) || game->getKeyboard()->isKeyDown(OIS::KC_D)) {
-		cout << "Right is down!" << endl;
-		currentPosition.x += movementSpeed;
-	}
-	if (game->getKeyboard()->isKeyDown(OIS::KC_UP) ||game->getKeyboard()->isKeyDown(OIS::KC_W)) {
-		cout << "Up is down!" << endl;
-		currentPosition.y += movementSpeed;
-	}
-	if (game->getKeyboard()->isKeyDown(OIS::KC_DOWN) || game->getKeyboard()->isKeyDown(OIS::KC_S)) {
-		cout << "Down is down!" << endl;
-		currentPosition.y -= movementSpeed;
-	}
+	cout << "Updating GameObject '" << this->name << "'!" << endl;
 
-	transform->setLocalPosition(currentPosition);
+	for (auto componentsIter = components.begin(); componentsIter != components.end(); ++componentsIter) {
+        (*componentsIter)->Update();
+    }
+
 
 }
 

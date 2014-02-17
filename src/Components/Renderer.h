@@ -15,14 +15,10 @@ class GameObject;
 	A Renderer component encapsulates information on the rendering 
 	and materials for a GameObject.
 */
-class Renderer : Component {
+class Renderer : public Component {
 	
 	public:
-		GameObject *gameObject;
-		Ogre::SceneNode *parent;
-		Ogre::SceneNode *sceneNode;
-
-		Renderer(GameObject *attachedGameObject, Ogre::SceneNode *parent);
+		Renderer(GameObject *attachedGameObject);
 
 };
 
