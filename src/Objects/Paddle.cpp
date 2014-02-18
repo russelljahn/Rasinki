@@ -10,7 +10,7 @@ void Paddle::Start() {
 	entity = game->getSceneManager()->createEntity("Paddle", "cube.mesh");
 	// transform->sceneNode->scale(2,0.25,2);
 	transform->sceneNode->attachObject(entity);
-	physics = new Physics(*this, 0);
+	physics = new Physics(*this, 1);
 }
 
 void Paddle::Update() {

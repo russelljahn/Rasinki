@@ -14,7 +14,8 @@ Physics::Physics(GameObject& attachedGameObject, float mass, btCollisionShape* c
 		rigidBodyCI(mass, motionState, collider, inertia); //Last argument is inertia
 	mRigidBody = new btRigidBody(rigidBodyCI);
 	mRigidBody->setUserPointer(&attachedGameObject);
-	
+	mRigidBody->setCollisionFlags(mRigidBody->getCollisionFlags() |
+  	  btCollisionObject::CF_CUSTOM_MATERIAL_CALLBACK);
 
 	//Add rigidbody to world
 	//instance of btDiscreteDynamicsWorld->addRigidBody(mRigidBody)
@@ -35,6 +36,6 @@ void Physics::FixedUpdate() {
 	btQuaternion rot = trans.getRotation();
 	if (pos.x() != pos.x())
 		return;
-	//mTransform -> setWorldPosition(Ogre::Vector3(pos.x(), pos.y(), pos.z()));
+	mTransform -> setWorldPosition(Ogre::Vector3(pos.x(), pos.y(), pos.z()));
 	// mTransform -> setRotation(Ogre::Quaternion(rot.x(), rot.y(), rot.z(), rot.w())); 
 }

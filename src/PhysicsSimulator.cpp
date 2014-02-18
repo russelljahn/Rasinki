@@ -1,6 +1,15 @@
 #include <PhysicsSimulator.h>
 using namespace std;
 
+bool PhysicsSimulator::OnCollision(btManifoldPoint& p, void * obj1, void * obj2){
+	GameObject * o1 = (GameObject*)((btCollisionObject*)obj1)->getUserPointer();
+	GameObject * o2 = (GameObject*)((btCollisionObject*)obj2)->getUserPointer();
+	std::cout << "Collision between: ";
+	std::cout << (o1!=NULL ? o1->name : "NULL") << " and " << (o2!=NULL ? o2->name : "NULL");
+	std::cout << " at " << p.getPositionWorldOnA().x() << " " << p.getPositionWorldOnA().y() << " " << p.getPositionWorldOnA().z() << std::endl;
+	return true;
+}
+
 PhysicsSimulator::PhysicsSimulator(Ogre::Real fixedTimeStep) {
 	mFixedTimeStep = fixedTimeStep;
 	 ///collision conﬁguration contains default setup for memory, collision setup.
@@ -16,6 +25,7 @@ PhysicsSimulator::PhysicsSimulator(Ogre::Real fixedTimeStep) {
 	 //keep track of the shapes, we release memory at exit.
 	 //make sure to re-use collision shapes among rigid bodies whenever possible!
 	btAlignedObjectArray<btCollisionShape*> collisionShapes;
+	gContactProcessedCallback = OnCollision;
 }
 void PhysicsSimulator::addObject(btRigidBody* body) {
 	dynamicsWorld->addRigidBody(body);

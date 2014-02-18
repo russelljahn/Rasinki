@@ -543,49 +543,17 @@ void Game::createScene(void) {
     west->setMaterialName("Examples/Rockwall");
     west->setCastShadows(false);
 
-    //North
-    // Ogre::Plane plane5(Ogre::Vector3::UNIT_Z, -750);
-    // Ogre::MeshManager::getSingleton().createPlane("north",
-    //     Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME,
-    //     plane5, 1500, 1000, 20, 20, true, 1, 5, 5, Ogre::Vector3::UNIT_Y);
-
-    // Ogre::Entity* north = mSceneManager->createEntity("North", "north");
-    // mSceneManager->getRootSceneNode()->createChildSceneNode()->attachObject(north);
-    // north->setMaterialName("Examples/Rockwall");
-    // north->setCastShadows(false);
-
     Plane *north = new Plane(this, Ogre::Vector3::UNIT_Z, -750);
     gameObjects.push_back(north);
-
-    // //South
-    // Ogre::Plane plane6(Ogre::Vector3::NEGATIVE_UNIT_Z, -750);
-    // Ogre::MeshManager::getSingleton().createPlane("south",
-    //     Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME,
-    //     plane6, 1500, 1000, 20, 20, true, 1, 5, 5, Ogre::Vector3::UNIT_Y);
-
-    // Ogre::Entity* south = mSceneManager->createEntity("South", "south");
-    // mSceneManager->getRootSceneNode()->createChildSceneNode()->attachObject(south);
-    // south->setMaterialName("Examples/Rockwall");
-    // south->setCastShadows(false);
 
     Plane *south = new Plane(this, Ogre::Vector3::NEGATIVE_UNIT_Z, -750);
     gameObjects.push_back(south);
 
-
-
-    // GameObject *newGameObject = new GameObject(this, "ninja");
-    // newGameObject->AddComponentOfType<PaddleScript>();
-    // gameObjects.push_back(newGameObject);
-
-    // GameObject *newGameObject2 = new GameObject(this);
-    // newGameObject2->AddComponentOfType<PaddleScript>();
-    // gameObjects.push_back(newGameObject2);
-
-    Sphere *newSphere = new Sphere(this, 200);
+    /*Sphere *newSphere = new Sphere(this, 200);
     //newSphere->AddComponentOfType<PaddleScript>();
     newSphere->transform->setWorldPosition(Ogre::Vector3(200,200,200));
     gameObjects.push_back(newSphere);
-
+*/
     Paddle *newPaddle = new Paddle(this);
     newPaddle->AddComponentOfType<PaddleScript>();
     newPaddle->transform->setWorldPosition(Ogre::Vector3(0,0,0));

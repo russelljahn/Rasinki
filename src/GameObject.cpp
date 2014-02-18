@@ -26,8 +26,6 @@ void GameObject::Start() {
 
 
 void GameObject::Update() {
-	cout << "Updating GameObject '" << this->name << "'!" << endl;
-
 	for (auto componentsIter = components.begin(); componentsIter != components.end(); ++componentsIter) {
         (*componentsIter)->Update();
     }
