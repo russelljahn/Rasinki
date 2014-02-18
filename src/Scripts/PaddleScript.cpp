@@ -31,14 +31,16 @@ void PaddleScript::Update() {
 	}
 	if (gameObject->game->getKeyboard()->isKeyDown(OIS::KC_UP) || gameObject->game->getKeyboard()->isKeyDown(OIS::KC_W)) {
 		cout << "Up is down!" << endl;
-		currentPosition.y += movementSpeed;
+		currentPosition.z -= movementSpeed;
 	}
 	if (gameObject->game->getKeyboard()->isKeyDown(OIS::KC_DOWN) || gameObject->game->getKeyboard()->isKeyDown(OIS::KC_S)) {
 		cout << "Down is down!" << endl;
-		currentPosition.y -= movementSpeed;
+		currentPosition.z += movementSpeed;
+	}
+	if (gameObject->game->getKeyboard()->isKeyDown(OIS::KC_SPACE)) {
+		cout << "Space is down!" << endl;
+		currentPosition.y += movementSpeed;
 	}
 
 	gameObject->transform->setLocalPosition(currentPosition);
 }
-
-
