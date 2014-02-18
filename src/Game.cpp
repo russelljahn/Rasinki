@@ -6,6 +6,8 @@ using namespace std;
 #include "Game.h"
 #include "Scripts/PaddleScript.h"
 #include "Objects/Sphere.h"
+#include "Objects/Paddle.h"
+#include "Objects/Plane.h"
 
 
 //-------------------------------------------------------------------------------------
@@ -484,16 +486,6 @@ void Game::createLights(void) {
 void Game::createScene(void) {
     cout << "Creating scene..." << endl;
     
-    // Ogre::Plane plane(Ogre::Vector3::UNIT_Y, 0);
-    // Ogre::MeshManager::getSingleton().createPlane("ground", Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME,
-    // plane, 1500, 1500, 200, 200, true, 1, 5, 5, Ogre::Vector3::UNIT_Z);
-    // Ogre::Entity* ground = mSceneManager->createEntity("GroundEntity", "ground");
-    // Ogre::SceneNode *groundSceneNode = mSceneManager->getRootSceneNode()->createChildSceneNode("ground");
-    // groundSceneNode->attachObject(ground);
-    // groundSceneNode->setPosition(0, -500, 0);
-    // ground->setMaterialName("Examples/GrassFloor");
-    // ground->setCastShadows(false);
-
     //Ground
     Ogre::Plane plane(Ogre::Vector3::UNIT_Y, -500);
     Ogre::MeshManager::getSingleton().createPlane("ground",
@@ -529,7 +521,7 @@ void Game::createScene(void) {
     ceiling->setMaterialName("Examples/BumpyMetal");
     ceiling->setCastShadows(false);
 
-    //East
+    // East
     Ogre::Plane plane3(Ogre::Vector3::UNIT_X, -750);
     Ogre::MeshManager::getSingleton().createPlane("east",
         Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME,
@@ -552,26 +544,35 @@ void Game::createScene(void) {
     west->setCastShadows(false);
 
     //North
-    Ogre::Plane plane5(Ogre::Vector3::UNIT_Z, -750);
-    Ogre::MeshManager::getSingleton().createPlane("north",
-        Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME,
-        plane5, 1500, 1000, 20, 20, true, 1, 5, 5, Ogre::Vector3::UNIT_Y);
+    // Ogre::Plane plane5(Ogre::Vector3::UNIT_Z, -750);
+    // Ogre::MeshManager::getSingleton().createPlane("north",
+    //     Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME,
+    //     plane5, 1500, 1000, 20, 20, true, 1, 5, 5, Ogre::Vector3::UNIT_Y);
 
-    Ogre::Entity* north = mSceneManager->createEntity("North", "north");
-    mSceneManager->getRootSceneNode()->createChildSceneNode()->attachObject(north);
-    north->setMaterialName("Examples/Rockwall");
-    north->setCastShadows(false);
+    // Ogre::Entity* north = mSceneManager->createEntity("North", "north");
+    // mSceneManager->getRootSceneNode()->createChildSceneNode()->attachObject(north);
+    // north->setMaterialName("Examples/Rockwall");
+    // north->setCastShadows(false);
 
-    //South
-    Ogre::Plane plane6(Ogre::Vector3::NEGATIVE_UNIT_Z, -750);
-    Ogre::MeshManager::getSingleton().createPlane("south",
-        Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME,
-        plane6, 1500, 1000, 20, 20, true, 1, 5, 5, Ogre::Vector3::UNIT_Y);
+    Plane *north = new Plane(this, Ogre::Vector3::UNIT_Z, -750);
+    gameObjects.push_back(north);
 
-    Ogre::Entity* south = mSceneManager->createEntity("South", "south");
-    mSceneManager->getRootSceneNode()->createChildSceneNode()->attachObject(south);
-    south->setMaterialName("Examples/Rockwall");
-    south->setCastShadows(false);
+    // //South
+    // Ogre::Plane plane6(Ogre::Vector3::NEGATIVE_UNIT_Z, -750);
+    // Ogre::MeshManager::getSingleton().createPlane("south",
+    //     Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME,
+    //     plane6, 1500, 1000, 20, 20, true, 1, 5, 5, Ogre::Vector3::UNIT_Y);
+
+    // Ogre::Entity* south = mSceneManager->createEntity("South", "south");
+    // mSceneManager->getRootSceneNode()->createChildSceneNode()->attachObject(south);
+    // south->setMaterialName("Examples/Rockwall");
+    // south->setCastShadows(false);
+
+    Plane *south = new Plane(this, Ogre::Vector3::NEGATIVE_UNIT_Z, -750);
+    gameObjects.push_back(south);
+
+
+
     // GameObject *newGameObject = new GameObject(this, "ninja");
     // newGameObject->AddComponentOfType<PaddleScript>();
     // gameObjects.push_back(newGameObject);
@@ -580,9 +581,15 @@ void Game::createScene(void) {
     // newGameObject2->AddComponentOfType<PaddleScript>();
     // gameObjects.push_back(newGameObject2);
 
-    Sphere *newSphere = new Sphere(this);
-    newSphere->AddComponentOfType<PaddleScript>();
+    Sphere *newSphere = new Sphere(this, 200);
+    //newSphere->AddComponentOfType<PaddleScript>();
+    newSphere->transform->setWorldPosition(Ogre::Vector3(200,200,200));
     gameObjects.push_back(newSphere);
+
+    Paddle *newPaddle = new Paddle(this);
+    newPaddle->AddComponentOfType<PaddleScript>();
+    newPaddle->transform->setWorldPosition(Ogre::Vector3(0,0,0));
+    gameObjects.push_back(newPaddle);
 
     cout << "Done creating scene!" << endl;
 }

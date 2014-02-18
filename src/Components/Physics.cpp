@@ -35,6 +35,6 @@ void Physics::FixedUpdate() {
 	btQuaternion rot = trans.getRotation();
 	if (pos.x() != pos.x())
 		return;
-	mTransform -> setWorldPosition(Ogre::Vector3(pos.x(), pos.y(), pos.z()));
+	//mTransform -> setWorldPosition(Ogre::Vector3(pos.x(), pos.y(), pos.z()));
 	// mTransform -> setRotation(Ogre::Quaternion(rot.x(), rot.y(), rot.z(), rot.w())); 
 }
