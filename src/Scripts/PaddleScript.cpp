@@ -20,7 +20,6 @@ void PaddleScript::Update() {
 	
 	Ogre::Vector3 currentPosition = gameObject->transform->getLocalPosition();
 	float movementSpeed = 1.0f;
-
 	if (gameObject->game->getKeyboard()->isKeyDown(OIS::KC_LEFT)) {
 		cout << "Left is down!" << endl;
 		currentPosition.x -= movementSpeed;
@@ -35,10 +34,8 @@ void PaddleScript::Update() {
 	}
 	if (gameObject->game->getKeyboard()->isKeyDown(OIS::KC_DOWN)) {
 		cout << "Down is down!" << endl;
-		currentPosition.z += movementSpeed;
 	}
 	if (gameObject->game->getKeyboard()->isKeyDown(OIS::KC_SPACE)) {
-		cout << "Space is down!" << endl;
 		currentPosition.y += movementSpeed;
 	}
 

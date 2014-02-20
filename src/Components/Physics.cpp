@@ -14,7 +14,8 @@ Physics::Physics(GameObject& attachedGameObject, float mass, btCollisionShape* c
 		rigidBodyCI(mass, motionState, collider, inertia); //Last argument is inertia
 	mRigidBody = new btRigidBody(rigidBodyCI);
 	mRigidBody->setUserPointer(&attachedGameObject);
-	
+	mRigidBody->setCollisionFlags(mRigidBody->getCollisionFlags() |
+  	  btCollisionObject::CF_CUSTOM_MATERIAL_CALLBACK);
 
 	//Add rigidbody to world
 	//instance of btDiscreteDynamicsWorld->addRigidBody(mRigidBody)

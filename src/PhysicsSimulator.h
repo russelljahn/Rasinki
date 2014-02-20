@@ -24,6 +24,8 @@ class PhysicsSimulator {
 		btDiscreteDynamicsWorld* dynamicsWorld;
 		btConstraintSolver* mConstraintsolver;
 		std::list<GameObject*> objList;
+
+		static bool OnCollision(btManifoldPoint& p, void * obj1, void * obj2);
 };
 
 #endif
