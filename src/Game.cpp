@@ -78,8 +78,8 @@ void Game::createCamera(void)
     mCamera->lookAt(Ogre::Vector3(0,-200,0));
     mCamera->setNearClipDistance(5);
 
-    // mCameraMan = new OgreBites::SdkCameraMan(mCamera);   // create a default camera controller
-    // mCameraMan->setTopSpeed(400.0f);
+    mCameraMan = new OgreBites::SdkCameraMan(mCamera);   // create a default camera controller
+    mCameraMan->setTopSpeed(400.0f);
 }
 //-------------------------------------------------------------------------------------
 void Game::createFrameListener(void)
@@ -263,7 +263,7 @@ bool Game::frameRenderingQueued(const Ogre::FrameEvent& evt)
 
     if (!mTrayManager->isDialogVisible())
     {
-        // mCameraMan->frameRenderingQueued(evt);   // if dialog isn't up, then update the camera
+        mCameraMan->frameRenderingQueued(evt);   // if dialog isn't up, then update the camera
         if (mDetailsPanel->isVisible())   // if details panel is visible, then update its contents
         {
             mDetailsPanel->setParamValue(0, Ogre::StringConverter::toString(mCamera->getDerivedPosition().x));
@@ -373,34 +373,34 @@ bool Game::keyPressed( const OIS::KeyEvent &arg )
         mShutDown = true;
     }
 
-    // mCameraMan->injectKeyDown(arg);
+    mCameraMan->injectKeyDown(arg);
     return true;
 }
 
 bool Game::keyReleased( const OIS::KeyEvent &arg )
 {
-    // mCameraMan->injectKeyUp(arg);
+    mCameraMan->injectKeyUp(arg);
     return true;
 }
 
 bool Game::mouseMoved( const OIS::MouseEvent &arg )
 {
-    // if (mTrayManager->injectMouseMove(arg)) return true;
-    // mCameraMan->injectMouseMove(arg);
+    if (mTrayManager->injectMouseMove(arg)) return true;
+    mCameraMan->injectMouseMove(arg);
     return true;
 }
 
 bool Game::mousePressed( const OIS::MouseEvent &arg, OIS::MouseButtonID id )
 {
     if (mTrayManager->injectMouseDown(arg, id)) return true;
-    // mCameraMan->injectMouseDown(arg, id);
+    mCameraMan->injectMouseDown(arg, id);
     return true;
 }
 
 bool Game::mouseReleased( const OIS::MouseEvent &arg, OIS::MouseButtonID id )
 {
     if (mTrayManager->injectMouseUp(arg, id)) return true;
-    // mCameraMan->injectMouseUp(arg, id);
+    mCameraMan->injectMouseUp(arg, id);
     return true;
 }
 
@@ -485,110 +485,33 @@ void Game::createLights(void) {
 
 void Game::createScene(void) {
     cout << "Creating scene..." << endl;
-    
-    //Ground
-    Ogre::Plane plane(Ogre::Vector3::UNIT_Y, -500);
-    Ogre::MeshManager::getSingleton().createPlane("ground",
-        Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME,
-        plane, 1500, 1500, 20, 20, true, 1, 5, 5, Ogre::Vector3::NEGATIVE_UNIT_Z);
 
-    Ogre::Entity* ground = mSceneManager->createEntity("GroundEntity", "ground");
-    mSceneManager->getRootSceneNode()->createChildSceneNode()->attachObject(ground);
-    ground->setMaterialName("Examples/BumpyMetal");
-    ground->setCastShadows(false);
+    Plane *ground = new Plane(this, Ogre::Vector3::UNIT_Y, -500,1500,1500);
+    gameObjects.push_back(ground);
 
-    btQuaternion rot = btQuaternion(0, 0, 0);
-    btVector3 pos = btVector3(0, -1000, 0);
-    btTransform transform = btTransform(rot, pos);
-    btDefaultMotionState* motionState = new btDefaultMotionState(transform);
-    btVector3 inertia(0,0,0);
-    btCollisionShape* collider = new btStaticPlaneShape(btVector3(0,1,0), 100);
-    btRigidBody::btRigidBodyConstructionInfo
-        rigidBodyCI(0, motionState, collider, inertia); //Last argument is inertia
-    btRigidBody* body = new btRigidBody(rigidBodyCI);
-    //Add rigidbody to world
-    //instance of btDiscreteDynamicsWorld->addRigidBody(mRigidBody)
-    mPhysicsSimulator->addObject(body);  
+    Plane *ceiling = new Plane(this, Ogre::Vector3::NEGATIVE_UNIT_Y, -500, 1500,1500);
+    gameObjects.push_back(ceiling);
 
-    //Ceiling
-    Ogre::Plane plane2(Ogre::Vector3::NEGATIVE_UNIT_Y, -500);
-    Ogre::MeshManager::getSingleton().createPlane("ceiling",
-        Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME,
-        plane2, 1500, 1500, 20, 20, true, 1, 5, 5, Ogre::Vector3::UNIT_Z);
+    Plane *east = new Plane(this, Ogre::Vector3::UNIT_X, -750,1500,1000);
+    gameObjects.push_back(east);
 
-    Ogre::Entity* ceiling = mSceneManager->createEntity("Ceiling", "ceiling");
-    mSceneManager->getRootSceneNode()->createChildSceneNode()->attachObject(ceiling);
-    ceiling->setMaterialName("Examples/BumpyMetal");
-    ceiling->setCastShadows(false);
+    Plane *west = new Plane(this, Ogre::Vector3::NEGATIVE_UNIT_X, -750,1500,1000);
+    gameObjects.push_back(west);
 
-    // East
-    Ogre::Plane plane3(Ogre::Vector3::UNIT_X, -750);
-    Ogre::MeshManager::getSingleton().createPlane("east",
-        Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME,
-        plane3, 1500, 1000, 20, 20, true, 1, 5, 5, Ogre::Vector3::UNIT_Y);
-
-    Ogre::Entity* east = mSceneManager->createEntity("East", "east");
-    mSceneManager->getRootSceneNode()->createChildSceneNode()->attachObject(east);
-    east->setMaterialName("Examples/Rockwall");
-    east->setCastShadows(false);
-
-    //West
-    Ogre::Plane plane4(Ogre::Vector3::NEGATIVE_UNIT_X, -750);
-    Ogre::MeshManager::getSingleton().createPlane("west",
-        Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME,
-        plane4, 1500, 1000, 20, 20, true, 1, 5, 5, Ogre::Vector3::UNIT_Y);
-
-    Ogre::Entity* west = mSceneManager->createEntity("West", "west");
-    mSceneManager->getRootSceneNode()->createChildSceneNode()->attachObject(west);
-    west->setMaterialName("Examples/Rockwall");
-    west->setCastShadows(false);
-
-    //North
-    // Ogre::Plane plane5(Ogre::Vector3::UNIT_Z, -750);
-    // Ogre::MeshManager::getSingleton().createPlane("north",
-    //     Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME,
-    //     plane5, 1500, 1000, 20, 20, true, 1, 5, 5, Ogre::Vector3::UNIT_Y);
-
-    // Ogre::Entity* north = mSceneManager->createEntity("North", "north");
-    // mSceneManager->getRootSceneNode()->createChildSceneNode()->attachObject(north);
-    // north->setMaterialName("Examples/Rockwall");
-    // north->setCastShadows(false);
-
-    Plane *north = new Plane(this, Ogre::Vector3::UNIT_Z, -750);
+    Plane *north = new Plane(this, Ogre::Vector3::UNIT_Z, -750,1500,1000);
     gameObjects.push_back(north);
 
-    // //South
-    // Ogre::Plane plane6(Ogre::Vector3::NEGATIVE_UNIT_Z, -750);
-    // Ogre::MeshManager::getSingleton().createPlane("south",
-    //     Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME,
-    //     plane6, 1500, 1000, 20, 20, true, 1, 5, 5, Ogre::Vector3::UNIT_Y);
-
-    // Ogre::Entity* south = mSceneManager->createEntity("South", "south");
-    // mSceneManager->getRootSceneNode()->createChildSceneNode()->attachObject(south);
-    // south->setMaterialName("Examples/Rockwall");
-    // south->setCastShadows(false);
-
-    Plane *south = new Plane(this, Ogre::Vector3::NEGATIVE_UNIT_Z, -750);
+    Plane *south = new Plane(this, Ogre::Vector3::NEGATIVE_UNIT_Z, -750,1500,1000);
     gameObjects.push_back(south);
 
-
-
-    // GameObject *newGameObject = new GameObject(this, "ninja");
-    // newGameObject->AddComponentOfType<PaddleScript>();
-    // gameObjects.push_back(newGameObject);
-
-    // GameObject *newGameObject2 = new GameObject(this);
-    // newGameObject2->AddComponentOfType<PaddleScript>();
-    // gameObjects.push_back(newGameObject2);
-
-    Sphere *newSphere = new Sphere(this, 200);
-    //newSphere->AddComponentOfType<PaddleScript>();
-    newSphere->transform->setWorldPosition(Ogre::Vector3(200,200,200));
-    gameObjects.push_back(newSphere);
+    // Sphere *newSphere = new Sphere(this, 200);
+    // newSphere->AddComponentOfType<PaddleScript>();
+    // newSphere->transform->setWorldPosition(Ogre::Vector3(0,200,0));
+    // gameObjects.push_back(newSphere);
 
     Paddle *newPaddle = new Paddle(this);
     newPaddle->AddComponentOfType<PaddleScript>();
-    newPaddle->transform->setWorldPosition(Ogre::Vector3(0,0,0));
+    newPaddle->transform->setWorldPosition(Ogre::Vector3(0,-100,-500));
     gameObjects.push_back(newPaddle);
 
     cout << "Done creating scene!" << endl;
