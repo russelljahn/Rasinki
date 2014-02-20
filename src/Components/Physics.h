@@ -33,7 +33,7 @@ class Physics {
 
 		void setGravity(const Ogre::Vector3& veloc = Ogre::Vector3::ZERO)  { mGravity = btVector3(veloc.x, veloc.y, veloc.z); }
 		void setScale(const Ogre::Vector3& scale) { mRigidBody->getCollisionShape()->setLocalScaling(btVector3(scale.x, scale.y, scale.z)); }
-		void setWorldPosition(const Ogre::Vector3& pos) { mRigidBody->getWorldTransform().setOrigin(btVector3(pos.x, pos.y, pos.z)); }
+		void setWorldPosition(const Ogre::Vector3& pos) { assert (mRigidBody != NULL); mRigidBody->getWorldTransform().setOrigin(btVector3(pos.x, pos.y, pos.z)); }
 		
 		btRigidBody* mRigidBody;
 	private:

@@ -38,4 +38,3 @@ void Plane::FixedUpdate() {
 void Plane::Kill() {
 	
 }
-

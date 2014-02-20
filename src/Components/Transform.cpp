@@ -36,11 +36,16 @@ Ogre::Vector3 Transform::getWorldPosition() const {
 }
 void Transform::setLocalPosition(const Ogre::Vector3& newLocalPosition) {
 	sceneNode->setPosition(newLocalPosition);
-	gameObject->physics->setWorldPosition(newLocalPosition);
+	if (gameObject->physics != NULL) {
+		gameObject->physics->setWorldPosition(newLocalPosition);
+	}
 }
 void Transform::setWorldPosition(const Ogre::Vector3& newWorldPosition) {
+	assert (sceneNode !=  NULL);
 	sceneNode->setPosition( sceneNode->convertWorldToLocalPosition(newWorldPosition) );
-	gameObject->physics->setWorldPosition(newWorldPosition);
+	if (gameObject->physics != NULL) {
+			gameObject->physics->setWorldPosition(newWorldPosition);
+	}
 }
 
 
