@@ -48,7 +48,7 @@ class GameObject {
 		void Start();
 		void Update();
 		void FixedUpdate();
-
+		void OnCollision(Ogre::Vector3 point, GameObject* collidedWith);
 		void Kill();
 
 		template <typename ComponentType>

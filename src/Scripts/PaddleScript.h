@@ -14,6 +14,11 @@ class PaddleScript : public Script {
 
 		void Start(void);
 		void Update(void);
+	private:
+		bool up;
+		bool down;
+		bool left;
+		bool right;
 };
 
 

@@ -14,6 +14,7 @@ class PhysicsSimulator {
 		void addObject(btRigidBody* body);
 		void removeObject(btRigidBody* body);
 		void stepSimulation(Ogre::Real elapsedTime);
+		static Ogre::Vector3 gravity;
 	private:
 		Ogre::Real mFixedTimeStep;
 		Ogre::Real mRemainingTime;

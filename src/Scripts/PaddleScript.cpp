@@ -10,32 +10,34 @@ PaddleScript::PaddleScript(GameObject *attachedGameObject) : Script(attachedGame
 
 void PaddleScript::Start() {
 	Script::Start();
-
+	gameObject->physics->setGravity();
 }
 
 
 
 void PaddleScript::Update() {
 	Script::Update();
-	
-	Ogre::Vector3 currentPosition = gameObject->transform->getLocalPosition();
-	float movementSpeed = 1.0f;
+	gameObject->physics->setLinearVelocity(Ogre::Vector3(0, 0, 0));
+	float movementSpeed = 1500.0f;
 
 	if (gameObject->game->getKeyboard()->isKeyDown(OIS::KC_LEFT) || gameObject->game->getKeyboard()->isKeyDown(OIS::KC_A)) {
-		currentPosition.x -= movementSpeed;
+		Ogre::Vector3 veloc = gameObject->physics->getLinearVelocity();
+		veloc.x = -movementSpeed;
+		gameObject->physics->setLinearVelocity(veloc);
 	}
 	if (gameObject->game->getKeyboard()->isKeyDown(OIS::KC_RIGHT) || gameObject->game->getKeyboard()->isKeyDown(OIS::KC_D)) {
-		currentPosition.x += movementSpeed;
+		Ogre::Vector3 veloc = gameObject->physics->getLinearVelocity();
+		veloc.x = movementSpeed;
+		gameObject->physics->setLinearVelocity(veloc);
 	}
 	if (gameObject->game->getKeyboard()->isKeyDown(OIS::KC_UP) || gameObject->game->getKeyboard()->isKeyDown(OIS::KC_W)) {
-		currentPosition.z -= movementSpeed;
+		Ogre::Vector3 veloc = gameObject->physics->getLinearVelocity();
+		veloc.z = -movementSpeed;
+		gameObject->physics->setLinearVelocity(veloc);
 	}
 	if (gameObject->game->getKeyboard()->isKeyDown(OIS::KC_DOWN) || gameObject->game->getKeyboard()->isKeyDown(OIS::KC_S)) {
-		currentPosition.z += movementSpeed;
+		Ogre::Vector3 veloc = gameObject->physics->getLinearVelocity();
+		veloc.z = movementSpeed;
+		gameObject->physics->setLinearVelocity(veloc);
 	}
-	if (gameObject->game->getKeyboard()->isKeyDown(OIS::KC_SPACE)) {
-		currentPosition.y += movementSpeed;
-	}
-
-	gameObject->transform->setLocalPosition(currentPosition);
 }

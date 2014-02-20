@@ -549,14 +549,15 @@ void Game::createScene(void) {
     Plane *south = new Plane(this, Ogre::Vector3::NEGATIVE_UNIT_Z, -750);
     gameObjects.push_back(south);
 
-    /*Sphere *newSphere = new Sphere(this, 200);
+    Sphere *newSphere = new Sphere(this, 200);
     //newSphere->AddComponentOfType<PaddleScript>();
     newSphere->transform->setWorldPosition(Ogre::Vector3(200,200,200));
     gameObjects.push_back(newSphere);
-*/
+
     Paddle *newPaddle = new Paddle(this);
     newPaddle->AddComponentOfType<PaddleScript>();
-    newPaddle->transform->setWorldPosition(Ogre::Vector3(0,0,0));
+    newPaddle->transform->setWorldPosition(Ogre::Vector3(0,-300,0));
+    newPaddle->transform->setLocalScale(Ogre::Vector3(10, 1, 10));
     gameObjects.push_back(newPaddle);
 
     cout << "Done creating scene!" << endl;

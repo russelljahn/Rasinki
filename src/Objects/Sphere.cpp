@@ -11,7 +11,7 @@ void Sphere::Start() {
 	entity = game->getSceneManager()->createEntity("Sphere", "sphere.mesh");
 	transform->sceneNode->scale(Ogre::Vector3( radius/100, radius/100, radius/100));
 	transform->sceneNode->attachObject(entity);
-	physics = new Physics(*this);
+	physics = new Physics(*this, 1 , new btBoxShape(btVector3(1, 1, 1)));
 }
 
 void Sphere::Update() {

@@ -1,6 +1,6 @@
 #include "Physics.h"
 
-Physics::Physics(GameObject& attachedGameObject, float mass, btCollisionShape* collider) {
+Physics::Physics(GameObject& attachedGameObject, float mass, btCollisionShape* collider, Ogre::Vector3 gravity) {
 	//Create rigidbody
 	gameObject = &attachedGameObject;
 	mTransform = attachedGameObject.transform;
@@ -16,10 +16,12 @@ Physics::Physics(GameObject& attachedGameObject, float mass, btCollisionShape* c
 	mRigidBody->setUserPointer(&attachedGameObject);
 	mRigidBody->setCollisionFlags(mRigidBody->getCollisionFlags() |
   	  btCollisionObject::CF_CUSTOM_MATERIAL_CALLBACK);
-
+	mGravity = btVector3(gravity.x, gravity.y, gravity.z);
+	mRigidBody->setGravity(btVector3(gravity.x, gravity.y, gravity.z));
 	//Add rigidbody to world
 	//instance of btDiscreteDynamicsWorld->addRigidBody(mRigidBody)
-	gameObject->game->getPhysicsSimulator()->addObject(mRigidBody);	
+	gameObject->game->getPhysicsSimulator()->addObject(mRigidBody);
+	std::cout << "COLLIDER AT " << pos.x() << ", " << pos.y() << ", " << pos.z() << std::endl;	
 }
 Physics::~Physics() {
 	// instance of btDiscreteDynamicsWorld->removeRigidBody(mRigidBody)
@@ -29,6 +31,8 @@ Physics::~Physics() {
 }
 void Physics::Start() {}
 void Physics::FixedUpdate() {
+
+	mRigidBody->setGravity(mGravity);
 	btTransform trans;
 	mRigidBody->getMotionState()->getWorldTransform(trans);  // sets trans to rigidBody's transform
 	//Need to convert btVector3 and btQuaternion to Ogre types
@@ -38,4 +42,8 @@ void Physics::FixedUpdate() {
 		return;
 	mTransform -> setWorldPosition(Ogre::Vector3(pos.x(), pos.y(), pos.z()));
 	// mTransform -> setRotation(Ogre::Quaternion(rot.x(), rot.y(), rot.z(), rot.w())); 
+
+	std::cout << gameObject->name << "COLLIDER AT " << pos.x() << ", " << pos.y() << ", " << pos.z() << std::endl;
+	btVector3 scale = mRigidBody->getCollisionShape()->getLocalScaling();
+	std::cout << gameObject->name << "COLLIDER EXTENTS " << scale.x() << ", " << scale.y() << ", " << scale.z() << std::endl;
 }

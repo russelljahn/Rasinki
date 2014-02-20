@@ -36,9 +36,11 @@ Ogre::Vector3 Transform::getWorldPosition() const {
 }
 void Transform::setLocalPosition(const Ogre::Vector3& newLocalPosition) {
 	sceneNode->setPosition(newLocalPosition);
+	gameObject->physics->setWorldPosition(newLocalPosition);
 }
 void Transform::setWorldPosition(const Ogre::Vector3& newWorldPosition) {
 	sceneNode->setPosition( sceneNode->convertWorldToLocalPosition(newWorldPosition) );
+	gameObject->physics->setWorldPosition(newWorldPosition);
 }
 
 
@@ -52,6 +54,9 @@ Ogre::Vector3 Transform::getLocalScale() const {
 // }
 void Transform::setLocalScale(const Ogre::Vector3& newLocalScale) {
 	sceneNode->setScale(newLocalScale);
+	if (gameObject->physics != NULL) {
+		gameObject->physics->setScale(newLocalScale);
+	}
 }
 // void Transform::setWorldScale(const Ogre::Vector3& newWorldScale) {
 //  TODO: Do this the right way!

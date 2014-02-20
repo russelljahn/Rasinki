@@ -1,9 +1,16 @@
 #include <PhysicsSimulator.h>
 using namespace std;
 
+
+Ogre::Vector3 PhysicsSimulator::gravity = Ogre::Vector3(0, -980, 0);
+
 bool PhysicsSimulator::OnCollision(btManifoldPoint& p, void * obj1, void * obj2){
 	GameObject * o1 = (GameObject*)((btCollisionObject*)obj1)->getUserPointer();
 	GameObject * o2 = (GameObject*)((btCollisionObject*)obj2)->getUserPointer();
+	if (o1 != NULL)
+		o1->OnCollision(Ogre::Vector3(p.getPositionWorldOnA().x(), p.getPositionWorldOnA().y(), p.getPositionWorldOnA().z()), o2);
+	if (o2 != NULL)
+		o2->OnCollision(Ogre::Vector3(p.getPositionWorldOnA().x(), p.getPositionWorldOnA().y(), p.getPositionWorldOnA().z()), o1);
 	std::cout << "Collision between: ";
 	std::cout << (o1!=NULL ? o1->name : "NULL") << " and " << (o2!=NULL ? o2->name : "NULL");
 	std::cout << " at " << p.getPositionWorldOnA().x() << " " << p.getPositionWorldOnA().y() << " " << p.getPositionWorldOnA().z() << std::endl;
@@ -21,7 +28,7 @@ PhysicsSimulator::PhysicsSimulator(Ogre::Real fixedTimeStep) {
 	 ///the default constraint solver. For parallel processing you can use a different solver (see Extras/BulletMultiThreaded)
 	 solver = new btSequentialImpulseConstraintSolver();
 	dynamicsWorld = new btDiscreteDynamicsWorld(dispatcher,overlappingPairCache,solver,collisionConfiguration);
-	dynamicsWorld->setGravity(btVector3(0,-980, 0));
+	dynamicsWorld->setGravity(btVector3(gravity.x, gravity.y, gravity.z));
 	 //keep track of the shapes, we release memory at exit.
 	 //make sure to re-use collision shapes among rigid bodies whenever possible!
 	btAlignedObjectArray<btCollisionShape*> collisionShapes;
@@ -38,12 +45,6 @@ void PhysicsSimulator::removeObject(btRigidBody* body) {
 	dynamicsWorld->removeRigidBody(body);
 }
 void PhysicsSimulator::stepSimulation(Ogre::Real elapsedTime) {
-	/*	I may have overcomplicated this:
-	 *	Trying to keep track of number of stepSimulations
-	 *	to run on my own rather than letting bullet do it
-	 *	so that FixedUpdate can be called on everything
-	 *	on each physics step
-	 */
 	for(list<GameObject*>::iterator i = objList.begin(); i != objList.end(); ++i) {
 			Ogre::Vector3 pos = (*i)->transform->getWorldPosition();
 			(*i)->physics->mRigidBody->getWorldTransform().setOrigin(btVector3(pos.x, pos.y, pos.z));

@@ -44,3 +44,6 @@ void GameObject::Kill() {
 	// TODO
 }
 
+void GameObject::OnCollision(Ogre::Vector3 point, GameObject* collidedWith) {
+	
+}
