@@ -60,7 +60,7 @@ Ogre::Vector3 Transform::getLocalScale() const {
 void Transform::setLocalScale(const Ogre::Vector3& newLocalScale) {
 	sceneNode->setScale(newLocalScale);
 	if (gameObject->physics != NULL) {
-		gameObject->physics->setScale(newLocalScale);
+		gameObject->physics->setScale(gameObject->scale * newLocalScale);
 	}
 }
 // void Transform::setWorldScale(const Ogre::Vector3& newWorldScale) {

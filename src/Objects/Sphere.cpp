@@ -7,6 +7,7 @@ Sphere::Sphere(Game *attachedGame, float radius) : GameObject(attachedGame){
 }
 
 void Sphere::Start() {
+	scale = 50;
 	transform = new Transform(this, game->getSceneRoot());
 	entity = game->getSceneManager()->createEntity("Sphere", "sphere.mesh");
 	transform->sceneNode->scale(Ogre::Vector3( radius/100, radius/100, radius/100));

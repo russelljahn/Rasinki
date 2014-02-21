@@ -9,6 +9,7 @@ Plane::Plane(Game *attachedGame, Ogre::Vector3 normal, float pos) : GameObject(a
 }
 
 void Plane::Start() {
+	scale = 50;
 	transform = new Transform(this, game->getSceneRoot());
 
 	//North
