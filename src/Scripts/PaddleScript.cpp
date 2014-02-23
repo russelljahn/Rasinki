@@ -10,7 +10,6 @@ PaddleScript::PaddleScript(GameObject *attachedGameObject) : Script(attachedGame
 
 void PaddleScript::Start() {
 	Script::Start();
-	gameObject->physics->setGravity();
 }
 
 

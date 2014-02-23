@@ -1,6 +1,6 @@
 #include "Physics.h"
 
-Physics::Physics(GameObject& attachedGameObject, float mass, btCollisionShape* collider, Ogre::Vector3 gravity) {
+Physics::Physics(GameObject& attachedGameObject, float mass, btCollisionShape* collider) {
 	//Create rigidbody
 	std::cout << "attachedGameObject " << (&attachedGameObject != NULL) << std::endl;
 	gameObject = &attachedGameObject;
@@ -17,8 +17,6 @@ Physics::Physics(GameObject& attachedGameObject, float mass, btCollisionShape* c
 	mRigidBody->setUserPointer(&attachedGameObject);
 	mRigidBody->setCollisionFlags(mRigidBody->getCollisionFlags() |
   	  btCollisionObject::CF_CUSTOM_MATERIAL_CALLBACK);
-	mGravity = btVector3(gravity.x, gravity.y, gravity.z);
-	mRigidBody->setGravity(mGravity);
 	std::cout << "<3>" << std::endl;
 	//Add rigidbody to world
 	//instance of btDiscreteDynamicsWorld->addRigidBody(mRigidBody)
@@ -34,7 +32,6 @@ Physics::~Physics() {
 }
 void Physics::Start() {}
 void Physics::FixedUpdate() {
-	mRigidBody->setGravity(mGravity);
 	btTransform trans;
 	mRigidBody->getMotionState()->getWorldTransform(trans);  // sets trans to rigidBody's transform
 	//Need to convert btVector3 and btQuaternion to Ogre types
