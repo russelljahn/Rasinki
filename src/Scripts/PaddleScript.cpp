@@ -41,3 +41,6 @@ void PaddleScript::Update() {
 		gameObject->physics->setLinearVelocity(veloc);
 	}
 }
+void PaddleScript::OnCollision(Ogre::Vector3 point, GameObject* collidedWith) {
+
+}

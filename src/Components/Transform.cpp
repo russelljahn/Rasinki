@@ -29,23 +29,21 @@ Transform::Transform(GameObject *attachedGameObject, Ogre::SceneNode *parent) {
 
 
 Ogre::Vector3 Transform::getLocalPosition() const {
-	return sceneNode->getPosition();
+	// return sceneNode->getPosition();
+	gameObject->physics->getWorldPosition();
 }
 Ogre::Vector3 Transform::getWorldPosition() const {
-	return sceneNode->convertLocalToWorldPosition( sceneNode->getPosition() );
+	// return sceneNode->convertLocalToWorldPosition( sceneNode->getPosition() );
+	gameObject->physics->getWorldPosition();
 }
 void Transform::setLocalPosition(const Ogre::Vector3& newLocalPosition) {
-	sceneNode->setPosition(newLocalPosition);
-	if (gameObject->physics != NULL) {
-		gameObject->physics->setWorldPosition(newLocalPosition);
-	}
+	assert (sceneNode !=  NULL);
+	gameObject->physics->setWorldPosition(newLocalPosition);
 }
 void Transform::setWorldPosition(const Ogre::Vector3& newWorldPosition) {
 	assert (sceneNode !=  NULL);
-	sceneNode->setPosition( sceneNode->convertWorldToLocalPosition(newWorldPosition) );
-	if (gameObject->physics != NULL) {
-			gameObject->physics->setWorldPosition(newWorldPosition);
-	}
+	std::cout << "setting transform WorldPosition: " << newWorldPosition.x << " " << newWorldPosition.y << " " << newWorldPosition.z << std::endl;
+	gameObject->physics->setWorldPosition(newWorldPosition);
 }
 
 

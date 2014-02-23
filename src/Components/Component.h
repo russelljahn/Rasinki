@@ -26,7 +26,7 @@ class Component {
 		void virtual Start();
 		void virtual Update();
 		void virtual FixedUpdate();
-
+		void virtual OnCollision(Ogre::Vector3 point, GameObject* collidedWith);
 };
 
 

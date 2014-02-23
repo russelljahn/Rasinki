@@ -23,3 +23,6 @@ void Component::Update() {
 void Component::FixedUpdate() {
 	
 }
+void Component::OnCollision(Ogre::Vector3 point, GameObject* collidedWith) {
+
+}

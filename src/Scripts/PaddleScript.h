@@ -14,6 +14,7 @@ class PaddleScript : public Script {
 
 		void Start(void);
 		void Update(void);
+		void OnCollision(Ogre::Vector3 point, GameObject* collidedWith);
 	private:
 		bool up;
 		bool down;

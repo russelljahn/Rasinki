@@ -486,10 +486,9 @@ void Game::createLights(void) {
 
 void Game::createScene(void) {
     cout << "Creating scene..." << endl;
-    
+
     Cube *newCube = new Cube(this);
-    newCube->AddComponentOfType<PaddleScript>();
-    newCube->transform->setLocalPosition(Ogre::Vector3(0,-500,0));
+    newCube->transform->setWorldPosition(Ogre::Vector3(0,-500,0));
     newCube->name = "cube";
     gameObjects.push_back(newCube);
 

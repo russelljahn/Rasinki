@@ -45,5 +45,7 @@ void GameObject::Kill() {
 }
 
 void GameObject::OnCollision(Ogre::Vector3 point, GameObject* collidedWith) {
-	
+	for (auto componentsIter = components.begin(); componentsIter != components.end(); ++componentsIter) {
+        (*componentsIter)->OnCollision(point, collidedWith);
+    }
 }
