@@ -10,8 +10,7 @@ Physics::Physics(GameObject& attachedGameObject, float mass, btCollisionShape* c
 	btTransform transform = btTransform(rot, pos);
 	btDefaultMotionState* motionState = new btDefaultMotionState(transform);
 	std::cout << "<2>" << std::endl;
-	btVector3 inertia(0,0,0);
-	collider->calculateLocalInertia(mass, inertia);
+	btVector3 inertia = btVector3(0, 0, 0);
 	btRigidBody::btRigidBodyConstructionInfo
 		rigidBodyCI(mass, motionState, collider, inertia); //Last argument is inertia
 	mRigidBody = new btRigidBody(rigidBodyCI);
@@ -19,7 +18,7 @@ Physics::Physics(GameObject& attachedGameObject, float mass, btCollisionShape* c
 	mRigidBody->setCollisionFlags(mRigidBody->getCollisionFlags() |
   	  btCollisionObject::CF_CUSTOM_MATERIAL_CALLBACK);
 	mGravity = btVector3(gravity.x, gravity.y, gravity.z);
-	mRigidBody->setGravity(btVector3(gravity.x, gravity.y, gravity.z));
+	mRigidBody->setGravity(mGravity);
 	std::cout << "<3>" << std::endl;
 	//Add rigidbody to world
 	//instance of btDiscreteDynamicsWorld->addRigidBody(mRigidBody)

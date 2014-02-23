@@ -8,4 +8,5 @@ class Paddle : public GameObject {
 		void FixedUpdate();
 
 		void Kill();
+		void OnCollision(Ogre::Vector3 point, GameObject* collidedWith);
 };

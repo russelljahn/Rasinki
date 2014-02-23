@@ -7,12 +7,12 @@ Sphere::Sphere(Game *attachedGame, float radius) : GameObject(attachedGame){
 }
 
 void Sphere::Start() {
-	scale = 50;
+	scale = radius;
 	transform = new Transform(this, game->getSceneRoot());
 	entity = game->getSceneManager()->createEntity("Sphere", "sphere.mesh");
 	transform->sceneNode->scale(Ogre::Vector3( radius/100, radius/100, radius/100));
 	transform->sceneNode->attachObject(entity);
-	physics = new Physics(*this, 1 , new btBoxShape(btVector3(1, 1, 1)));
+	physics = new Physics(*this, 1 , new btSphereShape(scale));
 }
 
 void Sphere::Update() {
