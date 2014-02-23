@@ -1,12 +1,12 @@
 #include "Physics.h"
 
-Physics::Physics(GameObject& attachedGameObject, float mass, btCollisionShape* collider) {
+Physics::Physics(GameObject& attachedGameObject, float mass, btCollisionShape* collider, Ogre::Vector3 opos) {
 	//Create rigidbody
 	std::cout << "attachedGameObject " << (&attachedGameObject != NULL) << std::endl;
 	gameObject = &attachedGameObject;
 	mTransform = attachedGameObject.transform;
-	btQuaternion rot = btQuaternion(0,0,0,0);
-	btVector3 pos = btVector3(0,0,0);
+	btQuaternion rot = btQuaternion(0,0,0);
+	btVector3 pos = btVector3(opos.x,opos.y,opos.z);
 	btTransform transform = btTransform(rot, pos);
 	btDefaultMotionState* motionState = new btDefaultMotionState(transform);
 	std::cout << "<2>" << std::endl;
@@ -35,7 +35,9 @@ Physics::~Physics() {
 void Physics::Start() {}
 void Physics::FixedUpdate() {
 	btVector3 pos = btVector3(getWorldPosition().x,getWorldPosition().y,getWorldPosition().z);
-	std::cout << "position in fixedupdate: " << pos.x() << " " << pos.y() << " " << pos.z() << std::endl;
+	btVector3 scale = mRigidBody->getCollisionShape()->getLocalScaling();
+	std::cout << "position in fixedupdate: " << pos.x() << " " << pos.y() << " " << pos.z() << " SCALE IN FIXEDUPDATE: " << scale.x() << " " << scale.y() << " " << scale.z()<< std::endl;
+	mTransform->sceneNode->setPosition(Ogre::Vector3(pos.x(), pos.y(), pos.z()));
 }
 
 Ogre::Vector3 Physics::getWorldPosition()

@@ -7,7 +7,7 @@ Paddle::Paddle(Game *attachedGame) : GameObject(attachedGame){
 }
 
 void Paddle::Start() {
-	scale = 20;
+	scale = 10;
 	transform = new Transform(this, game->getSceneRoot());
 	entity = game->getSceneManager()->createEntity("Paddle", "cube.mesh");
 	//transform->sceneNode->scale(2,0.25,2);

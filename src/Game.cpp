@@ -8,7 +8,6 @@ using namespace std;
 #include "Objects/Sphere.h"
 #include "Objects/Paddle.h"
 #include "Objects/Plane.h"
-#include "Objects/Cube.h"
 
 
 //-------------------------------------------------------------------------------------
@@ -487,23 +486,24 @@ void Game::createLights(void) {
 void Game::createScene(void) {
     cout << "Creating scene..." << endl;
 
-    Cube *newCube = new Cube(this);
+    /*Cube *newCube = new Cube(this);
     newCube->transform->setWorldPosition(Ogre::Vector3(0,-500,0));
     newCube->name = "cube";
     gameObjects.push_back(newCube);
-
-    // Sphere *newSphere = new Sphere(this, 200);
+*/
+     Sphere *newSphere = new Sphere(this, 200);
     // //newSphere->AddComponentOfType<PaddleScript>();
-    // newSphere->transform->setWorldPosition(Ogre::Vector3(200,200,200));
-    // newSphere->name = "sphere";
-    // gameObjects.push_back(newSphere);
+     newSphere->transform->setWorldPosition(Ogre::Vector3(0,800,0));
+     newSphere->name = "sphere";
+     gameObjects.push_back(newSphere);
 
-    // Paddle *newPaddle = new Paddle(this);
-    // newPaddle->AddComponentOfType<PaddleScript>();
-    // newPaddle->transform->setWorldPosition(Ogre::Vector3(0,-400,0));
-    // newPaddle->transform->setLocalScale(Ogre::Vector3(10, 1, 10));
-    // newPaddle->name = "paddle";
-    // gameObjects.push_back(newPaddle);
+    Paddle *newPaddle = new Paddle(this);
+    newPaddle->AddComponentOfType<PaddleScript>();
+    newPaddle->transform->setWorldPosition(Ogre::Vector3(0,-400,0));
+    newPaddle->transform->setLocalScale(Ogre::Vector3(10, 1, 10));
+    newPaddle->name = "paddle";
+    gameObjects.push_back(newPaddle);
+
 
     cout << "Done creating scene!" << endl;
 }

@@ -2,7 +2,7 @@
 using namespace std;
 
 
-Ogre::Vector3 PhysicsSimulator::gravity = Ogre::Vector3(0, 0, 0);
+Ogre::Vector3 PhysicsSimulator::gravity = Ogre::Vector3(0, -98, 0);
 
 bool PhysicsSimulator::OnCollision(btManifoldPoint& p, void * obj1, void * obj2){
 	GameObject * o1 = (GameObject*)((btCollisionObject*)obj1)->getUserPointer();
@@ -14,10 +14,15 @@ bool PhysicsSimulator::OnCollision(btManifoldPoint& p, void * obj1, void * obj2)
 	std::cout << "Collision between: ";
 	std::cout << (o1!=NULL ? o1->name : "NULL") << " and " << (o2!=NULL ? o2->name : "NULL");
 	std::cout << " at " << p.getPositionWorldOnA().x() << " " << p.getPositionWorldOnA().y() << " " << p.getPositionWorldOnA().z() << std::endl;
-	Ogre::Vector3 pos = o1->transform->getWorldPosition();
-	std::cout << (o1!=NULL ? o1->name : "NULL") << " at " << pos.x << ", " << pos.y << ", " << pos.z <<std::endl;
-	pos = o2->transform->getWorldPosition();
-	std::cout << (o2!=NULL ? o2->name : "NULL") << " at " << pos.x << ", " << pos.y << ", " << pos.z << std::endl;
+	Ogre::Vector3 pos; 
+	if (o1 != NULL) {
+		pos = o1->physics->getWorldPosition();
+		std::cout << (o1!=NULL ? o1->name : "NULL") << " at " << pos.x << ", " << pos.y << ", " << pos.z <<std::endl;
+	}
+	if (o2 != NULL) {
+		pos = o2->physics->getWorldPosition();
+		std::cout << (o2!=NULL ? o2->name : "NULL") << " at " << pos.x << ", " << pos.y << ", " << pos.z << std::endl;
+	}
 	return true;
 }
 
