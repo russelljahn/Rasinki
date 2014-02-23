@@ -17,7 +17,7 @@ class Physics {
 	
 	public:
 		Physics(){}
-		Physics(GameObject& attachedGameObject, float mass = 1, btCollisionShape* collider = new btSphereShape(1), Ogre::Vector3 gravity = Ogre::Vector3(0, -980, 0));
+		Physics(GameObject& attachedGameObject, float mass = 1, btCollisionShape* collider = new btSphereShape(1));
 		~Physics();
 
 		void Start();
@@ -33,7 +33,6 @@ class Physics {
 		void setAngularVelocity(const btVector3& veloc) { mRigidBody->setAngularVelocity(veloc); }
 		const btVector3& getAngularVelocity() const { return mRigidBody->getAngularVelocity(); }
 
-		void setGravity(const Ogre::Vector3& veloc = Ogre::Vector3::ZERO)  { mGravity = btVector3(veloc.x, veloc.y, veloc.z); }
 		void setScale(const Ogre::Vector3& scale) { mRigidBody->getCollisionShape()->setLocalScaling(btVector3(scale.x, scale.y, scale.z)); }
 
 		Ogre::Vector3 getWorldPosition();
@@ -43,6 +42,5 @@ class Physics {
 		btRigidBody* mRigidBody;
 		Transform* mTransform;
 		GameObject* gameObject;
-		btVector3 mGravity;
 };
 #endif

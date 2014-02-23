@@ -13,7 +13,7 @@ void Paddle::Start() {
 	//transform->sceneNode->scale(2,0.25,2);
 	transform->sceneNode->attachObject(entity);
 	Ogre::Vector3 halfExtents = transform->getLocalScale()/2.0f;
-	physics = new Physics(*this, 1, new btBoxShape(btVector3(scale, scale, scale)), Ogre::Vector3(0, 0, 0));
+	physics = new Physics(*this, 1, new btBoxShape(btVector3(scale, scale, scale)));
 	physics->setLinearFactor(Ogre::Vector3(1,0,1));
 }
 

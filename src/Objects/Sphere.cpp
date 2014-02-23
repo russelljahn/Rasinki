@@ -13,6 +13,7 @@ void Sphere::Start() {
 	transform->sceneNode->scale(Ogre::Vector3( radius/100, radius/100, radius/100));
 	transform->sceneNode->attachObject(entity);
 	physics = new Physics(*this, 1 , new btSphereShape(scale));
+	physics->setLinearVelocity(Ogre::Vector3(0,-100, 0));
 }
 
 void Sphere::Update() {

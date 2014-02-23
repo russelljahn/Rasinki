@@ -2,7 +2,7 @@
 using namespace std;
 
 
-Ogre::Vector3 PhysicsSimulator::gravity = Ogre::Vector3(0, -980, 0);
+Ogre::Vector3 PhysicsSimulator::gravity = Ogre::Vector3(0, 0, 0);
 
 bool PhysicsSimulator::OnCollision(btManifoldPoint& p, void * obj1, void * obj2){
 	GameObject * o1 = (GameObject*)((btCollisionObject*)obj1)->getUserPointer();
@@ -14,6 +14,10 @@ bool PhysicsSimulator::OnCollision(btManifoldPoint& p, void * obj1, void * obj2)
 	std::cout << "Collision between: ";
 	std::cout << (o1!=NULL ? o1->name : "NULL") << " and " << (o2!=NULL ? o2->name : "NULL");
 	std::cout << " at " << p.getPositionWorldOnA().x() << " " << p.getPositionWorldOnA().y() << " " << p.getPositionWorldOnA().z() << std::endl;
+	Ogre::Vector3 pos = o1->transform->getWorldPosition();
+	std::cout << (o1!=NULL ? o1->name : "NULL") << " at " << pos.x << ", " << pos.y << ", " << pos.z <<std::endl;
+	pos = o2->transform->getWorldPosition();
+	std::cout << (o2!=NULL ? o2->name : "NULL") << " at " << pos.x << ", " << pos.y << ", " << pos.z << std::endl;
 	return true;
 }
 
@@ -45,10 +49,12 @@ void PhysicsSimulator::removeObject(btRigidBody* body) {
 	dynamicsWorld->removeRigidBody(body);
 }
 void PhysicsSimulator::stepSimulation(Ogre::Real elapsedTime) {
+
 	// for(list<GameObject*>::iterator i = objList.begin(); i != objList.end(); ++i) {
 	// 		Ogre::Vector3 pos = (*i)->transform->getWorldPosition();
 	// 		(*i)->physics->setWorldPosition(pos); //mRigidBody->getWorldTransform().setOrigin(btVector3(pos.x, pos.y, pos.z));
 	// 	}
+
 	mRemainingTime += elapsedTime;
 	while (mRemainingTime > mFixedTimeStep) {
 		mRemainingTime -= mFixedTimeStep;
