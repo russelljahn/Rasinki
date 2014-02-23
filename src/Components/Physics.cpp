@@ -17,6 +17,8 @@ Physics::Physics(GameObject& attachedGameObject, float mass, btCollisionShape* c
 	mRigidBody->setUserPointer(&attachedGameObject);
 	mRigidBody->setCollisionFlags(mRigidBody->getCollisionFlags() |
   	  btCollisionObject::CF_CUSTOM_MATERIAL_CALLBACK);
+	mRigidBody->setRestitution(1.0f);
+	mRigidBody->setActivationState(DISABLE_DEACTIVATION);
 	std::cout << "<3>" << std::endl;
 	//Add rigidbody to world
 	//instance of btDiscreteDynamicsWorld->addRigidBody(mRigidBody)

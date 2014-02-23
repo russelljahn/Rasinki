@@ -551,7 +551,7 @@ void Game::createScene(void) {
 
     Sphere *newSphere = new Sphere(this, 200);
     //newSphere->AddComponentOfType<PaddleScript>();
-    newSphere->transform->setWorldPosition(Ogre::Vector3(200,200,200));
+    newSphere->transform->setLocalPosition(Ogre::Vector3(200,200,200));
     gameObjects.push_back(newSphere);
 
     Paddle *newPaddle = new Paddle(this);
