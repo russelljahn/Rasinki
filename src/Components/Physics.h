@@ -33,7 +33,8 @@ class Physics {
 		void setAngularVelocity(const btVector3& veloc) { mRigidBody->setAngularVelocity(veloc); }
 		const btVector3& getAngularVelocity() const { return mRigidBody->getAngularVelocity(); }
 
-		void setScale(const Ogre::Vector3& scale) { mRigidBody->getCollisionShape()->setLocalScaling(btVector3(scale.x, scale.y, scale.z)); }
+		Ogre::Vector3 getColliderScale();
+		void setColliderScale(const Ogre::Vector3& scale);
 
 		Ogre::Vector3 getWorldPosition();
 		void setWorldPosition(const Ogre::Vector3& pos);

@@ -38,7 +38,6 @@ class GameObject {
 		std::string name;
 		int id;
 		bool enabled;
-		float scale;
 
 		Transform *transform; // TODO: Make this protected but retrievable through GetComponentOfType<>()!
 		Game *game; // TODO: Figure out how to make this unneeded to be public for abstraction-sake!

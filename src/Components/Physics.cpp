@@ -26,26 +26,26 @@ Physics::Physics(GameObject& attachedGameObject, float mass, btCollisionShape* c
 	//std::cout << "COLLIDER AT " << pos.x() << ", " << pos.y() << ", " << pos.z() << std::endl;	
 	std::cout << "<4>" << std::endl;
 }
+
 Physics::~Physics() {
 	// instance of btDiscreteDynamicsWorld->removeRigidBody(mRigidBody)
 	gameObject->game->getPhysicsSimulator()->removeObject(mRigidBody);
 	delete mRigidBody->getMotionState();
 	delete mRigidBody;
 }
+
 void Physics::Start() {}
+
 void Physics::FixedUpdate() {
-	btVector3 pos = btVector3(getWorldPosition().x,getWorldPosition().y,getWorldPosition().z);
-	btVector3 scale = mRigidBody->getCollisionShape()->getLocalScaling();
-	std::cout << "position in fixedupdate: " << pos.x() << " " << pos.y() << " " << pos.z() << " SCALE IN FIXEDUPDATE: " << scale.x() << " " << scale.y() << " " << scale.z()<< std::endl;
-	mTransform->sceneNode->setPosition(Ogre::Vector3(pos.x(), pos.y(), pos.z()));
+	
 }
 
-Ogre::Vector3 Physics::getWorldPosition()
-{ 
+Ogre::Vector3 Physics::getWorldPosition() { 
 	assert (mRigidBody != NULL);
 	btVector3 bulletPos = mRigidBody->getWorldTransform().getOrigin();
 	return Ogre::Vector3(bulletPos.x(), bulletPos.y(), bulletPos.z());
 }
+
 void Physics::setWorldPosition(const Ogre::Vector3& pos) { 
 	assert (mRigidBody != NULL); 
 	std::cout << "position we want to set to: " << pos.x << " " << pos.y << " " << pos.z << std::endl;
@@ -53,4 +53,13 @@ void Physics::setWorldPosition(const Ogre::Vector3& pos) {
 	mTransform->sceneNode->setPosition(pos); // TODO: setPosition() is local, need to eventually make it world.
 	std::cout << "after physics WorldPosition: " << mRigidBody->getWorldTransform().getOrigin().x() << " " << mRigidBody->getWorldTransform().getOrigin().y() << " " << mRigidBody->getWorldTransform().getOrigin().z() << std::endl;
 	std::cout << "after transform WorldPosition: " << mTransform->sceneNode->getPosition().x << " " << mTransform->sceneNode->getPosition().y << " " << mTransform->sceneNode->getPosition().z << std::endl;
+}
+
+void setColliderScale(const Ogre::Vector3& scale) { 
+	mRigidBody->getCollisionShape()->setLocalScaling(btVector3(scale.x, scale.y, scale.z)); 
+}
+
+Ogre::Vector3 getColliderScale() { 
+	btVector3 scale = mRigidBody->getCollisionShape()->getLocalScaling();
+	return Ogre::Vector3(scale.x(), scale.y(), scale.z()); 
 }

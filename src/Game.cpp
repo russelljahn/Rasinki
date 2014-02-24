@@ -8,6 +8,7 @@ using namespace std;
 #include "Objects/Sphere.h"
 #include "Objects/Paddle.h"
 #include "Objects/Plane.h"
+#include "Objects/Cube.h"
 
 
 //-------------------------------------------------------------------------------------
@@ -486,11 +487,11 @@ void Game::createLights(void) {
 void Game::createScene(void) {
     cout << "Creating scene..." << endl;
 
-    /*Cube *newCube = new Cube(this);
+    Cube *newCube = new Cube(this);
     newCube->transform->setWorldPosition(Ogre::Vector3(0,-500,0));
     newCube->name = "cube";
     gameObjects.push_back(newCube);
-*/
+
      Sphere *newSphere = new Sphere(this, 200);
     // //newSphere->AddComponentOfType<PaddleScript>();
      newSphere->transform->setWorldPosition(Ogre::Vector3(0,800,0));

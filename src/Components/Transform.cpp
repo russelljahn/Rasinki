@@ -29,11 +29,11 @@ Transform::Transform(GameObject *attachedGameObject, Ogre::SceneNode *parent) {
 
 
 Ogre::Vector3 Transform::getLocalPosition() const {
-	// return sceneNode->getPosition();
+	assert (sceneNode !=  NULL);
 	gameObject->physics->getWorldPosition();
 }
 Ogre::Vector3 Transform::getWorldPosition() const {
-	// return sceneNode->convertLocalToWorldPosition( sceneNode->getPosition() );
+	assert (sceneNode !=  NULL);
 	gameObject->physics->getWorldPosition();
 }
 void Transform::setLocalPosition(const Ogre::Vector3& newLocalPosition) {
@@ -49,22 +49,23 @@ void Transform::setWorldPosition(const Ogre::Vector3& newWorldPosition) {
 
 
 Ogre::Vector3 Transform::getLocalScale() const {
+	assert (sceneNode !=  NULL);
 	return sceneNode->getScale();
 }
-// Ogre::Vector3 Transform::getWorldScale() const {
-//  TODO: Do this the right way!
-// 	return sceneNode->convertLocalToWorldScale( sceneNode->getScale() );
-// }
-void Transform::setLocalScale(const Ogre::Vector3& newLocalScale) {
-	sceneNode->setScale(newLocalScale);
-	if (gameObject->physics != NULL) {
-		gameObject->physics->setScale(gameObject->scale * newLocalScale);
-	}
+Ogre::Vector3 Transform::getWorldScale() const {
+	assert (sceneNode !=  NULL);
+	return sceneNode->getScale();
 }
-// void Transform::setWorldScale(const Ogre::Vector3& newWorldScale) {
-//  TODO: Do this the right way!
-// 	sceneNode->setScale( sceneNode->convertWorldToLocalScale(newWorldScale) );
-// }
+void Transform::setLocalScale(const Ogre::Vector3& newLocalScale) {
+	assert (sceneNode !=  NULL);
+	sceneNode->setScale(newLocalScale);
+	gameObject->physics->setColliderScale(newLocalScale * gameObject->physics->getColliderScale());
+}
+void Transform::setWorldScale(const Ogre::Vector3& newWorldScale) {
+	assert (sceneNode !=  NULL);
+	sceneNode->setScale(newLocalScale);
+	gameObject->physics->setColliderScale(newWorldScale * gameObject->physics->getColliderScale());
+}
 
 
 
