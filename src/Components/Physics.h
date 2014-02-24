@@ -23,6 +23,10 @@ class Physics {
 		void Start();
 		void FixedUpdate();
 
+		void setMass(float newMass);
+		void setGravity(const Ogre::Vector3& newGravity);
+
+
 		void setLinearVelocity(const Ogre::Vector3& veloc) { mRigidBody->setLinearVelocity(btVector3(veloc.x, veloc.y, veloc.z)); }
 		const Ogre::Vector3 getLinearVelocity() const { 
 			btVector3 veloc = mRigidBody->getLinearVelocity();
@@ -39,9 +43,13 @@ class Physics {
 		Ogre::Vector3 getWorldPosition();
 		void setWorldPosition(const Ogre::Vector3& pos);
 
+		void setEnabled(bool enabled);
+		bool isEnabled();
+
 	protected:
 		btRigidBody* mRigidBody;
 		Transform* mTransform;
 		GameObject* gameObject;
+		bool enabled;
 };
 #endif

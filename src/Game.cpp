@@ -4,12 +4,14 @@
 using namespace std;
 
 #include "Game.h"
+
 #include "Scripts/PaddleScript.h"
-#include "Objects/Sphere.h"
+#include "Scripts/PointBlock.h"
+
 #include "Objects/Paddle.h"
+#include "Objects/Sphere.h"
 #include "Objects/Plane.h"
 #include "Objects/Cube.h"
-
 
 //-------------------------------------------------------------------------------------
 Game::Game(void)
@@ -494,6 +496,7 @@ void Game::createLights(void) {
 void Game::createScene(void) {
     cout << "Creating scene..." << endl;
 
+    // Environment
     Cube *ground = new Cube(this);
     ground->transform->setWorldPosition(Ogre::Vector3(0,-1000,0));
     ground->transform->setWorldScale(Ogre::Vector3(20, 1, 20));
@@ -537,12 +540,13 @@ void Game::createScene(void) {
     gameObjects.push_back(north);
 
     
-
+    // Balls
     Sphere *ball01 = new Sphere(this, 75);
     ball01->transform->setWorldPosition(Ogre::Vector3(-100,800,0));
     ball01->name = "ball01";
     ball01->renderer->setMaterial("Examples/SphereMappedRustySteel");
     ball01->physics->setLinearVelocity(Ogre::Vector3(-200, -400, -200));
+    ball01->physics->setGravity(Ogre::Vector3(0, -200, 0));
     gameObjects.push_back(ball01);
 
     Sphere *ball02 = new Sphere(this, 75);
@@ -550,22 +554,34 @@ void Game::createScene(void) {
     ball02->name = "ball02";
     ball02->renderer->setMaterial("Examples/SphereMappedRustySteel");
     ball02->physics->setLinearVelocity(Ogre::Vector3(200, -400, 200));
+    ball02->physics->setGravity(Ogre::Vector3(0, -200, 0));
     gameObjects.push_back(ball02);
 
     Sphere *ball03 = new Sphere(this, 75);
-    ball03->transform->setWorldPosition(Ogre::Vector3(100,800,100));
+    ball03->transform->setWorldPosition(Ogre::Vector3(000,800,000));
     ball03->name = "ball03";
     ball03->renderer->setMaterial("Examples/SphereMappedRustySteel");
-    ball03->physics->setLinearVelocity(Ogre::Vector3(200, -400, -200));
+    ball03->physics->setLinearVelocity(Ogre::Vector3(0, -400, -0));
+    ball03->physics->setGravity(Ogre::Vector3(0, -200, 0));
     gameObjects.push_back(ball03);
 
 
+    // Paddle
     Paddle *newPaddle = new Paddle(this);
     newPaddle->AddComponentOfType<PaddleScript>();
     newPaddle->transform->setWorldPosition(Ogre::Vector3(0,-400,0));
     newPaddle->transform->setLocalScale(Ogre::Vector3(3, .25, 3));
     newPaddle->name = "paddle";
+    newPaddle->renderer->setMaterial("Examples/Rockwall");
     gameObjects.push_back(newPaddle);
+
+
+    // PointBlocks
+    Cube *block01 = new Cube(this);
+    block01->AddComponentOfType<PointBlock>();
+    block01->transform->setWorldPosition(Ogre::Vector3(0,0,0));
+    block01->transform->setLocalScale(Ogre::Vector3(1, 1, 1));
+    gameObjects.push_back(block01);
 
 
     cout << "Done creating scene!" << endl;

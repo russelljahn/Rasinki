@@ -42,7 +42,7 @@ void Transform::setLocalPosition(const Ogre::Vector3& newLocalPosition) {
 }
 void Transform::setWorldPosition(const Ogre::Vector3& newWorldPosition) {
 	assert (sceneNode !=  NULL);
-	std::cout << "setting transform WorldPosition: " << newWorldPosition.x << " " << newWorldPosition.y << " " << newWorldPosition.z << std::endl;
+	// std::cout << "setting transform WorldPosition: " << newWorldPosition.x << " " << newWorldPosition.y << " " << newWorldPosition.z << std::endl;
 	gameObject->physics->setWorldPosition(newWorldPosition);
 }
 

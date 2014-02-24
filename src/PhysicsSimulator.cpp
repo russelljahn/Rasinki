@@ -11,17 +11,17 @@ bool PhysicsSimulator::OnCollision(btManifoldPoint& p, void * obj1, void * obj2)
 		o1->OnCollision(Ogre::Vector3(p.getPositionWorldOnA().x(), p.getPositionWorldOnA().y(), p.getPositionWorldOnA().z()), o2);
 	if (o2 != NULL)
 		o2->OnCollision(Ogre::Vector3(p.getPositionWorldOnA().x(), p.getPositionWorldOnA().y(), p.getPositionWorldOnA().z()), o1);
-	std::cout << "Collision between: ";
-	std::cout << (o1!=NULL ? o1->name : "NULL") << " and " << (o2!=NULL ? o2->name : "NULL");
-	std::cout << " at " << p.getPositionWorldOnA().x() << " " << p.getPositionWorldOnA().y() << " " << p.getPositionWorldOnA().z() << std::endl;
+	// std::cout << "Collision between: ";
+	// std::cout << (o1!=NULL ? o1->name : "NULL") << " and " << (o2!=NULL ? o2->name : "NULL");
+	// std::cout << " at " << p.getPositionWorldOnA().x() << " " << p.getPositionWorldOnA().y() << " " << p.getPositionWorldOnA().z() << std::endl;
 	Ogre::Vector3 pos; 
 	if (o1 != NULL) {
 		pos = o1->physics->getWorldPosition();
-		std::cout << (o1!=NULL ? o1->name : "NULL") << " at " << pos.x << ", " << pos.y << ", " << pos.z <<std::endl;
+		// std::cout << (o1!=NULL ? o1->name : "NULL") << " at " << pos.x << ", " << pos.y << ", " << pos.z <<std::endl;
 	}
 	if (o2 != NULL) {
 		pos = o2->physics->getWorldPosition();
-		std::cout << (o2!=NULL ? o2->name : "NULL") << " at " << pos.x << ", " << pos.y << ", " << pos.z << std::endl;
+		// std::cout << (o2!=NULL ? o2->name : "NULL") << " at " << pos.x << ", " << pos.y << ", " << pos.z << std::endl;
 	}
 	return true;
 }

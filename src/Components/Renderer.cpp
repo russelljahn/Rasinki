@@ -14,6 +14,7 @@ void Renderer::setMaterial(string materialName) {
 
 void Renderer::setEnabled(bool enabled) {
 	entity->setVisible(enabled);
+	this->enabled = enabled;
 }
 
 

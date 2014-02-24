@@ -5,8 +5,5 @@ class Cube : public GameObject {
 
 		Cube(Game *attachedGame);
 		void Start();
-		void Update();
-		void FixedUpdate();
 
-		void Kill();
 };

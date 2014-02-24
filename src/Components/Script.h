@@ -4,6 +4,7 @@
 
 #include <OgreVector3.h>
 #include <OgreSceneNode.h>
+#include <btBulletDynamicsCommon.h>
 
 #include "GameObject.h"
 
