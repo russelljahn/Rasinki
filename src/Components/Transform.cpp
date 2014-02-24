@@ -59,12 +59,12 @@ Ogre::Vector3 Transform::getWorldScale() const {
 void Transform::setLocalScale(const Ogre::Vector3& newLocalScale) {
 	assert (sceneNode !=  NULL);
 	sceneNode->setScale(newLocalScale);
-	gameObject->physics->setColliderScale(newLocalScale * gameObject->physics->getColliderScale());
+	gameObject->physics->setColliderScale(newLocalScale);
 }
 void Transform::setWorldScale(const Ogre::Vector3& newWorldScale) {
 	assert (sceneNode !=  NULL);
-	sceneNode->setScale(newLocalScale);
-	gameObject->physics->setColliderScale(newWorldScale * gameObject->physics->getColliderScale());
+	sceneNode->setScale(newWorldScale);
+	gameObject->physics->setColliderScale(newWorldScale);
 }
 
 

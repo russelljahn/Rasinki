@@ -37,7 +37,10 @@ Physics::~Physics() {
 void Physics::Start() {}
 
 void Physics::FixedUpdate() {
-	
+	btVector3 pos = btVector3(getWorldPosition().x,getWorldPosition().y,getWorldPosition().z);
+	btVector3 scale = mRigidBody->getCollisionShape()->getLocalScaling();
+	std::cout << "position in fixedupdate: " << pos.x() << " " << pos.y() << " " << pos.z() << " SCALE IN FIXEDUPDATE: " << scale.x() << " " << scale.y() << " " << scale.z()<< std::endl;
+	mTransform->sceneNode->setPosition(Ogre::Vector3(pos.x(), pos.y(), pos.z()));
 }
 
 Ogre::Vector3 Physics::getWorldPosition() { 
@@ -55,11 +58,11 @@ void Physics::setWorldPosition(const Ogre::Vector3& pos) {
 	std::cout << "after transform WorldPosition: " << mTransform->sceneNode->getPosition().x << " " << mTransform->sceneNode->getPosition().y << " " << mTransform->sceneNode->getPosition().z << std::endl;
 }
 
-void setColliderScale(const Ogre::Vector3& scale) { 
+void Physics::setColliderScale(const Ogre::Vector3& scale) { 
 	mRigidBody->getCollisionShape()->setLocalScaling(btVector3(scale.x, scale.y, scale.z)); 
 }
 
-Ogre::Vector3 getColliderScale() { 
+Ogre::Vector3 Physics::getColliderScale() { 
 	btVector3 scale = mRigidBody->getCollisionShape()->getLocalScaling();
 	return Ogre::Vector3(scale.x(), scale.y(), scale.z()); 
 }

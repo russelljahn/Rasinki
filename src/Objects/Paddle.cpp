@@ -7,14 +7,15 @@ Paddle::Paddle(Game *attachedGame) : GameObject(attachedGame){
 }
 
 void Paddle::Start() {
-	scale = 10;
+	float scale = 50;
 	transform = new Transform(this, game->getSceneRoot());
 	entity = game->getSceneManager()->createEntity("Paddle", "cube.mesh");
-	//transform->sceneNode->scale(2,0.25,2);
 	transform->sceneNode->attachObject(entity);
 	Ogre::Vector3 halfExtents = transform->getLocalScale()/2.0f;
 	physics = new Physics(*this, 1, new btBoxShape(btVector3(scale, scale, scale)));
 	physics->setLinearFactor(Ogre::Vector3(1,0,1));
+
+	entity->setMaterialName("Examples/Rockwall");
 }
 
 void Paddle::Update() {

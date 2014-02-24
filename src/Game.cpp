@@ -74,9 +74,9 @@ void Game::createCamera(void)
     mCamera = mSceneManager->createCamera("PlayerCam");
 
     // Position it at 500 in Z direction
-    mCamera->setPosition(Ogre::Vector3(1500,1800,2250));
+    mCamera->setPosition(Ogre::Vector3(400,800,400));
     // Look back along -Z
-    mCamera->lookAt(Ogre::Vector3(0,-200,0));
+    mCamera->lookAt(Ogre::Vector3(0,-400,0));
     mCamera->setNearClipDistance(5);
 
     // mCameraMan = new OgreBites::SdkCameraMan(mCamera);   // create a default camera controller
@@ -439,6 +439,12 @@ void Game::windowClosed(Ogre::RenderWindow* rw)
 
 void Game::createLights(void) {
     cout << "Creating lights..." << endl;
+
+    Ogre::Light* directionalLight = mSceneManager->createLight("directionalLight");
+    directionalLight->setType(Ogre::Light::LT_DIRECTIONAL);
+    directionalLight->setDiffuseColour(Ogre::ColourValue(.5, .5, .5));
+    directionalLight->setSpecularColour(Ogre::ColourValue(.25, .25, 0));
+
     Ogre::Light *pointLight = mSceneManager->createLight("pointLight");
     pointLight->setType(Ogre::Light::LT_POINT);
     pointLight->setPosition(Ogre::Vector3(0, 150, 250));
@@ -477,8 +483,9 @@ void Game::createLights(void) {
     spotLight4->setPosition(Ogre::Vector3(0, -300, 0));
     spotLight4->setSpotlightRange(Ogre::Degree(35), Ogre::Degree(50));
 
-    mSceneManager->setAmbientLight(Ogre::ColourValue(0, 0, 0));
-    mSceneManager->setShadowTechnique(Ogre::SHADOWTYPE_STENCIL_ADDITIVE);
+    mSceneManager->setAmbientLight(Ogre::ColourValue(.25, .25, .25));
+    // mSceneManager->setShadowTechnique(Ogre::SHADOWTYPE_STENCIL_ADDITIVE);
+    mSceneManager->setShadowTechnique(Ogre::SHADOWTYPE_NONE);
     cout << "Done creating lights!" << endl;
 }
 
@@ -489,19 +496,45 @@ void Game::createScene(void) {
 
     Cube *newCube = new Cube(this);
     newCube->transform->setWorldPosition(Ogre::Vector3(0,-500,0));
+    newCube->transform->setWorldScale(Ogre::Vector3(20, 1, 20));
     newCube->name = "cube";
     gameObjects.push_back(newCube);
 
-     Sphere *newSphere = new Sphere(this, 200);
-    // //newSphere->AddComponentOfType<PaddleScript>();
-     newSphere->transform->setWorldPosition(Ogre::Vector3(0,800,0));
-     newSphere->name = "sphere";
-     gameObjects.push_back(newSphere);
+    Cube *west = new Cube(this);
+    west->transform->setWorldPosition(Ogre::Vector3(-500,0,0));
+    west->transform->setWorldScale(Ogre::Vector3(1, 20, 20));
+    west->name = "west";
+    gameObjects.push_back(west);
+
+    Cube *east = new Cube(this);
+    east->transform->setWorldPosition(Ogre::Vector3(500,0,0));
+    east->transform->setWorldScale(Ogre::Vector3(1, 20, 20));
+    east->name = "east";
+    gameObjects.push_back(east);
+
+    Cube *north = new Cube(this);
+    north->transform->setWorldPosition(Ogre::Vector3(0, 0, -500));
+    north->transform->setWorldScale(Ogre::Vector3(20, 20, 1));
+    north->name = "north";
+    gameObjects.push_back(north);
+
+    Cube *south = new Cube(this);
+    south->transform->setWorldPosition(Ogre::Vector3(0, 0, 500));
+    south->transform->setWorldScale(Ogre::Vector3(20, 20, 1));
+    south->name = "south";
+    gameObjects.push_back(south);
+
+    
+
+    Sphere *newSphere = new Sphere(this, 100);
+    newSphere->transform->setWorldPosition(Ogre::Vector3(0,800,0));
+    newSphere->name = "sphere";
+    gameObjects.push_back(newSphere);
 
     Paddle *newPaddle = new Paddle(this);
     newPaddle->AddComponentOfType<PaddleScript>();
     newPaddle->transform->setWorldPosition(Ogre::Vector3(0,-400,0));
-    newPaddle->transform->setLocalScale(Ogre::Vector3(10, 1, 10));
+    newPaddle->transform->setLocalScale(Ogre::Vector3(3, 1, 3));
     newPaddle->name = "paddle";
     gameObjects.push_back(newPaddle);
 
