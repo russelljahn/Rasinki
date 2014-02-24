@@ -15,11 +15,21 @@ class GameObject;
 	A Renderer component encapsulates information on the rendering 
 	and materials for a GameObject.
 */
-class Renderer : public Component {
+class Renderer {
 	
 	public:
-		Renderer(GameObject *attachedGameObject);
+		GameObject *gameObject;
+		Ogre::Entity *entity;
 
+
+		Renderer(GameObject *attachedGameObject);
+		void setEnabled(bool enabled);
+		bool isEnabled();
+
+		void setMaterial(std::string materialName);
+
+	protected:
+		bool enabled;
 };
 
 

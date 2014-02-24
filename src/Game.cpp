@@ -74,9 +74,9 @@ void Game::createCamera(void)
     mCamera = mSceneManager->createCamera("PlayerCam");
 
     // Position it at 500 in Z direction
-    mCamera->setPosition(Ogre::Vector3(400,800,400));
+    mCamera->setPosition(Ogre::Vector3(0,500,3000));
     // Look back along -Z
-    mCamera->lookAt(Ogre::Vector3(0,-400,0));
+    mCamera->lookAt(Ogre::Vector3(0,0,0));
     mCamera->setNearClipDistance(5);
 
     // mCameraMan = new OgreBites::SdkCameraMan(mCamera);   // create a default camera controller
@@ -484,8 +484,8 @@ void Game::createLights(void) {
     spotLight4->setSpotlightRange(Ogre::Degree(35), Ogre::Degree(50));
 
     mSceneManager->setAmbientLight(Ogre::ColourValue(.25, .25, .25));
-    // mSceneManager->setShadowTechnique(Ogre::SHADOWTYPE_STENCIL_ADDITIVE);
-    mSceneManager->setShadowTechnique(Ogre::SHADOWTYPE_NONE);
+    mSceneManager->setShadowTechnique(Ogre::SHADOWTYPE_STENCIL_ADDITIVE);
+    // mSceneManager->setShadowTechnique(Ogre::SHADOWTYPE_NONE);
     cout << "Done creating lights!" << endl;
 }
 
@@ -494,35 +494,42 @@ void Game::createLights(void) {
 void Game::createScene(void) {
     cout << "Creating scene..." << endl;
 
-    Cube *newCube = new Cube(this);
-    newCube->transform->setWorldPosition(Ogre::Vector3(0,-500,0));
-    newCube->transform->setWorldScale(Ogre::Vector3(20, 1, 20));
-    newCube->name = "cube";
-    gameObjects.push_back(newCube);
+    Cube *ground = new Cube(this);
+    ground->transform->setWorldPosition(Ogre::Vector3(0,-1000,0));
+    ground->transform->setWorldScale(Ogre::Vector3(20, 1, 20));
+    ground->name = "cube";
+    gameObjects.push_back(ground);
+
+    Cube *ceiling = new Cube(this);
+    ceiling->transform->setWorldPosition(Ogre::Vector3(0,1250,0));
+    ceiling->transform->setWorldScale(Ogre::Vector3(20, 1, 20));
+    ceiling->name = "cube";
+    gameObjects.push_back(ceiling);
 
     Cube *west = new Cube(this);
-    west->transform->setWorldPosition(Ogre::Vector3(-500,0,0));
-    west->transform->setWorldScale(Ogre::Vector3(1, 20, 20));
+    west->transform->setWorldPosition(Ogre::Vector3(-1000,0,0));
+    west->transform->setWorldScale(Ogre::Vector3(1, 25, 20));
     west->name = "west";
     gameObjects.push_back(west);
 
     Cube *east = new Cube(this);
-    east->transform->setWorldPosition(Ogre::Vector3(500,0,0));
-    east->transform->setWorldScale(Ogre::Vector3(1, 20, 20));
+    east->transform->setWorldPosition(Ogre::Vector3(1000,0,0));
+    east->transform->setWorldScale(Ogre::Vector3(1, 25, 20));
     east->name = "east";
     gameObjects.push_back(east);
 
-    Cube *north = new Cube(this);
-    north->transform->setWorldPosition(Ogre::Vector3(0, 0, -500));
-    north->transform->setWorldScale(Ogre::Vector3(20, 20, 1));
-    north->name = "north";
-    gameObjects.push_back(north);
-
     Cube *south = new Cube(this);
-    south->transform->setWorldPosition(Ogre::Vector3(0, 0, 500));
-    south->transform->setWorldScale(Ogre::Vector3(20, 20, 1));
+    south->transform->setWorldPosition(Ogre::Vector3(0, 0, 1000));
+    south->transform->setWorldScale(Ogre::Vector3(20, 25, 1));
     south->name = "south";
+    south->renderer->setEnabled(false);
     gameObjects.push_back(south);
+
+    Cube *north = new Cube(this);
+    north->transform->setWorldPosition(Ogre::Vector3(0, 0, -1000));
+    north->transform->setWorldScale(Ogre::Vector3(20, 25, 1));
+    north->name = "south";
+    gameObjects.push_back(north);
 
     
 

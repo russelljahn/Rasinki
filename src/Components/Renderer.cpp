@@ -1,27 +1,22 @@
 
 #include "Renderer.h"
 
-
-Renderer::Renderer(GameObject *attachedGameObject) : Component(attachedGameObject) {
-	
+Renderer::Renderer(GameObject *attachedGameObject) {
+	gameObject = attachedGameObject;
+	this->enabled = true;
 };
 
 
-
-void Renderer::Start() {
-	Component::Start();
+void Renderer::setMaterial(string materialName) {
+	entity->setMaterialName(materialName);
 }
 
 
-
-void Renderer::Update() {
-	Component::Update();
-	
+void Renderer::setEnabled(bool enabled) {
+	entity->setVisible(enabled);
 }
 
 
-
-void Renderer::FixedUpdate() {
-	Component::FixedUpdate();
-	
+bool Renderer::isEnabled() {
+	return enabled;
 }

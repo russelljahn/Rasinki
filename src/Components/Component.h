@@ -18,7 +18,6 @@ class Component {
 	
 	
 	public:
-		bool enabled;
 		GameObject *gameObject;
 
 		Component(GameObject *attachedGameObject);
@@ -27,6 +26,11 @@ class Component {
 		void virtual Update();
 		void virtual FixedUpdate();
 		void virtual OnCollision(Ogre::Vector3 point, GameObject* collidedWith);
+		void virtual SetEnabled(bool enabled);
+		bool IsEnabled();
+
+	protected:
+		bool enabled;
 };
 
 

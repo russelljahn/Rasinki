@@ -15,6 +15,9 @@ GameObject::GameObject(Game *attachedGame) {
 	ostringstream nameCoverter;
 	nameCoverter << id;
 	this->name = nameCoverter.str();
+	this->gameObject = this;
+
+	renderer = new Renderer(this);
 	Start();
 }
 

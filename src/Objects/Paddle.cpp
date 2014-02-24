@@ -9,13 +9,13 @@ Paddle::Paddle(Game *attachedGame) : GameObject(attachedGame){
 void Paddle::Start() {
 	float scale = 50;
 	transform = new Transform(this, game->getSceneRoot());
-	entity = game->getSceneManager()->createEntity("Paddle", "cube.mesh");
-	transform->sceneNode->attachObject(entity);
+	renderer->entity = game->getSceneManager()->createEntity("Paddle", "cube.mesh");
+	transform->sceneNode->attachObject(renderer->entity);
 	Ogre::Vector3 halfExtents = transform->getLocalScale()/2.0f;
-	physics = new Physics(*this, 1, new btBoxShape(btVector3(scale, scale, scale)));
+	physics = new Physics(this, 1, new btBoxShape(btVector3(scale, scale, scale)));
 	physics->setLinearFactor(Ogre::Vector3(1,0,1));
 
-	entity->setMaterialName("Examples/Rockwall");
+	renderer->setMaterial("Examples/Rockwall");
 }
 
 void Paddle::Update() {

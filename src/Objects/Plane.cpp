@@ -18,12 +18,12 @@ void Plane::Start() {
         Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME,
         this->plane, 1500, 1000, 20, 20, true, 1, 5, 5, Ogre::Vector3::UNIT_Y);
 
-	entity = game->getSceneManager()->createEntity("Plane"+this->id, "plane"+this->id);
-	entity->setMaterialName("Examples/Rockwall");
-    entity->setCastShadows(false);
-	transform->sceneNode->attachObject(entity);
+	renderer->entity = game->getSceneManager()->createEntity("Plane"+this->id, "plane"+this->id);
+	renderer->setMaterial("Examples/Rockwall");
+  
+	transform->sceneNode->attachObject(renderer->entity);
 
-	physics = new Physics(*this,0);
+	physics = new Physics(this,0);
 
 
 }

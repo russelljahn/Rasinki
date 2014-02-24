@@ -15,6 +15,7 @@
 #include "Components/Component.h"
 #include "Components/Transform.h"
 #include "Components/Physics.h"
+#include "Components/Renderer.h"
 
 
 
@@ -23,6 +24,7 @@ class Game;
 class Component;
 class Transform;
 class Physics;
+class Renderer;
 
 /* 
 	A GameObject is an aggregation of components with different functionality.
@@ -39,9 +41,11 @@ class GameObject {
 		int id;
 		bool enabled;
 
+		GameObject *gameObject; // Pointer to self.
 		Transform *transform; // TODO: Make this protected but retrievable through GetComponentOfType<>()!
 		Game *game; // TODO: Figure out how to make this unneeded to be public for abstraction-sake!
 		Physics* physics;
+		Renderer* renderer;
 		
 		GameObject(Game *attachedGame);
 
@@ -66,7 +70,6 @@ class GameObject {
 	protected:
 		std::vector<Component *> components;
 
-		Ogre::Entity *entity;
 
 		static int nextAvailableId;
 };
