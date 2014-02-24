@@ -7,9 +7,14 @@ Cube::Cube(Game *attachedGame) : GameObject(attachedGame) {
 }
 
 void Cube::Start() {
+	ostringstream nameCoverter;
+	nameCoverter << "cube ";
+	nameCoverter << id;
+
+
 	transform = new Transform(this, game->getSceneRoot());
 
-	renderer->entity = game->getSceneManager()->createEntity("cube"+this->id, "cube.mesh");
+	renderer->entity = game->getSceneManager()->createEntity(nameCoverter.str(), "cube.mesh");
 	transform->sceneNode->attachObject(renderer->entity);
 
 	Ogre::Vector3 halfExtents = transform->getLocalScale()/2.0f;

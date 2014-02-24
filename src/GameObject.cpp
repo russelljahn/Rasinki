@@ -18,6 +18,8 @@ GameObject::GameObject(Game *attachedGame) {
 	this->gameObject = this;
 
 	renderer = new Renderer(this);
+
+	std::cout << "Creating GameObject with id: " << id << std::endl;
 	Start();
 }
 

@@ -498,6 +498,7 @@ void Game::createScene(void) {
     ground->transform->setWorldPosition(Ogre::Vector3(0,-1000,0));
     ground->transform->setWorldScale(Ogre::Vector3(20, 1, 20));
     ground->name = "cube";
+    ground->renderer->setMaterial("Examples/GrassFloor");
     gameObjects.push_back(ground);
 
     Cube *ceiling = new Cube(this);
@@ -510,38 +511,59 @@ void Game::createScene(void) {
     west->transform->setWorldPosition(Ogre::Vector3(-1000,0,0));
     west->transform->setWorldScale(Ogre::Vector3(1, 25, 20));
     west->name = "west";
+    west->renderer->setMaterial("Examples/BumpyMetal");
     gameObjects.push_back(west);
 
     Cube *east = new Cube(this);
     east->transform->setWorldPosition(Ogre::Vector3(1000,0,0));
     east->transform->setWorldScale(Ogre::Vector3(1, 25, 20));
     east->name = "east";
+    east->renderer->setMaterial("Examples/BumpyMetal");
     gameObjects.push_back(east);
 
     Cube *south = new Cube(this);
     south->transform->setWorldPosition(Ogre::Vector3(0, 0, 1000));
     south->transform->setWorldScale(Ogre::Vector3(20, 25, 1));
     south->name = "south";
+    south->renderer->setMaterial("Examples/BumpyMetal");
     south->renderer->setEnabled(false);
     gameObjects.push_back(south);
 
     Cube *north = new Cube(this);
     north->transform->setWorldPosition(Ogre::Vector3(0, 0, -1000));
     north->transform->setWorldScale(Ogre::Vector3(20, 25, 1));
-    north->name = "south";
+    north->name = "north";
+    north->renderer->setMaterial("Examples/BumpyMetal");
     gameObjects.push_back(north);
 
     
 
-    Sphere *newSphere = new Sphere(this, 100);
-    newSphere->transform->setWorldPosition(Ogre::Vector3(0,800,0));
-    newSphere->name = "sphere";
-    gameObjects.push_back(newSphere);
+    Sphere *ball01 = new Sphere(this, 75);
+    ball01->transform->setWorldPosition(Ogre::Vector3(-100,800,0));
+    ball01->name = "ball01";
+    ball01->renderer->setMaterial("Examples/SphereMappedRustySteel");
+    ball01->physics->setLinearVelocity(Ogre::Vector3(-200, -400, -200));
+    gameObjects.push_back(ball01);
+
+    Sphere *ball02 = new Sphere(this, 75);
+    ball02->transform->setWorldPosition(Ogre::Vector3(100,800,0));
+    ball02->name = "ball02";
+    ball02->renderer->setMaterial("Examples/SphereMappedRustySteel");
+    ball02->physics->setLinearVelocity(Ogre::Vector3(200, -400, 200));
+    gameObjects.push_back(ball02);
+
+    Sphere *ball03 = new Sphere(this, 75);
+    ball03->transform->setWorldPosition(Ogre::Vector3(100,800,100));
+    ball03->name = "ball03";
+    ball03->renderer->setMaterial("Examples/SphereMappedRustySteel");
+    ball03->physics->setLinearVelocity(Ogre::Vector3(200, -400, -200));
+    gameObjects.push_back(ball03);
+
 
     Paddle *newPaddle = new Paddle(this);
     newPaddle->AddComponentOfType<PaddleScript>();
     newPaddle->transform->setWorldPosition(Ogre::Vector3(0,-400,0));
-    newPaddle->transform->setLocalScale(Ogre::Vector3(3, 1, 3));
+    newPaddle->transform->setLocalScale(Ogre::Vector3(3, .25, 3));
     newPaddle->name = "paddle";
     gameObjects.push_back(newPaddle);
 
