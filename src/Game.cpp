@@ -82,8 +82,6 @@ void Game::createCamera(void)
     mCamera->lookAt(Ogre::Vector3(0,0,0));
     mCamera->setNearClipDistance(5);
 
-    // mCameraMan = new OgreBites::SdkCameraMan(mCamera);   // create a default camera controller
-    // mCameraMan->setTopSpeed(400.0f);
 }
 //-------------------------------------------------------------------------------------
 void Game::createFrameListener(void)
@@ -112,6 +110,7 @@ void Game::createFrameListener(void)
     Ogre::WindowEventUtilities::addWindowEventListener(mWindow, this);
 
     mTrayManager = new OgreBites::SdkTrayManager("InterfaceName", mWindow, mMouse, this);
+    mTrayManager->hideCursor();
 
     // create a params panel for displaying sample details
     Ogre::StringVector items;
@@ -121,6 +120,8 @@ void Game::createFrameListener(void)
     mDetailsPanel = mTrayManager->createParamsPanel(OgreBites::TL_NONE, "DetailsPanel", 200, items);
 
     mRoot->addFrameListener(this);
+
+
 }
 //-------------------------------------------------------------------------------------
 void Game::destroyScene(void)
@@ -263,122 +264,33 @@ bool Game::frameRenderingQueued(const Ogre::FrameEvent& evt)
 //-------------------------------------------------------------------------------------
 bool Game::keyPressed( const OIS::KeyEvent &arg )
 {
-    // if (mTrayManager->isDialogVisible()) return true;   // don't process any more keys if dialog is up
-
-    // if (arg.key == OIS::KC_F)   // toggle visibility of advanced frame stats
-    // {
-    //     mTrayManager->toggleAdvancedFrameStats();
-    // }
-    // else if (arg.key == OIS::KC_G)   // toggle visibility of even rarer debugging details
-    // {
-    //     if (mDetailsPanel->getTrayLocation() == OgreBites::TL_NONE)
-    //     {
-    //         mTrayManager->moveWidgetToTray(mDetailsPanel, OgreBites::TL_TOPRIGHT, 0);
-    //         mDetailsPanel->show();
-    //     }
-    //     else
-    //     {
-    //         mTrayManager->removeWidgetFromTray(mDetailsPanel);
-    //         mDetailsPanel->hide();
-    //     }
-    // }
-    // else if (arg.key == OIS::KC_T)   // cycle polygon rendering mode
-    // {
-    //     Ogre::String newVal;
-    //     Ogre::TextureFilterOptions tfo;
-    //     unsigned int aniso;
-
-    //     switch (mDetailsPanel->getParamValue(9).asUTF8()[0])
-    //     {
-    //     case 'B':
-    //         newVal = "Trilinear";
-    //         tfo = Ogre::TFO_TRILINEAR;
-    //         aniso = 1;
-    //         break;
-    //     case 'T':
-    //         newVal = "Anisotropic";
-    //         tfo = Ogre::TFO_ANISOTROPIC;
-    //         aniso = 8;
-    //         break;
-    //     case 'A':
-    //         newVal = "None";
-    //         tfo = Ogre::TFO_NONE;
-    //         aniso = 1;
-    //         break;
-    //     default:
-    //         newVal = "Bilinear";
-    //         tfo = Ogre::TFO_BILINEAR;
-    //         aniso = 1;
-    //     }
-
-    //     Ogre::MaterialManager::getSingleton().setDefaultTextureFiltering(tfo);
-    //     Ogre::MaterialManager::getSingleton().setDefaultAnisotropy(aniso);
-    //     mDetailsPanel->setParamValue(9, newVal);
-    // }
-    // else if (arg.key == OIS::KC_R)   // cycle polygon rendering mode
-    // {
-    //     Ogre::String newVal;
-    //     Ogre::PolygonMode pm;
-
-    //     switch (mCamera->getPolygonMode())
-    //     {
-    //     case Ogre::PM_SOLID:
-    //         newVal = "Wireframe";
-    //         pm = Ogre::PM_WIREFRAME;
-    //         break;
-    //     case Ogre::PM_WIREFRAME:
-    //         newVal = "Points";
-    //         pm = Ogre::PM_POINTS;
-    //         break;
-    //     default:
-    //         newVal = "Solid";
-    //         pm = Ogre::PM_SOLID;
-    //     }
-
-    //     mCamera->setPolygonMode(pm);
-    //     mDetailsPanel->setParamValue(10, newVal);
-    // }
-    // else if(arg.key == OIS::KC_F5)   // refresh all textures
-    // {
-    //     Ogre::TextureManager::getSingleton().reloadAll();
-    // }
-    // else if (arg.key == OIS::KC_SYSRQ)   // take a screenshot
-    // {
-    //     mWindow->writeContentsToTimestampedFile("screenshot", ".jpg");
-    // }
-    if (arg.key == OIS::KC_ESCAPE)
-    {
+    if (arg.key == OIS::KC_ESCAPE) {
         mShutDown = true;
     }
 
-    // mCameraMan->injectKeyDown(arg);
     return true;
 }
 
 bool Game::keyReleased( const OIS::KeyEvent &arg )
 {
-    // mCameraMan->injectKeyUp(arg);
     return true;
 }
 
 bool Game::mouseMoved( const OIS::MouseEvent &arg )
 {
     if (mTrayManager->injectMouseMove(arg)) return true;
-    // mCameraMan->injectMouseMove(arg);
     return true;
 }
 
 bool Game::mousePressed( const OIS::MouseEvent &arg, OIS::MouseButtonID id )
 {
     if (mTrayManager->injectMouseDown(arg, id)) return true;
-    // mCameraMan->injectMouseDown(arg, id);
     return true;
 }
 
 bool Game::mouseReleased( const OIS::MouseEvent &arg, OIS::MouseButtonID id )
 {
     if (mTrayManager->injectMouseUp(arg, id)) return true;
-    // mCameraMan->injectMouseUp(arg, id);
     return true;
 }
 
