@@ -28,9 +28,6 @@
 #include <SdkTrays.h>
 #include <SdkCameraMan.h>
 
-#include <CEGUI/CEGUI.h>
-#include <CEGUI/RendererModules/Ogre/CEGUIOgreRenderer.h>
-
 #include <vector>
 
 #include "GameObject.h"
@@ -105,7 +102,6 @@ protected:
     //Unattach OIS before window shutdown (very important under Linux)
     virtual void windowClosed(Ogre::RenderWindow* rw);
 
-    bool quit(const CEGUI::EventArgs &e);
 
     Ogre::Root *mRoot;
     Ogre::Camera* mCamera;
