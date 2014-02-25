@@ -27,4 +27,5 @@ void PointBlock::Update() {
 void PointBlock::OnCollision(Ogre::Vector3 point, GameObject* collidedWith) {
 	this->gameObject->renderer->setEnabled(false);
 	this->gameObject->physics->setEnabled(false);
+	gameObject->game->getPlayer()->scored(pointsOnDeath);
 }

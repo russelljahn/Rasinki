@@ -32,12 +32,13 @@
 
 #include "GameObject.h"
 #include "PhysicsSimulator.h"
-
+#include "Player.h"
 
 
 /*Foward Declarations*/
 class GameObject;
 class PhysicsSimulator;
+class Player;
 
 
 using namespace std;
@@ -72,6 +73,7 @@ public:
     OIS::Keyboard* getKeyboard(void);
     OIS::Mouse* getMouse(void);
     Ogre::Camera* getCamera(void);
+    Player* getPlayer(void);
 
 
 protected:
@@ -123,6 +125,7 @@ protected:
     OIS::Keyboard* mKeyboard;
 
     PhysicsSimulator* mPhysicsSimulator;
+    Player* mPlayer;
     // Miscellaneous
     vector<GameObject *> gameObjects;
 };
