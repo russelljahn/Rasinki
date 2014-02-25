@@ -224,7 +224,7 @@ bool Game::setup(void)
 {
     mRoot = new Ogre::Root(mPluginsConfig);
     mPhysicsSimulator = new PhysicsSimulator();
-
+    mPlayer = new Player();
     setupResources();
 
     bool carryOn = configure();
@@ -305,7 +305,6 @@ bool Game::frameRenderingQueued(const Ogre::FrameEvent& evt)
     for (auto gameObjectIter = gameObjects.begin(); gameObjectIter != gameObjects.end(); ++gameObjectIter) {
         (*gameObjectIter)->Update();
     }
-
     return true;
 }
 //-------------------------------------------------------------------------------------
@@ -675,4 +674,8 @@ int Game::camSide () {
         return 3;
     else if ( camToY.dotProduct( Ogre::Vector3(-1,0,-1) ) > 0 && camToY.dotProduct( Ogre::Vector3(-1,0,1) ) > 0 ) 
         return 4;
+}
+
+Player* Game::getPlayer(void) {
+    return mPlayer;
 }
