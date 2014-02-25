@@ -77,7 +77,7 @@ void Game::createCamera(void)
     mCamera = mSceneManager->createCamera("PlayerCam");
 
     // Position it at 500 in Z direction
-    mCamera->setPosition(Ogre::Vector3(2000,2000,2000));
+    mCamera->setPosition(Ogre::Vector3(3000,3000,3000));
     // Look back along -Z
     mCamera->lookAt(Ogre::Vector3(0,0,0));
     mCamera->setNearClipDistance(5);
@@ -581,7 +581,6 @@ void Game::createScene(void) {
     ball01->name = "ball01";
     ball01->renderer->setMaterial("Examples/SphereMappedRustySteel");
     ball01->physics->setLinearVelocity(Ogre::Vector3(-200, -400, -200));
-    ball01->physics->setGravity(Ogre::Vector3(0, -200, 0));
     gameObjects.push_back(ball01);
 
     Sphere *ball02 = new Sphere(this, 75);
@@ -589,7 +588,6 @@ void Game::createScene(void) {
     ball02->name = "ball02";
     ball02->renderer->setMaterial("Examples/SphereMappedRustySteel");
     ball02->physics->setLinearVelocity(Ogre::Vector3(200, -400, 200));
-    ball02->physics->setGravity(Ogre::Vector3(0, -200, 0));
     gameObjects.push_back(ball02);
 
     Sphere *ball03 = new Sphere(this, 75);
@@ -597,7 +595,6 @@ void Game::createScene(void) {
     ball03->name = "ball03";
     ball03->renderer->setMaterial("Examples/SphereMappedRustySteel");
     ball03->physics->setLinearVelocity(Ogre::Vector3(0, -400, -0));
-    ball03->physics->setGravity(Ogre::Vector3(0, -200, 0));
     gameObjects.push_back(ball03);
 
 
