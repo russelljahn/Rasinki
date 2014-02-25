@@ -460,6 +460,11 @@ void Game::windowClosed(Ogre::RenderWindow* rw)
 }
 
 
+bool Game::quit(const CEGUI::EventArgs &e) {
+    std::cout << "Quitting Rasinki..." << std::endl;
+    return true;
+}
+
 
 
 void Game::createLights(void) {
