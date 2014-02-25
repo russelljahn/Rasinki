@@ -224,7 +224,7 @@ bool Game::setup(void)
 {
     mRoot = new Ogre::Root(mPluginsConfig);
     mPhysicsSimulator = new PhysicsSimulator();
-
+    mPlayer = new Player();
     setupResources();
 
     bool carryOn = configure();
@@ -305,7 +305,6 @@ bool Game::frameRenderingQueued(const Ogre::FrameEvent& evt)
     for (auto gameObjectIter = gameObjects.begin(); gameObjectIter != gameObjects.end(); ++gameObjectIter) {
         (*gameObjectIter)->Update();
     }
-
     return true;
 }
 //-------------------------------------------------------------------------------------
@@ -641,4 +640,7 @@ OIS::Mouse* Game::getMouse(void) {
 
 Ogre::Camera* Game::getCamera(void) {
     return mCamera;
+}
+Player* Game::getPlayer(void) {
+    return mPlayer;
 }
