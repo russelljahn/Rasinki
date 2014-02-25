@@ -505,6 +505,41 @@ OIS::Mouse* Game::getMouse(void) {
 Ogre::Camera* Game::getCamera(void) {
     return mCamera;
 }
+
+int Game::camQuadrant () {
+    Ogre::Vector3 pos = mCamera->getPosition();
+    if(pos.x > 0 & pos.z > 0)
+    {
+        return 1;
+    }
+    else if(pos.x > 0 & pos.z < 0)
+    {
+        return 2;
+    }
+    else if(pos.x < 0 & pos.z > 0)
+    {
+        return 3;
+    }
+    else if(pos.x < 0 & pos.z < 0)
+    {
+        return 4;
+    }
+}
+
+int Game::camSide () {
+    Ogre::Vector3 pos = mCamera->getPosition();
+    Ogre::Vector3 camToY = Ogre::Vector3(pos.x, 0, pos.z);
+    
+    if( camToY.dotProduct( Ogre::Vector3(-1,0,1) ) > 0 && camToY.dotProduct( Ogre::Vector3(1,0,1) ) > 0 )
+        return 1;
+    else if ( camToY.dotProduct( Ogre::Vector3(1,0,1) ) > 0 && camToY.dotProduct( Ogre::Vector3(1,0,-1) ) > 0 ) 
+        return 2;
+    else if ( camToY.dotProduct( Ogre::Vector3(1,0,-1) ) > 0 && camToY.dotProduct( Ogre::Vector3(-1,0,-1) ) > 0 )
+        return 3;
+    else if ( camToY.dotProduct( Ogre::Vector3(-1,0,-1) ) > 0 && camToY.dotProduct( Ogre::Vector3(-1,0,1) ) > 0 ) 
+        return 4;
+}
+
 Player* Game::getPlayer(void) {
     return mPlayer;
 }

@@ -19,27 +19,98 @@ void PaddleScript::Update() {
 	Script::Update();
 	gameObject->physics->setLinearVelocity(Ogre::Vector3(0, 0, 0));
 	float movementSpeed = 1500.0f;
+	int side = gameObject->game->camSide();
 
 	if (gameObject->game->getKeyboard()->isKeyDown(OIS::KC_LEFT) || gameObject->game->getKeyboard()->isKeyDown(OIS::KC_A)) {
-		std::cout << "Hey, pressing left!" << std::endl;
-		
 		Ogre::Vector3 veloc = gameObject->physics->getLinearVelocity();
-		veloc.x = -movementSpeed;
+
+		switch(side)
+		{
+			case 1:
+				veloc.x = -movementSpeed;
+				break;
+			case 2:
+				veloc.z = movementSpeed;
+				break;
+			case 3:
+				veloc.x = movementSpeed;
+				break;
+			case 4:
+				veloc.z = -movementSpeed;
+				break;
+			default:
+				break;
+		}
+
 		gameObject->physics->setLinearVelocity(veloc);
 	}
 	if (gameObject->game->getKeyboard()->isKeyDown(OIS::KC_RIGHT) || gameObject->game->getKeyboard()->isKeyDown(OIS::KC_D)) {
 		Ogre::Vector3 veloc = gameObject->physics->getLinearVelocity();
-		veloc.x = movementSpeed;
+
+		switch(side)
+		{
+			case 1:
+				veloc.x = movementSpeed;
+				break;
+			case 2:
+				veloc.z = -movementSpeed;
+				break;
+			case 3:
+				veloc.x = -movementSpeed;
+				break;
+			case 4:
+				veloc.z = movementSpeed;
+				break;
+			default:
+				break;
+		}
+
 		gameObject->physics->setLinearVelocity(veloc);
 	}
 	if (gameObject->game->getKeyboard()->isKeyDown(OIS::KC_UP) || gameObject->game->getKeyboard()->isKeyDown(OIS::KC_W)) {
 		Ogre::Vector3 veloc = gameObject->physics->getLinearVelocity();
-		veloc.z = -movementSpeed;
+
+		switch(side)
+		{
+			case 1:
+				veloc.z = -movementSpeed;
+				break;
+			case 2:
+				veloc.x = -movementSpeed;
+				break;
+			case 3:
+				veloc.z = movementSpeed;
+				break;
+			case 4:
+				veloc.x = movementSpeed;
+				break;
+			default:
+				break;
+		}
+
 		gameObject->physics->setLinearVelocity(veloc);
 	}
 	if (gameObject->game->getKeyboard()->isKeyDown(OIS::KC_DOWN) || gameObject->game->getKeyboard()->isKeyDown(OIS::KC_S)) {
 		Ogre::Vector3 veloc = gameObject->physics->getLinearVelocity();
-		veloc.z = movementSpeed;
+		
+		switch(side)
+		{
+			case 1:
+				veloc.z = movementSpeed;
+				break;
+			case 2:
+				veloc.x = movementSpeed;
+				break;
+			case 3:
+				veloc.z = -movementSpeed;
+				break;
+			case 4:
+				veloc.x = -movementSpeed;
+				break;
+			default:
+				break;
+		}
+
 		gameObject->physics->setLinearVelocity(veloc);
 	}
 }

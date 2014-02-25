@@ -73,6 +73,8 @@ public:
     OIS::Keyboard* getKeyboard(void);
     OIS::Mouse* getMouse(void);
     Ogre::Camera* getCamera(void);
+    int camQuadrant(void);
+    int camSide(void);
     Player* getPlayer(void);
 
 
