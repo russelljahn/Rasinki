@@ -20,7 +20,6 @@ void PaddleScript::Update() {
 	gameObject->physics->setLinearVelocity(Ogre::Vector3(0, 0, 0));
 	float movementSpeed = 1500.0f;
 
-
 	if (gameObject->game->getKeyboard()->isKeyDown(OIS::KC_LEFT) || gameObject->game->getKeyboard()->isKeyDown(OIS::KC_A)) {
 		std::cout << "Hey, pressing left!" << std::endl;
 		

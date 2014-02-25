@@ -7,6 +7,7 @@ using namespace std;
 
 #include "Scripts/PaddleScript.h"
 #include "Scripts/PointBlock.h"
+#include "Scripts/Wall.h"
 
 #include "Objects/Paddle.h"
 #include "Objects/Sphere.h"
@@ -76,7 +77,7 @@ void Game::createCamera(void)
     mCamera = mSceneManager->createCamera("PlayerCam");
 
     // Position it at 500 in Z direction
-    mCamera->setPosition(Ogre::Vector3(0,500,3000));
+    mCamera->setPosition(Ogre::Vector3(2000,2000,2000));
     // Look back along -Z
     mCamera->lookAt(Ogre::Vector3(0,0,0));
     mCamera->setNearClipDistance(5);
@@ -264,6 +265,28 @@ bool Game::frameRenderingQueued(const Ogre::FrameEvent& evt)
     mTrayManager->frameRenderingQueued(evt);
     mPhysicsSimulator->stepSimulation(evt.timeSinceLastFrame);
 
+    if (mKeyboard->isKeyDown(OIS::KC_Z))
+    {
+        Ogre::Vector3 pos = mCamera->getPosition();
+        Ogre::Vector3 rotPos = Ogre::Vector3::ZERO;
+        rotPos.x = Ogre::Math::Cos(.01)*pos.x + Ogre::Math::Sin(.01)*pos.z;
+        rotPos.z = Ogre::Math::Sin(.01)*-pos.x + Ogre::Math::Cos(.01)*pos.z;
+        mCamera->setPosition(Ogre::Vector3(rotPos.x, pos.y, rotPos.z));
+        mCamera->lookAt(Ogre::Vector3(0,0,0));
+        mCamera->setNearClipDistance(5);
+        
+    }
+    else if (mKeyboard->isKeyDown(OIS::KC_X))
+    {
+        Ogre::Vector3 pos = mCamera->getPosition();
+        Ogre::Vector3 rotPos = Ogre::Vector3::ZERO;
+        rotPos.x = Ogre::Math::Cos(-.01)*pos.x + Ogre::Math::Sin(-.01)*pos.z;
+        rotPos.z = Ogre::Math::Sin(-.01)*-pos.x + Ogre::Math::Cos(-.01)*pos.z;
+        mCamera->setPosition(Ogre::Vector3(rotPos.x, pos.y, rotPos.z));
+        mCamera->lookAt(Ogre::Vector3(0,0,0));
+        mCamera->setNearClipDistance(5);
+    }
+
     if (!mTrayManager->isDialogVisible())
     {
         // mCameraMan->frameRenderingQueued(evt);   // if dialog isn't up, then update the camera
@@ -444,12 +467,13 @@ void Game::createLights(void) {
 
     Ogre::Light* directionalLight = mSceneManager->createLight("directionalLight");
     directionalLight->setType(Ogre::Light::LT_DIRECTIONAL);
+    directionalLight->setDirection(Ogre::Vector3(0,-1,0));
     directionalLight->setDiffuseColour(Ogre::ColourValue(.5, .5, .5));
     directionalLight->setSpecularColour(Ogre::ColourValue(.25, .25, 0));
 
     Ogre::Light *pointLight = mSceneManager->createLight("pointLight");
     pointLight->setType(Ogre::Light::LT_POINT);
-    pointLight->setPosition(Ogre::Vector3(0, 150, 250));
+    pointLight->setPosition(Ogre::Vector3(0, 1000, 0));
     pointLight->setDiffuseColour(1.0, 0.8, 0.8);
     pointLight->setSpecularColour(1.0, 0.8, 0.8);
 
@@ -507,10 +531,12 @@ void Game::createScene(void) {
     Cube *ceiling = new Cube(this);
     ceiling->transform->setWorldPosition(Ogre::Vector3(0,1250,0));
     ceiling->transform->setWorldScale(Ogre::Vector3(20, 1, 20));
-    ceiling->name = "cube";
+    ceiling->name = "ceiling";
+    ceiling->renderer->setEnabled(false);
     gameObjects.push_back(ceiling);
 
     Cube *west = new Cube(this);
+    west->AddComponentOfType<Wall>();
     west->transform->setWorldPosition(Ogre::Vector3(-1000,0,0));
     west->transform->setWorldScale(Ogre::Vector3(1, 25, 20));
     west->name = "west";
@@ -518,13 +544,16 @@ void Game::createScene(void) {
     gameObjects.push_back(west);
 
     Cube *east = new Cube(this);
+    east->AddComponentOfType<Wall>();
     east->transform->setWorldPosition(Ogre::Vector3(1000,0,0));
     east->transform->setWorldScale(Ogre::Vector3(1, 25, 20));
     east->name = "east";
     east->renderer->setMaterial("Examples/BumpyMetal");
+    east->renderer->setEnabled(false);
     gameObjects.push_back(east);
 
     Cube *south = new Cube(this);
+    south->AddComponentOfType<Wall>();
     south->transform->setWorldPosition(Ogre::Vector3(0, 0, 1000));
     south->transform->setWorldScale(Ogre::Vector3(20, 25, 1));
     south->name = "south";
@@ -533,6 +562,7 @@ void Game::createScene(void) {
     gameObjects.push_back(south);
 
     Cube *north = new Cube(this);
+    north->AddComponentOfType<Wall>();
     north->transform->setWorldPosition(Ogre::Vector3(0, 0, -1000));
     north->transform->setWorldScale(Ogre::Vector3(20, 25, 1));
     north->name = "north";
@@ -581,6 +611,7 @@ void Game::createScene(void) {
     block01->AddComponentOfType<PointBlock>();
     block01->transform->setWorldPosition(Ogre::Vector3(0,0,0));
     block01->transform->setLocalScale(Ogre::Vector3(1, 1, 1));
+    block01->name = "cube";
     gameObjects.push_back(block01);
 
 
@@ -605,4 +636,12 @@ PhysicsSimulator* Game::getPhysicsSimulator(void) {
 
 OIS::Keyboard* Game::getKeyboard(void) {
     return mKeyboard;
+}
+
+OIS::Mouse* Game::getMouse(void) {
+    return mMouse;
+}
+
+Ogre::Camera* Game::getCamera(void) {
+    return mCamera;
 }

@@ -70,6 +70,8 @@ public:
     Ogre::SceneManager* getSceneManager(void);
     PhysicsSimulator* getPhysicsSimulator(void);
     OIS::Keyboard* getKeyboard(void);
+    OIS::Mouse* getMouse(void);
+    Ogre::Camera* getCamera(void);
 
 
 protected:
