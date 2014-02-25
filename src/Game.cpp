@@ -251,9 +251,31 @@ bool Game::frameRenderingQueued(const Ogre::FrameEvent& evt)
     mTrayManager->frameRenderingQueued(evt);
     mPhysicsSimulator->stepSimulation(evt.timeSinceLastFrame);
 
+    if (mKeyboard->isKeyDown(OIS::KC_Z))
+    {
+        Ogre::Vector3 pos = mCamera->getPosition();
+        Ogre::Vector3 rotPos = Ogre::Vector3::ZERO;
+        rotPos.x = Ogre::Math::Cos(.01)*pos.x + Ogre::Math::Sin(.01)*pos.z;
+        rotPos.z = Ogre::Math::Sin(.01)*-pos.x + Ogre::Math::Cos(.01)*pos.z;
+        mCamera->setPosition(Ogre::Vector3(rotPos.x, pos.y, rotPos.z));
+        mCamera->lookAt(Ogre::Vector3(0,0,0));
+        mCamera->setNearClipDistance(5);
+        
+    }
+    else if (mKeyboard->isKeyDown(OIS::KC_X))
+    {
+        Ogre::Vector3 pos = mCamera->getPosition();
+        Ogre::Vector3 rotPos = Ogre::Vector3::ZERO;
+        rotPos.x = Ogre::Math::Cos(-.01)*pos.x + Ogre::Math::Sin(-.01)*pos.z;
+        rotPos.z = Ogre::Math::Sin(-.01)*-pos.x + Ogre::Math::Cos(-.01)*pos.z;
+        mCamera->setPosition(Ogre::Vector3(rotPos.x, pos.y, rotPos.z));
+        mCamera->lookAt(Ogre::Vector3(0,0,0));
+        mCamera->setNearClipDistance(5);
+    }
+
     if (mDetailsPanel->isVisible()) {
-        mDetailsPanel->setParamValue(0, Ogre::StringConverter::toString(0));
-        mDetailsPanel->setParamValue(1, Ogre::StringConverter::toString(0));
+        mDetailsPanel->setParamValue(0, Ogre::StringConverter::toString(mPlayer->getScore())); // Score
+        mDetailsPanel->setParamValue(1, Ogre::StringConverter::toString(0)); // Time elapsed
     }
 
     for (auto gameObjectIter = gameObjects.begin(); gameObjectIter != gameObjects.end(); ++gameObjectIter) {
