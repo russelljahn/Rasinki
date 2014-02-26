@@ -2,7 +2,7 @@
 using namespace std;
 
 
-Ogre::Vector3 PhysicsSimulator::gravity = Ogre::Vector3(0, -98, 0);
+Ogre::Vector3 PhysicsSimulator::gravity = Ogre::Vector3(0, -980, 0);
 
 bool PhysicsSimulator::OnCollision(btManifoldPoint& p, void * obj1, void * obj2){
 	GameObject * o1 = (GameObject*)((btCollisionObject*)obj1)->getUserPointer();

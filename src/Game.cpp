@@ -210,6 +210,7 @@ bool Game::setup(void)
 {
     mRoot = new Ogre::Root(mPluginsConfig);
     mPhysicsSimulator = new PhysicsSimulator();
+    mSoundManager = new SoundManager();
     mPlayer = new Player();
     setupResources();
 
@@ -250,7 +251,7 @@ bool Game::frameRenderingQueued(const Ogre::FrameEvent& evt)
 
     mTrayManager->frameRenderingQueued(evt);
     mPhysicsSimulator->stepSimulation(evt.timeSinceLastFrame);
-
+    mSoundManager->playSound();
     if (mKeyboard->isKeyDown(OIS::KC_Z))
     {
         Ogre::Vector3 pos = mCamera->getPosition();

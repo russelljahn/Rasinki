@@ -33,13 +33,14 @@
 #include "GameObject.h"
 #include "PhysicsSimulator.h"
 #include "Player.h"
+#include "SoundManager.h"
 
 
 /*Foward Declarations*/
 class GameObject;
 class PhysicsSimulator;
 class Player;
-
+class SoundManager;
 
 using namespace std;
 
@@ -127,6 +128,7 @@ protected:
     OIS::Keyboard* mKeyboard;
 
     PhysicsSimulator* mPhysicsSimulator;
+    SoundManager* mSoundManager;
     Player* mPlayer;
     // Miscellaneous
     vector<GameObject *> gameObjects;
