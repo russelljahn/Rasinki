@@ -1,4 +1,5 @@
 #include "SoundManager.h"
+#include <assert.h>
 
 SoundManager::SoundManager() {
 	mAudioRate = 22050;
@@ -8,9 +9,10 @@ SoundManager::SoundManager() {
 
 	SDL_Init(SDL_INIT_AUDIO);
 
-	Mix_OpenAudio(mAudioRate, mAudioFormat, mAudioChannels, mAudioBuffers);
-	sound = Mix_LoadWAV("sound.wav");
-
+	if (Mix_OpenAudio(mAudioRate, mAudioFormat, mAudioChannels, mAudioBuffers))
+		assert(false);
+	sound = Mix_LoadWAV("src/sound.wav");
+	assert (sound != NULL);
 }
 SoundManager::~SoundManager() {
 	Mix_CloseAudio();

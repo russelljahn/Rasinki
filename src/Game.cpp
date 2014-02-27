@@ -8,6 +8,7 @@ using namespace std;
 #include "Scripts/PaddleScript.h"
 #include "Scripts/PointBlock.h"
 #include "Scripts/Wall.h"
+#include "Scripts/SphereComponent.h"
 
 #include "Objects/Paddle.h"
 #include "Objects/Sphere.h"
@@ -251,7 +252,6 @@ bool Game::frameRenderingQueued(const Ogre::FrameEvent& evt)
 
     mTrayManager->frameRenderingQueued(evt);
     mPhysicsSimulator->stepSimulation(evt.timeSinceLastFrame);
-    mSoundManager->playSound();
 
     if (mDetailsPanel->isVisible()) {
         mDetailsPanel->setParamValue(0, Ogre::StringConverter::toString(mPlayer->getScore())); // Score
@@ -412,6 +412,7 @@ void Game::createScene(void) {
     ground->transform->setWorldScale(Ogre::Vector3(20, 1, 20));
     ground->name = "cube";
     ground->renderer->setMaterial("Examples/GrassFloorArrow");
+    ground->physics->setEnabled(false);
     gameObjects.push_back(ground);
 
     Cube *ceiling = new Cube(this);
@@ -460,6 +461,7 @@ void Game::createScene(void) {
     Sphere *ball01 = new Sphere(this, 75);
     ball01->transform->setWorldPosition(Ogre::Vector3(-100,800,0));
     ball01->name = "ball01";
+    ball01->AddComponentOfType<SphereComponent>();
     ball01->renderer->setMaterial("Examples/SphereMappedRustySteel");
     ball01->physics->setLinearVelocity(Ogre::Vector3(-200, -400, -200));
     gameObjects.push_back(ball01);
@@ -467,6 +469,7 @@ void Game::createScene(void) {
     Sphere *ball02 = new Sphere(this, 75);
     ball02->transform->setWorldPosition(Ogre::Vector3(100,800,0));
     ball02->name = "ball02";
+    ball02->AddComponentOfType<SphereComponent>();
     ball02->renderer->setMaterial("Examples/SphereMappedRustySteel");
     ball02->physics->setLinearVelocity(Ogre::Vector3(200, -400, 200));
     gameObjects.push_back(ball02);
@@ -474,6 +477,7 @@ void Game::createScene(void) {
     Sphere *ball03 = new Sphere(this, 75);
     ball03->transform->setWorldPosition(Ogre::Vector3(000,800,000));
     ball03->name = "ball03";
+    ball03->AddComponentOfType<SphereComponent>();
     ball03->renderer->setMaterial("Examples/SphereMappedRustySteel");
     ball03->physics->setLinearVelocity(Ogre::Vector3(0, -400, -0));
     gameObjects.push_back(ball03);
@@ -590,4 +594,7 @@ int Game::camSide () {
 
 Player* Game::getPlayer(void) {
     return mPlayer;
+}
+SoundManager* Game::getSoundManager(void) {
+    return mSoundManager;
 }

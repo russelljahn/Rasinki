@@ -71,6 +71,7 @@ public:
     Ogre::SceneNode* getSceneRoot(void);
     Ogre::SceneManager* getSceneManager(void);
     PhysicsSimulator* getPhysicsSimulator(void);
+    SoundManager* getSoundManager(void);
     OIS::Keyboard* getKeyboard(void);
     OIS::Mouse* getMouse(void);
     Ogre::Camera* getCamera(void);
