@@ -4,7 +4,7 @@
 #include "../Components/Script.h"
 
 /* 
-	Blocks that add points to player when hit.
+	Ball in the scene that bounces off of blocks to score points.
 */
 class SphereComponent : public Script {
 
@@ -13,8 +13,12 @@ class SphereComponent : public Script {
 
 		void Update();
 		void OnCollision(Ogre::Vector3 point, GameObject* collidedWith);
+
+		static int numSpheres;
+
 	private:
 		float speed;
+
 
 };
 #endif

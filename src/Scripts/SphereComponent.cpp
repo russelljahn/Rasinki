@@ -1,8 +1,14 @@
 #include "SphereComponent.h"
+#include <string>
 
-SphereComponent::SphereComponent(GameObject *attachedGameObject) : Script(attachedGameObject){
+
+int SphereComponent::numSpheres = 0;
+
+SphereComponent::SphereComponent(GameObject *attachedGameObject) : Script(attachedGameObject) {
+	++SphereComponent::numSpheres;
 	this->speed = attachedGameObject->physics->getLinearVelocity().length();
 }
+
 
 void SphereComponent::Update() {
 	Ogre::Vector3 nvec = gameObject->physics->getLinearVelocity();
@@ -16,4 +22,13 @@ void SphereComponent::Update() {
 }
 void SphereComponent::OnCollision(Ogre::Vector3 point, GameObject* collidedWith) {
 	gameObject->game->getSoundManager()->playSound();
+
+	// std::cout << this->gameObject->name << " is colliding with " << collidedWith->name << std::endl;
+	if (collidedWith->name == "ground") {
+		// this->gameObject->Kill(); //TODO: Use this instead once implemented.
+		this->gameObject->renderer->setEnabled(false);
+		this->gameObject->physics->setEnabled(false);
+
+		--SphereComponent::numSpheres;
+	}
 }

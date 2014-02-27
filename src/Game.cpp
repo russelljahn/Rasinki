@@ -9,6 +9,7 @@ using namespace std;
 #include "Scripts/PointBlock.h"
 #include "Scripts/Wall.h"
 #include "Scripts/SphereComponent.h"
+#include "Scripts/GameplayScript.h"
 
 #include "Objects/Paddle.h"
 #include "Objects/Sphere.h"
@@ -116,7 +117,7 @@ void Game::createFrameListener(void)
     // create a params panel for displaying sample details
     Ogre::StringVector items;
     items.push_back("Score");
-    items.push_back("Time Elapsed");
+    items.push_back("Balls Left");
 
     mDetailsPanel = mTrayManager->createParamsPanel(OgreBites::TL_NONE, "DetailsPanel", 200, items);
 
@@ -260,7 +261,7 @@ bool Game::frameRenderingQueued(const Ogre::FrameEvent& evt)
 
     if (mDetailsPanel->isVisible()) {
         mDetailsPanel->setParamValue(0, Ogre::StringConverter::toString(mPlayer->getScore())); // Score
-        mDetailsPanel->setParamValue(1, Ogre::StringConverter::toString(0)); // Time elapsed
+        mDetailsPanel->setParamValue(1, Ogre::StringConverter::toString(SphereComponent::numSpheres)); // Time elapsed
     }
 
     for (auto gameObjectIter = gameObjects.begin(); gameObjectIter != gameObjects.end(); ++gameObjectIter) {
@@ -414,13 +415,18 @@ void Game::createLights(void) {
 void Game::createScene(void) {
     cout << "Creating scene..." << endl;
 
+    // Managers
+    GameObject *gameplayManager = new GameObject(this);
+    gameplayManager->name = "gameplayManager";
+    gameplayManager->AddComponentOfType<GameplayScript>();
+    gameObjects.push_back(gameplayManager);
+
     // Environment
     Cube *ground = new Cube(this);
     ground->transform->setWorldPosition(Ogre::Vector3(0,-1000,0));
     ground->transform->setWorldScale(Ogre::Vector3(20, 1, 20));
-    ground->name = "cube";
+    ground->name = "ground";
     ground->renderer->setMaterial("Examples/GrassFloorArrow");
-    ground->physics->setEnabled(false);
     gameObjects.push_back(ground);
 
     Cube *ceiling = new Cube(this);
