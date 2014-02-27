@@ -461,32 +461,32 @@ void Game::createScene(void) {
     Sphere *ball01 = new Sphere(this, 75);
     ball01->transform->setWorldPosition(Ogre::Vector3(-100,800,0));
     ball01->name = "ball01";
-    ball01->AddComponentOfType<SphereComponent>();
     ball01->renderer->setMaterial("Examples/SphereMappedRustySteel");
     ball01->physics->setLinearVelocity(Ogre::Vector3(-200, -400, -200));
+    ball01->AddComponentOfType<SphereComponent>();
     gameObjects.push_back(ball01);
 
     Sphere *ball02 = new Sphere(this, 75);
     ball02->transform->setWorldPosition(Ogre::Vector3(100,800,0));
     ball02->name = "ball02";
-    ball02->AddComponentOfType<SphereComponent>();
     ball02->renderer->setMaterial("Examples/SphereMappedRustySteel");
-    ball02->physics->setLinearVelocity(Ogre::Vector3(200, -400, 200));
+    ball02->physics->setLinearVelocity(Ogre::Vector3(400, -800, 400));
+    ball02->AddComponentOfType<SphereComponent>();
     gameObjects.push_back(ball02);
 
     Sphere *ball03 = new Sphere(this, 75);
     ball03->transform->setWorldPosition(Ogre::Vector3(000,800,000));
     ball03->name = "ball03";
-    ball03->AddComponentOfType<SphereComponent>();
     ball03->renderer->setMaterial("Examples/SphereMappedRustySteel");
-    ball03->physics->setLinearVelocity(Ogre::Vector3(0, -400, -0));
+    ball03->physics->setLinearVelocity(Ogre::Vector3(0, -800, -0));
+    ball03->AddComponentOfType<SphereComponent>();
     gameObjects.push_back(ball03);
 
 
     // Paddle
     Paddle *newPaddle = new Paddle(this);
     newPaddle->AddComponentOfType<PaddleScript>();
-    newPaddle->transform->setWorldPosition(Ogre::Vector3(0,-400,0));
+    newPaddle->transform->setWorldPosition(Ogre::Vector3(0,-800,0));
     newPaddle->transform->setLocalScale(Ogre::Vector3(3, .25, 3));
     newPaddle->name = "paddle";
     newPaddle->renderer->setMaterial("Examples/Rockwall");

@@ -20,12 +20,14 @@ void PointBlock::Start() {
 
 void PointBlock::Update() {
 	Script::Update();
+	if (!this->gameObject->renderer->isEnabled()){
+		this->gameObject->physics->setEnabled(false);
+	}
 }
 
 
 
 void PointBlock::OnCollision(Ogre::Vector3 point, GameObject* collidedWith) {
 	this->gameObject->renderer->setEnabled(false);
-	this->gameObject->physics->setEnabled(false);
 	gameObject->game->getPlayer()->scored(pointsOnDeath);
 }

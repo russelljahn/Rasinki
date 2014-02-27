@@ -11,7 +11,10 @@ class SphereComponent : public Script {
 	public:
 		SphereComponent(GameObject *attachedGameObject);
 
+		void Update();
 		void OnCollision(Ogre::Vector3 point, GameObject* collidedWith);
+	private:
+		float speed;
 
 };
 #endif
