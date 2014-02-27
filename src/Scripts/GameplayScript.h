@@ -16,6 +16,12 @@ class GameplayScript : public Script {
 		void Update(void);
 
 		static bool IsGameOver();
+		static float GetGameOverTime();
+
+	private:
+
+		static float gameOverTime;
+		static bool gameOver;
 
 };
 

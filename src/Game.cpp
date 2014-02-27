@@ -4,6 +4,7 @@
 using namespace std;
 
 #include "Game.h"
+#include "Time.h"
 
 #include "Scripts/PaddleScript.h"
 #include "Scripts/PointBlock.h"
@@ -224,6 +225,8 @@ void Game::run(void)
 //-------------------------------------------------------------------------------------
 bool Game::setup(void)
 {
+    Time::Start();
+
     mRoot = new Ogre::Root(mPluginsConfig);
     mPhysicsSimulator = new PhysicsSimulator();
     mSoundManager = new SoundManager();
@@ -255,6 +258,8 @@ bool Game::setup(void)
 //-------------------------------------------------------------------------------------
 bool Game::frameRenderingQueued(const Ogre::FrameEvent& evt)
 {
+    Time::Update();
+
     if (mWindow->isClosed())
         return false;
 
@@ -273,7 +278,7 @@ bool Game::frameRenderingQueued(const Ogre::FrameEvent& evt)
         mGameOverPanel->show();
         mGameOverPanel->setParamValue(0, " "); // Score
         mGameOverPanel->setParamValue(1, Ogre::StringConverter::toString(mPlayer->getScore())); // Score
-        mGameOverPanel->setParamValue(2, Ogre::StringConverter::toString(0)); // Time elapsed
+        mGameOverPanel->setParamValue(2, Ogre::StringConverter::toString(GameplayScript::GetGameOverTime())); // Time elapsed
     }
     else {
         mStatsPanel->show();
@@ -317,10 +322,6 @@ bool Game::keyPressed( const OIS::KeyEvent &arg )
         mCamera->setPosition(Ogre::Vector3(rotPos.x, pos.y, rotPos.z));
         mCamera->lookAt(Ogre::Vector3(0,0,0));
         mCamera->setNearClipDistance(5);
-    }
-
-    if (arg.key == OIS::KC_P) {
-        SphereComponent::numSpheres = 0;
     }
 
     return true;
