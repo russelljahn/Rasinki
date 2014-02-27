@@ -119,7 +119,9 @@ protected:
     // OgreBites
     OgreBites::SdkTrayManager* mTrayManager;
     OgreBites::SdkCameraMan* mCameraMan;       // basic camera controller
-    OgreBites::ParamsPanel* mDetailsPanel;     // sample details panel
+    OgreBites::ParamsPanel* mStatsPanel;       // Game stats panel
+    OgreBites::Label* mGameOverLabel;
+    OgreBites::ParamsPanel* mGameOverPanel;    // Game over stats panel
     bool mCursorWasVisible;                    // was cursor visible before dialog appeared
     bool mShutDown;
 

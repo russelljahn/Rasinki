@@ -26,7 +26,8 @@ Game::Game(void)
     mPluginsConfig(Ogre::StringUtil::BLANK),
     mTrayManager(0),
     mCameraMan(0),
-    mDetailsPanel(0),
+    mStatsPanel(0),
+    mGameOverPanel(0),
     mCursorWasVisible(false),
     mShutDown(false),
     mInputManager(0),
@@ -39,7 +40,6 @@ Game::Game(void)
 Game::~Game(void)
 {
     if (mTrayManager) delete mTrayManager;
-    // if (mCameraMan) delete mCameraMan;
 
     //Remove ourself as a Window listener
     Ogre::WindowEventUtilities::removeWindowEventListener(mWindow, this);
@@ -88,6 +88,7 @@ void Game::createCamera(void)
 //-------------------------------------------------------------------------------------
 void Game::createFrameListener(void)
 {
+
     Ogre::LogManager::getSingletonPtr()->logMessage("*** Initializing OIS ***");
     OIS::ParamList pl;
     size_t windowHnd = 0;
@@ -114,12 +115,19 @@ void Game::createFrameListener(void)
     mTrayManager = new OgreBites::SdkTrayManager("InterfaceName", mWindow, mMouse, this);
     mTrayManager->hideCursor();
 
-    // create a params panel for displaying sample details
-    Ogre::StringVector items;
-    items.push_back("Score");
-    items.push_back("Balls Left");
+    // create a params panel for displaying stats details
+    Ogre::StringVector statsPanelItems;
+    statsPanelItems.push_back("Score");
+    statsPanelItems.push_back("Balls Left");
+    mStatsPanel = mTrayManager->createParamsPanel(OgreBites::TL_NONE, "StatsPanel", 200, statsPanelItems);
 
-    mDetailsPanel = mTrayManager->createParamsPanel(OgreBites::TL_NONE, "DetailsPanel", 200, items);
+    // create a params panel for displaying game over details
+    Ogre::StringVector gameOverPanelItems;
+    gameOverPanelItems.push_back("GAME OVER");
+    gameOverPanelItems.push_back("Final Score");
+    gameOverPanelItems.push_back("Time");
+    mGameOverPanel = mTrayManager->createParamsPanel(OgreBites::TL_NONE, "GameOverPanel", 200, gameOverPanelItems);
+    mGameOverPanel->hide();
 
     mRoot->addFrameListener(this);
 
@@ -254,9 +262,18 @@ bool Game::frameRenderingQueued(const Ogre::FrameEvent& evt)
     mTrayManager->frameRenderingQueued(evt);
     mPhysicsSimulator->stepSimulation(evt.timeSinceLastFrame);
 
-    if (mDetailsPanel->isVisible()) {
-        mDetailsPanel->setParamValue(0, Ogre::StringConverter::toString(mPlayer->getScore())); // Score
-        mDetailsPanel->setParamValue(1, Ogre::StringConverter::toString(SphereComponent::numSpheres)); // Time elapsed
+    if (GameplayScript::IsGameOver()) {
+        mStatsPanel->hide();
+        mGameOverPanel->show();
+        mGameOverPanel->setParamValue(0, " "); // Score
+        mGameOverPanel->setParamValue(1, Ogre::StringConverter::toString(mPlayer->getScore())); // Score
+        mGameOverPanel->setParamValue(2, Ogre::StringConverter::toString(0)); // Time elapsed
+    }
+    else {
+        mStatsPanel->show();
+        mGameOverPanel->hide();
+        mStatsPanel->setParamValue(0, Ogre::StringConverter::toString(mPlayer->getScore())); // Score
+        mStatsPanel->setParamValue(1, Ogre::StringConverter::toString(SphereComponent::numSpheres)); // Balls remaining
     }
 
     for (auto gameObjectIter = gameObjects.begin(); gameObjectIter != gameObjects.end(); ++gameObjectIter) {
@@ -290,6 +307,10 @@ bool Game::keyPressed( const OIS::KeyEvent &arg )
         mCamera->setPosition(Ogre::Vector3(rotPos.x, pos.y, rotPos.z));
         mCamera->lookAt(Ogre::Vector3(0,0,0));
         mCamera->setNearClipDistance(5);
+    }
+
+    if (arg.key == OIS::KC_P) {
+        SphereComponent::numSpheres = 0;
     }
 
     return true;
@@ -398,7 +419,6 @@ void Game::createLights(void) {
 
     mSceneManager->setAmbientLight(Ogre::ColourValue(.25, .25, .25));
     mSceneManager->setShadowTechnique(Ogre::SHADOWTYPE_STENCIL_ADDITIVE);
-    // mSceneManager->setShadowTechnique(Ogre::SHADOWTYPE_NONE);
     cout << "Done creating lights!" << endl;
 }
 

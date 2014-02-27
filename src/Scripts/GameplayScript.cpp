@@ -22,3 +22,7 @@ void GameplayScript::Update() {
 	std::cout << "Spheres left in the game: " << SphereComponent::numSpheres << std::endl;
 }
 
+
+bool GameplayScript::IsGameOver() {
+	return SphereComponent::numSpheres <= 0;
+}

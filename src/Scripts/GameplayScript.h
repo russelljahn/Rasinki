@@ -14,6 +14,9 @@ class GameplayScript : public Script {
 
 		void Start(void);
 		void Update(void);
+
+		static bool IsGameOver();
+
 };
 
 
