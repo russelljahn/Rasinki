@@ -23,6 +23,7 @@ class Renderer {
 
 
 		Renderer(GameObject *attachedGameObject);
+		~Renderer();
 		void setEnabled(bool enabled);
 		bool isEnabled();
 

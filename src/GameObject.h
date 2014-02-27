@@ -48,7 +48,8 @@ class GameObject {
 		Renderer* renderer;
 		
 		GameObject(Game *attachedGame);
-
+		~GameObject();
+		
 		void Start();
 		void Update();
 		void FixedUpdate();

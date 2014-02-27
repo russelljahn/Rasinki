@@ -7,7 +7,9 @@ Transform::Transform(GameObject *attachedGameObject, Ogre::SceneNode *parent) {
 	this->sceneNode = parent->createChildSceneNode();
 };
 
-
+Transform::~Transform() {
+	delete sceneNode;
+}
 
 // void Transform::Start() {
 // 	// Component::Start();
