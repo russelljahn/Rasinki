@@ -872,20 +872,6 @@ material Examples/GrassFloor
 	}
 }
 
-material Examples/GrassFloorArrow
-{
-	technique
-	{
-		pass
-		{
-			texture_unit
-			{
-				texture grass_1024_arrow.jpg
-			}
-		}
-	}
-}
-
 vertex_program Examples/GrassWaverVp cg
 {
 	source Grass.cg

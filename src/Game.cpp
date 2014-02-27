@@ -77,7 +77,7 @@ void Game::createCamera(void)
     mCamera = mSceneManager->createCamera("PlayerCam");
 
     // Position it at 500 in Z direction
-    mCamera->setPosition(Ogre::Vector3(3000,3000,3000));
+    mCamera->setPosition(Ogre::Vector3(1500,3000,3000));
     // Look back along -Z
     mCamera->lookAt(Ogre::Vector3(0,0,0));
     mCamera->setNearClipDistance(5);
@@ -252,27 +252,6 @@ bool Game::frameRenderingQueued(const Ogre::FrameEvent& evt)
     mTrayManager->frameRenderingQueued(evt);
     mPhysicsSimulator->stepSimulation(evt.timeSinceLastFrame);
     mSoundManager->playSound();
-    if (mKeyboard->isKeyDown(OIS::KC_Z))
-    {
-        Ogre::Vector3 pos = mCamera->getPosition();
-        Ogre::Vector3 rotPos = Ogre::Vector3::ZERO;
-        rotPos.x = Ogre::Math::Cos(.01)*pos.x + Ogre::Math::Sin(.01)*pos.z;
-        rotPos.z = Ogre::Math::Sin(.01)*-pos.x + Ogre::Math::Cos(.01)*pos.z;
-        mCamera->setPosition(Ogre::Vector3(rotPos.x, pos.y, rotPos.z));
-        mCamera->lookAt(Ogre::Vector3(0,0,0));
-        mCamera->setNearClipDistance(5);
-        
-    }
-    else if (mKeyboard->isKeyDown(OIS::KC_X))
-    {
-        Ogre::Vector3 pos = mCamera->getPosition();
-        Ogre::Vector3 rotPos = Ogre::Vector3::ZERO;
-        rotPos.x = Ogre::Math::Cos(-.01)*pos.x + Ogre::Math::Sin(-.01)*pos.z;
-        rotPos.z = Ogre::Math::Sin(-.01)*-pos.x + Ogre::Math::Cos(-.01)*pos.z;
-        mCamera->setPosition(Ogre::Vector3(rotPos.x, pos.y, rotPos.z));
-        mCamera->lookAt(Ogre::Vector3(0,0,0));
-        mCamera->setNearClipDistance(5);
-    }
 
     if (mDetailsPanel->isVisible()) {
         mDetailsPanel->setParamValue(0, Ogre::StringConverter::toString(mPlayer->getScore())); // Score
@@ -289,6 +268,27 @@ bool Game::keyPressed( const OIS::KeyEvent &arg )
 {
     if (arg.key == OIS::KC_ESCAPE) {
         mShutDown = true;
+    }
+
+    if (arg.key == OIS::KC_X)
+    {
+        Ogre::Vector3 pos = mCamera->getPosition();
+        Ogre::Vector3 rotPos = Ogre::Vector3::ZERO;
+        rotPos.x = Ogre::Math::Cos(Ogre::Math::HALF_PI)*pos.x + Ogre::Math::Sin(Ogre::Math::HALF_PI)*pos.z;
+        rotPos.z = Ogre::Math::Sin(Ogre::Math::HALF_PI)*-pos.x + Ogre::Math::Cos(Ogre::Math::HALF_PI)*pos.z;
+        mCamera->setPosition(Ogre::Vector3(rotPos.x, pos.y, rotPos.z));
+        mCamera->lookAt(Ogre::Vector3(0,0,0));
+        mCamera->setNearClipDistance(5);
+    }
+    else if (arg.key == OIS::KC_Z)
+    {
+        Ogre::Vector3 pos = mCamera->getPosition();
+        Ogre::Vector3 rotPos = Ogre::Vector3::ZERO;
+        rotPos.x = Ogre::Math::Cos(-Ogre::Math::HALF_PI)*pos.x + Ogre::Math::Sin(-Ogre::Math::HALF_PI)*pos.z;
+        rotPos.z = Ogre::Math::Sin(-Ogre::Math::HALF_PI)*-pos.x + Ogre::Math::Cos(-Ogre::Math::HALF_PI)*pos.z;
+        mCamera->setPosition(Ogre::Vector3(rotPos.x, pos.y, rotPos.z));
+        mCamera->lookAt(Ogre::Vector3(0,0,0));
+        mCamera->setNearClipDistance(5);
     }
 
     return true;
@@ -411,7 +411,7 @@ void Game::createScene(void) {
     ground->transform->setWorldPosition(Ogre::Vector3(0,-1000,0));
     ground->transform->setWorldScale(Ogre::Vector3(20, 1, 20));
     ground->name = "cube";
-    ground->renderer->setMaterial("Examples/GrassFloor");
+    ground->renderer->setMaterial("Examples/GrassFloorArrow");
     gameObjects.push_back(ground);
 
     Cube *ceiling = new Cube(this);
@@ -434,7 +434,7 @@ void Game::createScene(void) {
     east->transform->setWorldPosition(Ogre::Vector3(1000,0,0));
     east->transform->setWorldScale(Ogre::Vector3(1, 25, 20));
     east->name = "east";
-    east->renderer->setMaterial("Examples/BumpyMetal");
+    east->renderer->setMaterial("Examples/BumpyMetalT");
     east->renderer->setEnabled(false);
     gameObjects.push_back(east);
 
@@ -443,7 +443,7 @@ void Game::createScene(void) {
     south->transform->setWorldPosition(Ogre::Vector3(0, 0, 1000));
     south->transform->setWorldScale(Ogre::Vector3(20, 25, 1));
     south->name = "south";
-    south->renderer->setMaterial("Examples/BumpyMetal");
+    south->renderer->setMaterial("Examples/BumpyMetalP");
     south->renderer->setEnabled(false);
     gameObjects.push_back(south);
 
@@ -452,7 +452,7 @@ void Game::createScene(void) {
     north->transform->setWorldPosition(Ogre::Vector3(0, 0, -1000));
     north->transform->setWorldScale(Ogre::Vector3(20, 25, 1));
     north->name = "north";
-    north->renderer->setMaterial("Examples/BumpyMetal");
+    north->renderer->setMaterial("Examples/BumpyMetalG");
     gameObjects.push_back(north);
 
     
@@ -489,13 +489,38 @@ void Game::createScene(void) {
     gameObjects.push_back(newPaddle);
 
 
-    // PointBlocks
-    Cube *block01 = new Cube(this);
-    block01->AddComponentOfType<PointBlock>();
-    block01->transform->setWorldPosition(Ogre::Vector3(0,0,0));
-    block01->transform->setLocalScale(Ogre::Vector3(1, 1, 1));
-    block01->name = "cube";
-    gameObjects.push_back(block01);
+    // // PointBlocks
+    // Cube *block01 = new Cube(this);
+    // block01->AddComponentOfType<PointBlock>();
+    // block01->transform->setWorldPosition(Ogre::Vector3(0,0,0));
+    // block01->transform->setLocalScale(Ogre::Vector3(1, 1, 1));
+    // block01->name = "block01";
+    // gameObjects.push_back(block01);
+
+    // Cube *block02 = new Cube(this);
+    // block02->AddComponentOfType<PointBlock>();
+    // block02->transform->setWorldPosition(Ogre::Vector3(100,0,0));
+    // block02->transform->setLocalScale(Ogre::Vector3(1, 1, 1));
+    // block02->name = "block02";
+    // gameObjects.push_back(block02);
+
+    int cubeid = 0;
+    for (int i = -300; i < 300; i+=100)
+    {
+        for (int j = -300; j < 300; j+=100)
+        {
+            for (int k = -300; k < 300; k+=100)
+            {
+                Cube *block = new Cube(this);
+                block->AddComponentOfType<PointBlock>();
+                block->transform->setWorldPosition(Ogre::Vector3(i,j,k));
+                block->transform->setLocalScale(Ogre::Vector3(1, 1, 1));
+                block->name = "block"+cubeid;
+                gameObjects.push_back(block);
+            }
+        }
+        cubeid++;
+    }
 
 
     cout << "Done creating scene!" << endl;
