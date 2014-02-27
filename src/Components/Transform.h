@@ -23,7 +23,7 @@ class Transform {
 		Ogre::SceneNode *sceneNode;
 
 		Transform(GameObject *attachedGameObject, Ogre::SceneNode *parent);
-
+		~Transform();
 
 
 		Ogre::Vector3 getLocalPosition() const;

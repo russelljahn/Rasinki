@@ -12,6 +12,7 @@ class Player {
 		Player();
 		void scored(int points = 1);
 		int getScore() { return mScore; }
+		void reset() {mScore = 0;}
 	private:
 		int mScore;
 };

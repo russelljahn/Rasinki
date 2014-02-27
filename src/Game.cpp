@@ -136,6 +136,12 @@ void Game::createFrameListener(void)
 //-------------------------------------------------------------------------------------
 void Game::destroyScene(void)
 {
+    for (auto gameObjectIter = gameObjects.begin(); gameObjectIter != gameObjects.end(); ++gameObjectIter) {
+       delete (*gameObjectIter);
+    }
+    gameObjects.clear();
+    mPlayer->reset();
+    mSceneManager->clearScene();
 }
 //-------------------------------------------------------------------------------------
 void Game::createViewports(void)
@@ -213,7 +219,7 @@ void Game::run(void)
     mRoot->startRendering();
 
     // clean up
-    destroyScene();
+    //destroyScene();
 }
 //-------------------------------------------------------------------------------------
 bool Game::setup(void)
@@ -287,7 +293,11 @@ bool Game::keyPressed( const OIS::KeyEvent &arg )
     if (arg.key == OIS::KC_ESCAPE) {
         mShutDown = true;
     }
-
+    if (arg.key == OIS::KC_N) {
+        destroyScene();
+        createLights();
+        createScene();
+    }
     if (arg.key == OIS::KC_X)
     {
         Ogre::Vector3 pos = mCamera->getPosition();
@@ -427,12 +437,6 @@ void Game::createLights(void) {
 void Game::createScene(void) {
     cout << "Creating scene..." << endl;
 
-    // Managers
-    GameObject *gameplayManager = new GameObject(this);
-    gameplayManager->name = "gameplayManager";
-    gameplayManager->AddComponentOfType<GameplayScript>();
-    gameObjects.push_back(gameplayManager);
-
     // Environment
     Cube *ground = new Cube(this);
     ground->transform->setWorldPosition(Ogre::Vector3(0,-1000,0));
@@ -481,8 +485,7 @@ void Game::createScene(void) {
     north->name = "north";
     north->renderer->setMaterial("Examples/BumpyMetalG");
     gameObjects.push_back(north);
-
-    
+  
     // Balls
     Sphere *ball01 = new Sphere(this, 75);
     ball01->transform->setWorldPosition(Ogre::Vector3(-100,800,0));
@@ -508,31 +511,15 @@ void Game::createScene(void) {
     ball03->AddComponentOfType<SphereComponent>();
     gameObjects.push_back(ball03);
 
-
     // Paddle
     Paddle *newPaddle = new Paddle(this);
     newPaddle->AddComponentOfType<PaddleScript>();
+    newPaddle->AddComponentOfType<GameplayScript>();
     newPaddle->transform->setWorldPosition(Ogre::Vector3(0,-800,0));
     newPaddle->transform->setLocalScale(Ogre::Vector3(3, .25, 3));
     newPaddle->name = "paddle";
     newPaddle->renderer->setMaterial("Examples/Rockwall");
     gameObjects.push_back(newPaddle);
-
-
-    // // PointBlocks
-    // Cube *block01 = new Cube(this);
-    // block01->AddComponentOfType<PointBlock>();
-    // block01->transform->setWorldPosition(Ogre::Vector3(0,0,0));
-    // block01->transform->setLocalScale(Ogre::Vector3(1, 1, 1));
-    // block01->name = "block01";
-    // gameObjects.push_back(block01);
-
-    // Cube *block02 = new Cube(this);
-    // block02->AddComponentOfType<PointBlock>();
-    // block02->transform->setWorldPosition(Ogre::Vector3(100,0,0));
-    // block02->transform->setLocalScale(Ogre::Vector3(1, 1, 1));
-    // block02->name = "block02";
-    // gameObjects.push_back(block02);
 
     int cubeid = 0;
     for (int i = -300; i < 300; i+=100)

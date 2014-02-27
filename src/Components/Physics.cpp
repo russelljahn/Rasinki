@@ -32,8 +32,10 @@ Physics::Physics(GameObject* attachedGameObject, float mass, btCollisionShape* c
 
 Physics::~Physics() {
 	// instance of btDiscreteDynamicsWorld->removeRigidBody(mRigidBody)
-	gameObject->game->getPhysicsSimulator()->removeObject(mRigidBody);
-	delete mRigidBody->getMotionState();
+	if (gameObject != NULL) {
+		gameObject->game->getPhysicsSimulator()->removeObject(mRigidBody);
+		delete mRigidBody->getMotionState();
+	}
 	delete mRigidBody;
 }
 

@@ -5,7 +5,9 @@ Renderer::Renderer(GameObject *attachedGameObject) {
 	gameObject = attachedGameObject;
 	this->enabled = true;
 };
+Renderer::~Renderer() {
 
+}
 
 void Renderer::setMaterial(string materialName) {
 	entity->setMaterialName(materialName);

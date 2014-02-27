@@ -22,8 +22,16 @@ GameObject::GameObject(Game *attachedGame) {
 	std::cout << "Creating GameObject with id: " << id << std::endl;
 	Start();
 }
-
-
+GameObject::~GameObject() {
+	if (physics != NULL)
+		delete physics;
+	delete transform;
+	delete renderer;
+	for (auto componentsIter = components.begin(); componentsIter != components.end(); ++componentsIter) {
+       delete (*componentsIter);
+    }
+	// components.clear();
+}
 void GameObject::Start() {
 	
 }
