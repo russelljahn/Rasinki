@@ -133,6 +133,7 @@ void Game::destroyScene(void)
     }
     gameObjects.clear();
     mPlayer->reset();
+    mSceneManager->clearScene();
 }
 //-------------------------------------------------------------------------------------
 void Game::createViewports(void)
@@ -277,6 +278,7 @@ bool Game::keyPressed( const OIS::KeyEvent &arg )
     }
     if (arg.key == OIS::KC_N) {
         destroyScene();
+        createLights();
         createScene();
     }
     if (arg.key == OIS::KC_X)
@@ -415,12 +417,6 @@ void Game::createLights(void) {
 void Game::createScene(void) {
     cout << "Creating scene..." << endl;
 
-    // Managers
-    GameObject *gameplayManager = new GameObject(this);
-    gameplayManager->name = "gameplayManager";
-    gameplayManager->AddComponentOfType<GameplayScript>();
-    gameObjects.push_back(gameplayManager);
-
     // Environment
     Cube *ground = new Cube(this);
     ground->transform->setWorldPosition(Ogre::Vector3(0,-1000,0));
@@ -469,8 +465,7 @@ void Game::createScene(void) {
     north->name = "north";
     north->renderer->setMaterial("Examples/BumpyMetalG");
     gameObjects.push_back(north);
-
-    
+  
     // Balls
     Sphere *ball01 = new Sphere(this, 75);
     ball01->transform->setWorldPosition(Ogre::Vector3(-100,800,0));
@@ -496,10 +491,10 @@ void Game::createScene(void) {
     ball03->AddComponentOfType<SphereComponent>();
     gameObjects.push_back(ball03);
 
-
     // Paddle
     Paddle *newPaddle = new Paddle(this);
     newPaddle->AddComponentOfType<PaddleScript>();
+    newPaddle->AddComponentOfType<GameplayScript>();
     newPaddle->transform->setWorldPosition(Ogre::Vector3(0,-800,0));
     newPaddle->transform->setLocalScale(Ogre::Vector3(3, .25, 3));
     newPaddle->name = "paddle";

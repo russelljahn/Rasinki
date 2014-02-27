@@ -8,7 +8,6 @@ Transform::Transform(GameObject *attachedGameObject, Ogre::SceneNode *parent) {
 };
 
 Transform::~Transform() {
-	delete sceneNode;
 }
 
 // void Transform::Start() {

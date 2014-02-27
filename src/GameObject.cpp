@@ -23,14 +23,14 @@ GameObject::GameObject(Game *attachedGame) {
 	Start();
 }
 GameObject::~GameObject() {
-	std::cout << "HI" << std::endl;
-	delete physics;
+	if (physics != NULL)
+		delete physics;
 	delete transform;
 	delete renderer;
 	for (auto componentsIter = components.begin(); componentsIter != components.end(); ++componentsIter) {
        delete (*componentsIter);
     }
-	components.clear();
+	// components.clear();
 }
 void GameObject::Start() {
 	

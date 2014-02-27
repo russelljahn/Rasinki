@@ -6,7 +6,7 @@ Renderer::Renderer(GameObject *attachedGameObject) {
 	this->enabled = true;
 };
 Renderer::~Renderer() {
-	delete entity;
+
 }
 
 void Renderer::setMaterial(string materialName) {
