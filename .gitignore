@@ -11,7 +11,10 @@
 *.lai
 *.la
 *.a
+.nfs*
 */.nfs*
+.*~
+*/.*~
 
 # autoconf files
 */config.*
@@ -19,6 +22,7 @@
 */Makefile
 */Makefile.in
 */.deps
+/.deps
 */aclocal.m4
 */depcomp
 */install-sh
