@@ -1,0 +1,62 @@
+==================================================
+	                     .__        __   .__ 
+	____________    _____|__| ____ |  | _|__|
+	\_  __ \__  \  /  ___/  |/    \|  |/ /  |
+	 |  | \// __ \_\___ \|  |   |  \    <|  |
+	 |__|  (____  /____  >__|___|  /__|_ \__|
+	            \/     \/        \/     \/  
+	      		Rasinki Description
+==================================================
+
+Team 13:
+Russell Jahn
+Kevin Wade
+Safaa Hansen
+
+---------------------
+Description:
+---------------------
+Rasinki is a 3D rendition of the popular game breakout, where you use a paddle
+to block balls and destroy all the bricks in the stage.
+
+---------------------
+Rules:
+---------------------
+The goal is to knock out all of the bricks in the stage by blocking balls with the 
+paddle. If a ball touches the ground, it disappears. Once all blocks have been destroyed, 
+or all balls have touched the ground, then the game is over.
+
+Different blocks give different point amounts:
+Blue - 25 Points
+Red  - 10 Points
+Grey -  1 Point
+
+---------------------
+Controls:
+---------------------
+WASD to move the paddle left/right/up/down
+ZX to rotate the camera 90 degrees left/right
+[SPACE] to force gravity on the balls, especially useful if you get them in a tricky position
+N to start a new game
+
+---------------------
+Engine Features:
+---------------------
+Our engine uses a modular Component/GameObject system to abstract away details of the underlying rendering and 
+physics engines and provide an easier, cleaner, and much more friendly interface to the gameplay programmer.
+
+GameObjects are abstract objects in the game scene. They can be players, environmental objects, or even gameplay managers.
+GameObjects contain Components, which each define some specific functionality for a GameObject.
+
+Built-in components include:
+............................
+Transform: Required, contains info about position, rotation, scale, and hierarchy information for a GameObject.
+
+Renderer: Required, contains info about how to render a GameObject, including the mesh or if the GameObject should be invisible. Easy to disable during gameplay if the object should currently be unseen.
+
+Physics: Required, contains info on how the GameObject should react to forces and other GameObjects in the world, what type of collider to use, and even if physics shouldn't be applied. Easy to disable during gameplay if the object shouldn't currently have physics applied.
+
+Script: Optional, these can be attached to GameObjects to provide gameplay logic to them. For instance, the paddle has 2 scripts attached: one handling keyboard control for the paddle, and another gameplay manager script, which handles the gameover/winning state logic for the game.
+
+
+Since each of the components abstract away so much of the gritty, underlying engine details for actual gameplay programming, building it ended up being a big win for programmer productivity, and we believe it will pay off immensely as our game becomes much more complicated for future projects. As we need more features from each of the components, or more components as we go, our GameObject/Component system is structured such that it's easy to expand upon.
