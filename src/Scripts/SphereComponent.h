@@ -10,6 +10,8 @@ class SphereComponent : public Script {
 
 	public:
 		SphereComponent(GameObject *attachedGameObject);
+		~SphereComponent();
+
 
 		void Update();
 		void OnCollision(Ogre::Vector3 point, GameObject* collidedWith);

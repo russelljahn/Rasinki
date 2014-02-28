@@ -143,6 +143,11 @@ void Game::destroyScene(void)
     gameObjects.clear();
     mPlayer->reset();
     mSceneManager->clearScene();
+    Time::Reset();
+
+    mStatsPanel->show();
+    mGameOverPanel->hide();
+    SphereComponent::numSpheres = 0;
 }
 //-------------------------------------------------------------------------------------
 void Game::createViewports(void)

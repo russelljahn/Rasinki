@@ -5,8 +5,12 @@
 int SphereComponent::numSpheres = 0;
 
 SphereComponent::SphereComponent(GameObject *attachedGameObject) : Script(attachedGameObject) {
-	++SphereComponent::numSpheres;
+	++numSpheres;
 	this->speed = attachedGameObject->physics->getLinearVelocity().length();
+}
+
+SphereComponent::~SphereComponent() {
+
 }
 
 
@@ -28,7 +32,9 @@ void SphereComponent::OnCollision(Ogre::Vector3 point, GameObject* collidedWith)
 		// this->gameObject->Kill(); //TODO: Use this instead once implemented.
 		this->gameObject->renderer->setEnabled(false);
 		this->gameObject->physics->setEnabled(false);
+		--numSpheres;
 
-		--SphereComponent::numSpheres;
+
+		this->~SphereComponent();
 	}
 }

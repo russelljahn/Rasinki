@@ -11,6 +11,8 @@ class GameplayScript : public Script {
 
 	public:
 		GameplayScript(GameObject *attachedGameObject);
+		~GameplayScript();
+
 
 		void Start(void);
 		void Update(void);

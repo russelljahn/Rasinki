@@ -7,13 +7,13 @@ bool GameplayScript::gameOver = false;
 float GameplayScript::gameOverTime = 0;
 
 GameplayScript::GameplayScript(GameObject *attachedGameObject) : Script(attachedGameObject) {
-	GameplayScript::gameOver = false;
-	GameplayScript::gameOverTime = 0;
+	Script::Start();
 };
 
 
-GameplayScript::~GameplayScript(GameObject *attachedGameObject) : Script(attachedGameObject) {
-	Start();
+GameplayScript::~GameplayScript() {
+	GameplayScript::gameOver = false;
+	GameplayScript::gameOverTime = 0;
 };
 
 
@@ -26,6 +26,8 @@ void GameplayScript::Start() {
 
 void GameplayScript::Update() {
 	Script::Update();
+
+	std::cout << "SphereComponent::numSpheres: " << SphereComponent::numSpheres << std::endl;
 	
 	if (SphereComponent::numSpheres <= 0 && !GameplayScript::IsGameOver()) {
 		GameplayScript::gameOver = true;

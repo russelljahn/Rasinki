@@ -396,6 +396,37 @@ material Examples/Chrome
 	}
 }
 
+material Examples/Chrome_Red
+{
+	technique
+	{
+		pass
+		{
+			texture_unit
+			{
+				texture Chrome_Red.jpg
+				env_map spherical
+			}
+		}
+	}
+}
+
+
+material Examples/Chrome_Blue
+{
+	technique
+	{
+		pass
+		{
+			texture_unit
+			{
+				texture Chrome_Blue.jpg
+				env_map spherical
+			}
+		}
+	}
+}
+
 material Examples/SpaceSkyPlane
 {
 	technique
