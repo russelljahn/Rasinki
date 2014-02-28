@@ -11,26 +11,26 @@
 *.lai
 *.la
 *.a
-.nfs*
+*/.nfs*
 
 # autoconf files
-/config.*
-/configure
-/Makefile
-/Makefile.in
-/.deps
-/aclocal.m4
-/depcomp
-/install-sh
-/libtool
-/ltmain.sh
-/missing
-/stamp-h1
-/autom4te.cache
+*/config.*
+*/configure
+*/Makefile
+*/Makefile.in
+*/.deps
+*/aclocal.m4
+*/depcomp
+*/install-sh
+*/libtool
+*/ltmain.sh
+*/missing
+*/stamp-h1
+*/autom4te.cache
 
 # resulting binary
-/Rasinki
+Rasinki/Rasinki
 
 # Ogre files
-/Ogre.log
-/ogre.cfg
+*/Ogre.log
+*/ogre.cfg
