@@ -80,9 +80,9 @@ void Game::createCamera(void)
     mCamera = mSceneManager->createCamera("PlayerCam");
 
     // Position it at 500 in Z direction
-    mCamera->setPosition(Ogre::Vector3(1500,3000,3000));
+    mCamera->setPosition(Ogre::Vector3(875,3500,3500));
     // Look back along -Z
-    mCamera->lookAt(Ogre::Vector3(0,0,0));
+    mCamera->lookAt(Ogre::Vector3(0,-200,0));
     mCamera->setNearClipDistance(5);
 
 }
@@ -241,6 +241,8 @@ bool Game::setup(void)
     bool carryOn = configure();
     if (!carryOn) return false;
 
+    level = 1;
+
     chooseSceneManager();
     createCamera();
     createViewports();
@@ -303,30 +305,50 @@ bool Game::keyPressed( const OIS::KeyEvent &arg )
     if (arg.key == OIS::KC_ESCAPE) {
         mShutDown = true;
     }
-    if (arg.key == OIS::KC_N) {
+    else if (arg.key == OIS::KC_N) {
         destroyScene();
         createLights();
         createScene();
     }
-    if (arg.key == OIS::KC_X)
+    else if (arg.key == OIS::KC_L)
     {
-        Ogre::Vector3 pos = mCamera->getPosition();
-        Ogre::Vector3 rotPos = Ogre::Vector3::ZERO;
-        rotPos.x = Ogre::Math::Cos(Ogre::Math::HALF_PI)*pos.x + Ogre::Math::Sin(Ogre::Math::HALF_PI)*pos.z;
-        rotPos.z = Ogre::Math::Sin(Ogre::Math::HALF_PI)*-pos.x + Ogre::Math::Cos(Ogre::Math::HALF_PI)*pos.z;
-        mCamera->setPosition(Ogre::Vector3(rotPos.x, pos.y, rotPos.z));
-        mCamera->lookAt(Ogre::Vector3(0,0,0));
-        mCamera->setNearClipDistance(5);
+        if(level == 2)
+            level = 1;
+        else
+            level++;
+        destroyScene();
+        createLights();
+        createScene();
+    }
+    else if (arg.key == OIS::KC_X)
+    {
+        for (int i = 1; i <= 10; ++i)
+        {
+            float rot = Ogre::Math::HALF_PI/10;
+            Ogre::Vector3 pos = mCamera->getPosition();
+            Ogre::Vector3 rotPos = Ogre::Vector3::ZERO;
+            rotPos.x = Ogre::Math::Cos(rot)*pos.x + Ogre::Math::Sin(rot)*pos.z;
+            rotPos.z = Ogre::Math::Sin(rot)*-pos.x + Ogre::Math::Cos(rot)*pos.z;
+            mCamera->setPosition(Ogre::Vector3(rotPos.x, pos.y, rotPos.z));
+            mCamera->lookAt(Ogre::Vector3(0,-200,0));
+            mCamera->setNearClipDistance(5);
+            mRoot->renderOneFrame();
+        }
     }
     else if (arg.key == OIS::KC_Z)
     {
-        Ogre::Vector3 pos = mCamera->getPosition();
-        Ogre::Vector3 rotPos = Ogre::Vector3::ZERO;
-        rotPos.x = Ogre::Math::Cos(-Ogre::Math::HALF_PI)*pos.x + Ogre::Math::Sin(-Ogre::Math::HALF_PI)*pos.z;
-        rotPos.z = Ogre::Math::Sin(-Ogre::Math::HALF_PI)*-pos.x + Ogre::Math::Cos(-Ogre::Math::HALF_PI)*pos.z;
-        mCamera->setPosition(Ogre::Vector3(rotPos.x, pos.y, rotPos.z));
-        mCamera->lookAt(Ogre::Vector3(0,0,0));
-        mCamera->setNearClipDistance(5);
+        for (int i = 0; i < 10; ++i)
+        {
+            float rot = Ogre::Math::HALF_PI/10;
+            Ogre::Vector3 pos = mCamera->getPosition();
+            Ogre::Vector3 rotPos = Ogre::Vector3::ZERO;
+            rotPos.x = Ogre::Math::Cos(-rot)*pos.x + Ogre::Math::Sin(-rot)*pos.z;
+            rotPos.z = Ogre::Math::Sin(-rot)*-pos.x + Ogre::Math::Cos(-rot)*pos.z;
+            mCamera->setPosition(Ogre::Vector3(rotPos.x, pos.y, rotPos.z));
+            mCamera->lookAt(Ogre::Vector3(0,-200,0));
+            mCamera->setNearClipDistance(5);
+            mRoot->renderOneFrame();
+        }
     }
 
     return true;
@@ -445,31 +467,31 @@ void Game::createScene(void) {
 
     // Environment
     Cube *ground = new Cube(this);
-    ground->transform->setWorldPosition(Ogre::Vector3(0,-1000,0));
-    ground->transform->setWorldScale(Ogre::Vector3(20, 1, 20));
+    ground->transform->setWorldPosition(Ogre::Vector3(0,-1005,0));
+    ground->transform->setWorldScale(Ogre::Vector3(25, .1, 25));
     ground->name = "ground";
     ground->renderer->setMaterial("Examples/AcidFloor");
     gameObjects.push_back(ground);
 
     Cube *ceiling = new Cube(this);
-    ceiling->transform->setWorldPosition(Ogre::Vector3(0,1250,0));
-    ceiling->transform->setWorldScale(Ogre::Vector3(20, 1, 20));
+    ceiling->transform->setWorldPosition(Ogre::Vector3(0,1005,0));
+    ceiling->transform->setWorldScale(Ogre::Vector3(25, .1, 25));
     ceiling->name = "ceiling";
     ceiling->renderer->setEnabled(false);
     gameObjects.push_back(ceiling);
 
     Cube *west = new Cube(this);
     west->AddComponentOfType<Wall>();
-    west->transform->setWorldPosition(Ogre::Vector3(-1000,0,0));
-    west->transform->setWorldScale(Ogre::Vector3(1, 25, 20));
+    west->transform->setWorldPosition(Ogre::Vector3(-1260,0,0));
+    west->transform->setWorldScale(Ogre::Vector3(.1, 20, 25));
     west->name = "west";
     west->renderer->setMaterial("Examples/BumpyMetal");
     gameObjects.push_back(west);
 
     Cube *east = new Cube(this);
     east->AddComponentOfType<Wall>();
-    east->transform->setWorldPosition(Ogre::Vector3(1000,0,0));
-    east->transform->setWorldScale(Ogre::Vector3(1, 25, 20));
+    east->transform->setWorldPosition(Ogre::Vector3(1260,0,0));
+    east->transform->setWorldScale(Ogre::Vector3(.1, 20, 25));
     east->name = "east";
     east->renderer->setMaterial("Examples/BumpyMetalT");
     east->renderer->setEnabled(false);
@@ -477,8 +499,8 @@ void Game::createScene(void) {
 
     Cube *south = new Cube(this);
     south->AddComponentOfType<Wall>();
-    south->transform->setWorldPosition(Ogre::Vector3(0, 0, 1000));
-    south->transform->setWorldScale(Ogre::Vector3(20, 25, 1));
+    south->transform->setWorldPosition(Ogre::Vector3(0, 0, 1260));
+    south->transform->setWorldScale(Ogre::Vector3(25, 20, .1));
     south->name = "south";
     south->renderer->setMaterial("Examples/BumpyMetalP");
     south->renderer->setEnabled(false);
@@ -486,36 +508,11 @@ void Game::createScene(void) {
 
     Cube *north = new Cube(this);
     north->AddComponentOfType<Wall>();
-    north->transform->setWorldPosition(Ogre::Vector3(0, 0, -1000));
-    north->transform->setWorldScale(Ogre::Vector3(20, 25, 1));
+    north->transform->setWorldPosition(Ogre::Vector3(0, 0, -1260));
+    north->transform->setWorldScale(Ogre::Vector3(25, 20, .1));
     north->name = "north";
     north->renderer->setMaterial("Examples/BumpyMetalG");
     gameObjects.push_back(north);
-  
-    // Balls
-    Sphere *ball01 = new Sphere(this, 75);
-    ball01->transform->setWorldPosition(Ogre::Vector3(-100,800,0));
-    ball01->name = "ball01";
-    ball01->renderer->setMaterial("Examples/SphereMappedRustySteel");
-    ball01->physics->setLinearVelocity(Ogre::Vector3(-200, -400, -200));
-    ball01->AddComponentOfType<SphereComponent>();
-    gameObjects.push_back(ball01);
-
-    Sphere *ball02 = new Sphere(this, 75);
-    ball02->transform->setWorldPosition(Ogre::Vector3(100,800,0));
-    ball02->name = "ball02";
-    ball02->renderer->setMaterial("Examples/SphereMappedRustySteel");
-    ball02->physics->setLinearVelocity(Ogre::Vector3(400, -800, 400));
-    ball02->AddComponentOfType<SphereComponent>();
-    gameObjects.push_back(ball02);
-
-    Sphere *ball03 = new Sphere(this, 75);
-    ball03->transform->setWorldPosition(Ogre::Vector3(000,800,000));
-    ball03->name = "ball03";
-    ball03->renderer->setMaterial("Examples/SphereMappedRustySteel");
-    ball03->physics->setLinearVelocity(Ogre::Vector3(0, -800, -0));
-    ball03->AddComponentOfType<SphereComponent>();
-    gameObjects.push_back(ball03);
 
     // Paddle
     Paddle *newPaddle = new Paddle(this);
@@ -527,25 +524,80 @@ void Game::createScene(void) {
     newPaddle->renderer->setMaterial("Examples/Rockwall");
     gameObjects.push_back(newPaddle);
 
-    // Generate big block of PointBlock cubeys
     int cubeid = 0;
-    for (int i = -300; i < 300; i+=100)
+    switch(level)
     {
-        for (int j = -300; j < 300; j+=100)
+        default:
+        case 1:
+
+        cubeid = 0;
+        for (int i = -220; i <= 220; i+=110)
         {
-            for (int k = -300; k < 300; k+=100)
+            for (int j = -220; j <= 220; j+=110)
             {
-                Cube *block = new Cube(this);
-                block->AddComponentOfType<PointBlock>();
-                block->transform->setWorldPosition(Ogre::Vector3(i,j,k));
-                block->transform->setLocalScale(Ogre::Vector3(1, 1, 1));
-                block->name = "block"+cubeid;
-                gameObjects.push_back(block);
+                for (int k = -220; k <= 220; k+=110)
+                {
+                    Cube *block = new Cube(this);
+                    block->AddComponentOfType<PointBlock>();
+                    block->transform->setWorldPosition(Ogre::Vector3(i,j,k));
+                    block->transform->setLocalScale(Ogre::Vector3(1, 1, 1));
+                    block->name = "block"+cubeid;
+                    gameObjects.push_back(block);
+                }
             }
+            cubeid++;
         }
-        cubeid++;
+        break;
+
+        case 2:
+
+        cubeid = 0;
+
+        srand ( time(NULL) );
+        Ogre::Real posx;
+        Ogre::Real posy;
+        Ogre::Real posz;
+        for (int i = 0; i < 100; ++i)
+        {
+            posx = Ogre::Math::RangeRandom(-900,900);
+            posy = Ogre::Math::RangeRandom(-750,900);
+            posz = Ogre::Math::RangeRandom(-900,900);
+            Cube *block = new Cube(this);
+            block->AddComponentOfType<PointBlock>();
+            block->transform->setWorldPosition(Ogre::Vector3(posx,posy,posz));
+            block->transform->setLocalScale(Ogre::Vector3(1, 1, 1));
+            block->name = "block"+cubeid;
+            gameObjects.push_back(block);
+        }
+        break;
     }
 
+    float ballSpeed = 1000.0f;
+
+    // Balls
+    Sphere *ball01 = new Sphere(this, 75);
+    ball01->transform->setWorldPosition(Ogre::Vector3(-100,800,0));
+    ball01->name = "ball01";
+    ball01->renderer->setMaterial("Examples/SphereMappedRustySteel");
+    ball01->physics->setLinearVelocity(Ogre::Vector3(-.5*ballSpeed, -1*ballSpeed, -.5*ballSpeed));
+    ball01->AddComponentOfType<SphereComponent>();
+    gameObjects.push_back(ball01);
+
+    Sphere *ball02 = new Sphere(this, 75);
+    ball02->transform->setWorldPosition(Ogre::Vector3(100,800,0));
+    ball02->name = "ball02";
+    ball02->renderer->setMaterial("Examples/SphereMappedRustySteel");
+    ball02->physics->setLinearVelocity(Ogre::Vector3(.5*ballSpeed, -1*ballSpeed, .5*ballSpeed));
+    ball02->AddComponentOfType<SphereComponent>();
+    gameObjects.push_back(ball02);
+
+    Sphere *ball03 = new Sphere(this, 75);
+    ball03->transform->setWorldPosition(Ogre::Vector3(000,800,000));
+    ball03->name = "ball03";
+    ball03->renderer->setMaterial("Examples/SphereMappedRustySteel");
+    ball03->physics->setLinearVelocity(Ogre::Vector3(0*ballSpeed, -1*ballSpeed, -0*ballSpeed));
+    ball03->AddComponentOfType<SphereComponent>();
+    gameObjects.push_back(ball03);
 
     cout << "Done creating scene!" << endl;
 }

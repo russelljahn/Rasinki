@@ -25,7 +25,7 @@ void SphereComponent::Update() {
 	}
 }
 void SphereComponent::OnCollision(Ogre::Vector3 point, GameObject* collidedWith) {
-	gameObject->game->getSoundManager()->playSound();
+	gameObject->game->getSoundManager()->playSound1();
 
 	// std::cout << this->gameObject->name << " is colliding with " << collidedWith->name << std::endl;
 	if (collidedWith->name == "ground") {

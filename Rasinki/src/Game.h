@@ -79,6 +79,8 @@ public:
     int camSide(void);
     Player* getPlayer(void);
 
+    int level;
+
 
 protected:
     virtual bool setup();

@@ -12,12 +12,22 @@ SoundManager::SoundManager() {
 	if (Mix_OpenAudio(mAudioRate, mAudioFormat, mAudioChannels, mAudioBuffers))
 		assert(false);
 	sound = Mix_LoadWAV("src/sound.wav");
+	sound2 = Mix_LoadWAV("src/coin2.wav");
+	sound3 = Mix_LoadWAV("src/glass_shatter2.wav");
 	assert (sound != NULL);
 }
 SoundManager::~SoundManager() {
 	Mix_CloseAudio();
 	SDL_Quit();
 }
-void SoundManager::playSound() {
-	Mix_PlayChannel(-1, sound, 1);
+void SoundManager::playSound1() {
+	Mix_PlayChannel(-1, sound, 0);
+}
+
+void SoundManager::playSound2() {
+	Mix_PlayChannel(-1, sound2, 0);
+}
+
+void SoundManager::playSound3() {
+	Mix_PlayChannel(-1, sound3, 0);
 }

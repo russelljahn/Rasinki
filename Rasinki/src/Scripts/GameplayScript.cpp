@@ -32,6 +32,7 @@ void GameplayScript::Update() {
 	if (SphereComponent::numSpheres <= 0 && !GameplayScript::IsGameOver()) {
 		GameplayScript::gameOver = true;
 		GameplayScript::gameOverTime = Time::time;
+		gameObject->game->getSoundManager()->playSound3();
 	}
 
 }
