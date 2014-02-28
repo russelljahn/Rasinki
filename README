@@ -5,7 +5,7 @@
 	 |  | \// __ \_\___ \|  |   |  \    <|  |
 	 |__|  (____  /____  >__|___|  /__|_ \__|
 	            \/     \/        \/     \/  
-	      			Rasinki
+	      		Rasinki Readme
 ==================================================
 
 Team 13:
@@ -13,13 +13,15 @@ Russell Jahn
 Kevin Wade
 Safaa Hansen
 
+
+
 How to play Rasinki is covered in the included DESCRIPTION file, along with
 interesting programming features of our game/engine.
 
 ---------------------
  Build Instructions:
 ---------------------
-Under the top-level Rasinki folder, run...
+Under the Rasinki project folder, run...
 
-./makeit
+./buildit
 ./Rasinki

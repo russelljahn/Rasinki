@@ -5,5 +5,5 @@ Player::Player() {
 }
 void Player::scored(int points) {
 	mScore += points;
-	std::cout << "Player score: " << mScore << std::endl;
+	// std::cout << "Player score: " << mScore << std::endl;
 }

@@ -1,0 +1,21 @@
+==================================================
+	                     .__        __   .__ 
+	____________    _____|__| ____ |  | _|__|
+	\_  __ \__  \  /  ___/  |/    \|  |/ /  |
+	 |  | \// __ \_\___ \|  |   |  \    <|  |
+	 |__|  (____  /____  >__|___|  /__|_ \__|
+	            \/     \/        \/     \/  
+	      	  Rasinki Project Update
+==================================================
+
+Team 13:
+Russell Jahn
+Kevin Wade
+Safaa Hansen
+
+-----------------
+Project Progress:
+-----------------
+We feel as far as base gameplay is concerned, we accomplished all that we set out to. We plan to eventually change to a more sophisticated GUI system, and add some kind of level system rather than hardcoding one level to play.
+
+As far as our GameObject/Component system, the implementation could use a little more cleaning up, which we'll do as we expand and refine it. A few components, such as physics and rendering, weren't initially intended to be required for all GameObjects, but due to circular dependency problems, we ended up making them required. Transform components don't hold hierarchy information yet, but we'll gauge whether we need to add that functionality based on what what's needed for gameplay during later projects.
