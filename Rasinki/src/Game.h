@@ -35,6 +35,9 @@
 #include "Player.h"
 #include "SoundManager.h"
 
+#include <CEGUI/CEGUI.h>
+#include <CEGUI/RendererModules/Ogre/CEGUIOgreRenderer.h>
+
 
 /*Foward Declarations*/
 class GameObject;
@@ -80,6 +83,7 @@ public:
     Player* getPlayer(void);
 
     int level;
+    bool gameMode;
 
 
 protected:
@@ -88,7 +92,10 @@ protected:
     virtual void chooseSceneManager(void);
     virtual void createCamera(void);
     virtual void createFrameListener(void);
-    virtual void createLights(void); 
+    virtual void createLights(void);
+    virtual void createGUI(void); 
+    virtual void disableGUI(void);
+    virtual void enableGUI(void);
     virtual void createScene(void); 
     virtual void destroyScene(void);
     virtual void createViewports(void);
@@ -103,6 +110,11 @@ protected:
     virtual bool mouseMoved( const OIS::MouseEvent &arg );
     virtual bool mousePressed( const OIS::MouseEvent &arg, OIS::MouseButtonID id );
     virtual bool mouseReleased( const OIS::MouseEvent &arg, OIS::MouseButtonID id );
+
+    bool quit(const CEGUI::EventArgs &e);
+    bool newGame(const CEGUI::EventArgs &e);
+    bool level1(const CEGUI::EventArgs &e);
+    bool level2(const CEGUI::EventArgs &e);
 
     // Ogre::WindowEventListener
     //Adjust mouse clipping area
@@ -135,6 +147,11 @@ protected:
     PhysicsSimulator* mPhysicsSimulator;
     SoundManager* mSoundManager;
     Player* mPlayer;
+
+    //CEGUI::Renderer
+    CEGUI::OgreRenderer* mRenderer;
+    CEGUI::Window* sheet;
+
     // Miscellaneous
     vector<GameObject *> gameObjects;
 };

@@ -17,6 +17,8 @@ using namespace std;
 #include "Objects/Plane.h"
 #include "Objects/Cube.h"
 
+CEGUI::MouseButton convertButton(OIS::MouseButtonID buttonID);
+
 //-------------------------------------------------------------------------------------
 Game::Game(void)
     : mRoot(0),
@@ -135,6 +137,19 @@ void Game::createFrameListener(void)
 
 }
 //-------------------------------------------------------------------------------------
+
+void Game::disableGUI(void)
+{
+    mRenderer->setRenderingEnabled(false);
+    sheet->disable();
+}
+
+void Game::enableGUI(void)
+{
+    mRenderer->setRenderingEnabled(true);
+    sheet->enable();
+}
+
 void Game::destroyScene(void)
 {
     for (auto gameObjectIter = gameObjects.begin(); gameObjectIter != gameObjects.end(); ++gameObjectIter) {
@@ -242,6 +257,7 @@ bool Game::setup(void)
     if (!carryOn) return false;
 
     level = 1;
+    gameMode = false;
 
     chooseSceneManager();
     createCamera();
@@ -257,6 +273,7 @@ bool Game::setup(void)
 
     // Create the scene
     createLights();
+    createGUI();
     createScene();
 
     createFrameListener();
@@ -278,47 +295,45 @@ bool Game::frameRenderingQueued(const Ogre::FrameEvent& evt)
     mMouse->capture();
 
     mTrayManager->frameRenderingQueued(evt);
-    mPhysicsSimulator->stepSimulation(evt.timeSinceLastFrame);
+    CEGUI::System::getSingleton().injectTimePulse(evt.timeSinceLastFrame);
 
-    if (GameplayScript::IsGameOver()) {
-        mStatsPanel->hide();
-        mGameOverPanel->show();
-        mGameOverPanel->setParamValue(0, " "); // Score
-        mGameOverPanel->setParamValue(1, Ogre::StringConverter::toString(mPlayer->getScore())); // Score
-        mGameOverPanel->setParamValue(2, Ogre::StringConverter::toString(GameplayScript::GetGameOverTime())); // Time elapsed
-    }
-    else {
-        mStatsPanel->show();
-        mGameOverPanel->hide();
-        mStatsPanel->setParamValue(0, Ogre::StringConverter::toString(mPlayer->getScore())); // Score
-        mStatsPanel->setParamValue(1, Ogre::StringConverter::toString(SphereComponent::numSpheres)); // Balls remaining
-    }
+    if (gameMode == true)
+    {
+        mPhysicsSimulator->stepSimulation(evt.timeSinceLastFrame);
+        if (GameplayScript::IsGameOver()) {
+            mStatsPanel->hide();
+            mGameOverPanel->show();
+            mGameOverPanel->setParamValue(0, " "); // Score
+            mGameOverPanel->setParamValue(1, Ogre::StringConverter::toString(mPlayer->getScore())); // Score
+            mGameOverPanel->setParamValue(2, Ogre::StringConverter::toString(GameplayScript::GetGameOverTime())); // Time elapsed
+        }
+        else {
+            mStatsPanel->show();
+            mGameOverPanel->hide();
+            mStatsPanel->setParamValue(0, Ogre::StringConverter::toString(mPlayer->getScore())); // Score
+            mStatsPanel->setParamValue(1, Ogre::StringConverter::toString(SphereComponent::numSpheres)); // Balls remaining
+        }
 
-    for (auto gameObjectIter = gameObjects.begin(); gameObjectIter != gameObjects.end(); ++gameObjectIter) {
-        (*gameObjectIter)->Update();
+        for (auto gameObjectIter = gameObjects.begin(); gameObjectIter != gameObjects.end(); ++gameObjectIter) {
+            (*gameObjectIter)->Update();
+        }
     }
+    
     return true;
 }
 //-------------------------------------------------------------------------------------
 bool Game::keyPressed( const OIS::KeyEvent &arg )
 {
+    CEGUI::System &sys = CEGUI::System::getSingleton();
+    sys.injectKeyDown(arg.key);
+    sys.injectChar(arg.text);
+
     if (arg.key == OIS::KC_ESCAPE) {
-        mShutDown = true;
-    }
-    else if (arg.key == OIS::KC_N) {
-        destroyScene();
-        createLights();
-        createScene();
-    }
-    else if (arg.key == OIS::KC_L)
-    {
-        if(level == 2)
-            level = 1;
+        gameMode = !gameMode;
+        if( gameMode == true )
+            disableGUI();
         else
-            level++;
-        destroyScene();
-        createLights();
-        createScene();
+            enableGUI();
     }
     else if (arg.key == OIS::KC_X)
     {
@@ -356,25 +371,53 @@ bool Game::keyPressed( const OIS::KeyEvent &arg )
 
 bool Game::keyReleased( const OIS::KeyEvent &arg )
 {
+    CEGUI::System::getSingleton().injectKeyUp(arg.key);
     return true;
 }
 
 bool Game::mouseMoved( const OIS::MouseEvent &arg )
 {
+    CEGUI::System &sys = CEGUI::System::getSingleton();
+    sys.injectMouseMove(arg.state.X.rel, arg.state.Y.rel);
+    // Scroll wheel.
+    if (arg.state.Z.rel)
+        sys.injectMouseWheelChange(arg.state.Z.rel / 120.0f);
+
     if (mTrayManager->injectMouseMove(arg)) return true;
     return true;
 }
 
 bool Game::mousePressed( const OIS::MouseEvent &arg, OIS::MouseButtonID id )
 {
+    CEGUI::System::getSingleton().injectMouseButtonDown(convertButton(id));
+    cout << "Mouse pressed" << endl;
     if (mTrayManager->injectMouseDown(arg, id)) return true;
     return true;
 }
 
 bool Game::mouseReleased( const OIS::MouseEvent &arg, OIS::MouseButtonID id )
 {
+    CEGUI::System::getSingleton().injectMouseButtonUp(convertButton(id));
     if (mTrayManager->injectMouseUp(arg, id)) return true;
     return true;
+}
+
+CEGUI::MouseButton convertButton(OIS::MouseButtonID buttonID)
+{
+    switch (buttonID)
+    {
+    case OIS::MB_Left:
+        return CEGUI::LeftButton;
+ 
+    case OIS::MB_Right:
+        return CEGUI::RightButton;
+ 
+    case OIS::MB_Middle:
+        return CEGUI::MiddleButton;
+ 
+    default:
+        return CEGUI::LeftButton;
+    }
 }
 
 //Adjust mouse clipping area
@@ -460,7 +503,53 @@ void Game::createLights(void) {
     cout << "Done creating lights!" << endl;
 }
 
+void Game::createGUI(void) {
+    cout << "Creating GUI..." << endl;
+    mRenderer = &CEGUI::OgreRenderer::bootstrapSystem();
 
+    CEGUI::Imageset::setDefaultResourceGroup("Imagesets");
+    CEGUI::Font::setDefaultResourceGroup("Fonts");
+    CEGUI::Scheme::setDefaultResourceGroup("Schemes");
+    CEGUI::WidgetLookManager::setDefaultResourceGroup("LookNFeel");
+    CEGUI::WindowManager::setDefaultResourceGroup("Layouts");
+
+    CEGUI::SchemeManager::getSingleton().create("TaharezLook.scheme");
+    CEGUI::System::getSingleton().setDefaultMouseCursor("TaharezLook", "MouseArrow");
+
+    CEGUI::WindowManager &wmgr = CEGUI::WindowManager::getSingleton();
+    sheet = wmgr.createWindow((CEGUI::utf8*)"DefaultWindow", (CEGUI::utf8*)"RootWindow");  
+
+    CEGUI::Window *quit = wmgr.createWindow("TaharezLook/Button", "CEGUIDemo/QuitButton");
+    quit->setText("Quit");
+    quit->setSize(CEGUI::UVector2(CEGUI::UDim(0.15, 0), CEGUI::UDim(0.05, 0)));
+    quit->setPosition(CEGUI::UVector2(CEGUI::UDim(0.3f, 0),CEGUI::UDim(0.5f, 0)));
+    quit->subscribeEvent(CEGUI::PushButton::EventClicked, CEGUI::Event::Subscriber(&Game::quit, this));
+
+    CEGUI::Window *newGame = wmgr.createWindow("TaharezLook/Button", "CEGUIDemo/NewGameButton");
+    newGame->setText("NewGame");
+    newGame->setSize(CEGUI::UVector2(CEGUI::UDim(0.15, 0), CEGUI::UDim(0.05, 0)));
+    newGame->setPosition(CEGUI::UVector2(CEGUI::UDim(0.5f, 0),CEGUI::UDim(0.5f, 0)));
+    newGame->subscribeEvent(CEGUI::PushButton::EventClicked, CEGUI::Event::Subscriber(&Game::newGame, this));
+
+    CEGUI::Window *level1 = wmgr.createWindow("TaharezLook/Button", "CEGUIDemo/Level1Button");
+    level1->setText("1");
+    level1->setSize(CEGUI::UVector2(CEGUI::UDim(0.15, 0), CEGUI::UDim(0.05, 0)));
+    level1->setPosition(CEGUI::UVector2(CEGUI::UDim(0.3f, 0),CEGUI::UDim(0.6f, 0)));
+    level1->subscribeEvent(CEGUI::PushButton::EventClicked, CEGUI::Event::Subscriber(&Game::level1, this));
+
+    CEGUI::Window *level2 = wmgr.createWindow("TaharezLook/Button", "CEGUIDemo/Level2Button");
+    level2->setText("2");
+    level2->setSize(CEGUI::UVector2(CEGUI::UDim(0.15, 0), CEGUI::UDim(0.05, 0)));
+    level2->setPosition(CEGUI::UVector2(CEGUI::UDim(0.5f, 0),CEGUI::UDim(0.6f, 0)));
+    level2->subscribeEvent(CEGUI::PushButton::EventClicked, CEGUI::Event::Subscriber(&Game::level2, this));
+
+    sheet->addChildWindow(quit);
+    sheet->addChildWindow(newGame);
+    sheet->addChildWindow(level1);
+    sheet->addChildWindow(level2);
+    CEGUI::System::getSingleton().setGUISheet(sheet);
+    cout << "Done creating GUI..." << endl;
+}
 
 void Game::createScene(void) {
     cout << "Creating scene..." << endl;
@@ -560,7 +649,7 @@ void Game::createScene(void) {
         for (int i = 0; i < 100; ++i)
         {
             posx = Ogre::Math::RangeRandom(-900,900);
-            posy = Ogre::Math::RangeRandom(-750,900);
+            posy = Ogre::Math::RangeRandom(0,900);
             posz = Ogre::Math::RangeRandom(-900,900);
             Cube *block = new Cube(this);
             block->AddComponentOfType<PointBlock>();
@@ -576,28 +665,12 @@ void Game::createScene(void) {
 
     // Balls
     Sphere *ball01 = new Sphere(this, 75);
-    ball01->transform->setWorldPosition(Ogre::Vector3(-100,800,0));
+    ball01->transform->setWorldPosition(Ogre::Vector3(0,-700,0));
     ball01->name = "ball01";
     ball01->renderer->setMaterial("Examples/SphereMappedRustySteel");
-    ball01->physics->setLinearVelocity(Ogre::Vector3(-.5*ballSpeed, -1*ballSpeed, -.5*ballSpeed));
+    ball01->physics->setLinearVelocity(Ogre::Vector3(.5*ballSpeed, 1*ballSpeed, .5*ballSpeed));
     ball01->AddComponentOfType<SphereComponent>();
     gameObjects.push_back(ball01);
-
-    Sphere *ball02 = new Sphere(this, 75);
-    ball02->transform->setWorldPosition(Ogre::Vector3(100,800,0));
-    ball02->name = "ball02";
-    ball02->renderer->setMaterial("Examples/SphereMappedRustySteel");
-    ball02->physics->setLinearVelocity(Ogre::Vector3(.5*ballSpeed, -1*ballSpeed, .5*ballSpeed));
-    ball02->AddComponentOfType<SphereComponent>();
-    gameObjects.push_back(ball02);
-
-    Sphere *ball03 = new Sphere(this, 75);
-    ball03->transform->setWorldPosition(Ogre::Vector3(000,800,000));
-    ball03->name = "ball03";
-    ball03->renderer->setMaterial("Examples/SphereMappedRustySteel");
-    ball03->physics->setLinearVelocity(Ogre::Vector3(0*ballSpeed, -1*ballSpeed, -0*ballSpeed));
-    ball03->AddComponentOfType<SphereComponent>();
-    gameObjects.push_back(ball03);
 
     cout << "Done creating scene!" << endl;
 }
@@ -669,4 +742,36 @@ Player* Game::getPlayer(void) {
 }
 SoundManager* Game::getSoundManager(void) {
     return mSoundManager;
+}
+
+bool Game::quit(const CEGUI::EventArgs &e){
+    mShutDown = true;
+    return true;
+}
+
+bool Game::newGame(const CEGUI::EventArgs &e){
+    gameMode = !gameMode;
+    disableGUI();
+    destroyScene();
+    createLights();
+    createScene();
+}
+
+bool Game::level1(const CEGUI::EventArgs &e){
+    level = 1;
+    gameMode = !gameMode;
+    disableGUI();
+    destroyScene();
+    createLights();
+    createScene();
+
+}
+
+bool Game::level2(const CEGUI::EventArgs &e){
+    level = 2;
+    gameMode = !gameMode;
+    disableGUI();
+    destroyScene();
+    createLights();
+    createScene();
 }

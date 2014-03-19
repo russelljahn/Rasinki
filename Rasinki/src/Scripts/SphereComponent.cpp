@@ -15,9 +15,9 @@ SphereComponent::~SphereComponent() {
 
 
 void SphereComponent::Update() {
-	Ogre::Vector3 nvec = gameObject->physics->getLinearVelocity();
+/*	Ogre::Vector3 nvec = gameObject->physics->getLinearVelocity();
 	nvec.normalise();
-	gameObject->physics->setLinearVelocity(nvec*speed);
+	gameObject->physics->setLinearVelocity(nvec*speed);*/
 
 	if (gameObject->game->getKeyboard()->isKeyDown(OIS::KC_SPACE)) {
 		Ogre::Vector3 vec = gameObject->physics->getLinearVelocity();
