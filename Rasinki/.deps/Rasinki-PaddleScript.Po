@@ -897,7 +897,8 @@ Rasinki-PaddleScript.o: src/Scripts/PaddleScript.cpp \
  /usr/include/SDL/SDL_joystick.h /usr/include/SDL/SDL_quit.h \
  /usr/include/SDL/SDL_loadso.h /usr/include/SDL/SDL_timer.h \
  /usr/include/SDL/SDL_version.h /usr/include/SDL/SDL_mixer.h \
- /usr/include/SDL/SDL_types.h /usr/local/include/CEGUI/CEGUI.h \
+ /usr/include/SDL/SDL_types.h src/Network.h /usr/include/SDL/SDL_net.h \
+ /usr/include/SDL/SDL.h /usr/local/include/CEGUI/CEGUI.h \
  /usr/local/include/CEGUI/CEGUIAffector.h \
  /usr/local/include/CEGUI/CEGUIString.h \
  /usr/local/include/CEGUI/CEGUIBase.h \
@@ -3266,6 +3267,12 @@ src/SoundManager.h:
 /usr/include/SDL/SDL_mixer.h:
 
 /usr/include/SDL/SDL_types.h:
+
+src/Network.h:
+
+/usr/include/SDL/SDL_net.h:
+
+/usr/include/SDL/SDL.h:
 
 /usr/local/include/CEGUI/CEGUI.h:
 

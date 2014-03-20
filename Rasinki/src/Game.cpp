@@ -296,7 +296,6 @@ bool Game::frameRenderingQueued(const Ogre::FrameEvent& evt)
 
     mTrayManager->frameRenderingQueued(evt);
     CEGUI::System::getSingleton().injectTimePulse(evt.timeSinceLastFrame);
-
     if (gameMode == true)
     {
         mPhysicsSimulator->stepSimulation(evt.timeSinceLastFrame);
@@ -318,7 +317,8 @@ bool Game::frameRenderingQueued(const Ogre::FrameEvent& evt)
             (*gameObjectIter)->Update();
         }
     }
-    
+    if (mNetwork != NULL)
+        mNetwork->OnNetworkUpdate();
     return true;
 }
 //-------------------------------------------------------------------------------------
@@ -553,7 +553,7 @@ void Game::createGUI(void) {
 
 void Game::createScene(void) {
     cout << "Creating scene..." << endl;
-
+    mNetwork = NULL;
     // Environment
     Cube *ground = new Cube(this);
     ground->transform->setWorldPosition(Ogre::Vector3(0,-1005,0));
@@ -758,20 +758,30 @@ bool Game::newGame(const CEGUI::EventArgs &e){
 }
 
 bool Game::level1(const CEGUI::EventArgs &e){
-    level = 1;
+    /*level = 1;
     gameMode = !gameMode;
     disableGUI();
     destroyScene();
     createLights();
     createScene();
-
+    */
+    if (mNetwork != NULL) {
+        std::cout << "DELETING OLD NETWORK" << std::endl;
+        delete mNetwork;
+    }
+    mNetwork = new Network(true);
 }
 
 bool Game::level2(const CEGUI::EventArgs &e){
-    level = 2;
+    /*level = 2;
     gameMode = !gameMode;
     disableGUI();
     destroyScene();
     createLights();
-    createScene();
+    createScene();*/
+    if (mNetwork != NULL) {
+        std::cout << "DELETING OLD NETWORK" << std::endl;
+        delete mNetwork;
+    }
+    mNetwork = new Network(false);
 }

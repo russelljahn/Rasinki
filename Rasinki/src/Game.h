@@ -34,6 +34,7 @@
 #include "PhysicsSimulator.h"
 #include "Player.h"
 #include "SoundManager.h"
+#include "Network.h"
 
 #include <CEGUI/CEGUI.h>
 #include <CEGUI/RendererModules/Ogre/CEGUIOgreRenderer.h>
@@ -44,6 +45,7 @@ class GameObject;
 class PhysicsSimulator;
 class Player;
 class SoundManager;
+class Network;
 
 using namespace std;
 
@@ -147,7 +149,7 @@ protected:
     PhysicsSimulator* mPhysicsSimulator;
     SoundManager* mSoundManager;
     Player* mPlayer;
-
+    Network* mNetwork;
     //CEGUI::Renderer
     CEGUI::OgreRenderer* mRenderer;
     CEGUI::Window* sheet;
