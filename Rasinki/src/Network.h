@@ -6,6 +6,7 @@
 #include <string.h>
 #include <iostream>
 #include <SDL_net.h>
+#include <Input.h>
 
 #define PORT 60000
 #define BUFFER_SIZE 512
@@ -28,6 +29,7 @@ class Network {
 		// void ReadData(...);
 		void CloseConnection();
 		void ProcessClients();
+		void ProcessInputFromClient();
 
 		const char *host;
 		string serverName;
@@ -70,6 +72,55 @@ struct ClientInput {
 	bool isKeyUpRight;
 	bool isKeyUpSpacebar;
 	bool isKeyUpEscape;
+
+	ClientInput() :
+		isKeyDownW(false),
+		isKeyDownA(false),
+		isKeyDownS(false),
+		isKeyDownD(false),
+		isKeyDownUp(false),
+		isKeyDownDown(false),
+		isKeyDownLeft(false),
+		isKeyDownRight(false),
+		isKeyDownSpacebar(false),
+		isKeyDownEscape(false),
+
+		isKeyUpW(false),
+		isKeyUpA(false),
+		isKeyUpS(false),
+		isKeyUpD(false),
+		isKeyUpUp(false),
+		isKeyUpDown(false),
+		isKeyUpLeft(false),
+		isKeyUpRight(false),
+		isKeyUpSpacebar(false),
+		isKeyUpEscape(false) 
+	{};
+
+	void print() {
+
+		std::cout << "isKeyDownW? " << isKeyDownW << std::endl;
+		std::cout << "isKeyDownA? " << isKeyDownA << std::endl;
+		std::cout << "isKeyDownS? " << isKeyDownS << std::endl;
+		std::cout << "isKeyDownD? " << isKeyDownD << std::endl;
+		std::cout << "isKeyDownUp? " << isKeyDownUp<< std::endl;
+		std::cout << "isKeyDownDown? " << isKeyDownDown << std::endl;
+		std::cout << "isKeyDownLeft? " << isKeyDownLeft << std::endl;
+		std::cout << "isKeyDownRight? " << isKeyDownRight << std::endl;
+		std::cout << "isKeyDownSpacebar? " << isKeyDownSpacebar << std::endl;
+		std::cout << "isKeyDownEscape? " << isKeyDownEscape << std::endl;
+		std::cout << "isKeyUpW? " << isKeyUpW << std::endl;
+		std::cout << "isKeyUpA? " << isKeyUpA << std::endl;
+		std::cout << "isKeyUpS? " << isKeyUpS << std::endl;
+		std::cout << "isKeyUpD? " << isKeyUpD << std::endl;
+		std::cout << "isKeyUpUp? " << isKeyUpUp << std::endl;
+		std::cout << "isKeyUpDown? " << isKeyUpDown << std::endl;
+		std::cout << "isKeyUpLeft? " << isKeyUpLeft << std::endl;
+		std::cout << "isKeyUpRight? " << isKeyUpRight << std::endl;
+		std::cout << "isKeyUpSpacebar? " << isKeyUpSpacebar << std::endl;
+		std::cout << "isKeyUpEscape? " << isKeyUpEscape << std::endl;
+
+	}
 };
 
 #endif

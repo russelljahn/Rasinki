@@ -8,37 +8,37 @@ const string SERVER_FULL     = "FULL";
 
 
 Network::Network(bool isServer) {
-	if ( SDLNet_Init() < 0 ) {
-		fprintf(stderr, "Couldn't initialize net: %s\n", SDLNet_GetError());
-		SDL_Quit();
-		exit(1);
-	}
-	receivedByteCount = 0;
-	clientCount = 0;
-	shutdownServer = false;
+    if ( SDLNet_Init() < 0 ) {
+        fprintf(stderr, "Couldn't initialize net: %s\n", SDLNet_GetError());
+        SDL_Quit();
+        exit(1);
+    }
+    receivedByteCount = 0;
+    clientCount = 0;
+    shutdownServer = false;
 
-	this->isServer = isServer;
-	if (isServer)
-		SetUpServer();
-	else
-		ConnectToServer();
+    this->isServer = isServer;
+    if (isServer)
+        SetUpServer();
+    else
+        ConnectToServer();
 }
 
 
 Network::~Network() {
-	 // Free our socket set (i.e. all the clients in our socket set)
+     // Free our socket set (i.e. all the clients in our socket set)
     SDLNet_FreeSocketSet(socketSet);
     // Close our server socket, cleanup SDL_net and finish!
     if (serverSocket)
-    	SDLNet_TCP_Close(serverSocket);
+        SDLNet_TCP_Close(serverSocket);
     if (clientSocket[0])
-    	SDLNet_TCP_Close(clientSocket[0]);
+        SDLNet_TCP_Close(clientSocket[0]);
     SDLNet_Quit();
 }
 
 
 void Network::SetUpServer() {
-	// Create the socket set with enough space to store our desired number of connections (i.e. sockets)
+    // Create the socket set with enough space to store our desired number of connections (i.e. sockets)
     socketSet = SDLNet_AllocSocketSet(MAX_SOCKETS);
     if (socketSet == NULL)
     {
@@ -90,7 +90,7 @@ void Network::SetUpServer() {
 
 
 void Network::ConnectToServer() {
-	// Ask the user for a server to connect to - can be entered as a hostname (i.e. localhost etc.) or an IP address (i.e. 127.0.0.1 etc.)
+    // Ask the user for a server to connect to - can be entered as a hostname (i.e. localhost etc.) or an IP address (i.e. 127.0.0.1 etc.)
     cout << "Server Name: ";
     //getline(cin, serverName); // Uncomment this and remove the below line to change the server we're connecting to...
     serverName = "localhost";
@@ -189,7 +189,7 @@ void Network::ConnectToServer() {
 
 
 void Network::ProcessClients() {
-	 // Check for activity on the entire socket set. The second parameter is the number of milliseconds to wait for.
+     // Check for activity on the entire socket set. The second parameter is the number of milliseconds to wait for.
     // For the wait-time, 0 means do not wait (high CPU!), -1 means wait for up to 49 days (no, really), and any other number is a number of milliseconds, i.e. 5000 means wait for 5 seconds
     int numActiveSockets = SDLNet_CheckSockets(socketSet, 0);
 
@@ -294,6 +294,7 @@ void Network::ProcessClients() {
             {
                 // Output the message the server received to the screen
                 cout << "Received: >>>> " << buffer << " from client number: " << clientNumber << endl;
+                ProcessInputFromClient();
 
                 // Send message to all other connected clients
                 int originatingClient = clientNumber;
@@ -331,16 +332,39 @@ void Network::ProcessClients() {
 }
 
 
+void Network::ProcessInputFromClient() {
+    ClientInput clientInput = *((ClientInput *)buffer);
+    std::cout << "Input recieved from client: " << std::endl;
+    clientInput.print();
+}
+
+
+
 void Network::SendInputToServer() {
-	ClientInput clientInput;
+    ClientInput clientInput;
+    clientInput.isKeyDownW = Input::IsKeyDown(OIS::KC_W);
+    clientInput.isKeyDownA = Input::IsKeyDown(OIS::KC_A);
+    clientInput.isKeyDownS = Input::IsKeyDown(OIS::KC_S);
+    clientInput.isKeyDownD = Input::IsKeyDown(OIS::KC_D);
+
+    std::cout << "Input before sending to server: " << std::endl;
+    clientInput.print();
+
+    int bytesToSend = sizeof(clientInput);
+ 
+    // Send the message to the server
+    if (SDLNet_TCP_Send(clientSocket[0], (void *)(&clientInput), bytesToSend) < bytesToSend) {
+        cout << "Failed to send message: " << SDLNet_GetError() << endl;
+    }
+
 }
 
 
 void Network::OnNetworkUpdate() {
-	if (isServer) {
-		ProcessClients();
-	}
-	else {
-		SendInputToServer();
-	}
+    if (isServer) {
+        ProcessClients();
+    }
+    else {
+        SendInputToServer();
+    }
 }
