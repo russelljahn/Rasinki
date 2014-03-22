@@ -5,7 +5,9 @@ using namespace std;
 const string SERVER_NOT_FULL = "OK";
 const string SERVER_FULL     = "FULL";
 
-Network::Network(bool isServer){
+
+
+Network::Network(bool isServer) {
 	if ( SDLNet_Init() < 0 ) {
 		fprintf(stderr, "Couldn't initialize net: %s\n", SDLNet_GetError());
 		SDL_Quit();
@@ -21,6 +23,8 @@ Network::Network(bool isServer){
 	else
 		ConnectToServer();
 }
+
+
 Network::~Network() {
 	 // Free our socket set (i.e. all the clients in our socket set)
     SDLNet_FreeSocketSet(socketSet);
@@ -31,6 +35,8 @@ Network::~Network() {
     	SDLNet_TCP_Close(clientSocket[0]);
     SDLNet_Quit();
 }
+
+
 void Network::SetUpServer() {
 	// Create the socket set with enough space to store our desired number of connections (i.e. sockets)
     socketSet = SDLNet_AllocSocketSet(MAX_SOCKETS);
@@ -81,6 +87,8 @@ void Network::SetUpServer() {
     SDLNet_TCP_AddSocket(socketSet, serverSocket);
     cout << "Awaiting clients..." << endl;
 }
+
+
 void Network::ConnectToServer() {
 	// Ask the user for a server to connect to - can be entered as a hostname (i.e. localhost etc.) or an IP address (i.e. 127.0.0.1 etc.)
     cout << "Server Name: ";
@@ -178,6 +186,8 @@ void Network::ConnectToServer() {
         }
     } // End of if we managed to open a connection to the server condition
 }
+
+
 void Network::ProcessClients() {
 	 // Check for activity on the entire socket set. The second parameter is the number of milliseconds to wait for.
     // For the wait-time, 0 means do not wait (high CPU!), -1 means wait for up to 49 days (no, really), and any other number is a number of milliseconds, i.e. 5000 means wait for 5 seconds
@@ -319,7 +329,18 @@ void Network::ProcessClients() {
     } // End of server socket check sockets loop
  
 }
+
+
+void Network::SendInputToServer() {
+	ClientInput clientInput;
+}
+
+
 void Network::OnNetworkUpdate() {
-	if (isServer)
+	if (isServer) {
 		ProcessClients();
+	}
+	else {
+		SendInputToServer();
+	}
 }

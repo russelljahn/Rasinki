@@ -35,6 +35,7 @@
 #include "Player.h"
 #include "SoundManager.h"
 #include "Network.h"
+#include "Input.h"
 
 #include <CEGUI/CEGUI.h>
 #include <CEGUI/RendererModules/Ogre/CEGUIOgreRenderer.h>

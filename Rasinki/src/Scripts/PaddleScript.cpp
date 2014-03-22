@@ -21,7 +21,7 @@ void PaddleScript::Update() {
 	float movementSpeed = 1500.0f;
 	int side = gameObject->game->camSide();
 
-	if (gameObject->game->getKeyboard()->isKeyDown(OIS::KC_LEFT) || gameObject->game->getKeyboard()->isKeyDown(OIS::KC_A)) {
+	if (Input::IsKeyDown(OIS::KC_LEFT) || Input::IsKeyDown(OIS::KC_A)) {
 		Ogre::Vector3 veloc = gameObject->physics->getLinearVelocity();
 
 		switch(side)
@@ -44,7 +44,7 @@ void PaddleScript::Update() {
 
 		gameObject->physics->setLinearVelocity(veloc);
 	}
-	if (gameObject->game->getKeyboard()->isKeyDown(OIS::KC_RIGHT) || gameObject->game->getKeyboard()->isKeyDown(OIS::KC_D)) {
+	if (Input::IsKeyDown(OIS::KC_RIGHT) || Input::IsKeyDown(OIS::KC_D)) {
 		Ogre::Vector3 veloc = gameObject->physics->getLinearVelocity();
 
 		switch(side)
@@ -67,7 +67,7 @@ void PaddleScript::Update() {
 
 		gameObject->physics->setLinearVelocity(veloc);
 	}
-	if (gameObject->game->getKeyboard()->isKeyDown(OIS::KC_UP) || gameObject->game->getKeyboard()->isKeyDown(OIS::KC_W)) {
+	if (Input::IsKeyDown(OIS::KC_UP) || Input::IsKeyDown(OIS::KC_W)) {
 		Ogre::Vector3 veloc = gameObject->physics->getLinearVelocity();
 
 		switch(side)
@@ -90,7 +90,7 @@ void PaddleScript::Update() {
 
 		gameObject->physics->setLinearVelocity(veloc);
 	}
-	if (gameObject->game->getKeyboard()->isKeyDown(OIS::KC_DOWN) || gameObject->game->getKeyboard()->isKeyDown(OIS::KC_S)) {
+	if (Input::IsKeyDown(OIS::KC_DOWN) || Input::IsKeyDown(OIS::KC_S)) {
 		Ogre::Vector3 veloc = gameObject->physics->getLinearVelocity();
 		
 		switch(side)

@@ -108,6 +108,8 @@ void Game::createFrameListener(void)
 
     mMouse->setEventCallback(this);
     mKeyboard->setEventCallback(this);
+    
+    Input::Initialize(mKeyboard, mMouse);
 
     //Set initial mouse clipping size
     windowResized(mWindow);
@@ -532,13 +534,13 @@ void Game::createGUI(void) {
     newGame->subscribeEvent(CEGUI::PushButton::EventClicked, CEGUI::Event::Subscriber(&Game::newGame, this));
 
     CEGUI::Window *level1 = wmgr.createWindow("TaharezLook/Button", "CEGUIDemo/Level1Button");
-    level1->setText("1");
+    level1->setText("Host Server");
     level1->setSize(CEGUI::UVector2(CEGUI::UDim(0.15, 0), CEGUI::UDim(0.05, 0)));
     level1->setPosition(CEGUI::UVector2(CEGUI::UDim(0.3f, 0),CEGUI::UDim(0.6f, 0)));
     level1->subscribeEvent(CEGUI::PushButton::EventClicked, CEGUI::Event::Subscriber(&Game::level1, this));
 
     CEGUI::Window *level2 = wmgr.createWindow("TaharezLook/Button", "CEGUIDemo/Level2Button");
-    level2->setText("2");
+    level2->setText("Connect to LocalHost");
     level2->setSize(CEGUI::UVector2(CEGUI::UDim(0.15, 0), CEGUI::UDim(0.05, 0)));
     level2->setPosition(CEGUI::UVector2(CEGUI::UDim(0.5f, 0),CEGUI::UDim(0.6f, 0)));
     level2->subscribeEvent(CEGUI::PushButton::EventClicked, CEGUI::Event::Subscriber(&Game::level2, this));

@@ -64,7 +64,7 @@ am_Rasinki_OBJECTS = Rasinki-Game.$(OBJEXT) Rasinki-main.$(OBJEXT) \
 	Rasinki-Player.$(OBJEXT) Rasinki-SoundManager.$(OBJEXT) \
 	Rasinki-SphereComponent.$(OBJEXT) \
 	Rasinki-GameplayScript.$(OBJEXT) Rasinki-Time.$(OBJEXT) \
-	Rasinki-Network.$(OBJEXT)
+	Rasinki-Network.$(OBJEXT) Rasinki-Input.$(OBJEXT)
 Rasinki_OBJECTS = $(am_Rasinki_OBJECTS)
 am__DEPENDENCIES_1 =
 Rasinki_DEPENDENCIES = $(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1) \
@@ -248,9 +248,9 @@ target_alias =
 top_build_prefix = 
 top_builddir = .
 top_srcdir = .
-noinst_HEADERS = src/Game.h src/GameObject.h src/Components/Component.h src/PhysicsSimulator.h src/Components/Transform.h src/Components/Renderer.h src/Components/Script.h src/Scripts/PaddleScript.h src/Scripts/PointBlock.h src/Scripts/Wall.h src/Objects/Sphere.h src/Objects/Paddle.h src/Objects/Plane.h src/Objects/Cube.h src/Player.h src/SoundManager.h src/Scripts/SphereComponent.h src/Scripts/GameplayScript.h src/Time.h src/Network.h
+noinst_HEADERS = src/Game.h src/GameObject.h src/Components/Component.h src/PhysicsSimulator.h src/Components/Transform.h src/Components/Renderer.h src/Components/Script.h src/Scripts/PaddleScript.h src/Scripts/PointBlock.h src/Scripts/Wall.h src/Objects/Sphere.h src/Objects/Paddle.h src/Objects/Plane.h src/Objects/Cube.h src/Player.h src/SoundManager.h src/Scripts/SphereComponent.h src/Scripts/GameplayScript.h src/Time.h src/Network.h src/Input.h
 Rasinki_CPPFLAGS = -I$(top_srcdir)/src
-Rasinki_SOURCES = src/Game.cpp src/main.cpp src/GameObject.cpp src/Components/Component.cpp src/PhysicsSimulator.cpp src/Components/Transform.cpp src/Components/Renderer.cpp src/Components/Script.cpp src/Scripts/PaddleScript.cpp src/Scripts/PointBlock.cpp src/Scripts/Wall.cpp src/Components/Physics.cpp src/Objects/Sphere.cpp src/Objects/Paddle.cpp src/Objects/Plane.cpp src/Objects/Cube.cpp src/Player.cpp src/SoundManager.cpp src/Scripts/SphereComponent.cpp src/Scripts/GameplayScript.cpp src/Time.cpp src/Network.cpp
+Rasinki_SOURCES = src/Game.cpp src/main.cpp src/GameObject.cpp src/Components/Component.cpp src/PhysicsSimulator.cpp src/Components/Transform.cpp src/Components/Renderer.cpp src/Components/Script.cpp src/Scripts/PaddleScript.cpp src/Scripts/PointBlock.cpp src/Scripts/Wall.cpp src/Components/Physics.cpp src/Objects/Sphere.cpp src/Objects/Paddle.cpp src/Objects/Plane.cpp src/Objects/Cube.cpp src/Player.cpp src/SoundManager.cpp src/Scripts/SphereComponent.cpp src/Scripts/GameplayScript.cpp src/Time.cpp src/Network.cpp src/Input.cpp
 Rasinki_CXXFLAGS = $(OGRE_CFLAGS) $(OIS_CFLAGS) $(bullet_CFLAGS) $(sdl_CFLAGS) $(SDLMIXER_CFLAGS) $(SDLNET_CFLAGS) -std=c++0x
 Rasinki_LDADD = $(OGRE_LIBS) $(OIS_LIBS) $(bullet_LIBS) $(sdl_LIBS) $(SDLMIXER_LIBS) $(SDLNET_LIBS) $(CEGUI_LIBS) $(CEGUI_OGRE_LIBS)
 EXTRA_DIST = buildit makeit
@@ -367,6 +367,7 @@ include ./$(DEPDIR)/Rasinki-Cube.Po
 include ./$(DEPDIR)/Rasinki-Game.Po
 include ./$(DEPDIR)/Rasinki-GameObject.Po
 include ./$(DEPDIR)/Rasinki-GameplayScript.Po
+include ./$(DEPDIR)/Rasinki-Input.Po
 include ./$(DEPDIR)/Rasinki-Network.Po
 include ./$(DEPDIR)/Rasinki-Paddle.Po
 include ./$(DEPDIR)/Rasinki-PaddleScript.Po
@@ -713,6 +714,20 @@ Rasinki-Network.obj: src/Network.cpp
 #	source='src/Network.cpp' object='Rasinki-Network.obj' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
 #	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(Rasinki_CPPFLAGS) $(CPPFLAGS) $(Rasinki_CXXFLAGS) $(CXXFLAGS) -c -o Rasinki-Network.obj `if test -f 'src/Network.cpp'; then $(CYGPATH_W) 'src/Network.cpp'; else $(CYGPATH_W) '$(srcdir)/src/Network.cpp'; fi`
+
+Rasinki-Input.o: src/Input.cpp
+	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(Rasinki_CPPFLAGS) $(CPPFLAGS) $(Rasinki_CXXFLAGS) $(CXXFLAGS) -MT Rasinki-Input.o -MD -MP -MF $(DEPDIR)/Rasinki-Input.Tpo -c -o Rasinki-Input.o `test -f 'src/Input.cpp' || echo '$(srcdir)/'`src/Input.cpp
+	$(am__mv) $(DEPDIR)/Rasinki-Input.Tpo $(DEPDIR)/Rasinki-Input.Po
+#	source='src/Input.cpp' object='Rasinki-Input.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
+#	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(Rasinki_CPPFLAGS) $(CPPFLAGS) $(Rasinki_CXXFLAGS) $(CXXFLAGS) -c -o Rasinki-Input.o `test -f 'src/Input.cpp' || echo '$(srcdir)/'`src/Input.cpp
+
+Rasinki-Input.obj: src/Input.cpp
+	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(Rasinki_CPPFLAGS) $(CPPFLAGS) $(Rasinki_CXXFLAGS) $(CXXFLAGS) -MT Rasinki-Input.obj -MD -MP -MF $(DEPDIR)/Rasinki-Input.Tpo -c -o Rasinki-Input.obj `if test -f 'src/Input.cpp'; then $(CYGPATH_W) 'src/Input.cpp'; else $(CYGPATH_W) '$(srcdir)/src/Input.cpp'; fi`
+	$(am__mv) $(DEPDIR)/Rasinki-Input.Tpo $(DEPDIR)/Rasinki-Input.Po
+#	source='src/Input.cpp' object='Rasinki-Input.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
+#	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(Rasinki_CPPFLAGS) $(CPPFLAGS) $(Rasinki_CXXFLAGS) $(CXXFLAGS) -c -o Rasinki-Input.obj `if test -f 'src/Input.cpp'; then $(CYGPATH_W) 'src/Input.cpp'; else $(CYGPATH_W) '$(srcdir)/src/Input.cpp'; fi`
 
 mostlyclean-libtool:
 	-rm -f *.lo

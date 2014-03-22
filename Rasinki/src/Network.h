@@ -23,6 +23,7 @@ class Network {
 	private:
 		void SetUpServer();
 		void ConnectToServer();
+		void SendInputToServer();
 		// void SendData(...);
 		// void ReadData(...);
 		void CloseConnection();
@@ -44,6 +45,31 @@ class Network {
 	 
 	    bool shutdownServer;         // Flag to control when to shut down the server
 
+};
+
+
+struct ClientInput {
+	bool isKeyDownW;
+	bool isKeyDownA;
+	bool isKeyDownS;
+	bool isKeyDownD;
+	bool isKeyDownUp;
+	bool isKeyDownDown;
+	bool isKeyDownLeft;
+	bool isKeyDownRight;
+	bool isKeyDownSpacebar;
+	bool isKeyDownEscape;
+
+	bool isKeyUpW;
+	bool isKeyUpA;
+	bool isKeyUpS;
+	bool isKeyUpD;
+	bool isKeyUpUp;
+	bool isKeyUpDown;
+	bool isKeyUpLeft;
+	bool isKeyUpRight;
+	bool isKeyUpSpacebar;
+	bool isKeyUpEscape;
 };
 
 #endif
