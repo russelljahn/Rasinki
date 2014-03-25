@@ -339,9 +339,9 @@ void Network::ProcessInputFromClient() {
     std::cout << "Input recieved from client: " << std::endl;
     //clientInput.print();
 }
-void Network::SendMessageToClient(ServerMessageType type) {
-    ServerMessage serverMessage;
-    serverMessage.messageType = type;
+void Network::SendMessageToClient(ServerMessage serverMessage) {
+    if (clientSocket[0] == NULL)
+        return;
     std::cout << "Message before sending to client: " << std::endl;
     serverMessage.print();
     int bytesToSend = sizeof(serverMessage);
@@ -367,10 +367,8 @@ void Network::SendInputToServer() {
     }
 }
 void Network::ProcessServer(){
-    int socketActive = SDLNet_CheckSockets(socketSet, 0);
-    cout << "Sockets with data on them at the moment: " << socketActive << endl;
-    if (socketActive != 0)
-    {
+    while (SDLNet_CheckSockets(socketSet, 0) > 0) {
+        cout << "Sockets with data on them at the moment" << endl;
         // Check if we got a response from the server
         int messageFromServer = SDLNet_SocketReady(clientSocket[0]);
         if (messageFromServer != 0)
@@ -385,13 +383,17 @@ void Network::ProcessServer(){
                 cout << "Server is starting game" << endl;
                 game->newGame();
             }
+            else if (serverMessage.messageType == OBJECTPOSITION) {
+                cout << "GOT OBJECT POSITION" << endl;
+                game->paddle->physics->setWorldPosition(Ogre::Vector3(serverMessage.posx, serverMessage.posy, serverMessage.posz));
+            }
         }
         else
         {
             //cout << "No response from server..." << endl;
         }
-
-    } // End of if socket has activity check
+    // End of if socket has activity check
+    }
 }
 
 void Network::OnNetworkUpdate() {

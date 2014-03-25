@@ -302,7 +302,14 @@ bool Game::frameRenderingQueued(const Ogre::FrameEvent& evt)
     CEGUI::System::getSingleton().injectTimePulse(evt.timeSinceLastFrame);
     if (gameMode == true)
     {
-        mPhysicsSimulator->stepSimulation(evt.timeSinceLastFrame);
+        if (mNetwork->isServer)
+            mPhysicsSimulator->stepSimulation(evt.timeSinceLastFrame);
+        else {
+            for (auto gameObjectIter = gameObjects.begin(); gameObjectIter != gameObjects.end(); ++gameObjectIter) {
+                (*gameObjectIter)->FixedUpdate();
+             }
+        }
+
         if (GameplayScript::IsGameOver()) {
             mStatsPanel->hide();
             mGameOverPanel->show();
@@ -321,8 +328,13 @@ bool Game::frameRenderingQueued(const Ogre::FrameEvent& evt)
             (*gameObjectIter)->Update();
         }
     }
-    if (mNetwork != NULL)
+    std::cout << "PADDLE POSITION : " << paddle->physics->getWorldPosition() << std::endl;
+    if (mNetwork != NULL) {
+        if (mNetwork->isServer && gameObjects.size()) {
+                mNetwork->SendMessageToClient(ServerMessage(paddle->physics->getWorldPosition()));
+        }
         mNetwork->OnNetworkUpdate();
+    }
     return true;
 }
 //-------------------------------------------------------------------------------------
@@ -557,6 +569,17 @@ void Game::createGUI(void) {
 
 void Game::createScene(void) {
     cout << "Creating scene..." << endl;
+    // Paddle
+    Paddle *newPaddle = new Paddle(this);
+    newPaddle->AddComponentOfType<PaddleScript>();
+    newPaddle->AddComponentOfType<GameplayScript>();
+    newPaddle->transform->setWorldPosition(Ogre::Vector3(0,-800,0));
+    newPaddle->transform->setLocalScale(Ogre::Vector3(3, .25, 3));
+    newPaddle->name = "paddle";
+    newPaddle->renderer->setMaterial("Examples/Rockwall");
+    gameObjects.push_back(newPaddle); 
+    std::cout << "NEW PADDLE POS: " << newPaddle->physics->getWorldPosition() << std::endl;
+    paddle = newPaddle;
     // Environment
     Cube *ground = new Cube(this);
     ground->transform->setWorldPosition(Ogre::Vector3(0,-1005,0));
@@ -605,16 +628,6 @@ void Game::createScene(void) {
     north->name = "north";
     north->renderer->setMaterial("Examples/BumpyMetalG");
     gameObjects.push_back(north);
-
-    // Paddle
-    Paddle *newPaddle = new Paddle(this);
-    newPaddle->AddComponentOfType<PaddleScript>();
-    newPaddle->AddComponentOfType<GameplayScript>();
-    newPaddle->transform->setWorldPosition(Ogre::Vector3(0,-800,0));
-    newPaddle->transform->setLocalScale(Ogre::Vector3(3, .25, 3));
-    newPaddle->name = "paddle";
-    newPaddle->renderer->setMaterial("Examples/Rockwall");
-    gameObjects.push_back(newPaddle);
 
     int cubeid = 0;
     switch(level)
@@ -759,7 +772,7 @@ bool Game::newGame(const CEGUI::EventArgs &e){
     createLights();
     createScene();
     if (mNetwork->isServer)
-        mNetwork->SendMessageToClient(STARTGAME);
+        mNetwork->SendMessageToClient(ServerMessage());
 }
 bool Game::newGame() {
     gameMode = !gameMode;

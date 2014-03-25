@@ -18,13 +18,26 @@ using namespace std;
 enum ServerMessageType { STARTGAME, OBJECTPOSITION};
 class Game;
 
+struct ServerMessage {
+	enum ServerMessageType messageType;
+	float posx, posy, posz;
+	ServerMessage(Ogre::Vector3 pos) : messageType(OBJECTPOSITION), posx(pos.x), posy(pos.y), posz(pos.z) {}
+	ServerMessage() : messageType(STARTGAME) {}
+	void print() {
+		std::cout << "messageType " << messageType << std::endl;
+		std::cout << "posx " << posx << std::endl;
+		std::cout << "posy " << posy << std::endl;
+		std::cout << "posz " << posz << std::endl;
+	}
+};
+
 class Network {
 	public:
 		bool isServer;
 		Network(Game* g, bool isServer);
 		~Network();
 		void OnNetworkUpdate();
-		void SendMessageToClient(ServerMessageType type);
+		void SendMessageToClient(ServerMessage message);
 	private:
 		void SetUpServer();
 		void ConnectToServer();
@@ -52,13 +65,6 @@ class Network {
 	 
 	    bool shutdownServer;         // Flag to control when to shut down the server
 
-};
-struct ServerMessage {
-	enum ServerMessageType messageType;
-	ServerMessage() : messageType(STARTGAME) {}
-	void print() {
-		std::cout << "messageType " << messageType << std::endl;
-	}
 };
 
 struct ClientInput {

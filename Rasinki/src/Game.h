@@ -74,7 +74,7 @@ public:
     // Ogre::FrameListener
     virtual bool frameRenderingQueued(const Ogre::FrameEvent& evt);
     bool newGame();
-    
+    GameObject* paddle;
     Ogre::SceneNode* getSceneRoot(void);
     Ogre::SceneManager* getSceneManager(void);
     PhysicsSimulator* getPhysicsSimulator(void);
@@ -89,6 +89,8 @@ public:
     int level;
     bool gameMode;
 
+    // Miscellaneous
+    vector<GameObject *> gameObjects;
 
 protected:
     virtual bool setup();
@@ -155,9 +157,6 @@ protected:
     //CEGUI::Renderer
     CEGUI::OgreRenderer* mRenderer;
     CEGUI::Window* sheet;
-
-    // Miscellaneous
-    vector<GameObject *> gameObjects;
 };
 
 #endif // #ifndef __Game_h_
