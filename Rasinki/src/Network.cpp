@@ -7,12 +7,13 @@ const string SERVER_FULL     = "FULL";
 
 
 
-Network::Network(bool isServer) {
+Network::Network(Game *g, bool isServer) {
     if ( SDLNet_Init() < 0 ) {
         fprintf(stderr, "Couldn't initialize net: %s\n", SDLNet_GetError());
         SDL_Quit();
         exit(1);
     }
+    game = g;
     receivedByteCount = 0;
     clientCount = 0;
     shutdownServer = false;
@@ -53,6 +54,7 @@ void Network::SetUpServer() {
     for (int loop = 0; loop < MAX_CLIENTS; loop++)
     {
         clientSocket[loop] = NULL;
+        std::cout << "clientSocket[" << loop << "] initialized to NULL" << std::endl;
         socketIsFree[loop] = true; // Set all our sockets to be free (i.e. available for use for new client connections)
     }
     // Try to resolve the provided server hostname. If successful, this places the connection details in the serverIP object and creates a listening port on the provided port number
@@ -335,11 +337,18 @@ void Network::ProcessClients() {
 void Network::ProcessInputFromClient() {
     ClientInput clientInput = *((ClientInput *)buffer);
     std::cout << "Input recieved from client: " << std::endl;
-    clientInput.print();
+    //clientInput.print();
 }
-
-
-
+void Network::SendMessageToClient(ServerMessageType type) {
+    ServerMessage serverMessage;
+    serverMessage.messageType = type;
+    std::cout << "Message before sending to client: " << std::endl;
+    serverMessage.print();
+    int bytesToSend = sizeof(serverMessage);
+    if (SDLNet_TCP_Send(clientSocket[0], (void *)(&serverMessage), bytesToSend) < bytesToSend) {
+        cout << "Failed to send message: " << SDLNet_GetError() << endl;
+    }
+}
 void Network::SendInputToServer() {
     ClientInput clientInput;
     clientInput.isKeyDownW = Input::IsKeyDown(OIS::KC_W);
@@ -348,7 +357,7 @@ void Network::SendInputToServer() {
     clientInput.isKeyDownD = Input::IsKeyDown(OIS::KC_D);
 
     std::cout << "Input before sending to server: " << std::endl;
-    clientInput.print();
+    //clientInput.print();
 
     int bytesToSend = sizeof(clientInput);
  
@@ -356,15 +365,41 @@ void Network::SendInputToServer() {
     if (SDLNet_TCP_Send(clientSocket[0], (void *)(&clientInput), bytesToSend) < bytesToSend) {
         cout << "Failed to send message: " << SDLNet_GetError() << endl;
     }
-
 }
+void Network::ProcessServer(){
+    int socketActive = SDLNet_CheckSockets(socketSet, 0);
+    cout << "Sockets with data on them at the moment: " << socketActive << endl;
+    if (socketActive != 0)
+    {
+        // Check if we got a response from the server
+        int messageFromServer = SDLNet_SocketReady(clientSocket[0]);
+        if (messageFromServer != 0)
+        {
+            //cout << "Got a response from the server... " << endl;
+            int serverResponseByteCount = SDLNet_TCP_Recv(clientSocket[0], buffer, BUFFER_SIZE);
+            cout << "Received: " << buffer << endl;// "(" << serverResponseByteCount << " bytes)" << endl;
+            ServerMessage serverMessage = *((ServerMessage *)buffer);
+            serverMessage.print();
+            if (serverMessage.messageType == STARTGAME)
+            {
+                cout << "Server is starting game" << endl;
+                game->newGame();
+            }
+        }
+        else
+        {
+            //cout << "No response from server..." << endl;
+        }
 
+    } // End of if socket has activity check
+}
 
 void Network::OnNetworkUpdate() {
     if (isServer) {
         ProcessClients();
     }
     else {
+        ProcessServer();
         SendInputToServer();
     }
 }

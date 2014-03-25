@@ -273,6 +273,8 @@ bool Game::setup(void)
     // Load resources
     loadResources();
 
+    mNetwork = NULL;
+
     // Create the scene
     createLights();
     createGUI();
@@ -555,7 +557,6 @@ void Game::createGUI(void) {
 
 void Game::createScene(void) {
     cout << "Creating scene..." << endl;
-    mNetwork = NULL;
     // Environment
     Cube *ground = new Cube(this);
     ground->transform->setWorldPosition(Ogre::Vector3(0,-1005,0));
@@ -757,8 +758,16 @@ bool Game::newGame(const CEGUI::EventArgs &e){
     destroyScene();
     createLights();
     createScene();
+    if (mNetwork->isServer)
+        mNetwork->SendMessageToClient(STARTGAME);
 }
-
+bool Game::newGame() {
+    gameMode = !gameMode;
+    disableGUI();
+    destroyScene();
+    createLights();
+    createScene();
+}
 bool Game::level1(const CEGUI::EventArgs &e){
     /*level = 1;
     gameMode = !gameMode;
@@ -771,7 +780,7 @@ bool Game::level1(const CEGUI::EventArgs &e){
         std::cout << "DELETING OLD NETWORK" << std::endl;
         delete mNetwork;
     }
-    mNetwork = new Network(true);
+    mNetwork = new Network(this, true);
 }
 
 bool Game::level2(const CEGUI::EventArgs &e){
@@ -785,5 +794,5 @@ bool Game::level2(const CEGUI::EventArgs &e){
         std::cout << "DELETING OLD NETWORK" << std::endl;
         delete mNetwork;
     }
-    mNetwork = new Network(false);
+    mNetwork = new Network(this, false);
 }
