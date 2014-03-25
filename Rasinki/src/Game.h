@@ -97,14 +97,18 @@ protected:
     virtual void createFrameListener(void);
     virtual void createLights(void);
     virtual void createGUI(void); 
-    virtual void disableGUI(void);
-    virtual void enableGUI(void);
     virtual void createScene(void); 
     virtual void destroyScene(void);
     virtual void createViewports(void);
     virtual void setupResources(void);
     virtual void createResourceListener(void);
     virtual void loadResources(void);
+
+    //GUI 
+    virtual void disableMainMenu(void);
+    virtual void enableMainMenu(void);
+    virtual void disableMultiplayerMenu(void);
+    virtual void enableMultiplayerMenu(void);
 
     // OIS::KeyListener
     virtual bool keyPressed( const OIS::KeyEvent &arg );
@@ -151,9 +155,13 @@ protected:
     SoundManager* mSoundManager;
     Player* mPlayer;
     Network* mNetwork;
+
     //CEGUI::Renderer
     CEGUI::OgreRenderer* mRenderer;
-    CEGUI::Window* sheet;
+    CEGUI::Window* rootWindow;
+
+    CEGUI::Window* mainMenu;
+    CEGUI::Window* multiplayerMenu;
 
     // Miscellaneous
     vector<GameObject *> gameObjects;
