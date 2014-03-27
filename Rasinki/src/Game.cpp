@@ -577,10 +577,10 @@ void Game::createGUI(void) {
     back->subscribeEvent(CEGUI::PushButton::EventClicked, CEGUI::Event::Subscriber(&Game::onClickBackFromMultiplayerMenu, this));
 
     CEGUI::Window *connect = wmgr.createWindow("TaharezLook/Button", "CEGUIDemo/ConnectButton");
-    newGame->setText("Connect");
-    newGame->setSize(CEGUI::UVector2(CEGUI::UDim(0.15, 0), CEGUI::UDim(0.05, 0)));
-    newGame->setPosition(CEGUI::UVector2(CEGUI::UDim(0.5f, 0),CEGUI::UDim(0.5f, 0)));
-    newGame->subscribeEvent(CEGUI::PushButton::EventClicked, CEGUI::Event::Subscriber(&Game::newGame, this));
+    connect->setText("Connect");
+    connect->setSize(CEGUI::UVector2(CEGUI::UDim(0.15, 0), CEGUI::UDim(0.05, 0)));
+    connect->setPosition(CEGUI::UVector2(CEGUI::UDim(0.5f, 0),CEGUI::UDim(0.5f, 0)));
+    connect->subscribeEvent(CEGUI::PushButton::EventClicked, CEGUI::Event::Subscriber(&Game::newGame, this));
 
     CEGUI::Window *hostIP = wmgr.createWindow("TaharezLook/Button", "CEGUIDemo/HostIPButton");
     hostIP->setText("Host IP:");
@@ -849,7 +849,7 @@ bool Game::newGame(const CEGUI::EventArgs &e){
 }
 bool Game::newGame() {
     gameMode = !gameMode;
-    disableGUI();
+    disableMainMenu();
     destroyScene();
     createLights();
     createScene();

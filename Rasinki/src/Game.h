@@ -166,18 +166,11 @@ protected:
 
     //CEGUI::Renderer
     CEGUI::OgreRenderer* mRenderer;
-<<<<<<< HEAD
     CEGUI::Window* rootWindow;
 
     CEGUI::Window* mainMenu;
     CEGUI::Window* multiplayerMenu;
 
-    // Miscellaneous
-    vector<GameObject *> gameObjects;
-
-=======
-    CEGUI::Window* sheet;
->>>>>>> 912e243155f0cc5c44fd11ef1b40b78898d11644
 };
 
 #endif // #ifndef __Game_h_
