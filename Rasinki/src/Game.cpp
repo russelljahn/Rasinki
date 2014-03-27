@@ -318,6 +318,9 @@ bool Game::keyPressed( const OIS::KeyEvent &arg )
     sys.injectKeyDown(arg.key);
     sys.injectChar(arg.text);
 
+    if (inMultiplayerMenu) {
+
+    }
     if (arg.key == OIS::KC_ESCAPE) {
         gameMode = !gameMode;
         CEGUI::EventArgs args;

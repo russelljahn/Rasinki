@@ -169,6 +169,7 @@ protected:
 
     // Miscellaneous
     vector<GameObject *> gameObjects;
+
 };
 
 #endif // #ifndef __Game_h_
