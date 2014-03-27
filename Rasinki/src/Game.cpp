@@ -247,6 +247,7 @@ bool Game::setup(void)
 
     level = 1;
     gameMode = false;
+    inMultiplayerMenu = false;
 
     chooseSceneManager();
     createCamera();
@@ -319,6 +320,7 @@ bool Game::keyPressed( const OIS::KeyEvent &arg )
 
     if (arg.key == OIS::KC_ESCAPE) {
         gameMode = !gameMode;
+        CEGUI::EventArgs args;
         if( gameMode == true )
             disableMainMenu();
         else
@@ -512,6 +514,8 @@ void Game::createGUI(void) {
     // Main Menu
     mainMenu = wmgr.createWindow((CEGUI::utf8*)"DefaultWindow", (CEGUI::utf8*)"mainMenu");  
 
+    CEGUI::EventArgs args;
+
     CEGUI::Window *quit = wmgr.createWindow("TaharezLook/Button", "CEGUIDemo/QuitButton");
     quit->setText("Quit");
     quit->setSize(CEGUI::UVector2(CEGUI::UDim(0.15, 0), CEGUI::UDim(0.05, 0)));
@@ -530,26 +534,28 @@ void Game::createGUI(void) {
     level1->setPosition(CEGUI::UVector2(CEGUI::UDim(0.3f, 0),CEGUI::UDim(0.6f, 0)));
     level1->subscribeEvent(CEGUI::PushButton::EventClicked, CEGUI::Event::Subscriber(&Game::level1, this));
 
-    CEGUI::Window *level2 = wmgr.createWindow("TaharezLook/Button", "CEGUIDemo/Level2Button");
-    level2->setText("Connect to Game");
-    level2->setSize(CEGUI::UVector2(CEGUI::UDim(0.15, 0), CEGUI::UDim(0.05, 0)));
-    level2->setPosition(CEGUI::UVector2(CEGUI::UDim(0.5f, 0),CEGUI::UDim(0.6f, 0)));
-    level2->subscribeEvent(CEGUI::PushButton::EventClicked, CEGUI::Event::Subscriber(&Game::level2, this));
+    CEGUI::Window *connectToGame = wmgr.createWindow("TaharezLook/Button", "CEGUIDemo/Level2Button");
+    connectToGame->setText("Connect to Game");
+    connectToGame->setSize(CEGUI::UVector2(CEGUI::UDim(0.15, 0), CEGUI::UDim(0.05, 0)));
+    connectToGame->setPosition(CEGUI::UVector2(CEGUI::UDim(0.5f, 0),CEGUI::UDim(0.6f, 0)));
+    connectToGame->subscribeEvent(CEGUI::PushButton::EventClicked, CEGUI::Event::Subscriber(&Game::onClickPlayMultiplayer, this));
+    // level2->subscribeEvent(CEGUI::PushButton::EventClicked, CEGUI::Event::Subscriber(&Game::disableMainMenu, this));
+// 
 
     rootWindow->addChildWindow(mainMenu);
     mainMenu->addChildWindow(quit);
     mainMenu->addChildWindow(newGame);
     mainMenu->addChildWindow(level1);
-    mainMenu->addChildWindow(level2);
+    mainMenu->addChildWindow(connectToGame);
 
     // Multiplayer Menu
     multiplayerMenu = wmgr.createWindow((CEGUI::utf8*)"DefaultWindow", (CEGUI::utf8*)"multiplayerMenu");  
 
     CEGUI::Window *back = wmgr.createWindow("TaharezLook/Button", "CEGUIDemo/BackButton");
-    quit->setText("Back");
-    quit->setSize(CEGUI::UVector2(CEGUI::UDim(0.15, 0), CEGUI::UDim(0.05, 0)));
+    back->setText("Back");
+    back->setSize(CEGUI::UVector2(CEGUI::UDim(0.15, 0), CEGUI::UDim(0.05, 0)));
     quit->setPosition(CEGUI::UVector2(CEGUI::UDim(0.3f, 0),CEGUI::UDim(0.5f, 0)));
-    quit->subscribeEvent(CEGUI::PushButton::EventClicked, CEGUI::Event::Subscriber(&Game::quit, this));
+    back->subscribeEvent(CEGUI::PushButton::EventClicked, CEGUI::Event::Subscriber(&Game::onClickBackFromMultiplayerMenu, this));
 
     CEGUI::Window *connect = wmgr.createWindow("TaharezLook/Button", "CEGUIDemo/ConnectButton");
     newGame->setText("Connect");
@@ -569,33 +575,42 @@ void Game::createGUI(void) {
     multiplayerMenu->addChildWindow(hostIP);
 
     disableMultiplayerMenu();
-
+    enableMainMenu();
 
     // mainMenu->addChildWindow(hostIP);
     CEGUI::System::getSingleton().setGUISheet(rootWindow);
+    Ogre::Root::getSingleton().renderOneFrame();
     cout << "Done creating GUI..." << endl;
 }
-void Game::disableMainMenu(void)
-{
+bool Game::onClickPlayMultiplayer(const CEGUI::EventArgs &e) {
+    cout << "onClickPlayMultiplayer()!" << endl;
+    disableMainMenu();
+    enableMultiplayerMenu();
+    Ogre::Root::getSingleton().renderOneFrame();
+}
+bool Game::onClickBackFromMultiplayerMenu(const CEGUI::EventArgs &e) {
+    cout << "onClickBackFromMultiplayerMenu()!" << endl;
+    enableMainMenu();
+    disableMultiplayerMenu();
+    Ogre::Root::getSingleton().renderOneFrame();
+}
+void Game::disableMainMenu() {
     mainMenu->disable();
     mainMenu->setVisible(false);
-
 }
-void Game::enableMainMenu(void)
-{
+void Game::enableMainMenu() {
     mainMenu->enable();
     mainMenu->setVisible(true);
 }
-void Game::disableMultiplayerMenu(void)
-{
+void Game::disableMultiplayerMenu() {
     multiplayerMenu->disable();
     multiplayerMenu->setVisible(false);
-
+    inMultiplayerMenu = true;
 }
-void Game::enableMultiplayerMenu(void)
-{
+void Game::enableMultiplayerMenu() {
     multiplayerMenu->enable();
     multiplayerMenu->setVisible(true);
+    inMultiplayerMenu = false;
 }
 
 void Game::createScene(void) {
@@ -804,7 +819,7 @@ bool Game::newGame(const CEGUI::EventArgs &e){
     createScene();
 }
 
-bool Game::level1(const CEGUI::EventArgs &e){
+bool Game::level1(const CEGUI::EventArgs &e) {
     /*level = 1;
     gameMode = !gameMode;
     disableGUI();
@@ -819,7 +834,7 @@ bool Game::level1(const CEGUI::EventArgs &e){
     mNetwork = new Network(true);
 }
 
-bool Game::level2(const CEGUI::EventArgs &e){
+bool Game::level2(const CEGUI::EventArgs &e) {
     /*level = 2;
     gameMode = !gameMode;
     disableGUI();

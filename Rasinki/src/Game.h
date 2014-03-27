@@ -87,6 +87,7 @@ public:
 
     int level;
     bool gameMode;
+    bool inMultiplayerMenu;
 
 
 protected:
@@ -105,10 +106,13 @@ protected:
     virtual void loadResources(void);
 
     //GUI 
-    virtual void disableMainMenu(void);
-    virtual void enableMainMenu(void);
-    virtual void disableMultiplayerMenu(void);
-    virtual void enableMultiplayerMenu(void);
+    virtual bool onClickPlayMultiplayer(const CEGUI::EventArgs &e);
+    virtual bool onClickBackFromMultiplayerMenu(const CEGUI::EventArgs &e);
+    virtual void disableMainMenu();
+    virtual void enableMainMenu();
+    virtual void disableMultiplayerMenu();
+    virtual void enableMultiplayerMenu();
+
 
     // OIS::KeyListener
     virtual bool keyPressed( const OIS::KeyEvent &arg );
