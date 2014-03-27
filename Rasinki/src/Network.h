@@ -20,8 +20,9 @@ class Game;
 
 struct ServerMessage {
 	enum ServerMessageType messageType;
+	int objectIndex;
 	float posx, posy, posz;
-	ServerMessage(Ogre::Vector3 pos) : messageType(OBJECTPOSITION), posx(pos.x), posy(pos.y), posz(pos.z) {}
+	ServerMessage(int i, Ogre::Vector3 pos) : messageType(OBJECTPOSITION), objectIndex(i), posx(pos.x), posy(pos.y), posz(pos.z) {}
 	ServerMessage() : messageType(STARTGAME) {}
 	void print() {
 		std::cout << "messageType " << messageType << std::endl;

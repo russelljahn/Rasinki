@@ -328,10 +328,10 @@ bool Game::frameRenderingQueued(const Ogre::FrameEvent& evt)
             (*gameObjectIter)->Update();
         }
     }
-    std::cout << "PADDLE POSITION : " << paddle->physics->getWorldPosition() << std::endl;
     if (mNetwork != NULL) {
         if (mNetwork->isServer && gameObjects.size()) {
-                mNetwork->SendMessageToClient(ServerMessage(paddle->physics->getWorldPosition()));
+                mNetwork->SendMessageToClient(ServerMessage(0, gameObjects[0]->physics->getWorldPosition()));
+                mNetwork->SendMessageToClient(ServerMessage(1, gameObjects[1]->physics->getWorldPosition()));
         }
         mNetwork->OnNetworkUpdate();
     }
@@ -579,7 +579,17 @@ void Game::createScene(void) {
     newPaddle->renderer->setMaterial("Examples/Rockwall");
     gameObjects.push_back(newPaddle); 
     std::cout << "NEW PADDLE POS: " << newPaddle->physics->getWorldPosition() << std::endl;
-    paddle = newPaddle;
+
+    float ballSpeed = 1000.0f;
+
+    // Balls
+    Sphere *ball01 = new Sphere(this, 75);
+    ball01->transform->setWorldPosition(Ogre::Vector3(0,-700,0));
+    ball01->name = "ball01";
+    ball01->renderer->setMaterial("Examples/SphereMappedRustySteel");
+    ball01->physics->setLinearVelocity(Ogre::Vector3(.5*ballSpeed, 1*ballSpeed, .5*ballSpeed));
+    ball01->AddComponentOfType<SphereComponent>();
+    gameObjects.push_back(ball01);
     // Environment
     Cube *ground = new Cube(this);
     ground->transform->setWorldPosition(Ogre::Vector3(0,-1005,0));
@@ -676,17 +686,6 @@ void Game::createScene(void) {
         }
         break;
     }
-
-    float ballSpeed = 1000.0f;
-
-    // Balls
-    Sphere *ball01 = new Sphere(this, 75);
-    ball01->transform->setWorldPosition(Ogre::Vector3(0,-700,0));
-    ball01->name = "ball01";
-    ball01->renderer->setMaterial("Examples/SphereMappedRustySteel");
-    ball01->physics->setLinearVelocity(Ogre::Vector3(.5*ballSpeed, 1*ballSpeed, .5*ballSpeed));
-    ball01->AddComponentOfType<SphereComponent>();
-    gameObjects.push_back(ball01);
 
     cout << "Done creating scene!" << endl;
 }

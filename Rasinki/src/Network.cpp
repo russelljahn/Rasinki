@@ -367,16 +367,17 @@ void Network::SendInputToServer() {
     }
 }
 void Network::ProcessServer(){
-    while (SDLNet_CheckSockets(socketSet, 0) > 0) {
-        cout << "Sockets with data on them at the moment" << endl;
-        // Check if we got a response from the server
-        int messageFromServer = SDLNet_SocketReady(clientSocket[0]);
-        if (messageFromServer != 0)
-        {
-            //cout << "Got a response from the server... " << endl;
-            int serverResponseByteCount = SDLNet_TCP_Recv(clientSocket[0], buffer, BUFFER_SIZE);
-            cout << "Received: " << buffer << endl;// "(" << serverResponseByteCount << " bytes)" << endl;
-            ServerMessage serverMessage = *((ServerMessage *)buffer);
+    int activeSockets = SDLNet_CheckSockets(socketSet, 0);
+    cout << "Sockets with data on them at the moment: " << activeSockets << endl;
+    // Check if we got a response from the server
+    int messageFromServer = SDLNet_SocketReady(clientSocket[0]);
+    while (messageFromServer != 0)
+    {
+        //cout << "Got a response from the server... " << endl;
+        int serverResponseByteCount = SDLNet_TCP_Recv(clientSocket[0], buffer, BUFFER_SIZE);
+        cout << "Received: " << serverResponseByteCount << endl;// "(" << serverResponseByteCount << " bytes)" << endl;
+        for (int i = 0; i < serverResponseByteCount; i += sizeof(ServerMessage)) {
+            ServerMessage serverMessage = *((ServerMessage *)(buffer+i));
             serverMessage.print();
             if (serverMessage.messageType == STARTGAME)
             {
@@ -385,15 +386,12 @@ void Network::ProcessServer(){
             }
             else if (serverMessage.messageType == OBJECTPOSITION) {
                 cout << "GOT OBJECT POSITION" << endl;
-                game->paddle->physics->setWorldPosition(Ogre::Vector3(serverMessage.posx, serverMessage.posy, serverMessage.posz));
+                game->gameObjects[serverMessage.objectIndex]->physics->setWorldPosition(Ogre::Vector3(serverMessage.posx, serverMessage.posy, serverMessage.posz));
             }
         }
-        else
-        {
-            //cout << "No response from server..." << endl;
-        }
-    // End of if socket has activity check
+        messageFromServer = SDLNet_SocketReady(clientSocket[0]);
     }
+    // End of if socket has activity check
 }
 
 void Network::OnNetworkUpdate() {
