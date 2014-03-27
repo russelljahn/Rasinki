@@ -37,8 +37,12 @@ class Network {
 		bool isServer;
 		Network(Game* g, bool isServer);
 		~Network();
+		void Start();
 		void OnNetworkUpdate();
 		void SendMessageToClient(ServerMessage message);
+
+		string serverName;
+
 	private:
 		void SetUpServer();
 		void ConnectToServer();
@@ -49,9 +53,7 @@ class Network {
 		void SendInputToServer();
 
 		Game *game;
-
 		const char *host;
-		string serverName;
 
 		IPaddress serverIP;                  // The IP of the server (this will end up being 0.0.0.0 - which means roughly "any IP address")
 		TCPsocket serverSocket;              // The server socket that clients will use to connect to us

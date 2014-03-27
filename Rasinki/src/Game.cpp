@@ -318,7 +318,7 @@ bool Game::frameRenderingQueued(const Ogre::FrameEvent& evt)
             (*gameObjectIter)->Update();
         }
     }
-    if (mNetwork != NULL) {
+    if (gameMode && mNetwork != NULL) {
         if (mNetwork->isServer && gameObjects.size()) {
                 mNetwork->SendMessageToClient(ServerMessage(0, gameObjects[0]->physics->getWorldPosition()));
                 mNetwork->SendMessageToClient(ServerMessage(1, gameObjects[1]->physics->getWorldPosition()));
@@ -335,7 +335,13 @@ bool Game::keyPressed( const OIS::KeyEvent &arg )
     sys.injectChar(arg.text);
 
     if (inMultiplayerMenu) {
-
+        if ((arg.key == OIS::KC_BACK || arg.key == OIS::KC_BACK) && !mNetwork->serverName.empty()) {
+            mNetwork->serverName.erase(mNetwork->serverName.length()-1);
+        }
+        else {
+            mNetwork->serverName.append(string((char *)(&arg.text)));
+        }
+        multiplayerMenu->getChild("hostIP")->setText(mNetwork->serverName);
     }
     if (arg.key == OIS::KC_ESCAPE) {
         gameMode = !gameMode;
@@ -551,7 +557,7 @@ void Game::createGUI(void) {
     level1->setText("Host Game");
     level1->setSize(CEGUI::UVector2(CEGUI::UDim(0.15, 0), CEGUI::UDim(0.05, 0)));
     level1->setPosition(CEGUI::UVector2(CEGUI::UDim(0.3f, 0),CEGUI::UDim(0.6f, 0)));
-    level1->subscribeEvent(CEGUI::PushButton::EventClicked, CEGUI::Event::Subscriber(&Game::level1, this));
+    level1->subscribeEvent(CEGUI::PushButton::EventClicked, CEGUI::Event::Subscriber(&Game::onStartServer, this));
 
     CEGUI::Window *connectToGame = wmgr.createWindow("TaharezLook/Button", "CEGUIDemo/Level2Button");
     connectToGame->setText("Connect to Game");
@@ -580,13 +586,12 @@ void Game::createGUI(void) {
     connect->setText("Connect");
     connect->setSize(CEGUI::UVector2(CEGUI::UDim(0.15, 0), CEGUI::UDim(0.05, 0)));
     connect->setPosition(CEGUI::UVector2(CEGUI::UDim(0.5f, 0),CEGUI::UDim(0.5f, 0)));
-    connect->subscribeEvent(CEGUI::PushButton::EventClicked, CEGUI::Event::Subscriber(&Game::newGame, this));
+    connect->subscribeEvent(CEGUI::PushButton::EventClicked, CEGUI::Event::Subscriber(&Game::onConnectToServer, this));
 
-    CEGUI::Window *hostIP = wmgr.createWindow("TaharezLook/Button", "CEGUIDemo/HostIPButton");
-    hostIP->setText("Host IP:");
+    CEGUI::Window *hostIP = wmgr.createWindow("TaharezLook/Button", "hostIP");
+    hostIP->setText("localhost");
     hostIP->setSize(CEGUI::UVector2(CEGUI::UDim(0.15, 0), CEGUI::UDim(0.05, 0)));
     hostIP->setPosition(CEGUI::UVector2(CEGUI::UDim(0.5f, 0),CEGUI::UDim(0.75f, 0)));
-    hostIP->subscribeEvent(CEGUI::PushButton::EventClicked, CEGUI::Event::Subscriber(&Game::newGame, this));
 
     rootWindow->addChildWindow(multiplayerMenu);
     multiplayerMenu->addChildWindow(back);
@@ -624,12 +629,18 @@ void Game::enableMainMenu() {
 void Game::disableMultiplayerMenu() {
     multiplayerMenu->disable();
     multiplayerMenu->setVisible(false);
-    inMultiplayerMenu = true;
+    inMultiplayerMenu = false;
 }
 void Game::enableMultiplayerMenu() {
     multiplayerMenu->enable();
     multiplayerMenu->setVisible(true);
-    inMultiplayerMenu = false;
+    inMultiplayerMenu = true;
+
+    if (mNetwork != NULL) {
+        std::cout << "DELETING OLD NETWORK" << std::endl;
+        delete mNetwork;
+    }
+    mNetwork = new Network(this, false);
 }
 
 void Game::createScene(void) {
@@ -844,6 +855,10 @@ bool Game::newGame(const CEGUI::EventArgs &e){
     destroyScene();
     createLights();
     createScene();
+    if (mNetwork == NULL) {
+        mNetwork = new Network(this, true);
+        mNetwork->Start();
+    }
     if (mNetwork->isServer)
         mNetwork->SendMessageToClient(ServerMessage());
 }
@@ -855,18 +870,15 @@ bool Game::newGame() {
     createScene();
 }
 
-bool Game::level1(const CEGUI::EventArgs &e) {
+bool Game::onStartServer(const CEGUI::EventArgs &e) {
     if (mNetwork != NULL) {
         std::cout << "DELETING OLD NETWORK" << std::endl;
         delete mNetwork;
     }
     mNetwork = new Network(this, true);
+    mNetwork->Start();
 }
 
-bool Game::level2(const CEGUI::EventArgs &e) {
-    if (mNetwork != NULL) {
-        std::cout << "DELETING OLD NETWORK" << std::endl;
-        delete mNetwork;
-    }
-    mNetwork = new Network(this, false);
+bool Game::onConnectToServer(const CEGUI::EventArgs &e) {
+    mNetwork->Start();
 }

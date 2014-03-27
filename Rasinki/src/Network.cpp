@@ -13,16 +13,13 @@ Network::Network(Game *g, bool isServer) {
         SDL_Quit();
         exit(1);
     }
+    this->serverName = "localhost";
+    this->isServer = isServer;
     game = g;
     receivedByteCount = 0;
     clientCount = 0;
     shutdownServer = false;
 
-    this->isServer = isServer;
-    if (isServer)
-        SetUpServer();
-    else
-        ConnectToServer();
 }
 
 
@@ -35,6 +32,14 @@ Network::~Network() {
     if (clientSocket[0])
         SDLNet_TCP_Close(clientSocket[0]);
     SDLNet_Quit();
+}
+
+
+void Network::Start() {
+    if (isServer)
+        SetUpServer();
+    else
+        ConnectToServer();
 }
 
 

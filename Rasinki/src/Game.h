@@ -110,6 +110,8 @@ protected:
     virtual void loadResources(void);
 
     //GUI 
+    virtual bool onStartServer(const CEGUI::EventArgs &e);
+    virtual bool onConnectToServer(const CEGUI::EventArgs &e);
     virtual bool onClickPlayMultiplayer(const CEGUI::EventArgs &e);
     virtual bool onClickBackFromMultiplayerMenu(const CEGUI::EventArgs &e);
     virtual void disableMainMenu();
@@ -128,8 +130,7 @@ protected:
 
     bool quit(const CEGUI::EventArgs &e);
     bool newGame(const CEGUI::EventArgs &e);
-    bool level1(const CEGUI::EventArgs &e);
-    bool level2(const CEGUI::EventArgs &e);
+
 
     // Ogre::WindowEventListener
     //Adjust mouse clipping area
@@ -170,7 +171,6 @@ protected:
 
     CEGUI::Window* mainMenu;
     CEGUI::Window* multiplayerMenu;
-
 };
 
 #endif // #ifndef __Game_h_
