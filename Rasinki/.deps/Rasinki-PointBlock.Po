@@ -882,10 +882,11 @@ Rasinki-PointBlock.o: src/Scripts/PointBlock.cpp src/Scripts/PointBlock.h \
  /usr/include/OGRE/OgrePanelOverlayElement.h \
  /usr/include/OGRE/OgreTextAreaOverlayElement.h \
  /usr/include/OGRE/SdkCameraMan.h src/GameObject.h src/PhysicsSimulator.h \
- src/Player.h src/SoundManager.h /usr/include/SDL/SDL.h \
- /usr/include/SDL/SDL_main.h /usr/include/SDL/SDL_stdinc.h \
- /usr/include/SDL/SDL_config.h /usr/include/SDL/SDL_platform.h \
- /usr/include/strings.h /usr/include/inttypes.h /usr/include/iconv.h \
+ src/Player.h src/Network.h src/Game.h /usr/include/SDL/SDL_net.h \
+ /usr/include/SDL/SDL.h /usr/include/SDL/SDL_main.h \
+ /usr/include/SDL/SDL_stdinc.h /usr/include/SDL/SDL_config.h \
+ /usr/include/SDL/SDL_platform.h /usr/include/strings.h \
+ /usr/include/inttypes.h /usr/include/iconv.h \
  /usr/include/SDL/begin_code.h /usr/include/SDL/close_code.h \
  /usr/include/SDL/SDL_audio.h /usr/include/SDL/SDL_error.h \
  /usr/include/SDL/SDL_endian.h /usr/include/SDL/SDL_mutex.h \
@@ -896,9 +897,9 @@ Rasinki-PointBlock.o: src/Scripts/PointBlock.cpp src/Scripts/PointBlock.h \
  /usr/include/SDL/SDL_mouse.h /usr/include/SDL/SDL_video.h \
  /usr/include/SDL/SDL_joystick.h /usr/include/SDL/SDL_quit.h \
  /usr/include/SDL/SDL_loadso.h /usr/include/SDL/SDL_timer.h \
- /usr/include/SDL/SDL_version.h /usr/include/SDL/SDL_mixer.h \
- /usr/include/SDL/SDL_types.h src/Network.h /usr/include/SDL/SDL_net.h \
- /usr/include/SDL/SDL.h src/Input.h src/Input.h \
+ /usr/include/SDL/SDL_version.h src/Input.h src/SoundManager.h \
+ /usr/include/SDL/SDL.h /usr/include/SDL/SDL_mixer.h \
+ /usr/include/SDL/SDL_types.h src/Input.h \
  /usr/local/include/CEGUI/CEGUI.h \
  /usr/local/include/CEGUI/CEGUIAffector.h \
  /usr/local/include/CEGUI/CEGUIString.h \
@@ -3205,7 +3206,11 @@ src/PhysicsSimulator.h:
 
 src/Player.h:
 
-src/SoundManager.h:
+src/Network.h:
+
+src/Game.h:
+
+/usr/include/SDL/SDL_net.h:
 
 /usr/include/SDL/SDL.h:
 
@@ -3265,17 +3270,15 @@ src/SoundManager.h:
 
 /usr/include/SDL/SDL_version.h:
 
-/usr/include/SDL/SDL_mixer.h:
+src/Input.h:
 
-/usr/include/SDL/SDL_types.h:
-
-src/Network.h:
-
-/usr/include/SDL/SDL_net.h:
+src/SoundManager.h:
 
 /usr/include/SDL/SDL.h:
 
-src/Input.h:
+/usr/include/SDL/SDL_mixer.h:
+
+/usr/include/SDL/SDL_types.h:
 
 src/Input.h:
 

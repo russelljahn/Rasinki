@@ -20,6 +20,7 @@ class PaddleScript : public Script {
 		bool down;
 		bool left;
 		bool right;
+		Player *controllingPlayer;
 };
 
 

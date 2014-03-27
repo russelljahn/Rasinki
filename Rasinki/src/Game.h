@@ -73,22 +73,26 @@ public:
 
     // Ogre::FrameListener
     virtual bool frameRenderingQueued(const Ogre::FrameEvent& evt);
-
+    bool newGame();
     Ogre::SceneNode* getSceneRoot(void);
     Ogre::SceneManager* getSceneManager(void);
     PhysicsSimulator* getPhysicsSimulator(void);
     SoundManager* getSoundManager(void);
+    Network* getNetwork(void) { return mNetwork; }
+    Player* getPlayer(void);
     OIS::Keyboard* getKeyboard(void);
     OIS::Mouse* getMouse(void);
     Ogre::Camera* getCamera(void);
     int camQuadrant(void);
     int camSide(void);
-    Player* getPlayer(void);
 
     int level;
     bool gameMode;
     bool inMultiplayerMenu;
 
+    // Miscellaneous
+    vector<Player *> playerList;
+    vector<GameObject *> gameObjects;
 
 protected:
     virtual bool setup();
@@ -162,6 +166,7 @@ protected:
 
     //CEGUI::Renderer
     CEGUI::OgreRenderer* mRenderer;
+<<<<<<< HEAD
     CEGUI::Window* rootWindow;
 
     CEGUI::Window* mainMenu;
@@ -170,6 +175,9 @@ protected:
     // Miscellaneous
     vector<GameObject *> gameObjects;
 
+=======
+    CEGUI::Window* sheet;
+>>>>>>> 912e243155f0cc5c44fd11ef1b40b78898d11644
 };
 
 #endif // #ifndef __Game_h_

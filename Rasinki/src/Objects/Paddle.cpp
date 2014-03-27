@@ -5,7 +5,9 @@
 Paddle::Paddle(Game *attachedGame) : GameObject(attachedGame){
 	Start();
 }
-
+Paddle::Paddle(Game *attachedGame, int pNum) : GameObject(attachedGame, pNum){
+	Start();
+}
 void Paddle::Start() {
 
 	ostringstream nameCoverter;

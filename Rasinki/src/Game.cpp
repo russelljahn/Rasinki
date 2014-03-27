@@ -145,7 +145,8 @@ void Game::destroyScene(void)
        delete (*gameObjectIter);
     }
     gameObjects.clear();
-    mPlayer->reset();
+    playerList[0]->reset();
+    playerList[1]->reset();
     mSceneManager->clearScene();
     Time::Reset();
 
@@ -239,7 +240,8 @@ bool Game::setup(void)
     mRoot = new Ogre::Root(mPluginsConfig);
     mPhysicsSimulator = new PhysicsSimulator();
     mSoundManager = new SoundManager();
-    mPlayer = new Player();
+    playerList.push_back(new Player(LOCAL));
+    playerList.push_back(new Player(NETWORK));
     setupResources();
 
     bool carryOn = configure();
@@ -260,6 +262,8 @@ bool Game::setup(void)
     createResourceListener();
     // Load resources
     loadResources();
+
+    mNetwork = NULL;
 
     // Create the scene
     createLights();
@@ -288,18 +292,25 @@ bool Game::frameRenderingQueued(const Ogre::FrameEvent& evt)
     CEGUI::System::getSingleton().injectTimePulse(evt.timeSinceLastFrame);
     if (gameMode == true)
     {
-        mPhysicsSimulator->stepSimulation(evt.timeSinceLastFrame);
+        if (mNetwork->isServer)
+            mPhysicsSimulator->stepSimulation(evt.timeSinceLastFrame);
+        else {
+            for (auto gameObjectIter = gameObjects.begin(); gameObjectIter != gameObjects.end(); ++gameObjectIter) {
+                (*gameObjectIter)->FixedUpdate();
+             }
+        }
+
         if (GameplayScript::IsGameOver()) {
             mStatsPanel->hide();
             mGameOverPanel->show();
             mGameOverPanel->setParamValue(0, " "); // Score
-            mGameOverPanel->setParamValue(1, Ogre::StringConverter::toString(mPlayer->getScore())); // Score
+            mGameOverPanel->setParamValue(1, Ogre::StringConverter::toString(playerList[0]->getScore())); // Score
             mGameOverPanel->setParamValue(2, Ogre::StringConverter::toString(GameplayScript::GetGameOverTime())); // Time elapsed
         }
         else {
             mStatsPanel->show();
             mGameOverPanel->hide();
-            mStatsPanel->setParamValue(0, Ogre::StringConverter::toString(mPlayer->getScore())); // Score
+            mStatsPanel->setParamValue(0, Ogre::StringConverter::toString(playerList[0]->getScore())); // Score
             mStatsPanel->setParamValue(1, Ogre::StringConverter::toString(SphereComponent::numSpheres)); // Balls remaining
         }
 
@@ -307,8 +318,13 @@ bool Game::frameRenderingQueued(const Ogre::FrameEvent& evt)
             (*gameObjectIter)->Update();
         }
     }
-    if (mNetwork != NULL)
+    if (mNetwork != NULL) {
+        if (mNetwork->isServer && gameObjects.size()) {
+                mNetwork->SendMessageToClient(ServerMessage(0, gameObjects[0]->physics->getWorldPosition()));
+                mNetwork->SendMessageToClient(ServerMessage(1, gameObjects[1]->physics->getWorldPosition()));
+        }
         mNetwork->OnNetworkUpdate();
+    }
     return true;
 }
 //-------------------------------------------------------------------------------------
@@ -618,7 +634,36 @@ void Game::enableMultiplayerMenu() {
 
 void Game::createScene(void) {
     cout << "Creating scene..." << endl;
-    mNetwork = NULL;
+    // Paddle
+    Paddle *newPaddle = new Paddle(this, 0);
+    newPaddle->AddComponentOfType<PaddleScript>();
+    newPaddle->AddComponentOfType<GameplayScript>();
+    newPaddle->transform->setWorldPosition(Ogre::Vector3(0,-800,0));
+    newPaddle->transform->setLocalScale(Ogre::Vector3(3, .25, 3));
+    newPaddle->name = "paddle";
+    newPaddle->renderer->setMaterial("Examples/Rockwall");
+    gameObjects.push_back(newPaddle); 
+    std::cout << "NEW PADDLE POS: " << newPaddle->physics->getWorldPosition() << std::endl;
+
+    Paddle *newPaddle2 = new Paddle(this, 1);
+    newPaddle2->AddComponentOfType<PaddleScript>();
+    newPaddle2->AddComponentOfType<GameplayScript>();
+    newPaddle2->transform->setWorldPosition(Ogre::Vector3(400,-800,0));
+    newPaddle2->transform->setLocalScale(Ogre::Vector3(3, .25, 3));
+    newPaddle2->name = "paddle2";
+    newPaddle2->renderer->setMaterial("Examples/Rockwall");
+    gameObjects.push_back(newPaddle2); 
+    std::cout << "NEW PADDLE POS: " << newPaddle2->physics->getWorldPosition() << std::endl;
+    float ballSpeed = 1000.0f;
+
+    // Balls
+    Sphere *ball01 = new Sphere(this, 75);
+    ball01->transform->setWorldPosition(Ogre::Vector3(0,-700,0));
+    ball01->name = "ball01";
+    ball01->renderer->setMaterial("Examples/SphereMappedRustySteel");
+    ball01->physics->setLinearVelocity(Ogre::Vector3(.5*ballSpeed, 1*ballSpeed, .5*ballSpeed));
+    ball01->AddComponentOfType<SphereComponent>();
+    gameObjects.push_back(ball01);
     // Environment
     Cube *ground = new Cube(this);
     ground->transform->setWorldPosition(Ogre::Vector3(0,-1005,0));
@@ -668,16 +713,6 @@ void Game::createScene(void) {
     north->renderer->setMaterial("Examples/BumpyMetalG");
     gameObjects.push_back(north);
 
-    // Paddle
-    Paddle *newPaddle = new Paddle(this);
-    newPaddle->AddComponentOfType<PaddleScript>();
-    newPaddle->AddComponentOfType<GameplayScript>();
-    newPaddle->transform->setWorldPosition(Ogre::Vector3(0,-800,0));
-    newPaddle->transform->setLocalScale(Ogre::Vector3(3, .25, 3));
-    newPaddle->name = "paddle";
-    newPaddle->renderer->setMaterial("Examples/Rockwall");
-    gameObjects.push_back(newPaddle);
-
     int cubeid = 0;
     switch(level)
     {
@@ -725,17 +760,6 @@ void Game::createScene(void) {
         }
         break;
     }
-
-    float ballSpeed = 1000.0f;
-
-    // Balls
-    Sphere *ball01 = new Sphere(this, 75);
-    ball01->transform->setWorldPosition(Ogre::Vector3(0,-700,0));
-    ball01->name = "ball01";
-    ball01->renderer->setMaterial("Examples/SphereMappedRustySteel");
-    ball01->physics->setLinearVelocity(Ogre::Vector3(.5*ballSpeed, 1*ballSpeed, .5*ballSpeed));
-    ball01->AddComponentOfType<SphereComponent>();
-    gameObjects.push_back(ball01);
 
     cout << "Done creating scene!" << endl;
 }
@@ -803,7 +827,7 @@ int Game::camSide () {
 }
 
 Player* Game::getPlayer(void) {
-    return mPlayer;
+    return playerList[0];
 }
 SoundManager* Game::getSoundManager(void) {
     return mSoundManager;
@@ -820,33 +844,29 @@ bool Game::newGame(const CEGUI::EventArgs &e){
     destroyScene();
     createLights();
     createScene();
+    if (mNetwork->isServer)
+        mNetwork->SendMessageToClient(ServerMessage());
 }
-
-bool Game::level1(const CEGUI::EventArgs &e) {
-    /*level = 1;
+bool Game::newGame() {
     gameMode = !gameMode;
     disableGUI();
     destroyScene();
     createLights();
     createScene();
-    */
+}
+
+bool Game::level1(const CEGUI::EventArgs &e) {
     if (mNetwork != NULL) {
         std::cout << "DELETING OLD NETWORK" << std::endl;
         delete mNetwork;
     }
-    mNetwork = new Network(true);
+    mNetwork = new Network(this, true);
 }
 
 bool Game::level2(const CEGUI::EventArgs &e) {
-    /*level = 2;
-    gameMode = !gameMode;
-    disableGUI();
-    destroyScene();
-    createLights();
-    createScene();*/
     if (mNetwork != NULL) {
         std::cout << "DELETING OLD NETWORK" << std::endl;
         delete mNetwork;
     }
-    mNetwork = new Network(false);
+    mNetwork = new Network(this, false);
 }
