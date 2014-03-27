@@ -336,6 +336,7 @@ void Network::ProcessClients() {
 
 void Network::ProcessInputFromClient() {
     ClientInput clientInput = *((ClientInput *)buffer);
+    game->playerList[1]->clientInput = ((ClientInput *)buffer);
     std::cout << "Input recieved from client: " << std::endl;
     //clientInput.print();
 }
@@ -343,7 +344,7 @@ void Network::SendMessageToClient(ServerMessage serverMessage) {
     if (clientSocket[0] == NULL)
         return;
     std::cout << "Message before sending to client: " << std::endl;
-    serverMessage.print();
+    //serverMessage.print();
     int bytesToSend = sizeof(serverMessage);
     if (SDLNet_TCP_Send(clientSocket[0], (void *)(&serverMessage), bytesToSend) < bytesToSend) {
         cout << "Failed to send message: " << SDLNet_GetError() << endl;
@@ -378,7 +379,7 @@ void Network::ProcessServer(){
         cout << "Received: " << serverResponseByteCount << endl;// "(" << serverResponseByteCount << " bytes)" << endl;
         for (int i = 0; i < serverResponseByteCount; i += sizeof(ServerMessage)) {
             ServerMessage serverMessage = *((ServerMessage *)(buffer+i));
-            serverMessage.print();
+            //serverMessage.print();
             if (serverMessage.messageType == STARTGAME)
             {
                 cout << "Server is starting game" << endl;

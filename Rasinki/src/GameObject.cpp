@@ -22,6 +22,22 @@ GameObject::GameObject(Game *attachedGame) {
 	std::cout << "Creating GameObject with id: " << id << std::endl;
 	Start();
 }
+GameObject::GameObject(Game *attachedGame, int playerNum) {
+	this->game = attachedGame;
+	this->enabled = true;
+	this->id = GameObject::nextAvailableId++;
+	this->playerNum = playerNum;
+
+	ostringstream nameCoverter;
+	nameCoverter << id;
+	this->name = nameCoverter.str();
+	this->gameObject = this;
+
+	renderer = new Renderer(this);
+
+	std::cout << "Creating GameObject with id: " << id << std::endl;
+	Start();
+}
 GameObject::~GameObject() {
 	if (physics != NULL)
 		delete physics;

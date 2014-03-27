@@ -40,7 +40,7 @@ class GameObject {
 		std::string name;
 		int id;
 		bool enabled;
-
+		int playerNum;
 		GameObject *gameObject; // Pointer to self.
 		Transform *transform; // TODO: Make this protected but retrievable through GetComponentOfType<>()!
 		Game *game; // TODO: Figure out how to make this unneeded to be public for abstraction-sake!
@@ -48,6 +48,7 @@ class GameObject {
 		Renderer* renderer;
 		
 		GameObject(Game *attachedGame);
+		GameObject(Game *atatchedGame, int playerNum);
 		~GameObject();
 		
 		void Start();
@@ -70,7 +71,6 @@ class GameObject {
 
 	protected:
 		std::vector<Component *> components;
-
 
 		static int nextAvailableId;
 };

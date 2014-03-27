@@ -78,17 +78,19 @@ public:
     Ogre::SceneManager* getSceneManager(void);
     PhysicsSimulator* getPhysicsSimulator(void);
     SoundManager* getSoundManager(void);
+    Network* getNetwork(void) { return mNetwork; }
+    Player* getPlayer(void);
     OIS::Keyboard* getKeyboard(void);
     OIS::Mouse* getMouse(void);
     Ogre::Camera* getCamera(void);
     int camQuadrant(void);
     int camSide(void);
-    Player* getPlayer(void);
 
     int level;
     bool gameMode;
 
     // Miscellaneous
+    vector<Player *> playerList;
     vector<GameObject *> gameObjects;
 
 protected:

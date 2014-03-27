@@ -158,7 +158,8 @@ void Game::destroyScene(void)
        delete (*gameObjectIter);
     }
     gameObjects.clear();
-    mPlayer->reset();
+    playerList[0]->reset();
+    playerList[1]->reset();
     mSceneManager->clearScene();
     Time::Reset();
 
@@ -252,7 +253,8 @@ bool Game::setup(void)
     mRoot = new Ogre::Root(mPluginsConfig);
     mPhysicsSimulator = new PhysicsSimulator();
     mSoundManager = new SoundManager();
-    mPlayer = new Player();
+    playerList.push_back(new Player(LOCAL));
+    playerList.push_back(new Player(NETWORK));
     setupResources();
 
     bool carryOn = configure();
@@ -314,13 +316,13 @@ bool Game::frameRenderingQueued(const Ogre::FrameEvent& evt)
             mStatsPanel->hide();
             mGameOverPanel->show();
             mGameOverPanel->setParamValue(0, " "); // Score
-            mGameOverPanel->setParamValue(1, Ogre::StringConverter::toString(mPlayer->getScore())); // Score
+            mGameOverPanel->setParamValue(1, Ogre::StringConverter::toString(playerList[0]->getScore())); // Score
             mGameOverPanel->setParamValue(2, Ogre::StringConverter::toString(GameplayScript::GetGameOverTime())); // Time elapsed
         }
         else {
             mStatsPanel->show();
             mGameOverPanel->hide();
-            mStatsPanel->setParamValue(0, Ogre::StringConverter::toString(mPlayer->getScore())); // Score
+            mStatsPanel->setParamValue(0, Ogre::StringConverter::toString(playerList[0]->getScore())); // Score
             mStatsPanel->setParamValue(1, Ogre::StringConverter::toString(SphereComponent::numSpheres)); // Balls remaining
         }
 
@@ -570,7 +572,7 @@ void Game::createGUI(void) {
 void Game::createScene(void) {
     cout << "Creating scene..." << endl;
     // Paddle
-    Paddle *newPaddle = new Paddle(this);
+    Paddle *newPaddle = new Paddle(this, 0);
     newPaddle->AddComponentOfType<PaddleScript>();
     newPaddle->AddComponentOfType<GameplayScript>();
     newPaddle->transform->setWorldPosition(Ogre::Vector3(0,-800,0));
@@ -580,6 +582,15 @@ void Game::createScene(void) {
     gameObjects.push_back(newPaddle); 
     std::cout << "NEW PADDLE POS: " << newPaddle->physics->getWorldPosition() << std::endl;
 
+    Paddle *newPaddle2 = new Paddle(this, 1);
+    newPaddle2->AddComponentOfType<PaddleScript>();
+    newPaddle2->AddComponentOfType<GameplayScript>();
+    newPaddle2->transform->setWorldPosition(Ogre::Vector3(400,-800,0));
+    newPaddle2->transform->setLocalScale(Ogre::Vector3(3, .25, 3));
+    newPaddle2->name = "paddle2";
+    newPaddle2->renderer->setMaterial("Examples/Rockwall");
+    gameObjects.push_back(newPaddle2); 
+    std::cout << "NEW PADDLE POS: " << newPaddle2->physics->getWorldPosition() << std::endl;
     float ballSpeed = 1000.0f;
 
     // Balls
@@ -753,7 +764,7 @@ int Game::camSide () {
 }
 
 Player* Game::getPlayer(void) {
-    return mPlayer;
+    return playerList[0];
 }
 SoundManager* Game::getSoundManager(void) {
     return mSoundManager;

@@ -3,6 +3,7 @@
 class Paddle : public GameObject {
 	public:
 		Paddle(Game *attachedGame);
+		Paddle(Game *attachedGame, int pNum);
 		void Start();
 		void Update();
 		void FixedUpdate();
