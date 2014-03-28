@@ -12,7 +12,7 @@ PlayerScript::PlayerScript(GameObject *attachedGameObject) : Script(attachedGame
 
 void PlayerScript::Start() {
 	Script::Start();
-	currentPlayerState = new PlayerState(this);
+	currentPlayerState = new Standing(this);
 }
 
 
@@ -29,15 +29,6 @@ void PlayerScript::Update() {
 		if (previousPlayerState != currentPlayerState) {
 			delete previousPlayerState;
 		}
-
-		// if (controllingPlayer->IsKeyDown(OIS::KC_LEFT) || controllingPlayer->IsKeyDown(OIS::KC_A)) {
-		// }
-		// if (controllingPlayer->IsKeyDown(OIS::KC_RIGHT) || controllingPlayer->IsKeyDown(OIS::KC_D)) {
-		// }
-		// if (controllingPlayer->IsKeyDown(OIS::KC_UP) || controllingPlayer->IsKeyDown(OIS::KC_W)) {
-		// }
-		// if (controllingPlayer->IsKeyDown(OIS::KC_DOWN) || controllingPlayer->IsKeyDown(OIS::KC_S)) {
-		// }
 	}
 }
 

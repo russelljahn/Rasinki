@@ -21,12 +21,13 @@ class PlayerScript : public Script {
 
 		PlayerState *previousPlayerState;
 		PlayerState *currentPlayerState;
+		Player *controllingPlayer;
+		
 	private:
 		bool up;
 		bool down;
 		bool left;
 		bool right;
-		Player *controllingPlayer;
 };
 
 
