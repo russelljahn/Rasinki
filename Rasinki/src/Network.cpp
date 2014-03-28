@@ -99,7 +99,7 @@ void Network::SetUpServer() {
 
 void Network::ConnectToServer() {
     // Ask the user for a server to connect to - can be entered as a hostname (i.e. localhost etc.) or an IP address (i.e. 127.0.0.1 etc.)
-    cout << "Server Name: ";
+    cout << "Server Name: " << this->serverName << endl;
     //getline(cin, serverName); // Uncomment this and remove the below line to change the server we're connecting to...
    // serverName = "localhost";
  
@@ -377,7 +377,7 @@ void Network::ProcessServer(){
     if (socketSet == NULL)
         return;
     int activeSockets = SDLNet_CheckSockets(socketSet, 0);
-    cout << "Sockets with data on them at the moment: " << activeSockets << endl;
+    // cout << "Sockets with data on them at the moment: " << activeSockets << endl;
     // Check if we got a response from the server
     if (activeSockets < 0)
         return;

@@ -338,6 +338,10 @@ bool Game::keyPressed( const OIS::KeyEvent &arg )
         if ((arg.key == OIS::KC_BACK || arg.key == OIS::KC_BACK) && !mNetwork->serverName.empty()) {
             mNetwork->serverName.erase(mNetwork->serverName.length()-1);
         }
+        else if (arg.key == OIS::KC_RETURN) {
+            CEGUI::EventArgs e;
+            onConnectToServer(e);
+        }
         else {
             mNetwork->serverName.append(string((char *)(&arg.text)));
         }
@@ -590,7 +594,7 @@ void Game::createGUI(void) {
 
     CEGUI::Window *hostIP = wmgr.createWindow("TaharezLook/Button", "hostIP");
     hostIP->setText("localhost");
-    hostIP->setSize(CEGUI::UVector2(CEGUI::UDim(0.15, 0), CEGUI::UDim(0.05, 0)));
+    hostIP->setSize(CEGUI::UVector2(CEGUI::UDim(0.5, 0), CEGUI::UDim(0.05, 0)));
     hostIP->setPosition(CEGUI::UVector2(CEGUI::UDim(0.5f, 0),CEGUI::UDim(0.75f, 0)));
 
     rootWindow->addChildWindow(multiplayerMenu);
@@ -880,5 +884,6 @@ bool Game::onStartServer(const CEGUI::EventArgs &e) {
 }
 
 bool Game::onConnectToServer(const CEGUI::EventArgs &e) {
+    disableMultiplayerMenu();
     mNetwork->Start();
 }
