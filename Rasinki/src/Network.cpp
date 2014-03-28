@@ -13,6 +13,7 @@ Network::Network(Game *g, bool isServer) {
         SDL_Quit();
         exit(1);
     }
+    socketSet = NULL;
     this->serverName = "localhost";
     this->isServer = isServer;
     game = g;
@@ -100,7 +101,7 @@ void Network::ConnectToServer() {
     // Ask the user for a server to connect to - can be entered as a hostname (i.e. localhost etc.) or an IP address (i.e. 127.0.0.1 etc.)
     cout << "Server Name: ";
     //getline(cin, serverName); // Uncomment this and remove the below line to change the server we're connecting to...
-    serverName = "localhost";
+   // serverName = "localhost";
  
     // Create the socket set with enough space to store our desired number of connections (i.e. sockets)
     socketSet = SDLNet_AllocSocketSet(1);
@@ -373,11 +374,15 @@ void Network::SendInputToServer() {
     }
 }
 void Network::ProcessServer(){
+    if (socketSet == NULL)
+        return;
     int activeSockets = SDLNet_CheckSockets(socketSet, 0);
     cout << "Sockets with data on them at the moment: " << activeSockets << endl;
     // Check if we got a response from the server
+    if (activeSockets < 0)
+        return;
     int messageFromServer = SDLNet_SocketReady(clientSocket[0]);
-    while (messageFromServer != 0)
+    while (messageFromServer > 0)
     {
         //cout << "Got a response from the server... " << endl;
         int serverResponseByteCount = SDLNet_TCP_Recv(clientSocket[0], buffer, BUFFER_SIZE);
@@ -404,8 +409,10 @@ void Network::OnNetworkUpdate() {
     if (isServer) {
         ProcessClients();
     }
-    else {
+    else {        
         ProcessServer();
-        SendInputToServer();
+        if (game->gameMode) {
+            SendInputToServer();
+        }
     }
 }

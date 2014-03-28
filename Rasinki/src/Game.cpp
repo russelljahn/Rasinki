@@ -318,8 +318,8 @@ bool Game::frameRenderingQueued(const Ogre::FrameEvent& evt)
             (*gameObjectIter)->Update();
         }
     }
-    if (gameMode && mNetwork != NULL) {
-        if (mNetwork->isServer && gameObjects.size()) {
+    if (mNetwork != NULL) {
+        if (gameMode && mNetwork->isServer && gameObjects.size()) {
                 mNetwork->SendMessageToClient(ServerMessage(0, gameObjects[0]->physics->getWorldPosition()));
                 mNetwork->SendMessageToClient(ServerMessage(1, gameObjects[1]->physics->getWorldPosition()));
         }
