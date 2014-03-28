@@ -63,8 +63,10 @@ am_Rasinki_OBJECTS = Rasinki-Game.$(OBJEXT) Rasinki-main.$(OBJEXT) \
 	Rasinki-Plane.$(OBJEXT) Rasinki-Cube.$(OBJEXT) \
 	Rasinki-Player.$(OBJEXT) Rasinki-SoundManager.$(OBJEXT) \
 	Rasinki-SphereComponent.$(OBJEXT) \
+	Rasinki-PlayerScript.$(OBJEXT) \
 	Rasinki-GameplayScript.$(OBJEXT) Rasinki-Time.$(OBJEXT) \
-	Rasinki-Network.$(OBJEXT) Rasinki-Input.$(OBJEXT)
+	Rasinki-Network.$(OBJEXT) Rasinki-Input.$(OBJEXT) \
+	Rasinki-GameState.$(OBJEXT) Rasinki-PlayerState.$(OBJEXT)
 Rasinki_OBJECTS = $(am_Rasinki_OBJECTS)
 am__DEPENDENCIES_1 =
 Rasinki_DEPENDENCIES = $(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1) \
@@ -248,10 +250,10 @@ target_alias =
 top_build_prefix = 
 top_builddir = .
 top_srcdir = .
-noinst_HEADERS = src/Game.h src/GameObject.h src/Components/Component.h src/PhysicsSimulator.h src/Components/Transform.h src/Components/Renderer.h src/Components/Script.h src/Scripts/PaddleScript.h src/Scripts/PointBlock.h src/Scripts/Wall.h src/Objects/Sphere.h src/Objects/Paddle.h src/Objects/Plane.h src/Objects/Cube.h src/Player.h src/SoundManager.h src/Scripts/SphereComponent.h src/Scripts/GameplayScript.h src/Time.h src/Network.h src/Input.h
+noinst_HEADERS = src/Game.h src/GameObject.h src/Components/Component.h src/PhysicsSimulator.h src/Components/Transform.h src/Components/Renderer.h src/Components/Script.h src/Scripts/PaddleScript.h src/Scripts/PointBlock.h src/Scripts/Wall.h src/Objects/Sphere.h src/Objects/Paddle.h src/Objects/Plane.h src/Objects/Cube.h src/Player.h src/SoundManager.h src/Scripts/SphereComponent.h src/Scripts/PlayerScript.h src/Scripts/GameplayScript.h src/Time.h src/Network.h src/Input.h src/GameState.h src/PlayerState.h
 Rasinki_CPPFLAGS = -I$(top_srcdir)/src
-Rasinki_SOURCES = src/Game.cpp src/main.cpp src/GameObject.cpp src/Components/Component.cpp src/PhysicsSimulator.cpp src/Components/Transform.cpp src/Components/Renderer.cpp src/Components/Script.cpp src/Scripts/PaddleScript.cpp src/Scripts/PointBlock.cpp src/Scripts/Wall.cpp src/Components/Physics.cpp src/Objects/Sphere.cpp src/Objects/Paddle.cpp src/Objects/Plane.cpp src/Objects/Cube.cpp src/Player.cpp src/SoundManager.cpp src/Scripts/SphereComponent.cpp src/Scripts/GameplayScript.cpp src/Time.cpp src/Network.cpp src/Input.cpp
-Rasinki_CXXFLAGS = $(OGRE_CFLAGS) $(OIS_CFLAGS) $(bullet_CFLAGS) $(sdl_CFLAGS) $(SDLMIXER_CFLAGS) $(SDLNET_CFLAGS) -std=c++0x
+Rasinki_SOURCES = src/Game.cpp src/main.cpp src/GameObject.cpp src/Components/Component.cpp src/PhysicsSimulator.cpp src/Components/Transform.cpp src/Components/Renderer.cpp src/Components/Script.cpp src/Scripts/PaddleScript.cpp src/Scripts/PointBlock.cpp src/Scripts/Wall.cpp src/Components/Physics.cpp src/Objects/Sphere.cpp src/Objects/Paddle.cpp src/Objects/Plane.cpp src/Objects/Cube.cpp src/Player.cpp src/SoundManager.cpp src/Scripts/SphereComponent.cpp src/Scripts/PlayerScript.cpp src/Scripts/GameplayScript.cpp src/Time.cpp src/Network.cpp src/Input.cpp src/GameState.cpp src/PlayerState.cpp
+Rasinki_CXXFLAGS = $(OGRE_CFLAGS) $(OIS_CFLAGS) $(bullet_CFLAGS) $(sdl_CFLAGS) $(SDLMIXER_CFLAGS) $(SDLNET_CFLAGS) -std=c++0x -I
 Rasinki_LDADD = $(OGRE_LIBS) $(OIS_LIBS) $(bullet_LIBS) $(sdl_LIBS) $(SDLMIXER_LIBS) $(SDLNET_LIBS) $(CEGUI_LIBS) $(CEGUI_OGRE_LIBS)
 EXTRA_DIST = buildit makeit
 AUTOMAKE_OPTIONS = foreign
@@ -366,6 +368,7 @@ include ./$(DEPDIR)/Rasinki-Component.Po
 include ./$(DEPDIR)/Rasinki-Cube.Po
 include ./$(DEPDIR)/Rasinki-Game.Po
 include ./$(DEPDIR)/Rasinki-GameObject.Po
+include ./$(DEPDIR)/Rasinki-GameState.Po
 include ./$(DEPDIR)/Rasinki-GameplayScript.Po
 include ./$(DEPDIR)/Rasinki-Input.Po
 include ./$(DEPDIR)/Rasinki-Network.Po
@@ -375,6 +378,8 @@ include ./$(DEPDIR)/Rasinki-Physics.Po
 include ./$(DEPDIR)/Rasinki-PhysicsSimulator.Po
 include ./$(DEPDIR)/Rasinki-Plane.Po
 include ./$(DEPDIR)/Rasinki-Player.Po
+include ./$(DEPDIR)/Rasinki-PlayerScript.Po
+include ./$(DEPDIR)/Rasinki-PlayerState.Po
 include ./$(DEPDIR)/Rasinki-PointBlock.Po
 include ./$(DEPDIR)/Rasinki-Renderer.Po
 include ./$(DEPDIR)/Rasinki-Script.Po
@@ -673,6 +678,20 @@ Rasinki-SphereComponent.obj: src/Scripts/SphereComponent.cpp
 #	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
 #	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(Rasinki_CPPFLAGS) $(CPPFLAGS) $(Rasinki_CXXFLAGS) $(CXXFLAGS) -c -o Rasinki-SphereComponent.obj `if test -f 'src/Scripts/SphereComponent.cpp'; then $(CYGPATH_W) 'src/Scripts/SphereComponent.cpp'; else $(CYGPATH_W) '$(srcdir)/src/Scripts/SphereComponent.cpp'; fi`
 
+Rasinki-PlayerScript.o: src/Scripts/PlayerScript.cpp
+	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(Rasinki_CPPFLAGS) $(CPPFLAGS) $(Rasinki_CXXFLAGS) $(CXXFLAGS) -MT Rasinki-PlayerScript.o -MD -MP -MF $(DEPDIR)/Rasinki-PlayerScript.Tpo -c -o Rasinki-PlayerScript.o `test -f 'src/Scripts/PlayerScript.cpp' || echo '$(srcdir)/'`src/Scripts/PlayerScript.cpp
+	$(am__mv) $(DEPDIR)/Rasinki-PlayerScript.Tpo $(DEPDIR)/Rasinki-PlayerScript.Po
+#	source='src/Scripts/PlayerScript.cpp' object='Rasinki-PlayerScript.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
+#	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(Rasinki_CPPFLAGS) $(CPPFLAGS) $(Rasinki_CXXFLAGS) $(CXXFLAGS) -c -o Rasinki-PlayerScript.o `test -f 'src/Scripts/PlayerScript.cpp' || echo '$(srcdir)/'`src/Scripts/PlayerScript.cpp
+
+Rasinki-PlayerScript.obj: src/Scripts/PlayerScript.cpp
+	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(Rasinki_CPPFLAGS) $(CPPFLAGS) $(Rasinki_CXXFLAGS) $(CXXFLAGS) -MT Rasinki-PlayerScript.obj -MD -MP -MF $(DEPDIR)/Rasinki-PlayerScript.Tpo -c -o Rasinki-PlayerScript.obj `if test -f 'src/Scripts/PlayerScript.cpp'; then $(CYGPATH_W) 'src/Scripts/PlayerScript.cpp'; else $(CYGPATH_W) '$(srcdir)/src/Scripts/PlayerScript.cpp'; fi`
+	$(am__mv) $(DEPDIR)/Rasinki-PlayerScript.Tpo $(DEPDIR)/Rasinki-PlayerScript.Po
+#	source='src/Scripts/PlayerScript.cpp' object='Rasinki-PlayerScript.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
+#	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(Rasinki_CPPFLAGS) $(CPPFLAGS) $(Rasinki_CXXFLAGS) $(CXXFLAGS) -c -o Rasinki-PlayerScript.obj `if test -f 'src/Scripts/PlayerScript.cpp'; then $(CYGPATH_W) 'src/Scripts/PlayerScript.cpp'; else $(CYGPATH_W) '$(srcdir)/src/Scripts/PlayerScript.cpp'; fi`
+
 Rasinki-GameplayScript.o: src/Scripts/GameplayScript.cpp
 	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(Rasinki_CPPFLAGS) $(CPPFLAGS) $(Rasinki_CXXFLAGS) $(CXXFLAGS) -MT Rasinki-GameplayScript.o -MD -MP -MF $(DEPDIR)/Rasinki-GameplayScript.Tpo -c -o Rasinki-GameplayScript.o `test -f 'src/Scripts/GameplayScript.cpp' || echo '$(srcdir)/'`src/Scripts/GameplayScript.cpp
 	$(am__mv) $(DEPDIR)/Rasinki-GameplayScript.Tpo $(DEPDIR)/Rasinki-GameplayScript.Po
@@ -728,6 +747,34 @@ Rasinki-Input.obj: src/Input.cpp
 #	source='src/Input.cpp' object='Rasinki-Input.obj' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
 #	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(Rasinki_CPPFLAGS) $(CPPFLAGS) $(Rasinki_CXXFLAGS) $(CXXFLAGS) -c -o Rasinki-Input.obj `if test -f 'src/Input.cpp'; then $(CYGPATH_W) 'src/Input.cpp'; else $(CYGPATH_W) '$(srcdir)/src/Input.cpp'; fi`
+
+Rasinki-GameState.o: src/GameState.cpp
+	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(Rasinki_CPPFLAGS) $(CPPFLAGS) $(Rasinki_CXXFLAGS) $(CXXFLAGS) -MT Rasinki-GameState.o -MD -MP -MF $(DEPDIR)/Rasinki-GameState.Tpo -c -o Rasinki-GameState.o `test -f 'src/GameState.cpp' || echo '$(srcdir)/'`src/GameState.cpp
+	$(am__mv) $(DEPDIR)/Rasinki-GameState.Tpo $(DEPDIR)/Rasinki-GameState.Po
+#	source='src/GameState.cpp' object='Rasinki-GameState.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
+#	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(Rasinki_CPPFLAGS) $(CPPFLAGS) $(Rasinki_CXXFLAGS) $(CXXFLAGS) -c -o Rasinki-GameState.o `test -f 'src/GameState.cpp' || echo '$(srcdir)/'`src/GameState.cpp
+
+Rasinki-GameState.obj: src/GameState.cpp
+	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(Rasinki_CPPFLAGS) $(CPPFLAGS) $(Rasinki_CXXFLAGS) $(CXXFLAGS) -MT Rasinki-GameState.obj -MD -MP -MF $(DEPDIR)/Rasinki-GameState.Tpo -c -o Rasinki-GameState.obj `if test -f 'src/GameState.cpp'; then $(CYGPATH_W) 'src/GameState.cpp'; else $(CYGPATH_W) '$(srcdir)/src/GameState.cpp'; fi`
+	$(am__mv) $(DEPDIR)/Rasinki-GameState.Tpo $(DEPDIR)/Rasinki-GameState.Po
+#	source='src/GameState.cpp' object='Rasinki-GameState.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
+#	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(Rasinki_CPPFLAGS) $(CPPFLAGS) $(Rasinki_CXXFLAGS) $(CXXFLAGS) -c -o Rasinki-GameState.obj `if test -f 'src/GameState.cpp'; then $(CYGPATH_W) 'src/GameState.cpp'; else $(CYGPATH_W) '$(srcdir)/src/GameState.cpp'; fi`
+
+Rasinki-PlayerState.o: src/PlayerState.cpp
+	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(Rasinki_CPPFLAGS) $(CPPFLAGS) $(Rasinki_CXXFLAGS) $(CXXFLAGS) -MT Rasinki-PlayerState.o -MD -MP -MF $(DEPDIR)/Rasinki-PlayerState.Tpo -c -o Rasinki-PlayerState.o `test -f 'src/PlayerState.cpp' || echo '$(srcdir)/'`src/PlayerState.cpp
+	$(am__mv) $(DEPDIR)/Rasinki-PlayerState.Tpo $(DEPDIR)/Rasinki-PlayerState.Po
+#	source='src/PlayerState.cpp' object='Rasinki-PlayerState.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
+#	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(Rasinki_CPPFLAGS) $(CPPFLAGS) $(Rasinki_CXXFLAGS) $(CXXFLAGS) -c -o Rasinki-PlayerState.o `test -f 'src/PlayerState.cpp' || echo '$(srcdir)/'`src/PlayerState.cpp
+
+Rasinki-PlayerState.obj: src/PlayerState.cpp
+	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(Rasinki_CPPFLAGS) $(CPPFLAGS) $(Rasinki_CXXFLAGS) $(CXXFLAGS) -MT Rasinki-PlayerState.obj -MD -MP -MF $(DEPDIR)/Rasinki-PlayerState.Tpo -c -o Rasinki-PlayerState.obj `if test -f 'src/PlayerState.cpp'; then $(CYGPATH_W) 'src/PlayerState.cpp'; else $(CYGPATH_W) '$(srcdir)/src/PlayerState.cpp'; fi`
+	$(am__mv) $(DEPDIR)/Rasinki-PlayerState.Tpo $(DEPDIR)/Rasinki-PlayerState.Po
+#	source='src/PlayerState.cpp' object='Rasinki-PlayerState.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
+#	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(Rasinki_CPPFLAGS) $(CPPFLAGS) $(Rasinki_CXXFLAGS) $(CXXFLAGS) -c -o Rasinki-PlayerState.obj `if test -f 'src/PlayerState.cpp'; then $(CYGPATH_W) 'src/PlayerState.cpp'; else $(CYGPATH_W) '$(srcdir)/src/PlayerState.cpp'; fi`
 
 mostlyclean-libtool:
 	-rm -f *.lo

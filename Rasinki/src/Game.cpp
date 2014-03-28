@@ -6,11 +6,14 @@ using namespace std;
 #include "Game.h"
 #include "Time.h"
 
+
 #include "Scripts/PaddleScript.h"
 #include "Scripts/PointBlock.h"
 #include "Scripts/Wall.h"
 #include "Scripts/SphereComponent.h"
 #include "Scripts/GameplayScript.h"
+#include "Scripts/PlayerScript.h"
+
 
 #include "Objects/Paddle.h"
 #include "Objects/Sphere.h"
@@ -651,7 +654,7 @@ void Game::createScene(void) {
     cout << "Creating scene..." << endl;
     // Paddle
     Paddle *newPaddle = new Paddle(this, 0);
-    newPaddle->AddComponentOfType<PaddleScript>();
+    newPaddle->AddComponentOfType<PlayerScript>();
     newPaddle->AddComponentOfType<GameplayScript>();
     newPaddle->transform->setWorldPosition(Ogre::Vector3(0,-800,0));
     newPaddle->transform->setLocalScale(Ogre::Vector3(3, .25, 3));
@@ -660,18 +663,18 @@ void Game::createScene(void) {
     gameObjects.push_back(newPaddle); 
     std::cout << "NEW PADDLE POS: " << newPaddle->physics->getWorldPosition() << std::endl;
 
-    Paddle *newPaddle2 = new Paddle(this, 1);
-    newPaddle2->AddComponentOfType<PaddleScript>();
-    newPaddle2->AddComponentOfType<GameplayScript>();
-    newPaddle2->transform->setWorldPosition(Ogre::Vector3(400,-800,0));
-    newPaddle2->transform->setLocalScale(Ogre::Vector3(3, .25, 3));
-    newPaddle2->name = "paddle2";
-    newPaddle2->renderer->setMaterial("Examples/Rockwall");
-    gameObjects.push_back(newPaddle2); 
-    std::cout << "NEW PADDLE POS: " << newPaddle2->physics->getWorldPosition() << std::endl;
-    float ballSpeed = 1000.0f;
+    // Paddle *newPaddle2 = new Paddle(this, 1);
+    // newPaddle2->AddComponentOfType<PaddleScript>();
+    // newPaddle2->AddComponentOfType<GameplayScript>();
+    // newPaddle2->transform->setWorldPosition(Ogre::Vector3(400,-800,0));
+    // newPaddle2->transform->setLocalScale(Ogre::Vector3(3, .25, 3));
+    // newPaddle2->name = "paddle2";
+    // newPaddle2->renderer->setMaterial("Examples/Rockwall");
+    // gameObjects.push_back(newPaddle2); 
+    // std::cout << "NEW PADDLE POS: " << newPaddle2->physics->getWorldPosition() << std::endl;
 
     // Balls
+    float ballSpeed = 1000.0f;
     Sphere *ball01 = new Sphere(this, 75);
     ball01->transform->setWorldPosition(Ogre::Vector3(0,-700,0));
     ball01->name = "ball01";
