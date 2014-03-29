@@ -392,7 +392,13 @@ bool Game::keyPressed( const OIS::KeyEvent &arg )
             mRoot->renderOneFrame();
         }
     }
-
+    else if (arg.key == OIS::KC_N)
+    {
+        if (mNetwork != NULL && mNetwork->isServer) {
+            mNetwork->SendMessageToClient(ServerMessage());
+            newGame();
+        }
+    }
     return true;
 }
 
@@ -646,6 +652,7 @@ void Game::enableMainMenu() {
         mainMenu->getChild("hostGame")->setVisible(false);
         mainMenu->getChild("newGame")->setVisible(mNetwork->isServer);
         mainMenu->getChild("connectToGame")->setVisible(false);
+
     
     }
 }
@@ -873,7 +880,7 @@ bool Game::quit(const CEGUI::EventArgs &e){
 }
 
 bool Game::newGame(const CEGUI::EventArgs &e){
-    gameMode = !gameMode;
+    gameMode = true;
     disableMainMenu();
     destroyScene();
     createLights();
@@ -886,7 +893,7 @@ bool Game::newGame(const CEGUI::EventArgs &e){
         mNetwork->SendMessageToClient(ServerMessage());
 }
 bool Game::newGame() {
-    gameMode = !gameMode;
+    gameMode = true;
     disableMainMenu();
     destroyScene();
     createLights();
