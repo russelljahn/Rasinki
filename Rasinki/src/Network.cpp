@@ -434,6 +434,12 @@ void Network::ProcessServer(){
                 SphereComponent::numSpheres--;
                 i += sizeof(ServerMessage);
             }
+            else if (messageType == SERVERQUIT) {
+               ServerMessage serverMessage = *((ServerMessage *)(buffer+i));
+                cout << "SERVERQUIT" << serverMessage.objectIndex << endl;
+                game->OnServerQuit();
+                return;
+            }
         }
         messageFromServer = SDLNet_SocketReady(clientSocket[0]);
     }

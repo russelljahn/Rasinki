@@ -15,7 +15,7 @@
 #define MAX_CLIENTS 1 // Max_sockets - 1
 
 using namespace std;
-enum ServerMessageType { STARTGAME, OBJECTPOSITION, SCORE, DISABLEOBJECT, DISABLESPHERE};
+enum ServerMessageType { STARTGAME, OBJECTPOSITION, SCORE, DISABLEOBJECT, DISABLESPHERE, SERVERQUIT};
 class Game;
 
 struct ServerMessage {
@@ -25,6 +25,7 @@ struct ServerMessage {
 	ServerMessage(int i, Ogre::Vector3 pos) : messageType(OBJECTPOSITION), objectIndex(i), posx(pos.x), posy(pos.y), posz(pos.z) {}
 	ServerMessage(ServerMessageType t, int i) : messageType(t), objectIndex(i) {}
 	ServerMessage() : messageType(STARTGAME) {}
+	ServerMessage(ServerMessageType t) : messageType(t) {}
 	void print() {
 		std::cout << "messageType " << messageType << std::endl;
 		std::cout << "posx " << posx << std::endl;

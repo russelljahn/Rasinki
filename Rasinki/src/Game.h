@@ -89,6 +89,7 @@ public:
     int level;
     bool gameMode;
     bool inMultiplayerMenu;
+    bool OnServerQuit();
 
     // Miscellaneous
     vector<Player *> playerList;

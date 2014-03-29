@@ -875,6 +875,9 @@ SoundManager* Game::getSoundManager(void) {
 }
 
 bool Game::quit(const CEGUI::EventArgs &e){
+    if (mNetwork != NULL && mNetwork->isServer) {
+        mNetwork->SendMessageToClient(ServerMessage(SERVERQUIT));
+    } 
     mShutDown = true;
     return true;
 }
@@ -891,6 +894,14 @@ bool Game::newGame(const CEGUI::EventArgs &e){
     }
     if (mNetwork->isServer)
         mNetwork->SendMessageToClient(ServerMessage());
+}
+bool Game::OnServerQuit() {
+    gameMode = false;
+    mNetwork = NULL; //TODO FIX THIS MEMORY LEAK
+    enableMainMenu();
+    destroyScene();
+    createLights();
+    createScene();
 }
 bool Game::newGame() {
     gameMode = true;
