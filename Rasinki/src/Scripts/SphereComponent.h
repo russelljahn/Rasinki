@@ -15,7 +15,7 @@ class SphereComponent : public Script {
 
 		void Update();
 		void OnCollision(Ogre::Vector3 point, GameObject* collidedWith);
-
+		static void OnDestroySphere() { numSpheres--; }
 		static int numSpheres;
 
 	private:

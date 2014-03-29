@@ -29,11 +29,13 @@ void SphereComponent::OnCollision(Ogre::Vector3 point, GameObject* collidedWith)
 
 	// std::cout << this->gameObject->name << " is colliding with " << collidedWith->name << std::endl;
 	if (collidedWith->name == "ground") {
+		if (gameObject->game->getNetwork()->isServer) {
+		gameObject->game->getNetwork()->SendMessageToClient(ServerMessage(DISABLESPHERE,gameObject->objIndex));
+	}
 		// this->gameObject->Kill(); //TODO: Use this instead once implemented.
 		this->gameObject->renderer->setEnabled(false);
 		this->gameObject->physics->setEnabled(false);
 		--numSpheres;
-
 
 		this->~SphereComponent();
 	}

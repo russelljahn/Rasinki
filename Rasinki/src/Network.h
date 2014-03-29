@@ -15,7 +15,7 @@
 #define MAX_CLIENTS 1 // Max_sockets - 1
 
 using namespace std;
-enum ServerMessageType { STARTGAME, OBJECTPOSITION, SCORE, DISABLEOBJECT};
+enum ServerMessageType { STARTGAME, OBJECTPOSITION, SCORE, DISABLEOBJECT, DISABLESPHERE};
 class Game;
 
 struct ServerMessage {
