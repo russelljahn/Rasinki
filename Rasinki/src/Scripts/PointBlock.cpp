@@ -38,6 +38,9 @@ void PointBlock::Update() {
 
 void PointBlock::OnCollision(Ogre::Vector3 point, GameObject* collidedWith) {
 	this->gameObject->renderer->setEnabled(false);
+	if (gameObject->game->getNetwork()->isServer) {
+		gameObject->game->getNetwork()->SendMessageToClient(ServerMessage(DISABLEOBJECT,gameObject->objIndex));
+	}
 	gameObject->game->getPlayer()->scored(pointsOnDeath);
 	gameObject->game->getSoundManager()->playSound2();
 }

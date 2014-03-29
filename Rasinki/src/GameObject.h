@@ -39,6 +39,7 @@ class GameObject {
 	public:
 		std::string name;
 		int id;
+		int objIndex;
 		bool enabled;
 		int playerNum;
 		GameObject *gameObject; // Pointer to self.

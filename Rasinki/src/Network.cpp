@@ -420,6 +420,12 @@ void Network::ProcessServer(){
                 game->playerList[scoreMessage.playerNumber]->scored(scoreMessage.score);
                 i += sizeof(ScoreMessage);
             }
+            else if (messageType == DISABLEOBJECT) {
+                ServerMessage serverMessage = *((ServerMessage *)(buffer+i));
+                cout << "DISABLING OBJECT: " << serverMessage.objectIndex << endl;
+                game->gameObjects[serverMessage.objectIndex]->renderer->setEnabled(false);
+                i += sizeof(ServerMessage);
+            }
         }
         messageFromServer = SDLNet_SocketReady(clientSocket[0]);
     }

@@ -11,7 +11,7 @@ GameObject::GameObject(Game *attachedGame) {
 	this->game = attachedGame;
 	this->enabled = true;
 	this->id = GameObject::nextAvailableId++;
-
+	objIndex = game->gameObjects.size();
 	ostringstream nameCoverter;
 	nameCoverter << id;
 	this->name = nameCoverter.str();
