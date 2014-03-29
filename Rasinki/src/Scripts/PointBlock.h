@@ -3,7 +3,6 @@
 #define __POINTBLOCK_SCRIPT_H__
 
 #include "../Components/Script.h"
-
 /* 
 	Blocks that add points to player when hit.
 */

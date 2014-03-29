@@ -1,7 +1,5 @@
-
 #include "PointBlock.h"
 #include <ctime>
-
 
 PointBlock::PointBlock(GameObject *attachedGameObject) : Script(attachedGameObject) {
 

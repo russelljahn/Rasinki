@@ -16,6 +16,8 @@ enum ControlType { LOCAL, NETWORK };
 
 class Player {
 	public:
+		int deltaScore;
+
 		Player(ControlType type);
 		void scored(int points = 1);
 		int getScore() { return mScore; }

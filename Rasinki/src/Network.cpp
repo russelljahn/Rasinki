@@ -346,13 +346,23 @@ void Network::ProcessInputFromClient() {
     std::cout << "Input recieved from client: " << std::endl;
     //clientInput.print();
 }
-void Network::SendMessageToClient(ServerMessage serverMessage) {
+void Network::SendMessageToClient(ServerMessage message) {
     if (clientSocket[0] == NULL)
         return;
     std::cout << "Message before sending to client: " << std::endl;
     //serverMessage.print();
-    int bytesToSend = sizeof(serverMessage);
-    if (SDLNet_TCP_Send(clientSocket[0], (void *)(&serverMessage), bytesToSend) < bytesToSend) {
+    int numBytes = sizeof(ServerMessage);
+    if (SDLNet_TCP_Send(clientSocket[0], (void *)&message, numBytes) < numBytes) {
+        cout << "Failed to send message: " << SDLNet_GetError() << endl;
+    }
+}
+void Network::SendMessageToClient(ScoreMessage message) {
+    if (clientSocket[0] == NULL)
+        return;
+    std::cout << "Message before sending to client: " << std::endl;
+    //serverMessage.print();
+    int numBytes = sizeof(ScoreMessage);
+    if (SDLNet_TCP_Send(clientSocket[0], (void *)&message, numBytes) < numBytes) {
         cout << "Failed to send message: " << SDLNet_GetError() << endl;
     }
 }
@@ -387,17 +397,28 @@ void Network::ProcessServer(){
         //cout << "Got a response from the server... " << endl;
         int serverResponseByteCount = SDLNet_TCP_Recv(clientSocket[0], buffer, BUFFER_SIZE);
         cout << "Received: " << serverResponseByteCount << endl;// "(" << serverResponseByteCount << " bytes)" << endl;
-        for (int i = 0; i < serverResponseByteCount; i += sizeof(ServerMessage)) {
-            ServerMessage serverMessage = *((ServerMessage *)(buffer+i));
+        int i = 0;
+        while (i < serverResponseByteCount) {
+            ServerMessageType messageType = *((ServerMessageType *)(buffer + i));
             //serverMessage.print();
-            if (serverMessage.messageType == STARTGAME)
+            if (messageType == STARTGAME)
             {
+                ServerMessage serverMessage = *((ServerMessage *)(buffer+i));
                 cout << "Server is starting game" << endl;
                 game->newGame();
+                i += sizeof(ServerMessage);
             }
-            else if (serverMessage.messageType == OBJECTPOSITION) {
+            else if (messageType == OBJECTPOSITION) {
+                ServerMessage serverMessage = *((ServerMessage *)(buffer+i));
                 cout << "GOT OBJECT POSITION" << endl;
                 game->gameObjects[serverMessage.objectIndex]->physics->setWorldPosition(Ogre::Vector3(serverMessage.posx, serverMessage.posy, serverMessage.posz));
+                i += sizeof(ServerMessage);
+            }
+            else if (messageType == SCORE) {
+                ScoreMessage scoreMessage = *((ScoreMessage *)(buffer+i));
+                cout << "GOT OBJECT POSITION" << endl;
+                game->playerList[scoreMessage.playerNumber]->scored(scoreMessage.score);
+                i += sizeof(ScoreMessage);
             }
         }
         messageFromServer = SDLNet_SocketReady(clientSocket[0]);

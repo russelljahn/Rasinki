@@ -322,6 +322,12 @@ bool Game::frameRenderingQueued(const Ogre::FrameEvent& evt)
         if (gameMode && mNetwork->isServer && gameObjects.size()) {
                 mNetwork->SendMessageToClient(ServerMessage(0, gameObjects[0]->physics->getWorldPosition()));
                 mNetwork->SendMessageToClient(ServerMessage(1, gameObjects[1]->physics->getWorldPosition()));
+                ScoreMessage(0, playerList[0]->deltaScore).print();
+                if (playerList[0]->deltaScore > 0) {
+                    ScoreMessage(0, playerList[0]->deltaScore).print();
+                    mNetwork->SendMessageToClient(ScoreMessage(0, playerList[0]->deltaScore));
+                    playerList[0]->deltaScore = 0;
+                }
         }
         mNetwork->OnNetworkUpdate();
     }

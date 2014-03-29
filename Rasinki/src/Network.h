@@ -15,7 +15,7 @@
 #define MAX_CLIENTS 1 // Max_sockets - 1
 
 using namespace std;
-enum ServerMessageType { STARTGAME, OBJECTPOSITION};
+enum ServerMessageType { STARTGAME, OBJECTPOSITION, SCORE};
 class Game;
 
 struct ServerMessage {
@@ -31,6 +31,17 @@ struct ServerMessage {
 		std::cout << "posz " << posz << std::endl;
 	}
 };
+struct ScoreMessage {
+	enum ServerMessageType messageType;
+	int playerNumber;
+	int score;
+	ScoreMessage(int pNum, int s): messageType(SCORE), playerNumber(pNum), score(s){}
+	void print() {
+		std::cout << "messageType " << messageType << std::endl;
+		std::cout << "playerNumber " << playerNumber << std::endl;
+		std::cout << "score " << score << std::endl;
+	}
+};
 
 class Network {
 	public:
@@ -40,7 +51,7 @@ class Network {
 		void Start();
 		void OnNetworkUpdate();
 		void SendMessageToClient(ServerMessage message);
-
+		void SendMessageToClient(ScoreMessage message);
 		string serverName;
 
 	private:
