@@ -637,10 +637,17 @@ void Game::enableMainMenu() {
     mainMenu->enable();
     mainMenu->setVisible(true);
 
-    mainMenu->getChild("hostGame")->setVisible(isServer);
-    mainMenu->getChild("newGame")->setVisible(isServer);
-    mainMenu->getChild("connectToGame")->setVisible(isServer);
+    if (mNetwork == NULL) {
+        mainMenu->getChild("hostGame")->setVisible(true);
+        mainMenu->getChild("newGame")->setVisible(true);
+        mainMenu->getChild("connectToGame")->setVisible(true);
+    }
+    else {
+        mainMenu->getChild("hostGame")->setVisible(false);
+        mainMenu->getChild("newGame")->setVisible(mNetwork->isServer);
+        mainMenu->getChild("connectToGame")->setVisible(false);
     
+    }
 }
 void Game::disableMultiplayerMenu() {
     multiplayerMenu->disable();
