@@ -558,19 +558,19 @@ void Game::createGUI(void) {
     quit->setPosition(CEGUI::UVector2(CEGUI::UDim(0.3f, 0),CEGUI::UDim(0.5f, 0)));
     quit->subscribeEvent(CEGUI::PushButton::EventClicked, CEGUI::Event::Subscriber(&Game::quit, this));
 
-    CEGUI::Window *newGame = wmgr.createWindow("TaharezLook/Button", "CEGUIDemo/NewGameButton");
+    CEGUI::Window *newGame = wmgr.createWindow("TaharezLook/Button", "newGame");
     newGame->setText("NewGame");
     newGame->setSize(CEGUI::UVector2(CEGUI::UDim(0.15, 0), CEGUI::UDim(0.05, 0)));
     newGame->setPosition(CEGUI::UVector2(CEGUI::UDim(0.5f, 0),CEGUI::UDim(0.5f, 0)));
     newGame->subscribeEvent(CEGUI::PushButton::EventClicked, CEGUI::Event::Subscriber(&Game::newGame, this));
 
-    CEGUI::Window *level1 = wmgr.createWindow("TaharezLook/Button", "CEGUIDemo/Level1Button");
+    CEGUI::Window *level1 = wmgr.createWindow("TaharezLook/Button", "hostGame");
     level1->setText("Host Game");
     level1->setSize(CEGUI::UVector2(CEGUI::UDim(0.15, 0), CEGUI::UDim(0.05, 0)));
     level1->setPosition(CEGUI::UVector2(CEGUI::UDim(0.3f, 0),CEGUI::UDim(0.6f, 0)));
     level1->subscribeEvent(CEGUI::PushButton::EventClicked, CEGUI::Event::Subscriber(&Game::onStartServer, this));
 
-    CEGUI::Window *connectToGame = wmgr.createWindow("TaharezLook/Button", "CEGUIDemo/Level2Button");
+    CEGUI::Window *connectToGame = wmgr.createWindow("TaharezLook/Button", "connectToGame");
     connectToGame->setText("Connect to Game");
     connectToGame->setSize(CEGUI::UVector2(CEGUI::UDim(0.15, 0), CEGUI::UDim(0.05, 0)));
     connectToGame->setPosition(CEGUI::UVector2(CEGUI::UDim(0.5f, 0),CEGUI::UDim(0.6f, 0)));
@@ -636,6 +636,11 @@ void Game::disableMainMenu() {
 void Game::enableMainMenu() {
     mainMenu->enable();
     mainMenu->setVisible(true);
+
+    mainMenu->getChild("hostGame")->setVisible(isServer);
+    mainMenu->getChild("newGame")->setVisible(isServer);
+    mainMenu->getChild("connectToGame")->setVisible(isServer);
+    
 }
 void Game::disableMultiplayerMenu() {
     multiplayerMenu->disable();
