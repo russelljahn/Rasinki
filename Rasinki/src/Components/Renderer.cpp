@@ -23,3 +23,24 @@ void Renderer::setEnabled(bool enabled) {
 bool Renderer::isEnabled() {
 	return enabled;
 }
+
+
+void Renderer::setAnimationState(std::string animationStateName) {
+	animationState = entity->getAnimationState(animationStateName);
+}
+
+
+void Renderer::setAnimationLoop(bool loop) {
+    animationState->setLoop(loop);
+}
+
+
+void Renderer::setAnimationEnabled(bool enabled) {
+    animationState->setEnabled(enabled);
+}
+
+
+bool Renderer::isAnimationEnabled() {
+	return animationState->getEnabled();
+}
+

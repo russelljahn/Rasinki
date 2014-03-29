@@ -35,7 +35,7 @@ Standing::Standing(PlayerScript *playerScript) : PlayerState(playerScript) {
 	cout << "Standing!" << endl;
 	GameObject *gameObject = playerScript->gameObject;
 	gameObject->physics->setLinearVelocity(Ogre::Vector3::ZERO);
-	// Need to play idle animation.
+	// gameObject->renderer->setAnimationState("Idle");
 }
 
 
@@ -65,17 +65,16 @@ PlayerState* Standing::NextState() {
 */
 Walking::Walking(PlayerScript *playerScript) : PlayerState(playerScript) {
 	cout << "Walking!" << endl;
-	// Need to play walking animation.
+	// playerScript->gameObject->renderer->setAnimationState("Walking");
 }
 
 
 void Walking::Update() {
+	Player *controllingPlayer = playerScript->controllingPlayer;
 	GameObject *gameObject = playerScript->gameObject;
+
 	Ogre::Vector3 forward = gameObject->transform->sceneNode->getOrientation() * Ogre::Vector3(1, 0, 0); // Would be Vector3(0, 0, -1), but compensating for initial robot rotation.
 	Ogre::Vector3 right = gameObject->transform->sceneNode->getOrientation() * Ogre::Vector3(0, 0, 1); // Would be Vector3(-1, 0, 0), but compensating for initial robot rotation.
-
-	Ogre::Vector3 currentPosition = gameObject->physics->getWorldPosition();
-	Player *controllingPlayer = playerScript->controllingPlayer;
 
 	float movementSpeed = playerScript->movementSpeed;
 	Ogre::Vector3 velocity = gameObject->physics->getLinearVelocity();

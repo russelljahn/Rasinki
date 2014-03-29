@@ -20,7 +20,7 @@ class Renderer {
 	public:
 		GameObject *gameObject;
 		Ogre::Entity *entity;
-
+		Ogre::AnimationState *animationState; // The current animation state of the object
 
 		Renderer(GameObject *attachedGameObject);
 		~Renderer();
@@ -28,6 +28,11 @@ class Renderer {
 		bool isEnabled();
 
 		void setMaterial(std::string materialName);
+		void setAnimationState(std::string animationStateName);
+		void setAnimationLoop(bool loop);
+		void setAnimationEnabled(bool enabled);
+		bool isAnimationEnabled();
+
 
 	protected:
 		bool enabled;
