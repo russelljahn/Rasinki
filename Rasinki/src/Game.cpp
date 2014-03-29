@@ -14,7 +14,7 @@ using namespace std;
 #include "Scripts/GameplayScript.h"
 #include "Scripts/PlayerScript.h"
 
-
+#include "Objects/Robot.h"
 #include "Objects/Paddle.h"
 #include "Objects/Sphere.h"
 #include "Objects/Plane.h"
@@ -653,15 +653,15 @@ void Game::enableMultiplayerMenu() {
 void Game::createScene(void) {
     cout << "Creating scene..." << endl;
     // Paddle
-    Paddle *newPaddle = new Paddle(this, 0);
-    newPaddle->AddComponentOfType<PlayerScript>();
-    newPaddle->AddComponentOfType<GameplayScript>();
-    newPaddle->transform->setWorldPosition(Ogre::Vector3(0,-800,0));
-    newPaddle->transform->setLocalScale(Ogre::Vector3(3, .25, 3));
-    newPaddle->name = "paddle";
-    newPaddle->renderer->setMaterial("Examples/Rockwall");
-    gameObjects.push_back(newPaddle); 
-    std::cout << "NEW PADDLE POS: " << newPaddle->physics->getWorldPosition() << std::endl;
+    Robot *newRobot = new Robot(this, 0);
+    newRobot->AddComponentOfType<PlayerScript>();
+    newRobot->AddComponentOfType<GameplayScript>();
+    newRobot->transform->setWorldPosition(Ogre::Vector3(0,0,0));
+    newRobot->transform->setLocalScale(Ogre::Vector3(10, 10, 10));
+    newRobot->name = "Player";
+    newRobot->renderer->setMaterial("Examples/Rockwall");
+    gameObjects.push_back(newRobot); 
+    std::cout << "NEW PADDLE POS: " << newRobot->physics->getWorldPosition() << std::endl;
 
     // Paddle *newPaddle2 = new Paddle(this, 1);
     // newPaddle2->AddComponentOfType<PaddleScript>();
@@ -731,53 +731,53 @@ void Game::createScene(void) {
     north->renderer->setMaterial("Examples/BumpyMetalG");
     gameObjects.push_back(north);
 
-    int cubeid = 0;
-    switch(level)
-    {
-        default:
-        case 1:
+    // int cubeid = 0;
+    // switch(level)
+    // {
+    //     default:
+    //     case 1:
 
-        cubeid = 0;
-        for (int i = -220; i <= 220; i+=110)
-        {
-            for (int j = -220; j <= 220; j+=110)
-            {
-                for (int k = -220; k <= 220; k+=110)
-                {
-                    Cube *block = new Cube(this);
-                    block->AddComponentOfType<PointBlock>();
-                    block->transform->setWorldPosition(Ogre::Vector3(i,j,k));
-                    block->transform->setLocalScale(Ogre::Vector3(1, 1, 1));
-                    block->name = "block"+cubeid;
-                    gameObjects.push_back(block);
-                }
-            }
-            cubeid++;
-        }
-        break;
+    //     cubeid = 0;
+    //     for (int i = -220; i <= 220; i+=110)
+    //     {
+    //         for (int j = -220; j <= 220; j+=110)
+    //         {
+    //             for (int k = -220; k <= 220; k+=110)
+    //             {
+    //                 Cube *block = new Cube(this);
+    //                 block->AddComponentOfType<PointBlock>();
+    //                 block->transform->setWorldPosition(Ogre::Vector3(i,j,k));
+    //                 block->transform->setLocalScale(Ogre::Vector3(1, 1, 1));
+    //                 block->name = "block"+cubeid;
+    //                 gameObjects.push_back(block);
+    //             }
+    //         }
+    //         cubeid++;
+    //     }
+    //     break;
 
-        case 2:
+    //     case 2:
 
-        cubeid = 0;
+    //     cubeid = 0;
 
-        srand ( time(NULL) );
-        Ogre::Real posx;
-        Ogre::Real posy;
-        Ogre::Real posz;
-        for (int i = 0; i < 100; ++i)
-        {
-            posx = Ogre::Math::RangeRandom(-900,900);
-            posy = Ogre::Math::RangeRandom(0,900);
-            posz = Ogre::Math::RangeRandom(-900,900);
-            Cube *block = new Cube(this);
-            block->AddComponentOfType<PointBlock>();
-            block->transform->setWorldPosition(Ogre::Vector3(posx,posy,posz));
-            block->transform->setLocalScale(Ogre::Vector3(1, 1, 1));
-            block->name = "block"+cubeid;
-            gameObjects.push_back(block);
-        }
-        break;
-    }
+    //     srand ( time(NULL) );
+    //     Ogre::Real posx;
+    //     Ogre::Real posy;
+    //     Ogre::Real posz;
+    //     for (int i = 0; i < 100; ++i)
+    //     {
+    //         posx = Ogre::Math::RangeRandom(-900,900);
+    //         posy = Ogre::Math::RangeRandom(0,900);
+    //         posz = Ogre::Math::RangeRandom(-900,900);
+    //         Cube *block = new Cube(this);
+    //         block->AddComponentOfType<PointBlock>();
+    //         block->transform->setWorldPosition(Ogre::Vector3(posx,posy,posz));
+    //         block->transform->setLocalScale(Ogre::Vector3(1, 1, 1));
+    //         block->name = "block"+cubeid;
+    //         gameObjects.push_back(block);
+    //     }
+    //     break;
+    // }
 
     cout << "Done creating scene!" << endl;
 }

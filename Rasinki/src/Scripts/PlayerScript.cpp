@@ -13,6 +13,8 @@ PlayerScript::PlayerScript(GameObject *attachedGameObject) : Script(attachedGame
 void PlayerScript::Start() {
 	Script::Start();
 	currentPlayerState = new Standing(this);
+	forward = new Ogre::Vector3(0, 0, 0);
+	movementSpeed = 30.0f;
 }
 
 

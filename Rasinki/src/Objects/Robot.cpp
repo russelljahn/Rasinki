@@ -1,0 +1,38 @@
+#include "Robot.h"
+#include "GameObject.h"
+#include <btBulletDynamicsCommon.h>
+
+Robot::Robot(Game *attachedGame) : GameObject(attachedGame){
+	Start();
+}
+Robot::Robot(Game *attachedGame, int pNum) : GameObject(attachedGame, pNum){
+	Start();
+}
+void Robot::Start() {
+
+	ostringstream nameCoverter;
+	nameCoverter << "Robot ";
+	nameCoverter << id;
+
+	float scale = 20;
+	transform = new Transform(this, game->getSceneRoot());
+	renderer->entity = game->getSceneManager()->createEntity(nameCoverter.str(), "robot.mesh");
+	transform->sceneNode->attachObject(renderer->entity);
+	Ogre::Vector3 halfExtents = transform->getLocalScale()/2.0f;
+	physics = new Physics(this, 1, new btBoxShape(btVector3(scale, scale, scale)));
+	// physics->setLinearFactor(Ogre::Vector3(1,0,1));
+
+	renderer->setMaterial("Examples/Rockwall");
+}
+
+void Robot::Update() {
+
+}
+
+void Robot::FixedUpdate() {
+
+}
+
+void Robot::Kill() {
+	
+}

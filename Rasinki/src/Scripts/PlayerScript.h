@@ -22,6 +22,9 @@ class PlayerScript : public Script {
 		PlayerState *previousPlayerState;
 		PlayerState *currentPlayerState;
 		Player *controllingPlayer;
+
+		Ogre::Vector3 *forward;
+		float movementSpeed;
 		
 	private:
 		bool up;

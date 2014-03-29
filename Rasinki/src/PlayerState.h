@@ -12,7 +12,7 @@ class PlayerScript;
 class PlayerState : public GameState {
 
 	public:
-		PlayerScript * playerScript;
+		PlayerScript *playerScript;
 
 		PlayerState(PlayerScript *playerScript);
 		virtual void Update() = 0;

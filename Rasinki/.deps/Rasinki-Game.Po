@@ -1139,8 +1139,9 @@ Rasinki-Game.o: src/Game.cpp src/Game.h \
  src/Scripts/Wall.h src/Scripts/SphereComponent.h \
  src/Scripts/GameplayScript.h src/Scripts/PlayerScript.h \
  src/Scripts/../PlayerState.h src/Scripts/../GameState.h \
- src/Scripts/../Scripts/PlayerScript.h src/Objects/Paddle.h \
- src/Objects/Sphere.h src/Objects/Plane.h src/Objects/Cube.h
+ src/Scripts/../Scripts/PlayerScript.h src/Objects/Robot.h \
+ src/Objects/Paddle.h src/Objects/Sphere.h src/Objects/Plane.h \
+ src/Objects/Cube.h
 
 src/Game.h:
 
@@ -3783,6 +3784,8 @@ src/Scripts/../PlayerState.h:
 src/Scripts/../GameState.h:
 
 src/Scripts/../Scripts/PlayerScript.h:
+
+src/Objects/Robot.h:
 
 src/Objects/Paddle.h:
 

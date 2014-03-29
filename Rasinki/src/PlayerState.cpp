@@ -33,22 +33,24 @@ PlayerState* PlayerState::NextState() {
 */
 Standing::Standing(PlayerScript *playerScript) : PlayerState(playerScript) {
 	cout << "Standing!" << endl;
+	GameObject *gameObject = playerScript->gameObject;
+	gameObject->physics->setLinearVelocity(Ogre::Vector3::ZERO);
 	// Need to play idle animation.
 }
 
 
 void Standing::Update() {
-	;
+	
 }
 
 
 PlayerState* Standing::NextState() {
 	Player *controllingPlayer = playerScript->controllingPlayer;
 
-	if (controllingPlayer->IsKeyDown(OIS::KC_SPACE)) {
-		return new Jumping(playerScript);
-	}
-	else if (controllingPlayer->IsKeyDown(OIS::KC_W) || controllingPlayer->IsKeyDown(OIS::KC_A) || 
+	// if (controllingPlayer->IsKeyDown(OIS::KC_SPACE)) {
+	// 	return new Jumping(playerScript);
+	// }
+	if (controllingPlayer->IsKeyDown(OIS::KC_W) || controllingPlayer->IsKeyDown(OIS::KC_A) || 
 			 controllingPlayer->IsKeyDown(OIS::KC_S) || controllingPlayer->IsKeyDown(OIS::KC_D)) {
 		return new Walking(playerScript);
 	}
@@ -68,17 +70,40 @@ Walking::Walking(PlayerScript *playerScript) : PlayerState(playerScript) {
 
 
 void Walking::Update() {
-	// Need to update movement based on input. Probably WASD FPS style.
+	GameObject *gameObject = playerScript->gameObject;
+	Ogre::Vector3 forward = gameObject->transform->sceneNode->getOrientation() * Ogre::Vector3(1, 0, 0); // Would be Vector3(0, 0, -1), but compensating for initial robot rotation.
+	Ogre::Vector3 right = gameObject->transform->sceneNode->getOrientation() * Ogre::Vector3(0, 0, 1); // Would be Vector3(-1, 0, 0), but compensating for initial robot rotation.
+
+	Ogre::Vector3 currentPosition = gameObject->physics->getWorldPosition();
+	Player *controllingPlayer = playerScript->controllingPlayer;
+
+	float movementSpeed = playerScript->movementSpeed;
+	Ogre::Vector3 velocity = gameObject->physics->getLinearVelocity();
+
+	// Update movement based on input. 
+	if (controllingPlayer->IsKeyDown(OIS::KC_W)) {
+		gameObject->physics->setLinearVelocity(velocity + movementSpeed*forward);
+	}
+	else if (controllingPlayer->IsKeyDown(OIS::KC_S)) {
+		gameObject->physics->setLinearVelocity(velocity - movementSpeed*forward);
+	}
+	else if (controllingPlayer->IsKeyDown(OIS::KC_D)) {
+		gameObject->physics->setLinearVelocity(velocity + movementSpeed*right);
+	}
+	else if (controllingPlayer->IsKeyDown(OIS::KC_A)) {
+		gameObject->physics->setLinearVelocity(velocity - movementSpeed*right);
+	}
+	
 }
 
 
 PlayerState* Walking::NextState() {
 	Player *controllingPlayer = playerScript->controllingPlayer;
 
-	if (controllingPlayer->IsKeyDown(OIS::KC_SPACE)) {
-		return new Jumping(playerScript);
-	}
-	else if (controllingPlayer->IsKeyDown(OIS::KC_W) || controllingPlayer->IsKeyDown(OIS::KC_A) || 
+	// if (controllingPlayer->IsKeyDown(OIS::KC_SPACE)) {
+	// 	return new Jumping(playerScript);
+	// }
+	if (controllingPlayer->IsKeyDown(OIS::KC_W) || controllingPlayer->IsKeyDown(OIS::KC_A) || 
 		controllingPlayer->IsKeyDown(OIS::KC_S) || controllingPlayer->IsKeyDown(OIS::KC_D)) {
 		return this;
 	}
