@@ -69,9 +69,10 @@ void GameObject::FixedUpdate() {
 }
 
 
-void GameObject::Kill() {
+// void GameObject::Kill() {
 	// TODO
-}
+// }
+
 
 void GameObject::OnCollision(Ogre::Vector3 point, GameObject* collidedWith) {
 	for (auto componentsIter = components.begin(); componentsIter != components.end(); ++componentsIter) {

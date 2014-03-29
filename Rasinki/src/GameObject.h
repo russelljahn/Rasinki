@@ -55,19 +55,20 @@ class GameObject {
 		void Update();
 		void FixedUpdate();
 		void OnCollision(Ogre::Vector3 point, GameObject* collidedWith);
-		void Kill();
+		// void Kill();
+
+		// template <typename ComponentType>
+		// ComponentType* GetComponentOfType();
 
 		template <typename ComponentType>
-		ComponentType* GetComponentOfType();
-
-		template <typename ComponentType>
-		ComponentType AddComponentOfType() {
+		ComponentType* AddComponentOfType() {
 			ComponentType *newComponent = new ComponentType(this);
 			components.push_back(newComponent);
+			return newComponent;
 		}
 
-		template <typename ComponentType>
-		void KillComponentOfType();
+		// template <typename ComponentType>
+		// void KillComponentOfType();
 
 	protected:
 		std::vector<Component *> components;

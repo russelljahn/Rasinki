@@ -18,10 +18,14 @@ class PlayerScript : public Script {
 		void Start(void);
 		void Update(void);
 		void OnCollision(Ogre::Vector3 point, GameObject* collidedWith);
+		void setCamera(Ogre::Camera *camera);
+		void updateCamera();
 
 		PlayerState *previousPlayerState;
 		PlayerState *currentPlayerState;
 		Player *controllingPlayer;
+
+		Ogre::Camera *camera;
 
 		Ogre::Vector3 *forward;
 		float movementSpeed;

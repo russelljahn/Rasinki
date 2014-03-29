@@ -360,33 +360,33 @@ bool Game::keyPressed( const OIS::KeyEvent &arg )
     }
     else if (arg.key == OIS::KC_X)
     {
-        for (int i = 1; i <= 10; ++i)
-        {
-            float rot = Ogre::Math::HALF_PI/10;
-            Ogre::Vector3 pos = mCamera->getPosition();
-            Ogre::Vector3 rotPos = Ogre::Vector3::ZERO;
-            rotPos.x = Ogre::Math::Cos(rot)*pos.x + Ogre::Math::Sin(rot)*pos.z;
-            rotPos.z = Ogre::Math::Sin(rot)*-pos.x + Ogre::Math::Cos(rot)*pos.z;
-            mCamera->setPosition(Ogre::Vector3(rotPos.x, pos.y, rotPos.z));
-            mCamera->lookAt(Ogre::Vector3(0,-200,0));
-            mCamera->setNearClipDistance(5);
-            mRoot->renderOneFrame();
-        }
+        // for (int i = 1; i <= 10; ++i)
+        // {
+        //     float rot = Ogre::Math::HALF_PI/10;
+        //     Ogre::Vector3 pos = mCamera->getPosition();
+        //     Ogre::Vector3 rotPos = Ogre::Vector3::ZERO;
+        //     rotPos.x = Ogre::Math::Cos(rot)*pos.x + Ogre::Math::Sin(rot)*pos.z;
+        //     rotPos.z = Ogre::Math::Sin(rot)*-pos.x + Ogre::Math::Cos(rot)*pos.z;
+        //     mCamera->setPosition(Ogre::Vector3(rotPos.x, pos.y, rotPos.z));
+        //     mCamera->lookAt(Ogre::Vector3(0,-200,0));
+        //     mCamera->setNearClipDistance(5);
+        //     mRoot->renderOneFrame();
+        // }
     }
     else if (arg.key == OIS::KC_Z)
     {
-        for (int i = 0; i < 10; ++i)
-        {
-            float rot = Ogre::Math::HALF_PI/10;
-            Ogre::Vector3 pos = mCamera->getPosition();
-            Ogre::Vector3 rotPos = Ogre::Vector3::ZERO;
-            rotPos.x = Ogre::Math::Cos(-rot)*pos.x + Ogre::Math::Sin(-rot)*pos.z;
-            rotPos.z = Ogre::Math::Sin(-rot)*-pos.x + Ogre::Math::Cos(-rot)*pos.z;
-            mCamera->setPosition(Ogre::Vector3(rotPos.x, pos.y, rotPos.z));
-            mCamera->lookAt(Ogre::Vector3(0,-200,0));
-            mCamera->setNearClipDistance(5);
-            mRoot->renderOneFrame();
-        }
+        // for (int i = 0; i < 10; ++i)
+        // {
+        //     float rot = Ogre::Math::HALF_PI/10;
+        //     Ogre::Vector3 pos = mCamera->getPosition();
+        //     Ogre::Vector3 rotPos = Ogre::Vector3::ZERO;
+        //     rotPos.x = Ogre::Math::Cos(-rot)*pos.x + Ogre::Math::Sin(-rot)*pos.z;
+        //     rotPos.z = Ogre::Math::Sin(-rot)*-pos.x + Ogre::Math::Cos(-rot)*pos.z;
+        //     mCamera->setPosition(Ogre::Vector3(rotPos.x, pos.y, rotPos.z));
+        //     mCamera->lookAt(Ogre::Vector3(0,-200,0));
+        //     mCamera->setNearClipDistance(5);
+        //     mRoot->renderOneFrame();
+        // }
     }
 
     return true;
@@ -654,14 +654,15 @@ void Game::createScene(void) {
     cout << "Creating scene..." << endl;
     // Paddle
     Robot *newRobot = new Robot(this, 0);
-    newRobot->AddComponentOfType<PlayerScript>();
+    PlayerScript *playerScript = newRobot->AddComponentOfType<PlayerScript>();
     newRobot->AddComponentOfType<GameplayScript>();
     newRobot->transform->setWorldPosition(Ogre::Vector3(0,0,0));
     newRobot->transform->setLocalScale(Ogre::Vector3(10, 10, 10));
     newRobot->name = "Player";
     newRobot->renderer->setMaterial("Examples/Rockwall");
     gameObjects.push_back(newRobot); 
-    std::cout << "NEW PADDLE POS: " << newRobot->physics->getWorldPosition() << std::endl;
+    playerScript->setCamera(mCamera);
+
 
     // Paddle *newPaddle2 = new Paddle(this, 1);
     // newPaddle2->AddComponentOfType<PaddleScript>();
