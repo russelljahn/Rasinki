@@ -4,6 +4,7 @@ Player::Player(ControlType type) {
 	mControlType = type;
 	mScore = 0;
 	deltaScore = 0;
+	clientInput = NULL;
 }
 void Player::scored(int points) {
 	mScore += points;
@@ -13,6 +14,8 @@ void Player::scored(int points) {
 bool Player::IsKeyDown(OIS::KeyCode key) {
 	if (mControlType == LOCAL)
 		return Input::IsKeyDown(key);
+	if (clientInput == NULL)
+		return false;
 	// clientInput->print();
 	switch (key) {
 		case OIS::KC_W:
