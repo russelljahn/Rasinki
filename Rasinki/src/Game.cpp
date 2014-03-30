@@ -355,12 +355,14 @@ bool Game::keyPressed( const OIS::KeyEvent &arg )
         multiplayerMenu->getChild("hostIP")->setText(mNetwork->serverName);
     }
     if (arg.key == OIS::KC_ESCAPE) {
-        gameMode = !gameMode;
-        CEGUI::EventArgs args;
-        if( gameMode == true )
-            disableMainMenu();
-        else
-            enableMainMenu();
+        if (mNetwork != NULL) {
+            gameMode = !gameMode;
+            CEGUI::EventArgs args;
+            if( gameMode == true )
+                disableMainMenu();
+            else
+                enableMainMenu();
+        }
     }
     else if (arg.key == OIS::KC_X)
     {
