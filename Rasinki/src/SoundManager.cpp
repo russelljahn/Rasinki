@@ -15,19 +15,31 @@ SoundManager::SoundManager() {
 	sound2 = Mix_LoadWAV("src/coin2.wav");
 	sound3 = Mix_LoadWAV("src/glass_shatter2.wav");
 	assert (sound != NULL);
+
+	soundEnabled = true;
 }
 SoundManager::~SoundManager() {
 	Mix_CloseAudio();
 	SDL_Quit();
 }
 void SoundManager::playSound1() {
-	Mix_PlayChannel(-1, sound, 0);
+	if(soundEnabled) {
+		Mix_PlayChannel(-1, sound, 0);
+	}
 }
 
 void SoundManager::playSound2() {
-	Mix_PlayChannel(-1, sound2, 0);
+	if(soundEnabled) {
+		Mix_PlayChannel(-1, sound2, 0);
+	}
 }
 
 void SoundManager::playSound3() {
-	Mix_PlayChannel(-1, sound3, 0);
+	if(soundEnabled) {
+		Mix_PlayChannel(-1, sound3, 0);
+	}
+}
+
+bool SoundManager::toggleSound() {
+	soundEnabled = !soundEnabled;
 }

@@ -90,6 +90,7 @@ public:
     bool gameMode;
     bool inMultiplayerMenu;
     bool OnServerQuit();
+    bool multiplayer;
 
     // Miscellaneous
     vector<Player *> playerList;
