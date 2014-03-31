@@ -56,6 +56,10 @@ class Network {
 		void SendMessageToClient(ScoreMessage message);
 		string serverName;
 		bool ConnectToServer();
+
+	    int clientCount;                 // Count of how many clients are currently connected to the server
+		
+
 	private:
 		void SetUpServer();
 		void CloseConnection();
@@ -76,7 +80,6 @@ class Network {
 	    char buffer[BUFFER_SIZE];            // Array of characters used to store the messages we receive
 	    int receivedByteCount;           // A variable to keep track of how many bytes (i.e. characters) we need to read for any given incoming message i.e. the size of the incoming data
 	 
-	    int clientCount;                 // Count of how many clients are currently connected to the server
 	 
 	    bool shutdownServer;         // Flag to control when to shut down the server
 

@@ -401,6 +401,10 @@ bool Game::keyPressed( const OIS::KeyEvent &arg )
             newGame();
         }
     }
+    else if (arg.key == OIS::KC_M)
+    {
+        mSoundManager->toggleSound();
+    }
     return true;
 }
 
@@ -664,6 +668,7 @@ void Game::disableMultiplayerMenu() {
     inMultiplayerMenu = false;
 }
 void Game::enableMultiplayerMenu() {
+
     multiplayerMenu->enable();
     multiplayerMenu->setVisible(true);
     inMultiplayerMenu = true;
@@ -688,15 +693,17 @@ void Game::createScene(void) {
     gameObjects.push_back(newPaddle); 
     std::cout << "NEW PADDLE POS: " << newPaddle->physics->getWorldPosition() << std::endl;
 
-    Paddle *newPaddle2 = new Paddle(this, 1);
-    newPaddle2->AddComponentOfType<PaddleScript>();
-    newPaddle2->AddComponentOfType<GameplayScript>();
-    newPaddle2->transform->setWorldPosition(Ogre::Vector3(400,-800,0));
-    newPaddle2->transform->setLocalScale(Ogre::Vector3(3, .25, 3));
-    newPaddle2->name = "paddle2";
-    newPaddle2->renderer->setMaterial("Examples/Rockwall");
-    gameObjects.push_back(newPaddle2); 
-    std::cout << "NEW PADDLE POS: " << newPaddle2->physics->getWorldPosition() << std::endl;
+    if (multiplayer) {
+        Paddle *newPaddle2 = new Paddle(this, 1);
+        newPaddle2->AddComponentOfType<PaddleScript>();
+        newPaddle2->AddComponentOfType<GameplayScript>();
+        newPaddle2->transform->setWorldPosition(Ogre::Vector3(400,-800,0));
+        newPaddle2->transform->setLocalScale(Ogre::Vector3(3, .25, 3));
+        newPaddle2->name = "paddle2";
+        newPaddle2->renderer->setMaterial("Examples/Rockwall");
+        gameObjects.push_back(newPaddle2); 
+        std::cout << "NEW PADDLE POS: " << newPaddle2->physics->getWorldPosition() << std::endl;
+    }
     float ballSpeed = 1000.0f;
 
     // Balls
@@ -886,16 +893,21 @@ bool Game::quit(const CEGUI::EventArgs &e){
 
 bool Game::newGame(const CEGUI::EventArgs &e){
     gameMode = true;
-    disableMainMenu();
-    destroyScene();
-    createLights();
-    createScene();
+
     if (mNetwork == NULL) {
         mNetwork = new Network(this, true);
         mNetwork->Start();
     }
     if (mNetwork->isServer)
         mNetwork->SendMessageToClient(ServerMessage());
+
+    multiplayer = mNetwork->clientCount != 0 || !mNetwork->isServer;
+
+    disableMainMenu();
+    destroyScene();
+    createLights();
+    createScene();
+    
 }
 bool Game::OnServerQuit() {
     gameMode = false;
