@@ -55,10 +55,9 @@ class Network {
 		void SendMessageToClient(ServerMessage message);
 		void SendMessageToClient(ScoreMessage message);
 		string serverName;
-
+		bool ConnectToServer();
 	private:
 		void SetUpServer();
-		void ConnectToServer();
 		void CloseConnection();
 		void ProcessClients();
 		void ProcessServer();

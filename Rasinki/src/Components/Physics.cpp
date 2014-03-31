@@ -55,7 +55,9 @@ void Physics::setEnabled(bool enabled) {
 bool Physics::isEnabled() {
 	return enabled;
 }
-
+void Physics::disableCollider() {
+	mRigidBody->setCollisionFlags(btCollisionObject::CF_NO_CONTACT_RESPONSE);
+}
 
 void Physics::Start() {}
 

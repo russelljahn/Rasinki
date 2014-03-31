@@ -2,7 +2,8 @@
 #include "GameObject.h"
 #include "Game.h"
 
-Cube::Cube(Game *attachedGame) : GameObject(attachedGame) {
+Cube::Cube(Game *attachedGame, float mass) : GameObject(attachedGame) {
+	this->mass = mass;	
 	Start();
 }
 
@@ -18,7 +19,7 @@ void Cube::Start() {
 	renderer->entity = game->getSceneManager()->createEntity(nameCoverter.str(), "cube.mesh");
 	transform->sceneNode->attachObject(renderer->entity);
 
-	physics = new Physics(this, 0 , new btBoxShape(btVector3(colliderScale,colliderScale,colliderScale)), Ogre::Vector3::ZERO);
+	physics = new Physics(this, mass , new btBoxShape(btVector3(colliderScale,colliderScale,colliderScale)), Ogre::Vector3::ZERO);
 	renderer->setMaterial("Examples/Rockwall");
 }
 

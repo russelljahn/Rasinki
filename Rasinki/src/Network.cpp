@@ -98,7 +98,7 @@ void Network::SetUpServer() {
 }
 
 
-void Network::ConnectToServer() {
+bool Network::ConnectToServer() {
     // Ask the user for a server to connect to - can be entered as a hostname (i.e. localhost etc.) or an IP address (i.e. 127.0.0.1 etc.)
     cout << "Server Name: " << this->serverName << endl;
     //getline(cin, serverName); // Uncomment this and remove the below line to change the server we're connecting to...
@@ -109,7 +109,7 @@ void Network::ConnectToServer() {
     if (socketSet == NULL)
     {
         cout << "Failed to allocate the socket set: " << SDLNet_GetError() << "\n";
-        exit(-1); // Quit!
+       return false; // Quit!
     }
     else
     {
@@ -122,6 +122,7 @@ void Network::ConnectToServer() {
     if (hostResolved == -1)
     {
         cout << "Failed to resolve the server hostname: " << SDLNet_GetError() << "\nContinuing...\n";
+        return false; 
     }
     else // If we successfully resolved the host then output the details
     {
@@ -137,6 +138,7 @@ void Network::ConnectToServer() {
     if ((host = SDLNet_ResolveIP(&serverIP)) == NULL)
     {
         cout << "Failed to resolve the server IP address: " << SDLNet_GetError() << endl;
+         return false;
     }
     else
     {
@@ -151,7 +153,7 @@ void Network::ConnectToServer() {
     if (!clientSocket[0])
     {
         cout << "Failed to open socket to server: " << SDLNet_GetError() << "\n";
-        return;
+        return false;
     }
     else // If we successfully opened a connection then check for the server response to our connection
     {
@@ -187,13 +189,16 @@ void Network::ConnectToServer() {
             else
             {
                 cout << "Server is full... Terminating connection." << endl;
+                 return false;
             }
         }
         else
         {
             cout << "No response from server..." << endl;
+             return false;
         }
     } // End of if we managed to open a connection to the server condition
+    return true;
 }
 
 

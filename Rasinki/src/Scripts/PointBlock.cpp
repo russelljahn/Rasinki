@@ -4,7 +4,6 @@
 PointBlock::PointBlock(GameObject *attachedGameObject) : Script(attachedGameObject) {
 
 	int random = rand()%100;
-
 	if (random < 20) {
 		pointsOnDeath = 25;
 		this->gameObject->renderer->setMaterial("Examples/Chrome_Blue");
@@ -41,6 +40,8 @@ void PointBlock::OnCollision(Ogre::Vector3 point, GameObject* collidedWith) {
 	if (gameObject->game->getNetwork()->isServer) {
 		gameObject->game->getNetwork()->SendMessageToClient(ServerMessage(DISABLEOBJECT,gameObject->objIndex));
 	}
+	//hit = true;
+	//gameObject->physics->setGravity(Ogre::Vector3(0, -98, 0));
 	gameObject->game->getPlayer()->scored(pointsOnDeath);
 	gameObject->game->getSoundManager()->playSound2();
 }

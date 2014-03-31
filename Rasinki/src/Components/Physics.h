@@ -25,7 +25,7 @@ class Physics {
 
 		void setMass(float newMass);
 		void setGravity(const Ogre::Vector3& newGravity);
-
+		void disableCollider();
 
 		void setLinearVelocity(const Ogre::Vector3& veloc) { mRigidBody->setLinearVelocity(btVector3(veloc.x, veloc.y, veloc.z)); }
 		const Ogre::Vector3 getLinearVelocity() const { 

@@ -708,21 +708,21 @@ void Game::createScene(void) {
     ball01->AddComponentOfType<SphereComponent>();
     gameObjects.push_back(ball01);
     // Environment
-    Cube *ground = new Cube(this);
+    Cube *ground = new Cube(this, 0);
     ground->transform->setWorldPosition(Ogre::Vector3(0,-1005,0));
     ground->transform->setWorldScale(Ogre::Vector3(25, .1, 25));
     ground->name = "ground";
     ground->renderer->setMaterial("Examples/AcidFloor");
     gameObjects.push_back(ground);
 
-    Cube *ceiling = new Cube(this);
+    Cube *ceiling = new Cube(this, 0);
     ceiling->transform->setWorldPosition(Ogre::Vector3(0,1005,0));
     ceiling->transform->setWorldScale(Ogre::Vector3(25, .1, 25));
     ceiling->name = "ceiling";
     ceiling->renderer->setEnabled(false);
     gameObjects.push_back(ceiling);
 
-    Cube *west = new Cube(this);
+    Cube *west = new Cube(this, 0);
     west->AddComponentOfType<Wall>();
     west->transform->setWorldPosition(Ogre::Vector3(-1260,0,0));
     west->transform->setWorldScale(Ogre::Vector3(.1, 20, 25));
@@ -730,7 +730,7 @@ void Game::createScene(void) {
     west->renderer->setMaterial("Examples/BumpyMetal");
     gameObjects.push_back(west);
 
-    Cube *east = new Cube(this);
+    Cube *east = new Cube(this, 0);
     east->AddComponentOfType<Wall>();
     east->transform->setWorldPosition(Ogre::Vector3(1260,0,0));
     east->transform->setWorldScale(Ogre::Vector3(.1, 20, 25));
@@ -739,7 +739,7 @@ void Game::createScene(void) {
     east->renderer->setEnabled(false);
     gameObjects.push_back(east);
 
-    Cube *south = new Cube(this);
+    Cube *south = new Cube(this, 0);
     south->AddComponentOfType<Wall>();
     south->transform->setWorldPosition(Ogre::Vector3(0, 0, 1260));
     south->transform->setWorldScale(Ogre::Vector3(25, 20, .1));
@@ -748,7 +748,7 @@ void Game::createScene(void) {
     south->renderer->setEnabled(false);
     gameObjects.push_back(south);
 
-    Cube *north = new Cube(this);
+    Cube *north = new Cube(this, 0);
     north->AddComponentOfType<Wall>();
     north->transform->setWorldPosition(Ogre::Vector3(0, 0, -1260));
     north->transform->setWorldScale(Ogre::Vector3(25, 20, .1));
@@ -769,7 +769,7 @@ void Game::createScene(void) {
             {
                 for (int k = -220; k <= 220; k+=110)
                 {
-                    Cube *block = new Cube(this);
+                    Cube *block = new Cube(this, 1);
                     block->AddComponentOfType<PointBlock>();
                     block->transform->setWorldPosition(Ogre::Vector3(i,j,k));
                     block->transform->setLocalScale(Ogre::Vector3(1, 1, 1));
@@ -794,7 +794,7 @@ void Game::createScene(void) {
             posx = Ogre::Math::RangeRandom(-900,900);
             posy = Ogre::Math::RangeRandom(0,900);
             posz = Ogre::Math::RangeRandom(-900,900);
-            Cube *block = new Cube(this);
+            Cube *block = new Cube(this, 1);
             block->AddComponentOfType<PointBlock>();
             block->transform->setWorldPosition(Ogre::Vector3(posx,posy,posz));
             block->transform->setLocalScale(Ogre::Vector3(1, 1, 1));
@@ -923,6 +923,7 @@ bool Game::onStartServer(const CEGUI::EventArgs &e) {
 }
 
 bool Game::onConnectToServer(const CEGUI::EventArgs &e) {
-    disableMultiplayerMenu();
-    mNetwork->Start();
+    if (mNetwork->ConnectToServer()) {
+        disableMultiplayerMenu();
+    }
 }
