@@ -364,7 +364,7 @@ bool Game::keyPressed( const OIS::KeyEvent &arg )
                 enableMainMenu();
         }
     }
-    else if (arg.key == OIS::KC_X)
+    /*else if (arg.key == OIS::KC_X)
     {
         for (int i = 1; i <= 10; ++i)
         {
@@ -393,7 +393,7 @@ bool Game::keyPressed( const OIS::KeyEvent &arg )
             mCamera->setNearClipDistance(5);
             mRoot->renderOneFrame();
         }
-    }
+    }*/
     else if (arg.key == OIS::KC_N)
     {
         if (mNetwork != NULL && mNetwork->isServer) {
