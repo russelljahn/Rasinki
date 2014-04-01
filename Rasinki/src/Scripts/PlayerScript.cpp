@@ -13,9 +13,9 @@ PlayerScript::PlayerScript(GameObject *attachedGameObject) : Script(attachedGame
 void PlayerScript::setCamera(Ogre::Camera *camera) {
 	this->camera = camera;
 
-    camera->setPosition(gameObject->physics->getWorldPosition());
+    // camera->setPosition(gameObject->physics->getWorldPosition());
     // Look back along -Z
-    camera->lookAt(Ogre::Vector3(0,-200,0));
+    // camera->lookAt(Ogre::Vector3(0,-200,0));
     camera->setNearClipDistance(5);
 
 }
@@ -52,8 +52,11 @@ void PlayerScript::Update() {
 
 
 void PlayerScript::updateCamera() {
-	cout << "gameObject->transform->getWorldPosition(): " << gameObject->physics->getWorldPosition() << endl;
-    camera->setPosition(gameObject->physics->getWorldPosition());
+	// cout << "gameObject->transform->getWorldPosition(): " << gameObject->physics->getWorldPosition() << endl;
+
+	cout << "mouseDelta: " << Input::GetMouseDelta() << endl;
+	// Ogre::Vector3 camPosition = gameObject->physics->getWorldPosition() + Ogre::Vector3(0, 500, -300);
+    // camera->setPosition(camPosition);
 
     // Ogre::Vector3 forward = gameObject->transform->sceneNode->getOrientation() * Ogre::Vector3(1, 0, 0); // Would be Vector3(0, 0, -1), but compensating for initial robot rotation.
     // camera->setOrientation(gameObject->transform->sceneNode->getOrientation());

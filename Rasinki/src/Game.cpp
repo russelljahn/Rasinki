@@ -280,6 +280,7 @@ bool Game::setup(void)
 bool Game::frameRenderingQueued(const Ogre::FrameEvent& evt)
 {
     Time::Update();
+    Input::Update();
 
     if (mWindow->isClosed())
         return false;
