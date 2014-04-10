@@ -722,11 +722,11 @@ void Game::createScene(void) {
     for (int i = 0; i < width; ++i) {
         for (int j = 0; j < depth; ++j) {
             Cube *cube = new Cube(this, 0);
-            GridSquare square = cube->AddComponentOfType<GridSquare>();
+            GridSquare *square = cube->AddComponentOfType<GridSquare>();
             
             float cubeSize = 100;
-            Ogre::Vector3 scale = cube->transform->getLocalScale();
-            Ogre::Vector3 position (cubeSize*i*scale.x, 0, cubeSize*j*scale.z);
+            Ogre::Vector3 bounds = square->getBounds();
+            Ogre::Vector3 position (i*bounds.x, 0, j*bounds.z);
             cube->transform->setLocalPosition(position);
             cube->name = "gridsquare";
             gameObjects.push_back(cube);

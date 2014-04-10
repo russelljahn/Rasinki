@@ -62,9 +62,10 @@ class GameObject {
 		ComponentType* GetComponentOfType();
 
 		template <typename ComponentType>
-		ComponentType AddComponentOfType() {
+		ComponentType* AddComponentOfType() {
 			ComponentType *newComponent = new ComponentType(this);
 			components.push_back(newComponent);
+			return newComponent;
 		}
 
 		template <typename ComponentType>

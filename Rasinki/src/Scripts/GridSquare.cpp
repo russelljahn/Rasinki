@@ -3,7 +3,7 @@
 
 GridSquare::GridSquare(GameObject *attachedGameObject) : Script(attachedGameObject) {
     
-    Ogre::Vector3 scale = Ogre::Vector3(5, .25, 5);
+   	scale = Ogre::Vector3(5, .25, 5);
     this->gameObject->transform->setLocalScale(scale);
 
 	int random = rand()%100;
@@ -44,4 +44,10 @@ void GridSquare::OnCollision(Ogre::Vector3 point, GameObject* collidedWith) {
 	// //hit = true;
 	// //gameObject->physics->setGravity(Ogre::Vector3(0, -98, 0));
 	// gameObject->game->getSoundManager()->playSound2();
+}
+
+
+
+Ogre::Vector3 GridSquare::getBounds() {
+	return scale * 100;
 }

@@ -16,6 +16,10 @@ class GridSquare : public Script {
 		void Update(void);
 		void OnCollision(Ogre::Vector3 point, GameObject* collidedWith);
 
+		Ogre::Vector3 getBounds();
+
+	private:
+		Ogre::Vector3 scale;
 };
 
 
