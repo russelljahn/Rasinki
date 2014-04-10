@@ -28,6 +28,7 @@ class Physics {
 		void disableCollider();
 
 		void setLinearVelocity(const Ogre::Vector3& veloc) { mRigidBody->setLinearVelocity(btVector3(veloc.x, veloc.y, veloc.z)); }
+		
 		const Ogre::Vector3 getLinearVelocity() const { 
 			btVector3 veloc = mRigidBody->getLinearVelocity();
 			return Ogre::Vector3(veloc.x(), veloc.y(), veloc.z());
@@ -51,5 +52,6 @@ class Physics {
 		Transform* mTransform;
 		GameObject* gameObject;
 		bool enabled;
+		btVector3 mGravity;
 };
 #endif

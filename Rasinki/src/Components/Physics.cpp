@@ -63,6 +63,7 @@ void Physics::Start() {}
 
 
 void Physics::FixedUpdate() {
+	
 	btVector3 pos = btVector3(getWorldPosition().x,getWorldPosition().y,getWorldPosition().z);
 	btVector3 scale = mRigidBody->getCollisionShape()->getLocalScaling();
 	// std::cout << "position in fixedupdate: " << pos.x() << " " << pos.y() << " " << pos.z() << " SCALE IN FIXEDUPDATE: " << scale.x() << " " << scale.y() << " " << scale.z()<< std::endl;

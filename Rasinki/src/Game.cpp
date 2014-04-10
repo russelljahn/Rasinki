@@ -7,6 +7,7 @@ using namespace std;
 #include "Time.h"
 
 #include "Scripts/PaddleScript.h"
+#include "Scripts/RobotScript.h"
 #include "Scripts/PointBlock.h"
 #include "Scripts/Wall.h"
 #include "Scripts/SphereComponent.h"
@@ -16,6 +17,7 @@ using namespace std;
 #include "Objects/Sphere.h"
 #include "Objects/Plane.h"
 #include "Objects/Cube.h"
+#include "Objects/Robot.h"
 
 CEGUI::MouseButton convertButton(OIS::MouseButtonID buttonID);
 
@@ -76,15 +78,15 @@ void Game::chooseSceneManager(void)
     mSceneManager = mRoot->createSceneManager(Ogre::ST_GENERIC);
 }
 //-------------------------------------------------------------------------------------
-void Game::createCamera(void)
+void Game::createCamera()
 {
     // Create the camera
     mCamera = mSceneManager->createCamera("PlayerCam");
 
     // Position it at 500 in Z direction
-    mCamera->setPosition(Ogre::Vector3(875,3500,3500));
+    mCamera->setPosition(Ogre::Vector3(0,0,0));
     // Look back along -Z
-    mCamera->lookAt(Ogre::Vector3(0,-200,0));
+    mCamera->lookAt(Ogre::Vector3(0,0,0));
     mCamera->setNearClipDistance(5);
 
 }
@@ -292,8 +294,11 @@ bool Game::frameRenderingQueued(const Ogre::FrameEvent& evt)
     CEGUI::System::getSingleton().injectTimePulse(evt.timeSinceLastFrame);
     if (gameMode == true)
     {
-        if (mNetwork->isServer)
+        if (mNetwork->isServer) 
+        {
+            mAnimationState->addTime(evt.timeSinceLastFrame*2);
             mPhysicsSimulator->stepSimulation(evt.timeSinceLastFrame);
+        }
         else {
             for (auto gameObjectIter = gameObjects.begin(); gameObjectIter != gameObjects.end(); ++gameObjectIter) {
                 (*gameObjectIter)->FixedUpdate();
@@ -405,6 +410,7 @@ bool Game::keyPressed( const OIS::KeyEvent &arg )
     {
         mSoundManager->toggleSound();
     }
+
     return true;
 }
 
@@ -567,18 +573,18 @@ void Game::createGUI(void) {
     CEGUI::Window *quit = wmgr.createWindow("TaharezLook/Button", "CEGUIDemo/QuitButton");
     quit->setText("Quit");
     quit->setSize(CEGUI::UVector2(CEGUI::UDim(0.15, 0), CEGUI::UDim(0.05, 0)));
-    quit->setPosition(CEGUI::UVector2(CEGUI::UDim(0.3f, 0),CEGUI::UDim(0.5f, 0)));
+    quit->setPosition(CEGUI::UVector2(CEGUI::UDim(0.3f, 0),CEGUI::UDim(0.4f, 0)));
     quit->subscribeEvent(CEGUI::PushButton::EventClicked, CEGUI::Event::Subscriber(&Game::quit, this));
 
     CEGUI::Window *newGame = wmgr.createWindow("TaharezLook/Button", "newGame");
     newGame->setText("NewGame");
     newGame->setSize(CEGUI::UVector2(CEGUI::UDim(0.15, 0), CEGUI::UDim(0.05, 0)));
-    newGame->setPosition(CEGUI::UVector2(CEGUI::UDim(0.5f, 0),CEGUI::UDim(0.5f, 0)));
+    newGame->setPosition(CEGUI::UVector2(CEGUI::UDim(0.45f, 0),CEGUI::UDim(0.4f, 0)));
     newGame->subscribeEvent(CEGUI::PushButton::EventClicked, CEGUI::Event::Subscriber(&Game::newGame, this));
 
     CEGUI::Window *level1 = wmgr.createWindow("TaharezLook/Button", "hostGame");
     level1->setText("Host Game");
-    level1->setSize(CEGUI::UVector2(CEGUI::UDim(0.15, 0), CEGUI::UDim(0.05, 0)));
+    level1->setSize(CEGUI::UVector2(CEGUI::UDim(0.15, 0), CEGUI::UDim(0.05, 0))); 
     level1->setPosition(CEGUI::UVector2(CEGUI::UDim(0.3f, 0),CEGUI::UDim(0.6f, 0)));
     level1->subscribeEvent(CEGUI::PushButton::EventClicked, CEGUI::Event::Subscriber(&Game::onStartServer, this));
 
@@ -627,6 +633,7 @@ void Game::createGUI(void) {
     // mainMenu->addChildWindow(hostIP);
     CEGUI::System::getSingleton().setGUISheet(rootWindow);
     Ogre::Root::getSingleton().renderOneFrame();
+
     cout << "Done creating GUI..." << endl;
 }
 bool Game::onClickPlayMultiplayer(const CEGUI::EventArgs &e) {
@@ -682,28 +689,54 @@ void Game::enableMultiplayerMenu() {
 
 void Game::createScene(void) {
     cout << "Creating scene..." << endl;
-    // Paddle
-    Paddle *newPaddle = new Paddle(this, 0);
-    newPaddle->AddComponentOfType<PaddleScript>();
-    newPaddle->AddComponentOfType<GameplayScript>();
-    newPaddle->transform->setWorldPosition(Ogre::Vector3(0,-800,0));
-    newPaddle->transform->setLocalScale(Ogre::Vector3(3, .25, 3));
-    newPaddle->name = "paddle";
-    newPaddle->renderer->setMaterial("Examples/Rockwall");
-    gameObjects.push_back(newPaddle); 
-    std::cout << "NEW PADDLE POS: " << newPaddle->physics->getWorldPosition() << std::endl;
+    // // Paddle
+    // Paddle *newPaddle = new Paddle(this, 0);
+    // newPaddle->AddComponentOfType<PaddleScript>();
+    // newPaddle->AddComponentOfType<GameplayScript>();
+    // newPaddle->transform->setWorldPosition(Ogre::Vector3(0,-800,0));
+    // newPaddle->transform->setLocalScale(Ogre::Vector3(3, .25, 3));
+    // newPaddle->name = "paddle";
+    // newPaddle->renderer->setMaterial("Examples/Rockwall");
+    // gameObjects.push_back(newPaddle); 
+    // std::cout << "NEW PADDLE POS: " << newPaddle->physics->getWorldPosition() << std::endl;
 
-    if (multiplayer) {
-        Paddle *newPaddle2 = new Paddle(this, 1);
-        newPaddle2->AddComponentOfType<PaddleScript>();
-        newPaddle2->AddComponentOfType<GameplayScript>();
-        newPaddle2->transform->setWorldPosition(Ogre::Vector3(400,-800,0));
-        newPaddle2->transform->setLocalScale(Ogre::Vector3(3, .25, 3));
-        newPaddle2->name = "paddle2";
-        newPaddle2->renderer->setMaterial("Examples/Rockwall");
-        gameObjects.push_back(newPaddle2); 
-        std::cout << "NEW PADDLE POS: " << newPaddle2->physics->getWorldPosition() << std::endl;
-    }
+    // if (multiplayer) {
+    //     Paddle *newPaddle2 = new Paddle(this, 1);
+    //     newPaddle2->AddComponentOfType<PaddleScript>();
+    //     newPaddle2->AddComponentOfType<GameplayScript>();
+    //     newPaddle2->transform->setWorldPosition(Ogre::Vector3(400,-800,0));
+    //     newPaddle2->transform->setLocalScale(Ogre::Vector3(3, .25, 3));
+    //     newPaddle2->name = "paddle2";
+    //     newPaddle2->renderer->setMaterial("Examples/Rockwall");
+    //     gameObjects.push_back(newPaddle2); 
+    //     std::cout << "NEW PADDLE POS: " << newPaddle2->physics->getWorldPosition() << std::endl;
+    // }
+
+    Robot *bob = new Robot(this);
+    bob->AddComponentOfType<RobotScript>();
+    bob->transform->setWorldPosition(Ogre::Vector3(0,0,0));
+    bob->transform->setWorldScale(Ogre::Vector3(1,1,1));
+    bob->physics->setGravity(Ogre::Vector3(0,-980,0));
+    bob->name = "bob";
+
+
+    Ogre::Vector3 subpos = bob->physics->getWorldPosition();
+
+    // Position it at 500 in Z direction
+    mCamera->setPosition(Ogre::Vector3(subpos.x - 150,subpos.y + 150,subpos.z));
+    // Look back along -Z
+    mCamera->lookAt(Ogre::Vector3(subpos.x,subpos.y + 80,subpos.z));
+    mCamera->setNearClipDistance(5);
+
+    mCameraNode = bob->transform->sceneNode->createChildSceneNode("CameraNode");
+    mCameraNode->attachObject(mCamera);
+
+    mAnimationState = bob->renderer->entity->getAnimationState("Idle");
+    mAnimationState->setLoop(true);
+    mAnimationState->setEnabled(true);
+
+    gameObjects.push_back(bob);
+
     float ballSpeed = 1000.0f;
 
     // Balls
@@ -715,6 +748,7 @@ void Game::createScene(void) {
     ball01->AddComponentOfType<SphereComponent>();
     gameObjects.push_back(ball01);
     // Environment
+
     Cube *ground = new Cube(this, 0);
     ground->transform->setWorldPosition(Ogre::Vector3(0,-1005,0));
     ground->transform->setWorldScale(Ogre::Vector3(25, .1, 25));
@@ -763,53 +797,74 @@ void Game::createScene(void) {
     north->renderer->setMaterial("Examples/BumpyMetalG");
     gameObjects.push_back(north);
 
-    int cubeid = 0;
-    switch(level)
-    {
-        default:
-        case 1:
+    // // Paddle
+    // Paddle *newPaddle = new Paddle(this);
+    // newPaddle->AddComponentOfType<PaddleScript>();
+    // newPaddle->AddComponentOfType<GameplayScript>();
+    // newPaddle->transform->setWorldPosition(Ogre::Vector3(0,-800,0));
+    // newPaddle->transform->setLocalScale(Ogre::Vector3(3, .25, 3));
+    // newPaddle->name = "paddle";
+    // newPaddle->renderer->setMaterial("Examples/Rockwall");
+    // gameObjects.push_back(newPaddle);
 
-        cubeid = 0;
-        for (int i = -220; i <= 220; i+=110)
-        {
-            for (int j = -220; j <= 220; j+=110)
-            {
-                for (int k = -220; k <= 220; k+=110)
-                {
-                    Cube *block = new Cube(this, 1);
-                    block->AddComponentOfType<PointBlock>();
-                    block->transform->setWorldPosition(Ogre::Vector3(i,j,k));
-                    block->transform->setLocalScale(Ogre::Vector3(1, 1, 1));
-                    block->name = "block"+cubeid;
-                    gameObjects.push_back(block);
-                }
-            }
-            cubeid++;
-        }
-        break;
+    // int cubeid = 0;
+    // switch(level)
+    // {
+    //     default:
+    //     case 1:
 
-        case 2:
+    //     cubeid = 0;
+    //     for (int i = -220; i <= 220; i+=110)
+    //     {
+    //         for (int j = -220; j <= 220; j+=110)
+    //         {
+    //             for (int k = -220; k <= 220; k+=110)
+    //             {
+    //                 Cube *block = new Cube(this);
+    //                 block->AddComponentOfType<PointBlock>();
+    //                 block->transform->setWorldPosition(Ogre::Vector3(i,j,k));
+    //                 block->transform->setLocalScale(Ogre::Vector3(1, 1, 1));
+    //                 block->name = "block"+cubeid;
+    //                 gameObjects.push_back(block);
+    //             }
+    //         }
+    //         cubeid++;
+    //     }
+    //     break;
 
-        cubeid = 0;
+    //     case 2:
 
-        srand ( time(NULL) );
-        Ogre::Real posx;
-        Ogre::Real posy;
-        Ogre::Real posz;
-        for (int i = 0; i < 100; ++i)
-        {
-            posx = Ogre::Math::RangeRandom(-900,900);
-            posy = Ogre::Math::RangeRandom(0,900);
-            posz = Ogre::Math::RangeRandom(-900,900);
-            Cube *block = new Cube(this, 1);
-            block->AddComponentOfType<PointBlock>();
-            block->transform->setWorldPosition(Ogre::Vector3(posx,posy,posz));
-            block->transform->setLocalScale(Ogre::Vector3(1, 1, 1));
-            block->name = "block"+cubeid;
-            gameObjects.push_back(block);
-        }
-        break;
-    }
+    //     cubeid = 0;
+
+    //     srand ( time(NULL) );
+    //     Ogre::Real posx;
+    //     Ogre::Real posy;
+    //     Ogre::Real posz;
+    //     for (int i = 0; i < 100; ++i)
+    //     {
+    //         posx = Ogre::Math::RangeRandom(-900,900);
+    //         posy = Ogre::Math::RangeRandom(0,900);
+    //         posz = Ogre::Math::RangeRandom(-900,900);
+    //         Cube *block = new Cube(this);
+    //         block->AddComponentOfType<PointBlock>();
+    //         block->transform->setWorldPosition(Ogre::Vector3(posx,posy,posz));
+    //         block->transform->setLocalScale(Ogre::Vector3(1, 1, 1));
+    //         block->name = "block"+cubeid;
+    //         gameObjects.push_back(block);
+    //     }
+    //     break;
+    // }
+
+    // float ballSpeed = 1000.0f;
+
+    // // Balls
+    // Sphere *ball01 = new Sphere(this, 75);
+    // ball01->transform->setWorldPosition(Ogre::Vector3(0,-700,0));
+    // ball01->name = "ball01";
+    // ball01->renderer->setMaterial("Examples/SphereMappedRustySteel");
+    // ball01->physics->setLinearVelocity(Ogre::Vector3(.5*ballSpeed, 1*ballSpeed, .5*ballSpeed));
+    // ball01->AddComponentOfType<SphereComponent>();
+    // gameObjects.push_back(ball01);
 
     cout << "Done creating scene!" << endl;
 }
@@ -820,7 +875,11 @@ Ogre::SceneNode* Game::getSceneRoot(void) {
     return mSceneManager->getRootSceneNode();
 }
 
-
+void Game::setAnimationState(Ogre::AnimationState* anState) {
+    mAnimationState = anState;
+    mAnimationState->setLoop(true);
+    mAnimationState->setEnabled(true);
+}
 
 Ogre::SceneManager* Game::getSceneManager(void) {
     return mSceneManager;
@@ -841,6 +900,11 @@ OIS::Mouse* Game::getMouse(void) {
 Ogre::Camera* Game::getCamera(void) {
     return mCamera;
 }
+
+Ogre::SceneNode* Game::getCameraNode(void) {
+    return mCameraNode;
+}
+
 
 int Game::camQuadrant () {
     Ogre::Vector3 pos = mCamera->getPosition();

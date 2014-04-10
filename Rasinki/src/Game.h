@@ -76,6 +76,7 @@ public:
     bool newGame();
     Ogre::SceneNode* getSceneRoot(void);
     Ogre::SceneManager* getSceneManager(void);
+    void setAnimationState(Ogre::AnimationState* anState);
     PhysicsSimulator* getPhysicsSimulator(void);
     SoundManager* getSoundManager(void);
     Network* getNetwork(void) { return mNetwork; }
@@ -83,6 +84,7 @@ public:
     OIS::Keyboard* getKeyboard(void);
     OIS::Mouse* getMouse(void);
     Ogre::Camera* getCamera(void);
+    Ogre::SceneNode* getCameraNode(void);
     int camQuadrant(void);
     int camSide(void);
 
@@ -143,10 +145,12 @@ protected:
 
     Ogre::Root *mRoot;
     Ogre::Camera* mCamera;
+    Ogre::SceneNode* mCameraNode;
     Ogre::SceneManager* mSceneManager;
     Ogre::RenderWindow* mWindow;
     Ogre::String mResourcesConfig;
     Ogre::String mPluginsConfig;
+    Ogre::AnimationState *mAnimationState;
 
     // OgreBites
     OgreBites::SdkTrayManager* mTrayManager;
