@@ -12,6 +12,7 @@ using namespace std;
 #include "Scripts/Wall.h"
 #include "Scripts/SphereComponent.h"
 #include "Scripts/GameplayScript.h"
+#include "Scripts/Grid.h"
 #include "Scripts/GridSquare.h"
 
 
@@ -717,21 +718,8 @@ void Game::createScene(void) {
     mSceneManager->setSkyDome(true, "Examples/CloudySky", 5, 8);
     // mSceneManager->setSkyBox(true, "/Examples/SpaceSkyBox", 5000000, false);
 
-    int width = 25;
-    int depth = 25;
-    for (int i = 0; i < width; ++i) {
-        for (int j = 0; j < depth; ++j) {
-            Cube *cube = new Cube(this, 0);
-            GridSquare *square = cube->AddComponentOfType<GridSquare>();
-            
-            float cubeSize = 100;
-            Ogre::Vector3 bounds = square->getBounds();
-            Ogre::Vector3 position (i*bounds.x, 0, j*bounds.z);
-            cube->transform->setLocalPosition(position);
-            cube->name = "gridsquare";
-            gameObjects.push_back(cube);
-        }
-    }
+   GameObject *grid = new GameObject(this);
+   grid->AddComponentOfType<Grid>();
    
 
 
