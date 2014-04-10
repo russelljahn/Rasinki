@@ -2,18 +2,18 @@
 #include <ctime>
 
 GridSquare::GridSquare(GameObject *attachedGameObject) : Script(attachedGameObject) {
+    
+    Ogre::Vector3 scale = Ogre::Vector3(5, .25, 5);
+    this->gameObject->transform->setLocalScale(scale);
 
 	int random = rand()%100;
-	if (random < 20) {
-		pointsOnDeath = 25;
+	if (random < 33) {
 		this->gameObject->renderer->setMaterial("Examples/Chrome_Blue");
 	}
-	else if (random < 40) {
-		pointsOnDeath = 10;
+	else if (random < 66) {
 		this->gameObject->renderer->setMaterial("Examples/Chrome_Red");
 	}
 	else {
-		pointsOnDeath = 1;
 		this->gameObject->renderer->setMaterial("Examples/Chrome");
 	}
 };
@@ -27,6 +27,7 @@ void GridSquare::Start() {
 
 
 void GridSquare::Update() {
+	
 	Script::Update();
 	if (!this->gameObject->renderer->isEnabled()) {
 		this->gameObject->physics->setEnabled(false);
@@ -36,12 +37,11 @@ void GridSquare::Update() {
 
 
 void GridSquare::OnCollision(Ogre::Vector3 point, GameObject* collidedWith) {
-	this->gameObject->renderer->setEnabled(false);
-	if (gameObject->game->getNetwork()->isServer) {
-		gameObject->game->getNetwork()->SendMessageToClient(ServerMessage(DISABLEOBJECT,gameObject->objIndex));
-	}
-	//hit = true;
-	//gameObject->physics->setGravity(Ogre::Vector3(0, -98, 0));
-	gameObject->game->getPlayer()->scored(pointsOnDeath);
-	gameObject->game->getSoundManager()->playSound2();
+	// this->gameObject->renderer->setEnabled(false);
+	// if (gameObject->game->getNetwork()->isServer) {
+	// 	gameObject->game->getNetwork()->SendMessageToClient(ServerMessage(DISABLEOBJECT,gameObject->objIndex));
+	// }
+	// //hit = true;
+	// //gameObject->physics->setGravity(Ogre::Vector3(0, -98, 0));
+	// gameObject->game->getSoundManager()->playSound2();
 }

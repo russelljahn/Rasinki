@@ -61,8 +61,8 @@ am_Rasinki_OBJECTS = Rasinki-Game.$(OBJEXT) Rasinki-main.$(OBJEXT) \
 	Rasinki-Wall.$(OBJEXT) Rasinki-Physics.$(OBJEXT) \
 	Rasinki-Sphere.$(OBJEXT) Rasinki-Paddle.$(OBJEXT) \
 	Rasinki-Plane.$(OBJEXT) Rasinki-Cube.$(OBJEXT) \
-	Rasinki-Robot.$(OBJEXT) Rasinki-Player.$(OBJEXT) \
-	Rasinki-SoundManager.$(OBJEXT) \
+	Rasinki-GridSquare.$(OBJEXT) Rasinki-Robot.$(OBJEXT) \
+	Rasinki-Player.$(OBJEXT) Rasinki-SoundManager.$(OBJEXT) \
 	Rasinki-SphereComponent.$(OBJEXT) \
 	Rasinki-GameplayScript.$(OBJEXT) Rasinki-RobotScript.$(OBJEXT) \
 	Rasinki-Time.$(OBJEXT) Rasinki-Network.$(OBJEXT) \
@@ -250,9 +250,9 @@ target_alias = @target_alias@
 top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
-noinst_HEADERS = src/Game.h src/GameObject.h src/Components/Component.h src/PhysicsSimulator.h src/Components/Transform.h src/Components/Renderer.h src/Components/Script.h src/Scripts/PaddleScript.h src/Scripts/PointBlock.h src/Scripts/Wall.h src/Objects/Sphere.h src/Objects/Paddle.h src/Objects/Plane.h src/Objects/Cube.h src/Objects/Robot.h src/Player.h src/SoundManager.h src/Scripts/SphereComponent.h src/Scripts/GameplayScript.h src/Scripts/RobotScript.h src/Time.h src/Network.h src/Input.h
+noinst_HEADERS = src/Game.h src/GameObject.h src/Components/Component.h src/PhysicsSimulator.h src/Components/Transform.h src/Components/Renderer.h src/Components/Script.h src/Scripts/PaddleScript.h src/Scripts/PointBlock.h src/Scripts/Wall.h src/Objects/Sphere.h src/Objects/Paddle.h src/Objects/Plane.h src/Objects/Cube.h src/Objects/Robot.h src/Player.h src/SoundManager.h src/Scripts/SphereComponent.h src/Scripts/GameplayScript.h src/Scripts/GridSquare.h src/Scripts/RobotScript.h src/Time.h src/Network.h src/Input.h
 Rasinki_CPPFLAGS = -I$(top_srcdir)/src
-Rasinki_SOURCES = src/Game.cpp src/main.cpp src/GameObject.cpp src/Components/Component.cpp src/PhysicsSimulator.cpp src/Components/Transform.cpp src/Components/Renderer.cpp src/Components/Script.cpp src/Scripts/PaddleScript.cpp src/Scripts/PointBlock.cpp src/Scripts/Wall.cpp src/Components/Physics.cpp src/Objects/Sphere.cpp src/Objects/Paddle.cpp src/Objects/Plane.cpp src/Objects/Cube.cpp src/Objects/Robot.cpp src/Player.cpp src/SoundManager.cpp src/Scripts/SphereComponent.cpp src/Scripts/GameplayScript.cpp src/Scripts/RobotScript.cpp src/Time.cpp src/Network.cpp src/Input.cpp
+Rasinki_SOURCES = src/Game.cpp src/main.cpp src/GameObject.cpp src/Components/Component.cpp src/PhysicsSimulator.cpp src/Components/Transform.cpp src/Components/Renderer.cpp src/Components/Script.cpp src/Scripts/PaddleScript.cpp src/Scripts/PointBlock.cpp src/Scripts/Wall.cpp src/Components/Physics.cpp src/Objects/Sphere.cpp src/Objects/Paddle.cpp src/Objects/Plane.cpp src/Objects/Cube.cpp src/Scripts/GridSquare.cpp src/Objects/Robot.cpp src/Player.cpp src/SoundManager.cpp src/Scripts/SphereComponent.cpp src/Scripts/GameplayScript.cpp src/Scripts/RobotScript.cpp src/Time.cpp src/Network.cpp src/Input.cpp
 Rasinki_CXXFLAGS = $(OGRE_CFLAGS) $(OIS_CFLAGS) $(bullet_CFLAGS) $(sdl_CFLAGS) $(SDLMIXER_CFLAGS) $(SDLNET_CFLAGS) -std=c++0x
 Rasinki_LDADD = $(OGRE_LIBS) $(OIS_LIBS) $(bullet_LIBS) $(sdl_LIBS) $(SDLMIXER_LIBS) $(SDLNET_LIBS) $(CEGUI_LIBS) $(CEGUI_OGRE_LIBS)
 EXTRA_DIST = buildit makeit
@@ -369,6 +369,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/Rasinki-Game.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/Rasinki-GameObject.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/Rasinki-GameplayScript.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/Rasinki-GridSquare.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/Rasinki-Input.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/Rasinki-Network.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/Rasinki-Paddle.Po@am__quote@
@@ -634,6 +635,20 @@ Rasinki-Cube.obj: src/Objects/Cube.cpp
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='src/Objects/Cube.cpp' object='Rasinki-Cube.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(Rasinki_CPPFLAGS) $(CPPFLAGS) $(Rasinki_CXXFLAGS) $(CXXFLAGS) -c -o Rasinki-Cube.obj `if test -f 'src/Objects/Cube.cpp'; then $(CYGPATH_W) 'src/Objects/Cube.cpp'; else $(CYGPATH_W) '$(srcdir)/src/Objects/Cube.cpp'; fi`
+
+Rasinki-GridSquare.o: src/Scripts/GridSquare.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(Rasinki_CPPFLAGS) $(CPPFLAGS) $(Rasinki_CXXFLAGS) $(CXXFLAGS) -MT Rasinki-GridSquare.o -MD -MP -MF $(DEPDIR)/Rasinki-GridSquare.Tpo -c -o Rasinki-GridSquare.o `test -f 'src/Scripts/GridSquare.cpp' || echo '$(srcdir)/'`src/Scripts/GridSquare.cpp
+@am__fastdepCXX_TRUE@	$(am__mv) $(DEPDIR)/Rasinki-GridSquare.Tpo $(DEPDIR)/Rasinki-GridSquare.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='src/Scripts/GridSquare.cpp' object='Rasinki-GridSquare.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(Rasinki_CPPFLAGS) $(CPPFLAGS) $(Rasinki_CXXFLAGS) $(CXXFLAGS) -c -o Rasinki-GridSquare.o `test -f 'src/Scripts/GridSquare.cpp' || echo '$(srcdir)/'`src/Scripts/GridSquare.cpp
+
+Rasinki-GridSquare.obj: src/Scripts/GridSquare.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(Rasinki_CPPFLAGS) $(CPPFLAGS) $(Rasinki_CXXFLAGS) $(CXXFLAGS) -MT Rasinki-GridSquare.obj -MD -MP -MF $(DEPDIR)/Rasinki-GridSquare.Tpo -c -o Rasinki-GridSquare.obj `if test -f 'src/Scripts/GridSquare.cpp'; then $(CYGPATH_W) 'src/Scripts/GridSquare.cpp'; else $(CYGPATH_W) '$(srcdir)/src/Scripts/GridSquare.cpp'; fi`
+@am__fastdepCXX_TRUE@	$(am__mv) $(DEPDIR)/Rasinki-GridSquare.Tpo $(DEPDIR)/Rasinki-GridSquare.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='src/Scripts/GridSquare.cpp' object='Rasinki-GridSquare.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(Rasinki_CPPFLAGS) $(CPPFLAGS) $(Rasinki_CXXFLAGS) $(CXXFLAGS) -c -o Rasinki-GridSquare.obj `if test -f 'src/Scripts/GridSquare.cpp'; then $(CYGPATH_W) 'src/Scripts/GridSquare.cpp'; else $(CYGPATH_W) '$(srcdir)/src/Scripts/GridSquare.cpp'; fi`
 
 Rasinki-Robot.o: src/Objects/Robot.cpp
 @am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(Rasinki_CPPFLAGS) $(CPPFLAGS) $(Rasinki_CXXFLAGS) $(CXXFLAGS) -MT Rasinki-Robot.o -MD -MP -MF $(DEPDIR)/Rasinki-Robot.Tpo -c -o Rasinki-Robot.o `test -f 'src/Objects/Robot.cpp' || echo '$(srcdir)/'`src/Objects/Robot.cpp

@@ -10,7 +10,7 @@
 class GridSquare : public Script {
 
 	public:
-		PointBlock(GameObject *attachedGameObject);
+		GridSquare(GameObject *attachedGameObject);
 
 		void Start(void);
 		void Update(void);
