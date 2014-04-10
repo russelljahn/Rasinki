@@ -7,6 +7,7 @@ Grid::Grid(GameObject *attachedGameObject) : Script(attachedGameObject) {
     
    	width = 25;
    	depth = 25;
+   	squares = new GridSquare* [width*depth];
 
     for (int i = 0; i < width; ++i) {
         for (int j = 0; j < depth; ++j) {
@@ -17,6 +18,8 @@ Grid::Grid(GameObject *attachedGameObject) : Script(attachedGameObject) {
             Ogre::Vector3 position (i*bounds.x, 0, j*bounds.z);
             cube->transform->setLocalPosition(position);
             cube->name = "gridsquare";
+
+            squares[i*width + j] = square;
             this->gameObject->game->gameObjects.push_back(cube);
         }
     }
