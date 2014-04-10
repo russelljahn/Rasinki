@@ -712,13 +712,15 @@ void Game::createScene(void) {
     //     std::cout << "NEW PADDLE POS: " << newPaddle2->physics->getWorldPosition() << std::endl;
     // }
 
+    Cube cube = new Cube(this);
+    cube->AddComponentOfType<>(GridSquare);
+
     Robot *bob = new Robot(this);
     bob->AddComponentOfType<RobotScript>();
     bob->transform->setWorldPosition(Ogre::Vector3(0,0,0));
     bob->transform->setWorldScale(Ogre::Vector3(1,1,1));
     bob->physics->setGravity(Ogre::Vector3(0,-980,0));
     bob->name = "bob";
-
 
     Ogre::Vector3 subpos = bob->physics->getWorldPosition();
 
@@ -737,65 +739,66 @@ void Game::createScene(void) {
 
     gameObjects.push_back(bob);
 
-    float ballSpeed = 1000.0f;
 
-    // Balls
-    Sphere *ball01 = new Sphere(this, 75);
-    ball01->transform->setWorldPosition(Ogre::Vector3(0,-700,0));
-    ball01->name = "ball01";
-    ball01->renderer->setMaterial("Examples/SphereMappedRustySteel");
-    ball01->physics->setLinearVelocity(Ogre::Vector3(.5*ballSpeed, 1*ballSpeed, .5*ballSpeed));
-    ball01->AddComponentOfType<SphereComponent>();
-    gameObjects.push_back(ball01);
-    // Environment
+    // float ballSpeed = 1000.0f;
 
-    Cube *ground = new Cube(this, 0);
-    ground->transform->setWorldPosition(Ogre::Vector3(0,-1005,0));
-    ground->transform->setWorldScale(Ogre::Vector3(25, .1, 25));
-    ground->name = "ground";
-    ground->renderer->setMaterial("Examples/AcidFloor");
-    gameObjects.push_back(ground);
+    // // Balls
+    // Sphere *ball01 = new Sphere(this, 75);
+    // ball01->transform->setWorldPosition(Ogre::Vector3(0,-700,0));
+    // ball01->name = "ball01";
+    // ball01->renderer->setMaterial("Examples/SphereMappedRustySteel");
+    // ball01->physics->setLinearVelocity(Ogre::Vector3(.5*ballSpeed, 1*ballSpeed, .5*ballSpeed));
+    // ball01->AddComponentOfType<SphereComponent>();
+    // gameObjects.push_back(ball01);
+    // // Environment
 
-    Cube *ceiling = new Cube(this, 0);
-    ceiling->transform->setWorldPosition(Ogre::Vector3(0,1005,0));
-    ceiling->transform->setWorldScale(Ogre::Vector3(25, .1, 25));
-    ceiling->name = "ceiling";
-    ceiling->renderer->setEnabled(false);
-    gameObjects.push_back(ceiling);
+    // Cube *ground = new Cube(this, 0);
+    // ground->transform->setWorldPosition(Ogre::Vector3(0,-1005,0));
+    // ground->transform->setWorldScale(Ogre::Vector3(25, .1, 25));
+    // ground->name = "ground";
+    // ground->renderer->setMaterial("Examples/AcidFloor");
+    // gameObjects.push_back(ground);
 
-    Cube *west = new Cube(this, 0);
-    west->AddComponentOfType<Wall>();
-    west->transform->setWorldPosition(Ogre::Vector3(-1260,0,0));
-    west->transform->setWorldScale(Ogre::Vector3(.1, 20, 25));
-    west->name = "west";
-    west->renderer->setMaterial("Examples/BumpyMetal");
-    gameObjects.push_back(west);
+    // Cube *ceiling = new Cube(this, 0);
+    // ceiling->transform->setWorldPosition(Ogre::Vector3(0,1005,0));
+    // ceiling->transform->setWorldScale(Ogre::Vector3(25, .1, 25));
+    // ceiling->name = "ceiling";
+    // ceiling->renderer->setEnabled(false);
+    // gameObjects.push_back(ceiling);
 
-    Cube *east = new Cube(this, 0);
-    east->AddComponentOfType<Wall>();
-    east->transform->setWorldPosition(Ogre::Vector3(1260,0,0));
-    east->transform->setWorldScale(Ogre::Vector3(.1, 20, 25));
-    east->name = "east";
-    east->renderer->setMaterial("Examples/BumpyMetalT");
-    east->renderer->setEnabled(false);
-    gameObjects.push_back(east);
+    // Cube *west = new Cube(this, 0);
+    // west->AddComponentOfType<Wall>();
+    // west->transform->setWorldPosition(Ogre::Vector3(-1260,0,0));
+    // west->transform->setWorldScale(Ogre::Vector3(.1, 20, 25));
+    // west->name = "west";
+    // west->renderer->setMaterial("Examples/BumpyMetal");
+    // gameObjects.push_back(west);
 
-    Cube *south = new Cube(this, 0);
-    south->AddComponentOfType<Wall>();
-    south->transform->setWorldPosition(Ogre::Vector3(0, 0, 1260));
-    south->transform->setWorldScale(Ogre::Vector3(25, 20, .1));
-    south->name = "south";
-    south->renderer->setMaterial("Examples/BumpyMetalP");
-    south->renderer->setEnabled(false);
-    gameObjects.push_back(south);
+    // Cube *east = new Cube(this, 0);
+    // east->AddComponentOfType<Wall>();
+    // east->transform->setWorldPosition(Ogre::Vector3(1260,0,0));
+    // east->transform->setWorldScale(Ogre::Vector3(.1, 20, 25));
+    // east->name = "east";
+    // east->renderer->setMaterial("Examples/BumpyMetalT");
+    // east->renderer->setEnabled(false);
+    // gameObjects.push_back(east);
 
-    Cube *north = new Cube(this, 0);
-    north->AddComponentOfType<Wall>();
-    north->transform->setWorldPosition(Ogre::Vector3(0, 0, -1260));
-    north->transform->setWorldScale(Ogre::Vector3(25, 20, .1));
-    north->name = "north";
-    north->renderer->setMaterial("Examples/BumpyMetalG");
-    gameObjects.push_back(north);
+    // Cube *south = new Cube(this, 0);
+    // south->AddComponentOfType<Wall>();
+    // south->transform->setWorldPosition(Ogre::Vector3(0, 0, 1260));
+    // south->transform->setWorldScale(Ogre::Vector3(25, 20, .1));
+    // south->name = "south";
+    // south->renderer->setMaterial("Examples/BumpyMetalP");
+    // south->renderer->setEnabled(false);
+    // gameObjects.push_back(south);
+
+    // Cube *north = new Cube(this, 0);
+    // north->AddComponentOfType<Wall>();
+    // north->transform->setWorldPosition(Ogre::Vector3(0, 0, -1260));
+    // north->transform->setWorldScale(Ogre::Vector3(25, 20, .1));
+    // north->name = "north";
+    // north->renderer->setMaterial("Examples/BumpyMetalG");
+    // gameObjects.push_back(north);
 
     // // Paddle
     // Paddle *newPaddle = new Paddle(this);
