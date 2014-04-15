@@ -328,9 +328,9 @@ bool Game::frameRenderingQueued(const Ogre::FrameEvent& evt)
                 mNetwork->SendMessageToClient(ServerMessage(0, gameObjects[0]->physics->getWorldPosition()));
                 mNetwork->SendMessageToClient(ServerMessage(1, gameObjects[1]->physics->getWorldPosition()));
                 mNetwork->SendMessageToClient(ServerMessage(2, gameObjects[2]->physics->getWorldPosition()));
-                ScoreMessage(0, playerList[0]->deltaScore).print();
+                //ScoreMessage(0, playerList[0]->deltaScore).print();
                 if (playerList[0]->deltaScore > 0) {
-                    ScoreMessage(0, playerList[0]->deltaScore).print();
+                    //ScoreMessage(0, playerList[0]->deltaScore).print();
                     mNetwork->SendMessageToClient(ScoreMessage(0, playerList[0]->deltaScore));
                     playerList[0]->deltaScore = 0;
                 }
@@ -436,6 +436,16 @@ bool Game::mousePressed( const OIS::MouseEvent &arg, OIS::MouseButtonID id )
 {
     CEGUI::System::getSingleton().injectMouseButtonDown(convertButton(id));
     cout << "Mouse pressed" << endl;
+    if ( gameMode == true )
+    {
+        cout << gameObjects[0]->name << endl;
+        cout << gameObjects[0]->transform->getWorldPosition() << endl;
+        Cube *tower = new Cube(this,0);
+        Ogre::Vector3 towerpos = gameObjects[0]->physics->getWorldPosition();
+        towerpos.x = towerpos.x + gameObjects[0]->transform->sceneNode->getOrientation().x*10; 
+        tower->transform->setWorldPosition(towerpos);
+        gameObjects.push_back(tower);    
+    }
     if (mTrayManager->injectMouseDown(arg, id)) return true;
     return true;
 }

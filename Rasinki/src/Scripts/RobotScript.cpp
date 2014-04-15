@@ -26,14 +26,14 @@ void RobotScript::Update() {
 
     gameObject->transform->sceneNode->yaw(Ogre::Degree(-gameObject->game->getMouse()->getMouseState().X.rel) *.5);
 
-    if (gameObject->game->getCameraNode()->getOrientation().w > .97)
+    if (gameObject->game->getCameraNode()->getOrientation().w >= 0.97)
     {
         gameObject->game->getCameraNode()->roll(Ogre::Degree(-gameObject->game->getMouse()->getMouseState().Y.rel) *.5);
     }
     else
     {
         Ogre::Quaternion quat = gameObject->game->getCameraNode()->getOrientation();
-        gameObject->game->getCameraNode()->setOrientation(Ogre::Quaternion(.970, quat.x, quat.y, quat.z ));
+        gameObject->game->getCameraNode()->setOrientation(Ogre::Quaternion(0.970, quat.x, quat.y, quat.z ));
     }
     
     if (gameObject->game->getKeyboard()->isKeyDown(OIS::KC_LEFT) || gameObject->game->getKeyboard()->isKeyDown(OIS::KC_A)) {
