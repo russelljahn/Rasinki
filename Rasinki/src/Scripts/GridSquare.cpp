@@ -18,13 +18,9 @@ GridSquare::GridSquare(GameObject *attachedGameObject) : Script(attachedGameObje
 	}
 };
 
-
-
 void GridSquare::Start() {
 	Script::Start();
 }
-
-
 
 void GridSquare::Update() {
 	
@@ -33,8 +29,6 @@ void GridSquare::Update() {
 		this->gameObject->physics->setEnabled(false);
 	}
 }
-
-
 
 void GridSquare::OnCollision(Ogre::Vector3 point, GameObject* collidedWith) {
 	// this->gameObject->renderer->setEnabled(false);
@@ -45,8 +39,6 @@ void GridSquare::OnCollision(Ogre::Vector3 point, GameObject* collidedWith) {
 	// //gameObject->physics->setGravity(Ogre::Vector3(0, -98, 0));
 	// gameObject->game->getSoundManager()->playSound2();
 }
-
-
 
 Ogre::Vector3 GridSquare::getBounds() {
 	return scale * 100;
