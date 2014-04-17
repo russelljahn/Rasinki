@@ -4,6 +4,7 @@
 
 #include "../Components/Script.h"
 
+
 /* 
 	Squares that towers can be placed on.
 */
@@ -17,7 +18,11 @@ class GridSquare : public Script {
 		void OnCollision(Ogre::Vector3 point, GameObject* collidedWith);
 		
 		Ogre::Vector3 getBounds();
-        //GetNeighbors
+        bool IsOccupied();
+
+		GameObject *occupant;
+
+
 	private:
 		Ogre::Vector3 scale;
 };

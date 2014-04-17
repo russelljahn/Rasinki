@@ -102,18 +102,17 @@ void RobotScript::HandleTower() {
     }
 
     Ogre::Vector3 squareyPosition = squarey->gameObject->physics->getWorldPosition();    
-    
 
     glowTile->transform->setWorldPosition(squareyPosition + Ogre::Vector3(0.0f, 10.0f, 0.0f ));
 
     if (Input::mouseReleased) {
-        // cout << gameObjects[0]->name << endl;
-        // cout << gameObjects[0]->transform->getWorldPosition() << endl;
-        Cube *tower = new Cube(this->gameObject->game,0);
-        // Ogre::Vector3 towerpos = this->gameObject->physics->getWorldPosition();
+       if (!squarey->IsOccupied()) {
+            Cube *tower = new Cube(this->gameObject->game,0);
+            tower->physics->setWorldPosition(squareyPosition + Ogre::Vector3(0.0f, 50.0f, 0.0f));
+            squarey->occupant = tower;
 
-        tower->physics->setWorldPosition(squareyPosition);
-        this->gameObject->game->gameObjects.push_back(tower);    
+            this->gameObject->game->gameObjects.push_back(tower);    
+        }
     }
 }
 

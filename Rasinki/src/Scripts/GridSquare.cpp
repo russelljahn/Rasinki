@@ -17,6 +17,8 @@ GridSquare::GridSquare(GameObject *attachedGameObject) : Script(attachedGameObje
 	else {
 		this->gameObject->renderer->setMaterial("Rock1");
 	}
+
+	occupant = NULL;
 };
 
 void GridSquare::Start() {
@@ -43,4 +45,8 @@ void GridSquare::OnCollision(Ogre::Vector3 point, GameObject* collidedWith) {
 
 Ogre::Vector3 GridSquare::getBounds() {
 	return scale * 100;
+}
+
+bool GridSquare::IsOccupied() {
+    return occupant != NULL;
 }
