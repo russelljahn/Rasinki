@@ -23,6 +23,32 @@ Grid::Grid(GameObject *attachedGameObject) : Script(attachedGameObject) {
             this->gameObject->game->gameObjects.push_back(cube);
         }
     }
+
+    Ogre::Vector3 bounds = squares[0]->getBounds();
+
+    Cube *west = new Cube(this->gameObject->game, 0);
+    west->transform->setWorldScale(Ogre::Vector3((bounds.x/100)*width,1,1));
+    west->transform->setWorldPosition(Ogre::Vector3(bounds.x*(width - 1)/2, 0, -175));
+    west->renderer->setEnabled(false);
+    this->gameObject->game->gameObjects.push_back(west);
+
+    Cube *east = new Cube(this->gameObject->game, 0);
+    east->transform->setWorldScale(Ogre::Vector3((bounds.x/100)*width,1,1));
+    east->transform->setWorldPosition(Ogre::Vector3(bounds.x*(width - 1)/2, 0, bounds.x*(depth-1) + 175));
+    east->renderer->setEnabled(false);
+    this->gameObject->game->gameObjects.push_back(east);
+
+    Cube *north = new Cube(this->gameObject->game, 0);
+    north->transform->setWorldScale(Ogre::Vector3( 1,1, (bounds.x/100*depth) ) );
+    north->transform->setWorldPosition(Ogre::Vector3(bounds.x*(width - 1) + 175, 0, bounds.x*(depth-1)/2));
+    north->renderer->setEnabled(false);
+    this->gameObject->game->gameObjects.push_back(north);
+
+    Cube *south = new Cube(this->gameObject->game, 0);
+    south->transform->setWorldScale(Ogre::Vector3( 1,1, (bounds.x/100*depth) ) );
+    south->transform->setWorldPosition(Ogre::Vector3( -175, 0, bounds.x*(depth-1)/2));
+    south->renderer->setEnabled(false);
+    this->gameObject->game->gameObjects.push_back(south);
 };
 
 

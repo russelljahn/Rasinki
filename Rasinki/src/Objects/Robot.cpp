@@ -17,8 +17,8 @@ void Robot::Start() {
 	renderer->entity = game->getSceneManager()->createEntity(nameCoverter.str(), "robot.mesh");
 	transform->sceneNode->attachObject(renderer->entity);
 	Ogre::Vector3 halfExtents = transform->getLocalScale()/2.0f;
-	physics = new Physics(this, 1, new btBoxShape(btVector3(scale, scale, scale)));
-	physics->setLinearFactor(Ogre::Vector3(1,0,1));
+	physics = new Physics(this, 10000, new btSphereShape(scale) );
+	physics->setLinearFactor(Ogre::Vector3(1,1,1));
 
 	renderer->setMaterial("Examples/Rockwall");
 }
