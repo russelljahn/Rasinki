@@ -26,14 +26,19 @@ void RobotScript::Update() {
 
     gameObject->transform->sceneNode->yaw(Ogre::Degree(-gameObject->game->getMouse()->getMouseState().X.rel) *.5);
 
-    if (gameObject->game->getCameraNode()->getOrientation().w > .97)
+    Ogre::Quaternion quat = gameObject->game->getCameraNode()->getOrientation();
+
+    if (quat.z > -0.2 && quat.z <= .35)
     {
         gameObject->game->getCameraNode()->roll(Ogre::Degree(-gameObject->game->getMouse()->getMouseState().Y.rel) *.5);
     }
+    else if( quat.z <= -0.2 )
+    {
+        gameObject->game->getCameraNode()->setOrientation(quat.w, quat.x, quat.y, -0.1999);
+    }
     else
     {
-        Ogre::Quaternion quat = gameObject->game->getCameraNode()->getOrientation();
-        gameObject->game->getCameraNode()->setOrientation(Ogre::Quaternion(.970, quat.x, quat.y, quat.z ));
+        gameObject->game->getCameraNode()->setOrientation(quat.w, quat.x, quat.y, .3499);
     }
     
     if (gameObject->game->getKeyboard()->isKeyDown(OIS::KC_LEFT) || gameObject->game->getKeyboard()->isKeyDown(OIS::KC_A)) {
@@ -61,13 +66,13 @@ void RobotScript::Update() {
         gameObject->game->setAnimationState(gameObject->renderer->entity->getAnimationState("Walk"));
     }
 
-    // if (gameObject->game->getKeyboard()->isKeyDown(OIS::KC_SPACE)) {
-    //     Ogre::Vector3 veloc = gameObject->physics->getLinearVelocity();
-    //     veloc.y += movementSpeed;
+    if (gameObject->game->getKeyboard()->isKeyDown(OIS::KC_SPACE)) {
+        Ogre::Vector3 veloc = gameObject->physics->getLinearVelocity();
+        veloc.y += movementSpeed*2;
 
-    //     gameObject->physics->setLinearVelocity(veloc);
-    //     gameObject->game->setAnimationState(gameObject->renderer->entity->getAnimationState("Walk"));
-    // }
+        gameObject->physics->setLinearVelocity(veloc);
+        gameObject->game->setAnimationState(gameObject->renderer->entity->getAnimationState("Walk"));
+    }
 
     Ogre::Vector3 subpos = gameObject->physics->getWorldPosition();
 

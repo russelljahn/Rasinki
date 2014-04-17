@@ -3,8 +3,9 @@
 
 GridSquare::GridSquare(GameObject *attachedGameObject) : Script(attachedGameObject) {
     
-   	scale = Ogre::Vector3(5, .25, 5);
+   	scale = Ogre::Vector3(2.5, .125, 2.5);
     this->gameObject->transform->setLocalScale(scale);
+    this->gameObject->physics->setColliderScale(scale);
 
 	int random = rand()%100;
 	if (random < 33) {

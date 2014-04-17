@@ -17,11 +17,13 @@ Physics::Physics(GameObject* attachedGameObject, float mass, btCollisionShape* c
 	mRigidBody->setUserPointer(gameObject);
 	mRigidBody->setCollisionFlags(mRigidBody->getCollisionFlags() |
   	  btCollisionObject::CF_CUSTOM_MATERIAL_CALLBACK);
-	mRigidBody->setRestitution(1);
+	mRigidBody->setRestitution(0);
 	mRigidBody->setDamping(0, 0);
 	mRigidBody->setActivationState(DISABLE_DEACTIVATION);
 	// std::cout << "<3>" << std::endl;
 	//Add rigidbody to world
+	mGravity = btVector3(0,-98000,0);
+	mRigidBody->setGravity(btVector3(0,-98000,0));
 	//instance of btDiscreteDynamicsWorld->addRigidBody(mRigidBody)
 	gameObject->game->getPhysicsSimulator()->addObject(mRigidBody);
 	//std::cout << "COLLIDER AT " << pos.x() << ", " << pos.y() << ", " << pos.z() << std::endl;	
@@ -63,7 +65,7 @@ void Physics::Start() {}
 
 
 void Physics::FixedUpdate() {
-	
+	mRigidBody->setGravity(mGravity);
 	btVector3 pos = btVector3(getWorldPosition().x,getWorldPosition().y,getWorldPosition().z);
 	btVector3 scale = mRigidBody->getCollisionShape()->getLocalScaling();
 	// std::cout << "position in fixedupdate: " << pos.x() << " " << pos.y() << " " << pos.z() << " SCALE IN FIXEDUPDATE: " << scale.x() << " " << scale.y() << " " << scale.z()<< std::endl;
