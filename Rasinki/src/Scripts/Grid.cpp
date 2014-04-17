@@ -79,7 +79,12 @@ void Grid::OnCollision(Ogre::Vector3 point, GameObject* collidedWith) {
 	// gameObject->game->getSoundManager()->playSound2();
 }
 
-Ogre::Vector3 Grid::gridPos(Ogre::Vector3 worldPos) {
+GridSquare Grid::gridSquareAtPos(Ogre::Vector3 worldPos) {
     Ogre::Vector3 bounds = squares[0]->getBounds();
-    return Ogre::Vector3(worldPos.x - std::fmod(worldPos.x, bounds.x), worldPos.y, worldPos.z - std::fmod(worldPos.z, bounds.z));
+
+    /* Will need to offeset if the grid gets moved off the origin */
+    if (worldPos.x > 0 && worldPos.z > 0)
+        return squares[(int)(worldPos.x/bounds.x)][(int) (worldPos.z/bounds.z)];
+    else
+        return NULL;
 }
