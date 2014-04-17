@@ -12,6 +12,9 @@ using namespace std;
 #include "Scripts/Wall.h"
 #include "Scripts/SphereComponent.h"
 #include "Scripts/GameplayScript.h"
+#include "Scripts/Grid.h"
+#include "Scripts/GridSquare.h"
+
 
 #include "Objects/Paddle.h"
 #include "Objects/Sphere.h"
@@ -305,19 +308,19 @@ bool Game::frameRenderingQueued(const Ogre::FrameEvent& evt)
              }
         }
 
-        if (GameplayScript::IsGameOver()) {
-            mStatsPanel->hide();
-            mGameOverPanel->show();
-            mGameOverPanel->setParamValue(0, " "); // Score
-            mGameOverPanel->setParamValue(1, Ogre::StringConverter::toString(playerList[0]->getScore())); // Score
-            mGameOverPanel->setParamValue(2, Ogre::StringConverter::toString(GameplayScript::GetGameOverTime())); // Time elapsed
-        }
-        else {
-            mStatsPanel->show();
-            mGameOverPanel->hide();
-            mStatsPanel->setParamValue(0, Ogre::StringConverter::toString(playerList[0]->getScore())); // Score
-            mStatsPanel->setParamValue(1, Ogre::StringConverter::toString(SphereComponent::numSpheres)); // Balls remaining
-        }
+        // if (GameplayScript::IsGameOver()) {
+        //     mStatsPanel->hide();
+        //     mGameOverPanel->show();
+        //     mGameOverPanel->setParamValue(0, " "); // Score
+        //     mGameOverPanel->setParamValue(1, Ogre::StringConverter::toString(playerList[0]->getScore())); // Score
+        //     mGameOverPanel->setParamValue(2, Ogre::StringConverter::toString(GameplayScript::GetGameOverTime())); // Time elapsed
+        // }
+        // else {
+        //     mStatsPanel->show();
+        //     mGameOverPanel->hide();
+        //     mStatsPanel->setParamValue(0, Ogre::StringConverter::toString(playerList[0]->getScore())); // Score
+        //     mStatsPanel->setParamValue(1, Ogre::StringConverter::toString(SphereComponent::numSpheres)); // Balls remaining
+        // }
 
         for (auto gameObjectIter = gameObjects.begin(); gameObjectIter != gameObjects.end(); ++gameObjectIter) {
             (*gameObjectIter)->Update();
@@ -442,7 +445,6 @@ bool Game::mousePressed( const OIS::MouseEvent &arg, OIS::MouseButtonID id )
         cout << gameObjects[0]->transform->getWorldPosition() << endl;
         Cube *tower = new Cube(this,0);
         Ogre::Vector3 towerpos = gameObjects[0]->physics->getWorldPosition();
-        towerpos.x = towerpos.x + gameObjects[0]->transform->sceneNode->getOrientation().x*10; 
         tower->transform->setWorldPosition(towerpos);
         gameObjects.push_back(tower);    
     }
@@ -724,16 +726,15 @@ void Game::createScene(void) {
 
     Robot *bob = new Robot(this);
     bob->AddComponentOfType<RobotScript>();
-    bob->transform->setWorldPosition(Ogre::Vector3(0,0,0));
+    bob->transform->setWorldPosition(Ogre::Vector3(0,75,0));
     bob->transform->setWorldScale(Ogre::Vector3(1,1,1));
     bob->physics->setGravity(Ogre::Vector3(0,-980,0));
     bob->name = "bob";
 
-
     Ogre::Vector3 subpos = bob->physics->getWorldPosition();
 
     // Position it at 500 in Z direction
-    mCamera->setPosition(Ogre::Vector3(subpos.x - 150,subpos.y + 150,subpos.z));
+    mCamera->setPosition(Ogre::Vector3(subpos.x - 300, subpos.y + 300, subpos.z));
     // Look back along -Z
     mCamera->lookAt(Ogre::Vector3(subpos.x,subpos.y + 80,subpos.z));
     mCamera->setNearClipDistance(5);
@@ -747,17 +748,24 @@ void Game::createScene(void) {
 
     gameObjects.push_back(bob);
 
+    mSceneManager->setSkyDome(true, "Examples/CloudySky", 5, 8);
+    // mSceneManager->setSkyBox(true, "/Examples/SpaceSkyBox", 5000000, false);
+
+    GameObject *grid = new GameObject(this);
+    grid->AddComponentOfType<Grid>();
+
+
     float ballSpeed = 1000.0f;
 
-    // Balls
-    Sphere *ball01 = new Sphere(this, 75);
-    ball01->transform->setWorldPosition(Ogre::Vector3(0,-700,0));
-    ball01->name = "ball01";
-    ball01->renderer->setMaterial("Examples/SphereMappedRustySteel");
-    ball01->physics->setLinearVelocity(Ogre::Vector3(.5*ballSpeed, 1*ballSpeed, .5*ballSpeed));
-    ball01->AddComponentOfType<SphereComponent>();
-    gameObjects.push_back(ball01);
-    // Environment
+    // // Balls
+    // Sphere *ball01 = new Sphere(this, 75);
+    // ball01->transform->setWorldPosition(Ogre::Vector3(0,-700,0));
+    // ball01->name = "ball01";
+    // ball01->renderer->setMaterial("Examples/SphereMappedRustySteel");
+    // ball01->physics->setLinearVelocity(Ogre::Vector3(.5*ballSpeed, 1*ballSpeed, .5*ballSpeed));
+    // ball01->AddComponentOfType<SphereComponent>();
+    // gameObjects.push_back(ball01);
+    // // Environment
 
     Cube *ground = new Cube(this, 0);
     ground->transform->setWorldPosition(Ogre::Vector3(0,-1005,0));
@@ -806,6 +814,18 @@ void Game::createScene(void) {
     north->name = "north";
     north->renderer->setMaterial("Examples/BumpyMetalG");
     gameObjects.push_back(north);
+
+    /* 
+        Removing the creation code for these will segfault, so just letting them
+        be created, but moving them out of sight for now.
+    */
+    ground->transform->setWorldPosition(Ogre::Vector3(1000000, 1000000,0));
+    ceiling->transform->setWorldPosition(Ogre::Vector3(1000000, 1000000,0));
+    west->transform->setWorldPosition(Ogre::Vector3(1000000, 1000000,0));
+    east->transform->setWorldPosition(Ogre::Vector3(1000000, 1000000,0));
+    south->transform->setWorldPosition(Ogre::Vector3(1000000, 1000000,0));
+    north->transform->setWorldPosition(Ogre::Vector3(1000000, 1000000,0));
+
 
     // // Paddle
     // Paddle *newPaddle = new Paddle(this);
