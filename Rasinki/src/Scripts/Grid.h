@@ -16,7 +16,7 @@ class Grid : public Script {
 		void Start(void);
 		void Update(void);
 		void OnCollision(Ogre::Vector3 point, GameObject* collidedWith);
-		GridSquare gridSquareAtPos(Ogre::Vector3 worldPos);
+		GridSquare* gridSquareAtPos(Ogre::Vector3 worldPos);
 	private:
 		int width;
 		int depth;

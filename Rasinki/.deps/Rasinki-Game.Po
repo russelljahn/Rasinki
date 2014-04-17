@@ -1136,9 +1136,10 @@ Rasinki-Game.o: src/Game.cpp src/Game.h \
  /usr/local/include/CEGUI/RendererModules/Ogre/../../CEGUIVector.h \
  src/Game.h src/Time.h src/Scripts/PaddleScript.h \
  src/Scripts/../Components/Script.h src/Scripts/RobotScript.h \
- src/Scripts/RobotState.h src/Scripts/PointBlock.h src/Scripts/Wall.h \
- src/Scripts/SphereComponent.h src/Scripts/GameplayScript.h \
- src/Scripts/Grid.h src/Scripts/GridSquare.h src/Scripts/GridSquare.h \
+ src/Scripts/RobotState.h src/Scripts/Grid.h src/Scripts/GridSquare.h \
+ src/Scripts/../Objects/Cube.h src/Scripts/PointBlock.h \
+ src/Scripts/Wall.h src/Scripts/SphereComponent.h \
+ src/Scripts/GameplayScript.h src/Scripts/Grid.h src/Scripts/GridSquare.h \
  src/Objects/Paddle.h src/Objects/Sphere.h src/Objects/Plane.h \
  src/Objects/Cube.h src/Objects/Robot.h
 
@@ -3772,6 +3773,12 @@ src/Scripts/RobotScript.h:
 
 src/Scripts/RobotState.h:
 
+src/Scripts/Grid.h:
+
+src/Scripts/GridSquare.h:
+
+src/Scripts/../Objects/Cube.h:
+
 src/Scripts/PointBlock.h:
 
 src/Scripts/Wall.h:
@@ -3781,8 +3788,6 @@ src/Scripts/SphereComponent.h:
 src/Scripts/GameplayScript.h:
 
 src/Scripts/Grid.h:
-
-src/Scripts/GridSquare.h:
 
 src/Scripts/GridSquare.h:
 

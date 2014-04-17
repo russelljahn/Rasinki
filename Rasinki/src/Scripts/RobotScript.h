@@ -4,6 +4,9 @@
 
 #include "../Components/Script.h"
 #include "RobotState.h"
+#include "Grid.h"
+#include "GridSquare.h"
+#include "../Objects/Cube.h"
 
 /* 
 	Code to control Robot behavior.
@@ -19,6 +22,10 @@ class RobotScript : public Script {
 		void Start(void);
 		void Update(void);
 		void OnCollision(Ogre::Vector3 point, GameObject* collidedWith);
+		void HandleTower();
+
+		Grid *grid;
+		Cube *glowTile;
 	private:
 		bool up;
 		bool down;

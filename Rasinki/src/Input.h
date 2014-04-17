@@ -17,6 +17,11 @@ class Input {
 		// static bool IsKeyUp(OIS::KeyCode keyCode);
 		static bool IsKeyDown(OIS::KeyCode keyCode);
 
+		static void Update();
+
+		static bool mouseDown;
+		static bool mouseReleased;
+
 	private:
 	    //OIS Input devices
 	    static OIS::Mouse*    mouse;

@@ -340,6 +340,7 @@ bool Game::frameRenderingQueued(const Ogre::FrameEvent& evt)
         }
         mNetwork->OnNetworkUpdate();
     }
+    Input::Update();
     return true;
 }
 //-------------------------------------------------------------------------------------
@@ -437,23 +438,19 @@ bool Game::mouseMoved( const OIS::MouseEvent &arg )
 
 bool Game::mousePressed( const OIS::MouseEvent &arg, OIS::MouseButtonID id )
 {
+    Input::mouseDown = true;
     CEGUI::System::getSingleton().injectMouseButtonDown(convertButton(id));
     cout << "Mouse pressed" << endl;
-    if ( gameMode == true )
-    {
-        cout << gameObjects[0]->name << endl;
-        cout << gameObjects[0]->transform->getWorldPosition() << endl;
-        Cube *tower = new Cube(this,0);
-        Ogre::Vector3 towerpos = gameObjects[0]->physics->getWorldPosition();
-        tower->transform->setWorldPosition(towerpos);
-        gameObjects.push_back(tower);    
-    }
     if (mTrayManager->injectMouseDown(arg, id)) return true;
     return true;
 }
 
 bool Game::mouseReleased( const OIS::MouseEvent &arg, OIS::MouseButtonID id )
 {
+    Input::mouseDown = false;
+    Input::mouseReleased = true;
+
+
     CEGUI::System::getSingleton().injectMouseButtonUp(convertButton(id));
     if (mTrayManager->injectMouseUp(arg, id)) return true;
     return true;
@@ -726,13 +723,17 @@ void Game::createScene(void) {
 
     mSceneManager->setSkyDome(true, "Cloud1", 5, 8);
 
+    GameObject *gridGameObject = new GameObject(this);
+    Grid *grid = gridGameObject->AddComponentOfType<Grid>();
+    // gameObjects.push_back(gridGameObject);
     
     Robot *bob = new Robot(this);
-    bob->AddComponentOfType<RobotScript>();
+    RobotScript *robotScript = bob->AddComponentOfType<RobotScript>();
     bob->transform->setWorldPosition(Ogre::Vector3(0,10,0));
     bob->transform->setWorldScale(Ogre::Vector3(1,1,1));
     bob->physics->setGravity(Ogre::Vector3(0,-980,0));
     bob->name = "bob";
+    robotScript->grid = grid;
 
     Ogre::Vector3 subpos = bob->physics->getWorldPosition();
 
@@ -752,8 +753,6 @@ void Game::createScene(void) {
     gameObjects.push_back(bob);
 
 
-    GameObject *grid = new GameObject(this);
-    grid->AddComponentOfType<Grid>();
 
 
     float ballSpeed = 1000.0f;

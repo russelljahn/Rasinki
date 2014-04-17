@@ -60,3 +60,40 @@ material Cloud1
 		}
 	}
 }
+
+
+
+material SquareGlow1
+{
+	technique
+	{
+		pass
+		{
+			lighting off
+
+			texture_unit
+			{
+				scroll_anim 0.15 0
+				texture square_glow1.png
+			}
+		}
+	}
+}
+
+
+material BoundaryGlow1
+{
+	technique
+	{
+		pass
+		{
+			lighting off
+
+			texture_unit
+			{
+				scroll_anim 0.15 0
+				texture boundary_glow1.png
+			}
+		}
+	}
+}

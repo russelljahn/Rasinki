@@ -26,36 +26,41 @@ Grid::Grid(GameObject *attachedGameObject) : Script(attachedGameObject) {
     }
     Ogre::Vector3 bounds = squares[0]->getBounds();
 
-    Cube *collider = new Cube(this->gameObject->game, 0);
+    Cube *floorCollider = new Cube(this->gameObject->game, 0);
+    floorCollider->renderer->setEnabled(false);
+    floorCollider->transform->setWorldPosition(Ogre::Vector3(bounds.x*(width - 1)/2, 0.0, bounds.z*(depth - 1)/2));
+    floorCollider->transform->setWorldScale(Ogre::Vector3((bounds.x/100)*width,bounds.y/400,(bounds.z/100)*depth));
+    this->gameObject->game->gameObjects.push_back(floorCollider);
 
-    // collider->renderer->setEnabled(false);
-    collider->transform->setWorldPosition(Ogre::Vector3(bounds.x*(width - 1)/2, 0.0, bounds.z*(depth - 1)/2));
-    collider->transform->setWorldScale(Ogre::Vector3((bounds.x/100)*width,bounds.y/400,(bounds.z/100)*depth));
-    this->gameObject->game->gameObjects.push_back(collider);
+    Cube *ceilingCollider = new Cube(this->gameObject->game, 0);
+    ceilingCollider->renderer->setEnabled(false);
+    ceilingCollider->transform->setWorldPosition(Ogre::Vector3(bounds.x*(width - 1)/2, 5000, bounds.z*(depth - 1)/2));
+    ceilingCollider->transform->setWorldScale(Ogre::Vector3((bounds.x/100)*width,bounds.y/400,(bounds.z/100)*depth));
+    this->gameObject->game->gameObjects.push_back(ceilingCollider);
 
 
     Cube *west = new Cube(this->gameObject->game, 0);
-    west->transform->setWorldScale(Ogre::Vector3((bounds.x/100)*width,1,1));
+    west->transform->setWorldScale(Ogre::Vector3((bounds.x/100)*width,50,1));
     west->transform->setWorldPosition(Ogre::Vector3(bounds.x*(width - 1)/2, 0, -175));
-    west->renderer->setEnabled(false);
+    west->renderer->setMaterial("BoundaryGlow1");
     this->gameObject->game->gameObjects.push_back(west);
 
     Cube *east = new Cube(this->gameObject->game, 0);
-    east->transform->setWorldScale(Ogre::Vector3((bounds.x/100)*width,1,1));
+    east->transform->setWorldScale(Ogre::Vector3((bounds.x/100)*width,50,1));
     east->transform->setWorldPosition(Ogre::Vector3(bounds.x*(width - 1)/2, 0, bounds.x*(depth-1) + 175));
-    east->renderer->setEnabled(false);
+    east->renderer->setMaterial("BoundaryGlow1");
     this->gameObject->game->gameObjects.push_back(east);
 
     Cube *north = new Cube(this->gameObject->game, 0);
-    north->transform->setWorldScale(Ogre::Vector3( 1,1, (bounds.x/100*depth) ) );
+    north->transform->setWorldScale(Ogre::Vector3( 1,50, (bounds.x/100*depth) ) );
     north->transform->setWorldPosition(Ogre::Vector3(bounds.x*(width - 1) + 175, 0, bounds.x*(depth-1)/2));
-    north->renderer->setEnabled(false);
+    north->renderer->setMaterial("BoundaryGlow1");
     this->gameObject->game->gameObjects.push_back(north);
 
     Cube *south = new Cube(this->gameObject->game, 0);
-    south->transform->setWorldScale(Ogre::Vector3( 1,1, (bounds.x/100*depth) ) );
+    south->transform->setWorldScale(Ogre::Vector3( 1,50, (bounds.x/100*depth) ) );
     south->transform->setWorldPosition(Ogre::Vector3( -175, 0, bounds.x*(depth-1)/2));
-    south->renderer->setEnabled(false);
+    south->renderer->setMaterial("BoundaryGlow1");
     this->gameObject->game->gameObjects.push_back(south);
 };
 
@@ -87,12 +92,14 @@ void Grid::OnCollision(Ogre::Vector3 point, GameObject* collidedWith) {
 	// gameObject->game->getSoundManager()->playSound2();
 }
 
-GridSquare Grid::gridSquareAtPos(Ogre::Vector3 worldPos) {
+GridSquare* Grid::gridSquareAtPos(Ogre::Vector3 worldPos) {
     Ogre::Vector3 bounds = squares[0]->getBounds();
 
     /* Will need to offeset if the grid gets moved off the origin */
-    if (worldPos.x > 0 && worldPos.z > 0)
-        return squares[(int)(worldPos.x/bounds.x)][(int) (worldPos.z/bounds.z)];
-    else
-        return NULL;
+    if (worldPos.x > 0 && worldPos.z > 0 && worldPos.x<bounds.x*width && worldPos.z<bounds.z*depth) {
+        return squares[(int)( (worldPos.x + bounds.x*.5)/bounds.x) * width + (int) ( ( worldPos.z + bounds.z*.5 ) /bounds.z)];
+    }
+    return NULL;
+
+
 }
