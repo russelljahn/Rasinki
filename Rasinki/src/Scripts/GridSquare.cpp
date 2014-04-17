@@ -8,13 +8,13 @@ GridSquare::GridSquare(GameObject *attachedGameObject) : Script(attachedGameObje
 
 	int random = rand()%100;
 	if (random < 33) {
-		this->gameObject->renderer->setMaterial("Examples/Chrome_Blue");
+		this->gameObject->renderer->setMaterial("Grass1");
 	}
 	else if (random < 66) {
-		this->gameObject->renderer->setMaterial("Examples/Chrome_Red");
+		this->gameObject->renderer->setMaterial("Sand1");
 	}
 	else {
-		this->gameObject->renderer->setMaterial("Examples/Chrome");
+		this->gameObject->renderer->setMaterial("Rock1");
 	}
 };
 

@@ -715,8 +715,9 @@ void Game::createScene(void) {
     //     std::cout << "NEW PADDLE POS: " << newPaddle2->physics->getWorldPosition() << std::endl;
     // }
 
-    mSceneManager->setSkyDome(true, "Examples/CloudySky", 5, 8);
-    // mSceneManager->setSkyBox(true, "/Examples/SpaceSkyBox", 5000000, false);
+    mSceneManager->setSkyDome(true, "Cloud1", 5, 8);
+    // mSceneManager->setSkyBox(true, "Cloud1", 5000000, false);
+    
 
    GameObject *grid = new GameObject(this);
    grid->AddComponentOfType<Grid>();

@@ -1,0 +1,62 @@
+material Rock1
+{
+	technique
+	{
+		pass
+		{
+			texture_unit
+			{
+				texture rock1_bevel.png
+			}
+		}
+	}
+}
+
+
+material Grass1
+{
+	technique
+	{
+		pass
+		{
+			texture_unit
+			{
+				texture grass1_bevel.png
+			}
+		}
+	}
+}
+
+
+material Sand1
+{
+	technique
+	{
+		pass
+		{
+			texture_unit
+			{
+				texture sand1_bevel.png
+			}
+		}
+	}
+}
+
+
+material Cloud1
+{
+	technique
+	{
+		pass
+		{
+			lighting off
+			depth_write off
+
+			texture_unit
+			{
+				scroll_anim 0.15 0
+				texture cloud1.png
+			}
+		}
+	}
+}
