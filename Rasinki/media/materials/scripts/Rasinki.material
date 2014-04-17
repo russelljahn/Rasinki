@@ -70,10 +70,11 @@ material SquareGlow1
 		pass
 		{
 			lighting off
+			scene_blend alpha_blend
 
 			texture_unit
 			{
-				scroll_anim 0.15 0
+				scroll_anim 0.20 0.20
 				texture square_glow1.png
 			}
 		}
@@ -88,12 +89,14 @@ material BoundaryGlow1
 		pass
 		{
 			lighting off
+			scene_blend alpha_blend
 
 			texture_unit
 			{
-				scroll_anim 0.15 0
 				texture boundary_glow1.png
 			}
 		}
 	}
 }
+
+ 
