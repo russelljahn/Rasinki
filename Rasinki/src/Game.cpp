@@ -577,18 +577,25 @@ void Game::createGUI(void) {
     // Main Menu
     mainMenu = wmgr.createWindow((CEGUI::utf8*)"DefaultWindow", (CEGUI::utf8*)"mainMenu");  
 
+
+    //TEST CODE
+    // Menu Background
+    CEGUI::Window *menuBackground = wmgr.createWindow("TaharezLook/StaticImage", "background");
+    menuBackground->setPosition( CEGUI::UVector2( CEGUI::UDim( 0.0f, 0.0f ), CEGUI::UDim( 0.0f, 0.0f) ) );
+    menuBackground->setSize( CEGUI::UVector2( CEGUI::UDim( 1.0f, 0.0f ), CEGUI::UDim( 1.0f, 0.0f ) ) );  // full screen
+    //END OF TEST CODE
     CEGUI::EventArgs args;
 
-    CEGUI::Window *quit = wmgr.createWindow("TaharezLook/Button", "CEGUIDemo/QuitButton");
+    CEGUI::Window *quit = wmgr.createWindow("TaharezLook/Button", "quit");
     quit->setText("Quit");
     quit->setSize(CEGUI::UVector2(CEGUI::UDim(0.15, 0), CEGUI::UDim(0.05, 0)));
-    quit->setPosition(CEGUI::UVector2(CEGUI::UDim(0.3f, 0),CEGUI::UDim(0.4f, 0)));
+    quit->setPosition(CEGUI::UVector2(CEGUI::UDim(0.375f, 0),CEGUI::UDim(0.5f, 0)));
     quit->subscribeEvent(CEGUI::PushButton::EventClicked, CEGUI::Event::Subscriber(&Game::quit, this));
 
     CEGUI::Window *newGame = wmgr.createWindow("TaharezLook/Button", "newGame");
     newGame->setText("NewGame");
     newGame->setSize(CEGUI::UVector2(CEGUI::UDim(0.15, 0), CEGUI::UDim(0.05, 0)));
-    newGame->setPosition(CEGUI::UVector2(CEGUI::UDim(0.45f, 0),CEGUI::UDim(0.4f, 0)));
+    newGame->setPosition(CEGUI::UVector2(CEGUI::UDim(0.375f, 0),CEGUI::UDim(0.4f, 0)));
     newGame->subscribeEvent(CEGUI::PushButton::EventClicked, CEGUI::Event::Subscriber(&Game::newGame, this));
 
     CEGUI::Window *level1 = wmgr.createWindow("TaharezLook/Button", "hostGame");
@@ -598,7 +605,7 @@ void Game::createGUI(void) {
     level1->subscribeEvent(CEGUI::PushButton::EventClicked, CEGUI::Event::Subscriber(&Game::onStartServer, this));
 
     CEGUI::Window *connectToGame = wmgr.createWindow("TaharezLook/Button", "connectToGame");
-    connectToGame->setText("Connect to Game");
+    connectToGame->setText("Connect to Game");  
     connectToGame->setSize(CEGUI::UVector2(CEGUI::UDim(0.15, 0), CEGUI::UDim(0.05, 0)));
     connectToGame->setPosition(CEGUI::UVector2(CEGUI::UDim(0.5f, 0),CEGUI::UDim(0.6f, 0)));
     connectToGame->subscribeEvent(CEGUI::PushButton::EventClicked, CEGUI::Event::Subscriber(&Game::onClickPlayMultiplayer, this));
@@ -606,10 +613,15 @@ void Game::createGUI(void) {
 // 
 
     rootWindow->addChildWindow(mainMenu);
-    mainMenu->addChildWindow(quit);
-    mainMenu->addChildWindow(newGame);
-    mainMenu->addChildWindow(level1);
-    mainMenu->addChildWindow(connectToGame);
+    mainMenu->addChildWindow(menuBackground);
+    menuBackground->addChildWindow(quit);
+    menuBackground->addChildWindow(newGame);
+    menuBackground->addChildWindow(level1);
+    menuBackground->addChildWindow(connectToGame);
+//     mainMenu->addChildWindow(quit);
+//     mainMenu->addChildWindow(newGame);
+//     mainMenu->addChildWindow(level1);
+//     mainMenu->addChildWindow(connectToGame);
 
     // Multiplayer Menu
     multiplayerMenu = wmgr.createWindow((CEGUI::utf8*)"DefaultWindow", (CEGUI::utf8*)"multiplayerMenu");  
@@ -617,7 +629,6 @@ void Game::createGUI(void) {
     CEGUI::Window *back = wmgr.createWindow("TaharezLook/Button", "CEGUIDemo/BackButton");
     back->setText("Back");
     back->setSize(CEGUI::UVector2(CEGUI::UDim(0.15, 0), CEGUI::UDim(0.05, 0)));
-    quit->setPosition(CEGUI::UVector2(CEGUI::UDim(0.3f, 0),CEGUI::UDim(0.5f, 0)));
     back->subscribeEvent(CEGUI::PushButton::EventClicked, CEGUI::Event::Subscriber(&Game::onClickBackFromMultiplayerMenu, this));
 
     CEGUI::Window *connect = wmgr.createWindow("TaharezLook/Button", "CEGUIDemo/ConnectButton");
@@ -666,14 +677,14 @@ void Game::enableMainMenu() {
     mainMenu->setVisible(true);
 
     if (mNetwork == NULL) {
-        mainMenu->getChild("hostGame")->setVisible(true);
-        mainMenu->getChild("newGame")->setVisible(true);
-        mainMenu->getChild("connectToGame")->setVisible(true);
+        mainMenu->getChild("background")->getChild("hostGame")->setVisible(true);
+        mainMenu->getChild("background")->getChild("newGame")->setVisible(true);
+        mainMenu->getChild("background")->getChild("connectToGame")->setVisible(true);
     }
     else {
-        mainMenu->getChild("hostGame")->setVisible(false);
-        mainMenu->getChild("newGame")->setVisible(mNetwork->isServer);
-        mainMenu->getChild("connectToGame")->setVisible(false);
+        mainMenu->getChild("background")->getChild("hostGame")->setVisible(false);
+        mainMenu->getChild("background")->getChild("newGame")->setVisible(mNetwork->isServer);
+        mainMenu->getChild("background")->getChild("connectToGame")->setVisible(false);
 
     
     }
