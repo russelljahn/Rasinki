@@ -111,7 +111,12 @@ void RobotScript::HandleTower() {
             tower->physics->setWorldPosition(squareyPosition + Ogre::Vector3(0.0f, 50.0f, 0.0f));
             squarey->occupant = tower;
 
-            this->gameObject->game->gameObjects.push_back(tower);    
+            //this->gameObject->game->gameObjects.push_back(tower);    
+        }
+        else
+        {
+            delete squarey->occupant;
+            squarey->occupant = NULL;
         }
     }
 }

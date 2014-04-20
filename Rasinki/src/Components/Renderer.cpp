@@ -6,7 +6,10 @@ Renderer::Renderer(GameObject *attachedGameObject) {
 	this->enabled = true;
 };
 Renderer::~Renderer() {
-
+	if (entity != NULL)
+	{
+		gameObject->game->getSceneManager()->destroyEntity( entity ); // destroyEntity() is only supposed to be used when entity is not connected to a scenenode. Check into that if having weird segfaults later.
+	}
 }
 
 void Renderer::setMaterial(string materialName) {

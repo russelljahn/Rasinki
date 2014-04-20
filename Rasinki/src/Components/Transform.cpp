@@ -8,6 +8,11 @@ Transform::Transform(GameObject *attachedGameObject, Ogre::SceneNode *parent) {
 };
 
 Transform::~Transform() {
+	if ( sceneNode != NULL )
+	{
+		// parent->detachObject(sceneNode->getName());
+		// gameObject->game->getSceneManager()->destroySceneNode( sceneNode ); // Shouldn't normally manually destroy scenenodes, should allow scenemanager to do it on scenemanager.clear.
+	}
 }
 
 // void Transform::Start() {
