@@ -38,3 +38,7 @@ Rasinki/Rasinki
 # Ogre files
 */Ogre.log
 */ogre.cfg
+
+# CEGUI files
+*/CEGUI.log
+
