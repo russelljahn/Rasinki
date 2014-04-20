@@ -41,8 +41,8 @@ GameObject::GameObject(Game *attachedGame, int playerNum) {
 GameObject::~GameObject() {
 	if (physics != NULL)
 		delete physics;
-	delete transform;
 	delete renderer;
+	delete transform;
 	for (auto componentsIter = components.begin(); componentsIter != components.end(); ++componentsIter) {
        delete (*componentsIter);
     }
