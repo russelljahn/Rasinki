@@ -67,7 +67,7 @@ am_Rasinki_OBJECTS = Rasinki-Game.$(OBJEXT) Rasinki-main.$(OBJEXT) \
 	Rasinki-SphereComponent.$(OBJEXT) \
 	Rasinki-GameplayScript.$(OBJEXT) Rasinki-RobotScript.$(OBJEXT) \
 	Rasinki-Time.$(OBJEXT) Rasinki-Network.$(OBJEXT) \
-	Rasinki-Input.$(OBJEXT)
+	Rasinki-Input.$(OBJEXT) Rasinki-EnemyScript.$(OBJEXT)
 Rasinki_OBJECTS = $(am_Rasinki_OBJECTS)
 am__DEPENDENCIES_1 =
 Rasinki_DEPENDENCIES = $(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1) \
@@ -251,9 +251,9 @@ target_alias = @target_alias@
 top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
-noinst_HEADERS = src/Game.h src/GameObject.h src/Components/Component.h src/PhysicsSimulator.h src/Components/Transform.h src/Components/Renderer.h src/Components/Script.h src/Scripts/PaddleScript.h src/Scripts/PointBlock.h src/Scripts/Wall.h src/Objects/Sphere.h src/Objects/Paddle.h src/Objects/Plane.h src/Objects/Cube.h src/Objects/Robot.h src/Player.h src/SoundManager.h src/Scripts/SphereComponent.h src/Scripts/GameplayScript.h src/Scripts/Grid.h src/Scripts/GridSquare.h src/Scripts/RobotScript.h src/Time.h src/Network.h src/Input.h
+noinst_HEADERS = src/Game.h src/GameObject.h src/Components/Component.h src/PhysicsSimulator.h src/Components/Transform.h src/Components/Renderer.h src/Components/Script.h src/Scripts/PaddleScript.h src/Scripts/PointBlock.h src/Scripts/Wall.h src/Objects/Sphere.h src/Objects/Paddle.h src/Objects/Plane.h src/Objects/Cube.h src/Objects/Robot.h src/Player.h src/SoundManager.h src/Scripts/SphereComponent.h src/Scripts/GameplayScript.h src/Scripts/Grid.h src/Scripts/GridSquare.h src/Scripts/RobotScript.h src/Time.h src/Network.h src/Input.h src/Scripts/EnemyScript.h
 Rasinki_CPPFLAGS = -I$(top_srcdir)/src
-Rasinki_SOURCES = src/Game.cpp src/main.cpp src/GameObject.cpp src/Components/Component.cpp src/PhysicsSimulator.cpp src/Components/Transform.cpp src/Components/Renderer.cpp src/Components/Script.cpp src/Scripts/PaddleScript.cpp src/Scripts/PointBlock.cpp src/Scripts/Wall.cpp src/Components/Physics.cpp src/Objects/Sphere.cpp src/Objects/Paddle.cpp src/Objects/Plane.cpp src/Objects/Cube.cpp src/Scripts/Grid.cpp src/Scripts/GridSquare.cpp src/Objects/Robot.cpp src/Player.cpp src/SoundManager.cpp src/Scripts/SphereComponent.cpp src/Scripts/GameplayScript.cpp src/Scripts/RobotScript.cpp src/Time.cpp src/Network.cpp src/Input.cpp
+Rasinki_SOURCES = src/Game.cpp src/main.cpp src/GameObject.cpp src/Components/Component.cpp src/PhysicsSimulator.cpp src/Components/Transform.cpp src/Components/Renderer.cpp src/Components/Script.cpp src/Scripts/PaddleScript.cpp src/Scripts/PointBlock.cpp src/Scripts/Wall.cpp src/Components/Physics.cpp src/Objects/Sphere.cpp src/Objects/Paddle.cpp src/Objects/Plane.cpp src/Objects/Cube.cpp src/Scripts/Grid.cpp src/Scripts/GridSquare.cpp src/Objects/Robot.cpp src/Player.cpp src/SoundManager.cpp src/Scripts/SphereComponent.cpp src/Scripts/GameplayScript.cpp src/Scripts/RobotScript.cpp src/Time.cpp src/Network.cpp src/Input.cpp src/Scripts/EnemyScript.cpp
 Rasinki_CXXFLAGS = $(OGRE_CFLAGS) $(OIS_CFLAGS) $(bullet_CFLAGS) $(sdl_CFLAGS) $(SDLMIXER_CFLAGS) $(SDLNET_CFLAGS) -std=c++0x
 Rasinki_LDADD = $(OGRE_LIBS) $(OIS_LIBS) $(bullet_LIBS) $(sdl_LIBS) $(SDLMIXER_LIBS) $(SDLNET_LIBS) $(CEGUI_LIBS) $(CEGUI_OGRE_LIBS)
 EXTRA_DIST = buildit makeit
@@ -367,6 +367,7 @@ distclean-compile:
 
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/Rasinki-Component.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/Rasinki-Cube.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/Rasinki-EnemyScript.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/Rasinki-Game.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/Rasinki-GameObject.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/Rasinki-GameplayScript.Po@am__quote@
@@ -791,6 +792,20 @@ Rasinki-Input.obj: src/Input.cpp
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='src/Input.cpp' object='Rasinki-Input.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(Rasinki_CPPFLAGS) $(CPPFLAGS) $(Rasinki_CXXFLAGS) $(CXXFLAGS) -c -o Rasinki-Input.obj `if test -f 'src/Input.cpp'; then $(CYGPATH_W) 'src/Input.cpp'; else $(CYGPATH_W) '$(srcdir)/src/Input.cpp'; fi`
+
+Rasinki-EnemyScript.o: src/Scripts/EnemyScript.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(Rasinki_CPPFLAGS) $(CPPFLAGS) $(Rasinki_CXXFLAGS) $(CXXFLAGS) -MT Rasinki-EnemyScript.o -MD -MP -MF $(DEPDIR)/Rasinki-EnemyScript.Tpo -c -o Rasinki-EnemyScript.o `test -f 'src/Scripts/EnemyScript.cpp' || echo '$(srcdir)/'`src/Scripts/EnemyScript.cpp
+@am__fastdepCXX_TRUE@	$(am__mv) $(DEPDIR)/Rasinki-EnemyScript.Tpo $(DEPDIR)/Rasinki-EnemyScript.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='src/Scripts/EnemyScript.cpp' object='Rasinki-EnemyScript.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(Rasinki_CPPFLAGS) $(CPPFLAGS) $(Rasinki_CXXFLAGS) $(CXXFLAGS) -c -o Rasinki-EnemyScript.o `test -f 'src/Scripts/EnemyScript.cpp' || echo '$(srcdir)/'`src/Scripts/EnemyScript.cpp
+
+Rasinki-EnemyScript.obj: src/Scripts/EnemyScript.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(Rasinki_CPPFLAGS) $(CPPFLAGS) $(Rasinki_CXXFLAGS) $(CXXFLAGS) -MT Rasinki-EnemyScript.obj -MD -MP -MF $(DEPDIR)/Rasinki-EnemyScript.Tpo -c -o Rasinki-EnemyScript.obj `if test -f 'src/Scripts/EnemyScript.cpp'; then $(CYGPATH_W) 'src/Scripts/EnemyScript.cpp'; else $(CYGPATH_W) '$(srcdir)/src/Scripts/EnemyScript.cpp'; fi`
+@am__fastdepCXX_TRUE@	$(am__mv) $(DEPDIR)/Rasinki-EnemyScript.Tpo $(DEPDIR)/Rasinki-EnemyScript.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='src/Scripts/EnemyScript.cpp' object='Rasinki-EnemyScript.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(Rasinki_CPPFLAGS) $(CPPFLAGS) $(Rasinki_CXXFLAGS) $(CXXFLAGS) -c -o Rasinki-EnemyScript.obj `if test -f 'src/Scripts/EnemyScript.cpp'; then $(CYGPATH_W) 'src/Scripts/EnemyScript.cpp'; else $(CYGPATH_W) '$(srcdir)/src/Scripts/EnemyScript.cpp'; fi`
 
 mostlyclean-libtool:
 	-rm -f *.lo

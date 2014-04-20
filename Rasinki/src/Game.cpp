@@ -14,6 +14,7 @@ using namespace std;
 #include "Scripts/GameplayScript.h"
 #include "Scripts/Grid.h"
 #include "Scripts/GridSquare.h"
+#include "Scripts/EnemyScript.h"
 
 
 #include "Objects/Paddle.h"
@@ -742,7 +743,7 @@ void Game::createScene(void) {
     RobotScript *robotScript = bob->AddComponentOfType<RobotScript>();
     bob->transform->setWorldPosition(Ogre::Vector3(0,10,0));
     bob->transform->setWorldScale(Ogre::Vector3(1,1,1));
-    bob->physics->setGravity(Ogre::Vector3(0,-980,0));
+    bob->physics->setGravity(Ogre::Vector3(0,-9.8f,0));
     bob->name = "bob";
     robotScript->grid = grid;
 
@@ -762,11 +763,17 @@ void Game::createScene(void) {
     mAnimationState->setEnabled(true);
 
     gameObjects.push_back(bob);
-
-
-
-
-    float ballSpeed = 1000.0f;
+    Cube *enemy = new Cube(this, 1);
+    EnemyScript *enemyScript = enemy->AddComponentOfType<EnemyScript>();
+    enemy->transform->setWorldPosition(Ogre::Vector3(2500, 100, 2500));
+    enemyScript->destination = Ogre::Vector3(0,10,0);
+    enemy->transform->setLocalScale(Ogre::Vector3(1, 1, 1));
+    enemy->name = "enemy";
+    gameObjects.push_back(enemy);
+    //         block->AddComponentOfType<PointBlock>();
+    //         block->transform->setWorldPosition(Ogre::Vector3(posx,posy,posz));
+    //         block->transform->setLocalScale(Ogre::Vector3(1, 1, 1));
+    //         block->name = "block"+cubeid;
 
     // // Balls
     // Sphere *ball01 = new Sphere(this, 75);
