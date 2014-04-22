@@ -374,21 +374,14 @@ bool Game::keyPressed( const OIS::KeyEvent &arg )
                 enableMainMenu();
         }
     }
-    /*else if (arg.key == OIS::KC_X)
-    {
-        for (int i = 1; i <= 10; ++i)
-        {
-            float rot = Ogre::Math::HALF_PI/10;
-            Ogre::Vector3 pos = mCamera->getPosition();
-            Ogre::Vector3 rotPos = Ogre::Vector3::ZERO;
-            rotPos.x = Ogre::Math::Cos(rot)*pos.x + Ogre::Math::Sin(rot)*pos.z;
-            rotPos.z = Ogre::Math::Sin(rot)*-pos.x + Ogre::Math::Cos(rot)*pos.z;
-            mCamera->setPosition(Ogre::Vector3(rotPos.x, pos.y, rotPos.z));
-            mCamera->lookAt(Ogre::Vector3(0,-200,0));
-            mCamera->setNearClipDistance(5);
-            mRoot->renderOneFrame();
-        }
-    }
+    // else if (arg.key == OIS::KC_SPACE)
+    // {
+    //     Ogre::Vector3 veloc = gameObjects[0]->physics->getLinearVelocity();
+    //     veloc.y += 150;
+
+    //     gameObjects[0]->physics->setLinearVelocity(veloc);
+    // }
+    /*
     else if (arg.key == OIS::KC_Z)
     {
         for (int i = 0; i < 10; ++i)
@@ -553,8 +546,10 @@ void Game::createLights(void) {
     spotLight4->setPosition(Ogre::Vector3(0, -300, 0));
     spotLight4->setSpotlightRange(Ogre::Degree(35), Ogre::Degree(50));
 
-    mSceneManager->setAmbientLight(Ogre::ColourValue(.25, .25, .25));
+    mSceneManager->setAmbientLight(Ogre::ColourValue(.15, .15, .15));
     mSceneManager->setShadowTechnique(Ogre::SHADOWTYPE_STENCIL_ADDITIVE);
+    mSceneManager->setShadowColour(Ogre::ColourValue::Black);
+
     cout << "Done creating lights!" << endl;
 }
 
@@ -763,6 +758,7 @@ void Game::createScene(void) {
     mAnimationState->setEnabled(true);
 
     gameObjects.push_back(bob);
+
     Cube *enemy = new Cube(this, 1);
     EnemyScript *enemyScript = enemy->AddComponentOfType<EnemyScript>();
     enemy->transform->setWorldPosition(Ogre::Vector3(2500, 100, 2500));
