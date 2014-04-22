@@ -22,8 +22,9 @@ Physics::Physics(GameObject* attachedGameObject, float mass, btCollisionShape* c
 	mRigidBody->setActivationState(DISABLE_DEACTIVATION);
 	// std::cout << "<3>" << std::endl;
 	//Add rigidbody to world
-	mGravity = btVector3(0,-980,0);
-	mRigidBody->setGravity(btVector3(0,-980,0));
+	float multiplier = 50;
+	mGravity = btVector3(0,multiplier*-980,0);
+	mRigidBody->setGravity(btVector3(0,multiplier*-980,0));
 	//instance of btDiscreteDynamicsWorld->addRigidBody(mRigidBody)
 	gameObject->game->getPhysicsSimulator()->addObject(mRigidBody);
 	//std::cout << "COLLIDER AT " << pos.x() << ", " << pos.y() << ", " << pos.z() << std::endl;	

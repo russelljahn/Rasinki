@@ -2,7 +2,7 @@
  
 #include "RobotScript.h"
 #include "../Input.h"
-
+#include <string>
 
 RobotScript::RobotScript(GameObject *attachedGameObject) : Script(attachedGameObject) {
     Start();
@@ -16,6 +16,8 @@ void RobotScript::Start() {
     glowTile->transform->setWorldScale(Ogre::Vector3(2.5, .125, 2.5));
     glowTile->physics->disableCollider();
     glowTile->renderer->setMaterial("SquareGlow1");
+    jumping = false;
+    falling = false;
 }
 
 
@@ -49,38 +51,48 @@ void RobotScript::Update() {
         gameObject->game->getCameraNode()->setOrientation(quat.w, quat.x, quat.y, .3499);
     }
     
-    if (gameObject->game->getKeyboard()->isKeyDown(OIS::KC_LEFT) || gameObject->game->getKeyboard()->isKeyDown(OIS::KC_A)) {
+    if (Input::IsKeyDown(OIS::KC_LEFT) || Input::IsKeyDown(OIS::KC_A)) {
         Ogre::Vector3 veloc = gameObject->transform->sceneNode->getOrientation() * Ogre::Vector3(0,0,1) * -movementSpeed;
 
         gameObject->physics->setLinearVelocity(veloc);
         gameObject->game->setAnimationState(gameObject->renderer->entity->getAnimationState("Walk"));
     }
-    if (gameObject->game->getKeyboard()->isKeyDown(OIS::KC_RIGHT) || gameObject->game->getKeyboard()->isKeyDown(OIS::KC_D)) {
+    if (Input::IsKeyDown(OIS::KC_RIGHT) || Input::IsKeyDown(OIS::KC_D)) {
         Ogre::Vector3 veloc = gameObject->transform->sceneNode->getOrientation() * Ogre::Vector3(0,0,1) * movementSpeed;
 
         gameObject->physics->setLinearVelocity(veloc);
         gameObject->game->setAnimationState(gameObject->renderer->entity->getAnimationState("Walk"));
     }
-    if (gameObject->game->getKeyboard()->isKeyDown(OIS::KC_UP) || gameObject->game->getKeyboard()->isKeyDown(OIS::KC_W)) {
+    if (Input::IsKeyDown(OIS::KC_UP) || Input::IsKeyDown(OIS::KC_W)) {
         Ogre::Vector3 veloc = gameObject->transform->sceneNode->getOrientation() * Ogre::Vector3(1,0,0) * movementSpeed;
 
         gameObject->physics->setLinearVelocity(veloc);
         gameObject->game->setAnimationState(gameObject->renderer->entity->getAnimationState("Walk"));
     }
-    if (gameObject->game->getKeyboard()->isKeyDown(OIS::KC_DOWN) || gameObject->game->getKeyboard()->isKeyDown(OIS::KC_S)) {
+    if (Input::IsKeyDown(OIS::KC_DOWN) || Input::IsKeyDown(OIS::KC_S)) {
         Ogre::Vector3 veloc = gameObject->transform->sceneNode->getOrientation() * Ogre::Vector3(1,0,0) * -movementSpeed;
 
         gameObject->physics->setLinearVelocity(veloc);
         gameObject->game->setAnimationState(gameObject->renderer->entity->getAnimationState("Walk"));
     }
 
-    if (gameObject->game->getKeyboard()->isKeyDown(OIS::KC_SPACE)) {
+    if (Input::IsKeyDown(OIS::KC_SPACE) && !jumping && !falling) {
         Ogre::Vector3 veloc = gameObject->physics->getLinearVelocity();
-        veloc.y += movementSpeed*2;
+        veloc.y = movementSpeed*15;
+        jumping = true;
+        falling = false;
 
         gameObject->physics->setLinearVelocity(veloc);
         gameObject->game->setAnimationState(gameObject->renderer->entity->getAnimationState("Walk"));
     }
+
+    Ogre::Vector3 veloc = gameObject->physics->getLinearVelocity();
+    /* If you hit the apex of a jump... */
+    if (veloc.y <= 0.0f && jumping && !falling) {
+        falling = true;
+        jumping = false;
+    }
+
 
     Ogre::Vector3 subpos = gameObject->physics->getWorldPosition();
 
@@ -124,5 +136,10 @@ void RobotScript::HandleTower() {
 
 
 void RobotScript::OnCollision(Ogre::Vector3 point, GameObject* collidedWith) {
+  /* If you're on the ground... */
+    if (falling && collidedWith->name.compare("gridsquare") == 0) {
+        falling = false;
+        jumping = false;
+    }
 
 }

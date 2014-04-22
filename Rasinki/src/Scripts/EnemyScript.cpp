@@ -1,8 +1,8 @@
 #include "EnemyScript.h"
 
 EnemyScript::EnemyScript(GameObject *attachedGameObject) : Script(attachedGameObject) {
-	moveSpeed = 150.0f;
-	destination = gameObject->physics->getWorldPosition();
+	moveSpeed = 500.0f;
+	destination = gameObject->transform->getWorldPosition();
 	gameObject->renderer->setMaterial("Examples/Chrome_Red");
 	Start();
 }
@@ -30,5 +30,6 @@ void EnemyScript::Update() {
 	}
 	veloc.normalise();
 	veloc *= moveSpeed;
+	std::cout << "VELOC: " << veloc << std::endl;
 	gameObject->physics->setLinearVelocity(veloc);
 }
