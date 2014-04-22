@@ -17,6 +17,11 @@ class Grid : public Script {
 		void Update(void);
 		void OnCollision(Ogre::Vector3 point, GameObject* collidedWith);
 		GridSquare* gridSquareAtPos(Ogre::Vector3 worldPos);
+		int getWidth() { return width; }
+		int getDepth() { return depth; }
+		GridSquare* getSquareAtIndex(int i, int j) {
+			return squares[i*width + j];
+		}
 	private:
 		int width;
 		int depth;

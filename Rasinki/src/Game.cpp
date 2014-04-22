@@ -15,6 +15,7 @@ using namespace std;
 #include "Scripts/Grid.h"
 #include "Scripts/GridSquare.h"
 #include "Scripts/EnemyScript.h"
+#include "Scripts/Pathfinder.h"
 
 
 #include "Objects/Paddle.h"
@@ -764,9 +765,11 @@ void Game::createScene(void) {
 
     gameObjects.push_back(bob);
     Cube *enemy = new Cube(this, 1);
+    Pathfinder *enemyPathfinder = enemy->AddComponentOfType<Pathfinder>();
+    enemyPathfinder->Initialize(grid);
     EnemyScript *enemyScript = enemy->AddComponentOfType<EnemyScript>();
     enemy->transform->setWorldPosition(Ogre::Vector3(2500, 100, 2500));
-    enemyScript->destination = Ogre::Vector3(0,10,0);
+    enemyScript->Initialize(enemyPathfinder);
     enemy->transform->setLocalScale(Ogre::Vector3(1, 1, 1));
     enemy->name = "enemy";
     gameObjects.push_back(enemy);

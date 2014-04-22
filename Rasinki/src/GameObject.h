@@ -17,8 +17,6 @@
 #include "Components/Physics.h"
 #include "Components/Renderer.h"
 
-
-
 /* Forward declarations. */
 class Game;
 class Component;
