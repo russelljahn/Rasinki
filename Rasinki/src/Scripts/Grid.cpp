@@ -29,8 +29,8 @@ Grid::Grid(GameObject *attachedGameObject) : Script(attachedGameObject) {
 
     Cube *floorCollider = new Cube(this->gameObject->game, 0);
     floorCollider->renderer->setEnabled(false);
-    floorCollider->transform->setWorldScale(Ogre::Vector3((bounds.x/100)*width,bounds.y/400,(bounds.z/100)*depth));
-    floorCollider->physics->setWorldPosition(Ogre::Vector3(bounds.x*(width - 1)/2, 0.0, bounds.z*(depth - 1)/2));
+    floorCollider->transform->setWorldScale(Ogre::Vector3((bounds.x/50)*width, 2*bounds.y, (bounds.z/50)*depth));
+    floorCollider->physics->setWorldPosition(Ogre::Vector3(bounds.x*(width - 1)/2, -100*bounds.y, bounds.z*(depth - 1)/2));
     this->gameObject->game->gameObjects.push_back(floorCollider);
 
     Cube *ceilingCollider = new Cube(this->gameObject->game, 0);
@@ -41,26 +41,26 @@ Grid::Grid(GameObject *attachedGameObject) : Script(attachedGameObject) {
 
 
     Cube *west = new Cube(this->gameObject->game, 0);
-    west->transform->setWorldScale(Ogre::Vector3((bounds.x/100)*width, height,1));
-    west->physics->setWorldPosition(Ogre::Vector3(bounds.x*(width - 1)/2, 50.0*height, -175));
+    west->transform->setWorldScale(Ogre::Vector3((bounds.x/100)*width, height,10));
+    west->physics->setWorldPosition(Ogre::Vector3(bounds.x*(width - 1)/2, 50.0*height, -625));
     west->renderer->setMaterial("BoundaryGlow1");
     this->gameObject->game->gameObjects.push_back(west);
 
     Cube *east = new Cube(this->gameObject->game, 0);
-    east->transform->setWorldScale(Ogre::Vector3((bounds.x/100)*width,height,1));
-    east->physics->setWorldPosition(Ogre::Vector3(bounds.x*(width - 1)/2, 50.0*height, bounds.x*(depth-1) + 175));
+    east->transform->setWorldScale(Ogre::Vector3((bounds.x/100)*width,height,10));
+    east->physics->setWorldPosition(Ogre::Vector3(bounds.x*(width - 1)/2, 50.0*height, bounds.x*(depth-1) + 625));
     east->renderer->setMaterial("BoundaryGlow1");
     this->gameObject->game->gameObjects.push_back(east);
 
     Cube *north = new Cube(this->gameObject->game, 0);
-    north->transform->setWorldScale(Ogre::Vector3( 1, height, (bounds.x/100*depth) ) );
-    north->physics->setWorldPosition(Ogre::Vector3(bounds.x*(width - 1) + 175, 50.0*height, bounds.x*(depth-1)/2));
+    north->transform->setWorldScale(Ogre::Vector3( 10, height, (bounds.x/100*depth)+10 ) );
+    north->physics->setWorldPosition(Ogre::Vector3(bounds.x*(width - 1) + 625, 50.0*height, bounds.x*(depth-1)/2));
     north->renderer->setMaterial("BoundaryGlow1");
     this->gameObject->game->gameObjects.push_back(north);
 
     Cube *south = new Cube(this->gameObject->game, 0);
-    south->transform->setWorldScale(Ogre::Vector3( 1, height, (bounds.x/100*depth) ) );
-    south->physics->setWorldPosition(Ogre::Vector3( -175, 50.0*height, bounds.x*(depth-1)/2));
+    south->transform->setWorldScale(Ogre::Vector3( 10, height, (bounds.x/100*depth)+10 ) );
+    south->physics->setWorldPosition(Ogre::Vector3( -625, 50.0*height, bounds.x*(depth-1)/2));
     south->renderer->setMaterial("BoundaryGlow1");
     this->gameObject->game->gameObjects.push_back(south);
 };

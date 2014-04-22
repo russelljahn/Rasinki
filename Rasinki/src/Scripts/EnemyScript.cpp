@@ -2,7 +2,7 @@
 
 EnemyScript::EnemyScript(GameObject *attachedGameObject) : Script(attachedGameObject) {
 	Start();
-	moveSpeed = 150.0f;
+	moveSpeed = 1500.0f;
 	destination = gameObject->transform->getWorldPosition();
 	gameObject->renderer->setMaterial("Examples/Chrome_Red");
 }

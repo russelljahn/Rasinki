@@ -115,7 +115,7 @@ void Game::createFrameListener(void)
     mMouse->setEventCallback(this);
     mKeyboard->setEventCallback(this);
     
-    Input::Initialize(mKeyboard, mMouse);
+    Input::Initialize(mKeyboard, mMouse, mWindow);
 
     //Set initial mouse clipping size
     windowResized(mWindow);

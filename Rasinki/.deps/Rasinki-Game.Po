@@ -897,9 +897,7 @@ Rasinki-Game.o: src/Game.cpp src/Game.h \
  /usr/include/SDL/SDL_mouse.h /usr/include/SDL/SDL_video.h \
  /usr/include/SDL/SDL_joystick.h /usr/include/SDL/SDL_quit.h \
  /usr/include/SDL/SDL_loadso.h /usr/include/SDL/SDL_timer.h \
- /usr/include/SDL/SDL_version.h src/Input.h src/SoundManager.h \
- /usr/include/SDL/SDL.h /usr/include/SDL/SDL_mixer.h \
- /usr/include/SDL/SDL_types.h src/Input.h \
+ /usr/include/SDL/SDL_version.h src/Input.h \
  /usr/local/include/CEGUI/CEGUI.h \
  /usr/local/include/CEGUI/CEGUIAffector.h \
  /usr/local/include/CEGUI/CEGUIString.h \
@@ -1130,6 +1128,8 @@ Rasinki-Game.o: src/Game.cpp src/Game.h \
  /usr/local/include/CEGUI/elements/CEGUITreeItem.h \
  /usr/local/include/CEGUI/elements/CEGUITreeProperties.h \
  /usr/local/include/CEGUI/elements/CEGUIVerticalLayoutContainer.h \
+ src/SoundManager.h /usr/include/SDL/SDL.h /usr/include/SDL/SDL_mixer.h \
+ /usr/include/SDL/SDL_types.h src/Input.h \
  /usr/local/include/CEGUI/RendererModules/Ogre/CEGUIOgreRenderer.h \
  /usr/local/include/CEGUI/RendererModules/Ogre/../../CEGUIRenderer.h \
  /usr/local/include/CEGUI/RendererModules/Ogre/../../CEGUISize.h \
@@ -3283,16 +3283,6 @@ src/Network.h:
 
 src/Input.h:
 
-src/SoundManager.h:
-
-/usr/include/SDL/SDL.h:
-
-/usr/include/SDL/SDL_mixer.h:
-
-/usr/include/SDL/SDL_types.h:
-
-src/Input.h:
-
 /usr/local/include/CEGUI/CEGUI.h:
 
 /usr/local/include/CEGUI/CEGUIAffector.h:
@@ -3752,6 +3742,16 @@ src/Input.h:
 /usr/local/include/CEGUI/elements/CEGUITreeProperties.h:
 
 /usr/local/include/CEGUI/elements/CEGUIVerticalLayoutContainer.h:
+
+src/SoundManager.h:
+
+/usr/include/SDL/SDL.h:
+
+/usr/include/SDL/SDL_mixer.h:
+
+/usr/include/SDL/SDL_types.h:
+
+src/Input.h:
 
 /usr/local/include/CEGUI/RendererModules/Ogre/CEGUIOgreRenderer.h:
 
