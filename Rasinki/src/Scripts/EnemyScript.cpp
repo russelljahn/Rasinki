@@ -31,7 +31,7 @@ void EnemyScript::Update() {
 	}
 	veloc.normalise();
 	veloc *= moveSpeed;
-	std::cout << "VELOC: " << veloc << std::endl;
+	//std::cout << "VELOC: " << veloc << std::endl;
 	gameObject->physics->setLinearVelocity(veloc);
 	 list<PathSquare*>::iterator i;
 	for (i = _currentPath.begin(); i != _currentPath.end(); i++) {

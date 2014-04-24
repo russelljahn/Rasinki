@@ -39,26 +39,25 @@ Grid::Grid(GameObject *attachedGameObject) : Script(attachedGameObject) {
     ceilingCollider->physics->setWorldPosition(Ogre::Vector3(bounds.x*(width - 1)/2, 5000, bounds.z*(depth - 1)/2));
     this->gameObject->game->gameObjects.push_back(ceilingCollider);
 
-
-    Cube *west = new Cube(this->gameObject->game, 0);
+    west = new Cube(this->gameObject->game, 0);
     west->transform->setWorldScale(Ogre::Vector3((bounds.x/100)*width, height,10));
     west->physics->setWorldPosition(Ogre::Vector3(bounds.x*(width - 1)/2, 50.0*height, -625));
     west->renderer->setMaterial("BoundaryGlow1");
     this->gameObject->game->gameObjects.push_back(west);
 
-    Cube *east = new Cube(this->gameObject->game, 0);
+    east = new Cube(this->gameObject->game, 0);
     east->transform->setWorldScale(Ogre::Vector3((bounds.x/100)*width,height,10));
     east->physics->setWorldPosition(Ogre::Vector3(bounds.x*(width - 1)/2, 50.0*height, bounds.x*(depth-1) + 625));
     east->renderer->setMaterial("BoundaryGlow1");
     this->gameObject->game->gameObjects.push_back(east);
 
-    Cube *north = new Cube(this->gameObject->game, 0);
+    north = new Cube(this->gameObject->game, 0);
     north->transform->setWorldScale(Ogre::Vector3( 10, height, (bounds.x/100*depth)+10 ) );
     north->physics->setWorldPosition(Ogre::Vector3(bounds.x*(width - 1) + 625, 50.0*height, bounds.x*(depth-1)/2));
     north->renderer->setMaterial("BoundaryGlow1");
     this->gameObject->game->gameObjects.push_back(north);
 
-    Cube *south = new Cube(this->gameObject->game, 0);
+    south = new Cube(this->gameObject->game, 0);
     south->transform->setWorldScale(Ogre::Vector3( 10, height, (bounds.x/100*depth)+10 ) );
     south->physics->setWorldPosition(Ogre::Vector3( -625, 50.0*height, bounds.x*(depth-1)/2));
     south->renderer->setMaterial("BoundaryGlow1");
@@ -79,6 +78,23 @@ void Grid::Update() {
 	if (!this->gameObject->renderer->isEnabled()) {
 		this->gameObject->physics->setEnabled(false);
 	}
+
+
+    if (this->gameObject->game->viewMode == true)
+    {
+        std::cout << "disable walls" << std::endl;
+        north->renderer->setEnabled(false);
+        east->renderer->setEnabled(false);
+        west->renderer->setEnabled(false);
+        south->renderer->setEnabled(false);
+    }
+    else
+    {
+        north->renderer->setEnabled(true);
+        east->renderer->setEnabled(true);
+        west->renderer->setEnabled(true);
+        south->renderer->setEnabled(true);
+    }
 }
 
 

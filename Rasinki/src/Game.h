@@ -89,6 +89,7 @@ public:
     int camSide(void);
 
     int level;
+    bool viewMode;
     bool gameMode;
     bool inMultiplayerMenu;
     bool OnServerQuit();
@@ -144,13 +145,20 @@ protected:
 
 
     Ogre::Root *mRoot;
-    Ogre::Camera* mCamera;
-    Ogre::SceneNode* mCameraNode;
+    Ogre::Viewport *vp;
+    Ogre::Camera** mCamera;
+    Ogre::SceneNode** mCameraNode;
     Ogre::SceneManager* mSceneManager;
     Ogre::RenderWindow* mWindow;
     Ogre::String mResourcesConfig;
     Ogre::String mPluginsConfig;
     Ogre::AnimationState *mAnimationState;
+
+    // Player and World Camera/CameraNode
+    Ogre::Camera* worldCamera;
+    Ogre::SceneNode* worldCameraNode;
+    Ogre::Camera* playerCamera;
+    Ogre::SceneNode* playerCameraNode;
 
     // OgreBites
     OgreBites::SdkTrayManager* mTrayManager;
