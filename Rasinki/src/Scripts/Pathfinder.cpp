@@ -16,7 +16,15 @@ void Pathfinder::Initialize(Grid* grid) {
   } 
 }
 list<PathSquare*> Pathfinder::FindPath(int goalX, int goalY) {
+  for (int i = 0; i < gridWidth; i++) {
+    for (int j = 0; j < gridDepth; j++) {
+      _grid[i*gridWidth + j]->open = false;
+      _grid[i*gridWidth + j]->closed = false;
+      cout << "i " << i << " xPos: " << _grid[i*gridWidth + j]->x << " j " << j << " yPos " <<  _grid[i*gridWidth + j]->y << endl; 
+    }
+  }
   PathSquare* current;
+  std::cout << "FINDING PATH 0" << std::endl;
   list<PathSquare*> openSet;
   list<PathSquare*> closedSet;
   list<PathSquare*>::iterator i;
@@ -24,6 +32,7 @@ list<PathSquare*> Pathfinder::FindPath(int goalX, int goalY) {
   _grid[currentX*gridWidth + currentY]->open = true;
   _grid[currentX*gridWidth + currentY]->closed = false;
   _grid[currentX*gridWidth + currentY]->parent = NULL;
+  std::cout << "FINDING PATH 1" << std::endl;
   current = _grid[currentX*gridWidth + currentY];
   while (current != _grid[goalX*gridWidth + goalY]) {
     current = *openSet.begin();
@@ -39,6 +48,7 @@ list<PathSquare*> Pathfinder::FindPath(int goalX, int goalY) {
     closedSet.push_back(current);
     list<PathSquare*> neighbors;
     //Need to check for out of bounds
+    std::cout << "FINDING PATH 2, Current: " << current->x << " " << current->y << std::endl;
     if (current->x > 0) {
       if (current->y > 0) {
         neighbors.push_back(_grid[(current->x - 1)*gridWidth + (current->y - 1)]);
@@ -79,6 +89,7 @@ list<PathSquare*> Pathfinder::FindPath(int goalX, int goalY) {
       }
     }
   }
+  std::cout << "FINDING PATH 3" << std::endl;
   list<PathSquare*> path = *(new list<PathSquare*>);
   while(current->parent != NULL) {
     path.push_front(current);

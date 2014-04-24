@@ -25,6 +25,7 @@ void EnemyScript::Update() {
 		veloc = (_currentPath.front()->getPosition() - gameObject->physics->getWorldPosition());
 		veloc.y = 0;
 		if (veloc.squaredLength() < 10) {
+			pathfinder->setCurrentGridSquare(gameObject->physics->getWorldPosition());
 			_currentPath.pop_front();
 		}
 	}
@@ -32,4 +33,11 @@ void EnemyScript::Update() {
 	veloc *= moveSpeed;
 	std::cout << "VELOC: " << veloc << std::endl;
 	gameObject->physics->setLinearVelocity(veloc);
+	 list<PathSquare*>::iterator i;
+	for (i = _currentPath.begin(); i != _currentPath.end(); i++) {
+    	if (!(*i)->isWalkable()) {
+			_currentPath = pathfinder->FindPath(0, 0);
+			break;
+		}
+	}
 }
