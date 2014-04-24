@@ -30,11 +30,17 @@ public:
 	}
 	void calculateScores(PathSquare* goal) {
 		h = std::abs(x - goal->x) + std::abs(y - goal->y);
-		g = 1 + parent->g;
+		calculateG(this);
 		f = g + h;
 	}
 	bool isWalkable() { return !gridSquare->IsOccupied(); }
-	int calculateG(PathSquare* p) { return p->g + 1; }
+	int calculateG(PathSquare* p) { 
+		if (x == parent->x || y == parent->y)
+			g = 10 + parent->g;
+		else 
+			g = 14+parent->g;
+		return g; 
+	}
 	Ogre::Vector3 getPosition() {
 		Ogre::Vector3 ans = gridSquare->getBounds();
 		ans.x *= x;
