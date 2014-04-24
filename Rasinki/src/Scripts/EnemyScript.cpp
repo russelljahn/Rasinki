@@ -30,6 +30,6 @@ void EnemyScript::Update() {
 	}
 	veloc.normalise();
 	veloc *= moveSpeed;
-	std::cout << "VELOC: " << veloc << std::endl;
+	//std::cout << "VELOC: " << veloc << std::endl;
 	gameObject->physics->setLinearVelocity(veloc);
 }

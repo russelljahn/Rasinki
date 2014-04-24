@@ -86,13 +86,16 @@ void Game::chooseSceneManager(void)
 void Game::createCamera()
 {
     // Create the camera
-    mCamera = mSceneManager->createCamera("PlayerCam");
+    worldCamera = mSceneManager->createCamera("WorldCam");
+    playerCamera = mSceneManager->createCamera("PlayerCam");
+
+    mCamera = &playerCamera;
 
     // Position it at 500 in Z direction
-    mCamera->setPosition(Ogre::Vector3(0,0,0));
+    worldCamera->setPosition(Ogre::Vector3(-1000,4000,-1000));
     // Look back along -Z
-    mCamera->lookAt(Ogre::Vector3(0,0,0));
-    mCamera->setNearClipDistance(5);
+    worldCamera->lookAt(Ogre::Vector3(250*25,0,250*25));
+    worldCamera->setNearClipDistance(5);
 
 }
 //-------------------------------------------------------------------------------------
@@ -165,11 +168,11 @@ void Game::destroyScene(void)
 void Game::createViewports(void)
 {
     // Create one viewport, entire window
-    Ogre::Viewport* vp = mWindow->addViewport(mCamera);
+    vp = mWindow->addViewport(getCamera());
     vp->setBackgroundColour(Ogre::ColourValue(0,0,0));
 
     // Alter the camera aspect ratio to match the viewport
-    mCamera->setAspectRatio(
+    getCamera()->setAspectRatio(
         Ogre::Real(vp->getActualWidth()) / Ogre::Real(vp->getActualHeight()));
 }
 //-------------------------------------------------------------------------------------
@@ -255,6 +258,7 @@ bool Game::setup(void)
     if (!carryOn) return false;
 
     level = 1;
+    viewMode = false;
     gameMode = false;
     inMultiplayerMenu = false;
 
@@ -375,13 +379,23 @@ bool Game::keyPressed( const OIS::KeyEvent &arg )
                 enableMainMenu();
         }
     }
-    // else if (arg.key == OIS::KC_SPACE)
-    // {
-    //     Ogre::Vector3 veloc = gameObjects[0]->physics->getLinearVelocity();
-    //     veloc.y += 150;
-
-    //     gameObjects[0]->physics->setLinearVelocity(veloc);
-    // }
+    else if (arg.key == OIS::KC_LSHIFT)
+    {
+        viewMode = !viewMode;
+        if(viewMode == true) 
+        {
+            cout << "world view" << endl;
+            mCamera = &worldCamera;
+            vp->setCamera(getCamera());  
+        }
+        else
+        {
+            cout << "player view" << endl;
+            mCamera = &playerCamera;
+            mCameraNode = &playerCameraNode;
+            vp->setCamera(getCamera());
+        }
+    }
     /*
     else if (arg.key == OIS::KC_Z)
     {
@@ -733,7 +747,6 @@ void Game::createScene(void) {
 
     GameObject *gridGameObject = new GameObject(this);
     Grid *grid = gridGameObject->AddComponentOfType<Grid>();
-    // gameObjects.push_back(gridGameObject);
     
     Robot *bob = new Robot(this);
     RobotScript *robotScript = bob->AddComponentOfType<RobotScript>();
@@ -746,13 +759,16 @@ void Game::createScene(void) {
     Ogre::Vector3 subpos = bob->physics->getWorldPosition();
 
     // Position it at 500 in Z direction
-    mCamera->setPosition(Ogre::Vector3(subpos.x - 300, subpos.y + 300, subpos.z));
+    playerCamera->setPosition(Ogre::Vector3(subpos.x - 300, subpos.y + 300, subpos.z));
     // Look back along -Z
-    mCamera->lookAt(Ogre::Vector3(subpos.x,subpos.y + 80,subpos.z));
-    mCamera->setNearClipDistance(5);
+    playerCamera->lookAt(Ogre::Vector3(subpos.x,subpos.y + 80,subpos.z));
+    playerCamera->setNearClipDistance(5);
 
-    mCameraNode = bob->transform->sceneNode->createChildSceneNode("CameraNode");
-    mCameraNode->attachObject(mCamera);
+    playerCameraNode = bob->transform->sceneNode->createChildSceneNode("CameraNode");
+    playerCameraNode->attachObject(playerCamera);
+
+    mCamera = &playerCamera;
+    mCameraNode = &playerCameraNode;
 
     mAnimationState = bob->renderer->entity->getAnimationState("Idle");
     mAnimationState->setLoop(true);
@@ -769,6 +785,7 @@ void Game::createScene(void) {
     enemy->transform->setLocalScale(Ogre::Vector3(1, 1, 1));
     enemy->name = "enemy";
     gameObjects.push_back(enemy);
+
     //         block->AddComponentOfType<PointBlock>();
     //         block->transform->setWorldPosition(Ogre::Vector3(posx,posy,posz));
     //         block->transform->setLocalScale(Ogre::Vector3(1, 1, 1));
@@ -935,16 +952,16 @@ OIS::Mouse* Game::getMouse(void) {
 }
 
 Ogre::Camera* Game::getCamera(void) {
-    return mCamera;
+    return *mCamera;
 }
 
 Ogre::SceneNode* Game::getCameraNode(void) {
-    return mCameraNode;
+    return *mCameraNode;
 }
 
 
 int Game::camQuadrant () {
-    Ogre::Vector3 pos = mCamera->getPosition();
+    Ogre::Vector3 pos = getCamera()->getPosition();
     if(pos.x > 0 & pos.z > 0)
     {
         return 1;
@@ -964,7 +981,7 @@ int Game::camQuadrant () {
 }
 
 int Game::camSide () {
-    Ogre::Vector3 pos = mCamera->getPosition();
+    Ogre::Vector3 pos = getCamera()->getPosition();
     Ogre::Vector3 camToY = Ogre::Vector3(pos.x, 0, pos.z);
     
     if( camToY.dotProduct( Ogre::Vector3(-1,0,1) ) > 0 && camToY.dotProduct( Ogre::Vector3(1,0,1) ) > 0 )
