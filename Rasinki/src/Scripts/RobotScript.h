@@ -7,6 +7,8 @@
 #include "Grid.h"
 #include "GridSquare.h"
 #include "../Objects/Cube.h"
+#include "../Objects/Tower.h"
+
 
 /* 
 	Code to control Robot behavior.

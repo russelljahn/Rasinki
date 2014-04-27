@@ -99,4 +99,84 @@ material BoundaryGlow1
 	}
 }
 
- 
+
+material Chrome_Grey
+{
+	technique
+	{
+		pass
+		{
+			texture_unit
+			{
+				texture Chrome.jpg
+				env_map spherical
+			}
+		}
+	}
+}
+
+
+material Chrome_Red
+{
+	technique
+	{
+		pass
+		{
+			texture_unit
+			{
+				texture Chrome_Red.jpg
+				env_map spherical
+			}
+		}
+	}
+}
+
+
+material Chrome_Blue
+{
+	technique
+	{
+		pass
+		{
+			texture_unit
+			{
+				texture Chrome_Blue.jpg
+				env_map spherical
+			}
+		}
+	}
+}
+
+
+material Turret_02
+{
+	technique
+	{
+		pass
+		{
+			texture_unit
+			{
+				texture metal/future_001.jpg
+			}
+		}
+	}
+}
+
+
+material Robot_01
+{
+	technique
+	{
+		pass
+		{
+			texture_unit
+			{
+				texture metal/LunaBaseIII2.jpg
+			}
+		}
+	}
+}
+
+
+
+

@@ -20,7 +20,7 @@ void Robot::Start() {
 	physics = new Physics(this, 1000, new btSphereShape(10));
 	physics->setLinearFactor(Ogre::Vector3(1,1,1));
 
-	renderer->setMaterial("Examples/Rockwall");
+	renderer->setMaterial("Robot_01");
 }
 
 void Robot::Update() {
