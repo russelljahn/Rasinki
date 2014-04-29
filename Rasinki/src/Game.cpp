@@ -786,10 +786,10 @@ void Game::createScene(void) {
     enemy->name = "enemy";
     gameObjects.push_back(enemy);
 
-    //         block->AddComponentOfType<PointBlock>();
-    //         block->transform->setWorldPosition(Ogre::Vector3(posx,posy,posz));
-    //         block->transform->setLocalScale(Ogre::Vector3(1, 1, 1));
-    //         block->name = "block"+cubeid;
+            // block->AddComponentOfType<PointBlock>();
+            // block->transform->setWorldPosition(Ogre::Vector3(posx,posy,posz));
+            // block->transform->setLocalScale(Ogre::Vector3(1, 1, 1));
+            // block->name = "block"+cubeid;
 
     // // Balls
     // Sphere *ball01 = new Sphere(this, 75);
