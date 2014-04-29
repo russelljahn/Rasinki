@@ -26,6 +26,8 @@ class Grid : public Script {
 
 		void disableWallsRender();
 		void enableWallsRender();
+
+		GridSquare** squares; // Pointer to matrix of GridSquare pointers. Matrix is really a long array mapping values in form of a matrix.
 	private:
 		Cube* west;
 		Cube* south;
@@ -33,7 +35,6 @@ class Grid : public Script {
 		Cube* north;
 		int width;
 		int depth;
-		GridSquare** squares; // Pointer to matrix of GridSquare pointers. Matrix is really a long array mapping values in form of a matrix.
 };
 
 

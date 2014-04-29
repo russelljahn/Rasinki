@@ -1150,7 +1150,8 @@ Rasinki-Game.o: src/Game.cpp src/Game.h \
  src/Scripts/RobotScript.h src/Scripts/RobotState.h src/Scripts/Grid.h \
  src/Scripts/GridSquare.h src/Scripts/../Objects/Cube.h \
  src/Scripts/../Objects/Tower.h \
- src/Scripts/../Objects/../Scripts/GridSquare.h src/Scripts/PointBlock.h \
+ src/Scripts/../Objects/../Scripts/GridSquare.h \
+ src/Scripts/../Objects/../Scripts/Grid.h src/Scripts/PointBlock.h \
  src/Scripts/Wall.h src/Scripts/SphereComponent.h \
  src/Scripts/GameplayScript.h src/Scripts/Grid.h src/Scripts/GridSquare.h \
  src/Scripts/EnemyScript.h src/Scripts/Pathfinder.h \
@@ -3828,6 +3829,8 @@ src/Scripts/../Objects/Cube.h:
 src/Scripts/../Objects/Tower.h:
 
 src/Scripts/../Objects/../Scripts/GridSquare.h:
+
+src/Scripts/../Objects/../Scripts/Grid.h:
 
 src/Scripts/PointBlock.h:
 
