@@ -128,15 +128,14 @@ GridSquare* Grid::gridSquareAtPos(Ogre::Vector3 worldPos) {
     // std::cout << " (int) ( ( worldPos.z + bounds.z*.5 ) /bounds.z): " <<  (int) ( ( worldPos.z + bounds.z*.5 ) /bounds.z) << std::endl;
     // std::cout << "sum: " << ((int)( (worldPos.x + bounds.x*.5)/bounds.x) * width + (int) ( ( worldPos.z + bounds.z*.5 ) /bounds.z)) << std::endl;
 
-    float epsilon = 0.001;
     int squareIndex = ((int)( (worldPos.x + bounds.x*.5)/bounds.x) * width + (int) ( ( worldPos.z + bounds.z*.5 ) /bounds.z));
 
     /* Will need to offeset if the grid gets moved off the origin */
     if (squareIndex < width*depth && 
-        worldPos.x > epsilon && 
-        worldPos.z > epsilon &&
-        worldPos.x<(bounds.x*width-epsilon) && 
-        worldPos.z<(bounds.z*depth-epsilon)
+        worldPos.x > 0 && 
+        worldPos.z > 0 &&
+        worldPos.x<(bounds.x*width) && 
+        worldPos.z<(bounds.z*depth)
         ) {
         // std::cout << "Am I null? Nope." << std::endl; 
         return squares[squareIndex];

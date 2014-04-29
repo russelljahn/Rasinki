@@ -121,6 +121,8 @@ void RobotScript::HandleTower() {
        if (!squarey->IsOccupied()) {
             Tower *tower = new Tower(this->gameObject->game,0);
             tower->physics->setWorldPosition(squareyPosition + Ogre::Vector3(00.0f, 65.0f, 40.0f));
+            tower->grid = grid;
+            tower->Initialize();
             squarey->occupant = tower;
 
             //this->gameObject->game->gameObjects.push_back(tower);    

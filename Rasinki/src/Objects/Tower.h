@@ -3,6 +3,7 @@
 
 #include <vector>
 #include "../Scripts/GridSquare.h"
+#include "../Scripts/Grid.h"
 
 
 
@@ -15,11 +16,14 @@ class Tower : public GameObject {
 		void Start();
 		void Update();
 		void FixedUpdate();
+		void Initialize();
 
 		void Kill();
 		void OnCollision(Ogre::Vector3 point, GameObject* collidedWith);
 
-		std::vector<GridSquare> inRangeSquares;
+		std::vector<GridSquare *> inRangeSquares;
+		std::vector<Cube *> glowTiles;
+		Grid *grid;
 };
 
 
