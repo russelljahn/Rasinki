@@ -82,6 +82,96 @@ void Game::chooseSceneManager(void)
     // Get the SceneManager, in this case a generic one
     mSceneManager = mRoot->createSceneManager(Ogre::ST_GENERIC);
 }
+// void getTerrainImage(bool flipX, bool flipY, Ogre::Image& img)
+// {
+//     img.load("terrain.png", Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME);
+//     if (flipX)
+//         img.flipAroundY();
+//     if (flipY)
+//         img.flipAroundX();
+// }
+// //-------------------------------------------------------------------------------------
+// void Game::defineTerrain(long x, long y)
+// {
+//     Ogre::String filename = mTerrainGroup->generateFilename(x, y);
+//     if (Ogre::ResourceGroupManager::getSingleton().resourceExists(mTerrainGroup->getResourceGroup(), filename))
+//     {
+//         mTerrainGroup->defineTerrain(x, y);
+//     }
+//     else
+//     {
+//         Ogre::Image img;
+//         getTerrainImage(x % 2 != 0, y % 2 != 0, img);
+//         mTerrainGroup->defineTerrain(x, y, &img);
+//         mTerrainsImported = true;
+//     }
+// }
+// //-------------------------------------------------------------------------------------
+// void Game::initBlendMaps(Ogre::Terrain* terrain)
+// {
+//     Ogre::TerrainLayerBlendMap* blendMap0 = terrain->getLayerBlendMap(1);
+//     Ogre::TerrainLayerBlendMap* blendMap1 = terrain->getLayerBlendMap(2);
+//     Ogre::Real minHeight0 = 70;
+//     Ogre::Real fadeDist0 = 40;
+//     Ogre::Real minHeight1 = 70;
+//     Ogre::Real fadeDist1 = 15;
+//     float* pBlend0 = blendMap0->getBlendPointer();
+//     float* pBlend1 = blendMap1->getBlendPointer();
+//     for (Ogre::uint16 y = 0; y < terrain->getLayerBlendMapSize(); ++y)
+//     {
+//         for (Ogre::uint16 x = 0; x < terrain->getLayerBlendMapSize(); ++x)
+//         {
+//             Ogre::Real tx, ty;
+ 
+//             blendMap0->convertImageToTerrainSpace(x, y, &tx, &ty);
+//             Ogre::Real height = terrain->getHeightAtTerrainPosition(tx, ty);
+//             Ogre::Real val = (height - minHeight0) / fadeDist0;
+//             val = Ogre::Math::Clamp(val, (Ogre::Real)0, (Ogre::Real)1);
+//             *pBlend0++ = val;
+ 
+//             val = (height - minHeight1) / fadeDist1;
+//             val = Ogre::Math::Clamp(val, (Ogre::Real)0, (Ogre::Real)1);
+//             *pBlend1++ = val;
+//         }
+//     }
+//     blendMap0->dirty();
+//     blendMap1->dirty();
+//     blendMap0->update();
+//     blendMap1->update();
+// }
+// //-------------------------------------------------------------------------------------
+// void Game::configureTerrainDefaults(Ogre::Light* light)
+// {
+//     // Configure global
+//     mTerrainGlobals->setMaxPixelError(8);
+//     // testing composite map
+//     mTerrainGlobals->setCompositeMapDistance(3000);
+ 
+//     // Important to set these so that the terrain knows what to use for derived (non-realtime) data
+//     mTerrainGlobals->setLightMapDirection(light->getDerivedDirection());
+//     mTerrainGlobals->setCompositeMapAmbient(mSceneManager->getAmbientLight());
+//     mTerrainGlobals->setCompositeMapDiffuse(light->getDiffuseColour());
+ 
+//     // Configure default import settings for if we use imported image
+//     Ogre::Terrain::ImportData& defaultimp = mTerrainGroup->getDefaultImportSettings();
+//     defaultimp.terrainSize = 513;
+//     defaultimp.worldSize = 12000.0f;
+//     defaultimp.inputScale = 600;
+//     defaultimp.minBatchSize = 33;
+//     defaultimp.maxBatchSize = 65;
+//     // textures
+//     defaultimp.layerList.resize(3);
+//     defaultimp.layerList[0].worldSize = 100;
+//     defaultimp.layerList[0].textureNames.push_back("dirt_grayrocky_diffusespecular.dds");
+//     defaultimp.layerList[0].textureNames.push_back("dirt_grayrocky_normalheight.dds");
+//     defaultimp.layerList[1].worldSize = 30;
+//     defaultimp.layerList[1].textureNames.push_back("grass_green-01_diffusespecular.dds");
+//     defaultimp.layerList[1].textureNames.push_back("grass_green-01_normalheight.dds");
+//     defaultimp.layerList[2].worldSize = 200;
+//     defaultimp.layerList[2].textureNames.push_back("growth_weirdfungus-03_diffusespecular.dds");
+//     defaultimp.layerList[2].textureNames.push_back("growth_weirdfungus-03_normalheight.dds");
+ 
+// }
 //-------------------------------------------------------------------------------------
 void Game::createCamera()
 {
@@ -92,10 +182,16 @@ void Game::createCamera()
     mCamera = &playerCamera;
 
     // Position it at 500 in Z direction
-    worldCamera->setPosition(Ogre::Vector3(-1000,4000,-1000));
+    worldCamera->setPosition(Ogre::Vector3(-3000,8000,-3000));
     // Look back along -Z
-    worldCamera->lookAt(Ogre::Vector3(250*25,0,250*25));
+    worldCamera->lookAt(Ogre::Vector3(250*25/2,0,250*25/2));
     worldCamera->setNearClipDistance(5);
+    worldCamera->setFarClipDistance(50000);
+ 
+    if (mRoot->getRenderSystem()->getCapabilities()->hasCapability(Ogre::RSC_INFINITE_FAR_PLANE))
+    {
+        worldCamera->setFarClipDistance(0);   // enable infinite far clip distance if we can
+    }
 
 }
 //-------------------------------------------------------------------------------------
@@ -720,28 +816,9 @@ void Game::enableMultiplayerMenu() {
 
 void Game::createScene(void) {
     cout << "Creating scene..." << endl;
-    // // Paddle
-    // Paddle *newPaddle = new Paddle(this, 0);
-    // newPaddle->AddComponentOfType<PaddleScript>();
-    // newPaddle->AddComponentOfType<GameplayScript>();
-    // newPaddle->transform->setWorldPosition(Ogre::Vector3(0,-800,0));
-    // newPaddle->transform->setLocalScale(Ogre::Vector3(3, .25, 3));
-    // newPaddle->name = "paddle";
-    // newPaddle->renderer->setMaterial("Examples/Rockwall");
-    // gameObjects.push_back(newPaddle); 
-    // std::cout << "NEW PADDLE POS: " << newPaddle->physics->getWorldPosition() << std::endl;
 
-    // if (multiplayer) {
-    //     Paddle *newPaddle2 = new Paddle(this, 1);
-    //     newPaddle2->AddComponentOfType<PaddleScript>();
-    //     newPaddle2->AddComponentOfType<GameplayScript>();
-    //     newPaddle2->transform->setWorldPosition(Ogre::Vector3(400,-800,0));
-    //     newPaddle2->transform->setLocalScale(Ogre::Vector3(3, .25, 3));
-    //     newPaddle2->name = "paddle2";
-    //     newPaddle2->renderer->setMaterial("Examples/Rockwall");
-    //     gameObjects.push_back(newPaddle2); 
-    //     std::cout << "NEW PADDLE POS: " << newPaddle2->physics->getWorldPosition() << std::endl;
-    // }
+    // Ogre::MaterialManager::getSingleton().setDefaultTextureFiltering(Ogre::TFO_ANISOTROPIC);
+    // Ogre::MaterialManager::getSingleton().setDefaultAnisotropy(7);
 
     mSceneManager->setSkyDome(true, "Cloud1", 5, 8);
 
@@ -786,139 +863,43 @@ void Game::createScene(void) {
     enemy->name = "enemy";
     gameObjects.push_back(enemy);
 
-    //         block->AddComponentOfType<PointBlock>();
-    //         block->transform->setWorldPosition(Ogre::Vector3(posx,posy,posz));
-    //         block->transform->setLocalScale(Ogre::Vector3(1, 1, 1));
-    //         block->name = "block"+cubeid;
+    // //Setting up Terrain
+ 
+    // Ogre::Vector3 lightdir(0.55, -0.3, 0.75);
+    // lightdir.normalise();
+ 
+    // Ogre::Light* light = mSceneManager->createLight("tstLight");
+    // light->setType(Ogre::Light::LT_DIRECTIONAL);
+    // light->setDirection(lightdir);
+    // light->setDiffuseColour(Ogre::ColourValue::White);
+    // light->setSpecularColour(Ogre::ColourValue(0.4, 0.4, 0.4));
 
-    // // Balls
-    // Sphere *ball01 = new Sphere(this, 75);
-    // ball01->transform->setWorldPosition(Ogre::Vector3(0,-700,0));
-    // ball01->name = "ball01";
-    // ball01->renderer->setMaterial("Examples/SphereMappedRustySteel");
-    // ball01->physics->setLinearVelocity(Ogre::Vector3(.5*ballSpeed, 1*ballSpeed, .5*ballSpeed));
-    // ball01->AddComponentOfType<SphereComponent>();
-    // gameObjects.push_back(ball01);
-    // // Environment
-
-    // Cube *ground = new Cube(this, 0);
-    // ground->transform->setWorldPosition(Ogre::Vector3(0,-1005,0));
-    // ground->transform->setWorldScale(Ogre::Vector3(25, .1, 25));
-    // ground->name = "ground";
-    // ground->renderer->setMaterial("Examples/AcidFloor");
-    // gameObjects.push_back(ground);
-
-    // Cube *ceiling = new Cube(this, 0);
-    // ceiling->transform->setWorldPosition(Ogre::Vector3(0,1005,0));
-    // ceiling->transform->setWorldScale(Ogre::Vector3(25, .1, 25));
-    // ceiling->name = "ceiling";
-    // ceiling->renderer->setEnabled(false);
-    // gameObjects.push_back(ceiling);
-
-    // Cube *west = new Cube(this, 0);
-    // west->AddComponentOfType<Wall>();
-    // west->transform->setWorldPosition(Ogre::Vector3(-1260,0,0));
-    // west->transform->setWorldScale(Ogre::Vector3(.1, 20, 25));
-    // west->name = "west";
-    // west->renderer->setMaterial("Examples/BumpyMetal");
-    // gameObjects.push_back(west);
-
-    // Cube *east = new Cube(this, 0);
-    // east->AddComponentOfType<Wall>();
-    // east->transform->setWorldPosition(Ogre::Vector3(1260,0,0));
-    // east->transform->setWorldScale(Ogre::Vector3(.1, 20, 25));
-    // east->name = "east";
-    // east->renderer->setMaterial("Examples/BumpyMetalT");
-    // east->renderer->setEnabled(false);
-    // gameObjects.push_back(east);
-
-    // Cube *south = new Cube(this, 0);
-    // south->AddComponentOfType<Wall>();
-    // south->transform->setWorldPosition(Ogre::Vector3(0, 0, 1260));
-    // south->transform->setWorldScale(Ogre::Vector3(25, 20, .1));
-    // south->name = "south";
-    // south->renderer->setMaterial("Examples/BumpyMetalP");
-    // south->renderer->setEnabled(false);
-    // gameObjects.push_back(south);
-
-    // Cube *north = new Cube(this, 0);
-    // north->AddComponentOfType<Wall>();
-    // north->transform->setWorldPosition(Ogre::Vector3(0, 0, -1260));
-    // north->transform->setWorldScale(Ogre::Vector3(25, 20, .1));
-    // north->name = "north";
-    // north->renderer->setMaterial("Examples/BumpyMetalG");
-    // gameObjects.push_back(north);
-
-
-
-    // // Paddle
-    // Paddle *newPaddle = new Paddle(this);
-    // newPaddle->AddComponentOfType<PaddleScript>();
-    // newPaddle->AddComponentOfType<GameplayScript>();
-    // newPaddle->transform->setWorldPosition(Ogre::Vector3(0,-800,0));
-    // newPaddle->transform->setLocalScale(Ogre::Vector3(3, .25, 3));
-    // newPaddle->name = "paddle";
-    // newPaddle->renderer->setMaterial("Examples/Rockwall");
-    // gameObjects.push_back(newPaddle);
-
-    // int cubeid = 0;
-    // switch(level)
+    // mTerrainGlobals = OGRE_NEW Ogre::TerrainGlobalOptions();
+ 
+    // mTerrainGroup = OGRE_NEW Ogre::TerrainGroup(mSceneManager, Ogre::Terrain::ALIGN_X_Z, 513, 12000.0f);
+    // mTerrainGroup->setFilenameConvention(Ogre::String("BasicTutorial3Terrain"), Ogre::String("dat"));
+    // mTerrainGroup->setOrigin(Ogre::Vector3::ZERO);
+ 
+    // configureTerrainDefaults(light);
+ 
+    // for (long x = 0; x <= 0; ++x)
+    //     for (long y = 0; y <= 0; ++y)
+    //         defineTerrain(x, y);
+ 
+    // // sync load since we want everything in place when we start
+    // mTerrainGroup->loadAllTerrains(true);
+ 
+    // if (mTerrainsImported)
     // {
-    //     default:
-    //     case 1:
-
-    //     cubeid = 0;
-    //     for (int i = -220; i <= 220; i+=110)
+    //     Ogre::TerrainGroup::TerrainIterator ti = mTerrainGroup->getTerrainIterator();
+    //     while(ti.hasMoreElements())
     //     {
-    //         for (int j = -220; j <= 220; j+=110)
-    //         {
-    //             for (int k = -220; k <= 220; k+=110)
-    //             {
-    //                 Cube *block = new Cube(this);
-    //                 block->AddComponentOfType<PointBlock>();
-    //                 block->transform->setWorldPosition(Ogre::Vector3(i,j,k));
-    //                 block->transform->setLocalScale(Ogre::Vector3(1, 1, 1));
-    //                 block->name = "block"+cubeid;
-    //                 gameObjects.push_back(block);
-    //             }
-    //         }
-    //         cubeid++;
+    //         Ogre::Terrain* t = ti.getNext()->instance;
+    //         initBlendMaps(t);
     //     }
-    //     break;
-
-    //     case 2:
-
-    //     cubeid = 0;
-
-    //     srand ( time(NULL) );
-    //     Ogre::Real posx;
-    //     Ogre::Real posy;
-    //     Ogre::Real posz;
-    //     for (int i = 0; i < 100; ++i)
-    //     {
-    //         posx = Ogre::Math::RangeRandom(-900,900);
-    //         posy = Ogre::Math::RangeRandom(0,900);
-    //         posz = Ogre::Math::RangeRandom(-900,900);
-    //         Cube *block = new Cube(this);
-    //         block->AddComponentOfType<PointBlock>();
-    //         block->transform->setWorldPosition(Ogre::Vector3(posx,posy,posz));
-    //         block->transform->setLocalScale(Ogre::Vector3(1, 1, 1));
-    //         block->name = "block"+cubeid;
-    //         gameObjects.push_back(block);
-    //     }
-    //     break;
     // }
-
-    // float ballSpeed = 1000.0f;
-
-    // // Balls
-    // Sphere *ball01 = new Sphere(this, 75);
-    // ball01->transform->setWorldPosition(Ogre::Vector3(0,-700,0));
-    // ball01->name = "ball01";
-    // ball01->renderer->setMaterial("Examples/SphereMappedRustySteel");
-    // ball01->physics->setLinearVelocity(Ogre::Vector3(.5*ballSpeed, 1*ballSpeed, .5*ballSpeed));
-    // ball01->AddComponentOfType<SphereComponent>();
-    // gameObjects.push_back(ball01);
+ 
+    // mTerrainGroup->freeTemporaryResources();
 
     cout << "Done creating scene!" << endl;
 }

@@ -74,7 +74,8 @@ am__DEPENDENCIES_1 =
 Rasinki_DEPENDENCIES = $(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1) \
 	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1) \
 	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1) \
-	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1)
+	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1) \
+	$(am__DEPENDENCIES_1)
 Rasinki_LINK = $(LIBTOOL) --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) \
 	--mode=link $(CXXLD) $(Rasinki_CXXFLAGS) $(CXXFLAGS) \
 	$(AM_LDFLAGS) $(LDFLAGS) -o $@
@@ -111,12 +112,12 @@ distuninstallcheck_listfiles = find . -type f -print
 am__distuninstallcheck_listfiles = $(distuninstallcheck_listfiles) \
   | sed 's|^\./|$(prefix)/|' | grep -v '$(infodir)/dir$$'
 distcleancheck_listfiles = find . -type f -print
-ACLOCAL = ${SHELL} /v/filer4b/v38q001/wrj322/CS354R/Rasinki/Rasinki/missing --run aclocal-1.11
+ACLOCAL = ${SHELL} /u/safaa/CS354R/Assignment3/Rasinki/Rasinki/missing --run aclocal-1.11
 AMTAR = $${TAR-tar}
 AR = ar
-AUTOCONF = ${SHELL} /v/filer4b/v38q001/wrj322/CS354R/Rasinki/Rasinki/missing --run autoconf
-AUTOHEADER = ${SHELL} /v/filer4b/v38q001/wrj322/CS354R/Rasinki/Rasinki/missing --run autoheader
-AUTOMAKE = ${SHELL} /v/filer4b/v38q001/wrj322/CS354R/Rasinki/Rasinki/missing --run automake-1.11
+AUTOCONF = ${SHELL} /u/safaa/CS354R/Assignment3/Rasinki/Rasinki/missing --run autoconf
+AUTOHEADER = ${SHELL} /u/safaa/CS354R/Assignment3/Rasinki/Rasinki/missing --run autoheader
+AUTOMAKE = ${SHELL} /u/safaa/CS354R/Assignment3/Rasinki/Rasinki/missing --run automake-1.11
 AWK = gawk
 BULLET_CFLAGS = 
 BULLET_LIBS = 
@@ -159,7 +160,7 @@ LIBTOOL = $(SHELL) $(top_builddir)/libtool
 LIPO = 
 LN_S = ln -s
 LTLIBOBJS = 
-MAKEINFO = ${SHELL} /v/filer4b/v38q001/wrj322/CS354R/Rasinki/Rasinki/missing --run makeinfo
+MAKEINFO = ${SHELL} /u/safaa/CS354R/Assignment3/Rasinki/Rasinki/missing --run makeinfo
 MANIFEST_TOOL = :
 MKDIR_P = /bin/mkdir -p
 NM = /usr/bin/nm -B
@@ -168,6 +169,8 @@ OBJDUMP = objdump
 OBJEXT = o
 OGRE_CFLAGS = -pthread -I/usr/include/OGRE  
 OGRE_LIBS = -lOgreMain -lpthread  
+OGRE_TERRAIN_CFLAGS = -pthread -I/usr/include/OGRE/Terrain -I/usr/include/OGRE -I/usr/include/OGRE/Paging  
+OGRE_TERRAIN_LIBS = -lOgreTerrain -lOgrePaging -lOgreMain -lpthread  
 OIS_CFLAGS = -I/usr/include/OIS  
 OIS_LIBS = -lOIS  
 OTOOL = 
@@ -195,10 +198,10 @@ SET_MAKE =
 SHELL = /bin/bash
 STRIP = strip
 VERSION = 0.1
-abs_builddir = /v/filer4b/v38q001/wrj322/CS354R/Rasinki/Rasinki
-abs_srcdir = /v/filer4b/v38q001/wrj322/CS354R/Rasinki/Rasinki
-abs_top_builddir = /v/filer4b/v38q001/wrj322/CS354R/Rasinki/Rasinki
-abs_top_srcdir = /v/filer4b/v38q001/wrj322/CS354R/Rasinki/Rasinki
+abs_builddir = /u/safaa/CS354R/Assignment3/Rasinki/Rasinki
+abs_srcdir = /u/safaa/CS354R/Assignment3/Rasinki/Rasinki
+abs_top_builddir = /u/safaa/CS354R/Assignment3/Rasinki/Rasinki
+abs_top_srcdir = /u/safaa/CS354R/Assignment3/Rasinki/Rasinki
 ac_ct_AR = ar
 ac_ct_CC = gcc
 ac_ct_CXX = g++
@@ -230,7 +233,7 @@ host_vendor = unknown
 htmldir = ${docdir}
 includedir = ${prefix}/include
 infodir = ${datarootdir}/info
-install_sh = ${SHELL} /v/filer4b/v38q001/wrj322/CS354R/Rasinki/Rasinki/install-sh
+install_sh = ${SHELL} /u/safaa/CS354R/Assignment3/Rasinki/Rasinki/install-sh
 libdir = ${exec_prefix}/lib
 libexecdir = ${exec_prefix}/libexec
 localedir = ${datarootdir}/locale
@@ -256,7 +259,7 @@ noinst_HEADERS = src/Game.h src/GameObject.h src/Components/Component.h src/Phys
 Rasinki_CPPFLAGS = -I$(top_srcdir)/src
 Rasinki_SOURCES = src/Game.cpp src/main.cpp src/GameObject.cpp src/Components/Component.cpp src/PhysicsSimulator.cpp src/Components/Transform.cpp src/Components/Renderer.cpp src/Components/Script.cpp src/Scripts/PaddleScript.cpp src/Scripts/PointBlock.cpp src/Scripts/Wall.cpp src/Components/Physics.cpp src/Objects/Sphere.cpp src/Objects/Paddle.cpp src/Objects/Plane.cpp src/Objects/Cube.cpp src/Scripts/Grid.cpp src/Scripts/GridSquare.cpp src/Objects/Robot.cpp src/Player.cpp src/SoundManager.cpp src/Scripts/SphereComponent.cpp src/Scripts/GameplayScript.cpp src/Scripts/RobotScript.cpp src/Time.cpp src/Network.cpp src/Input.cpp src/Scripts/EnemyScript.cpp src/Scripts/Pathfinder.cpp src/Objects/Tower.cpp
 Rasinki_CXXFLAGS = $(OGRE_CFLAGS) $(OIS_CFLAGS) $(bullet_CFLAGS) $(sdl_CFLAGS) $(SDLMIXER_CFLAGS) $(SDLNET_CFLAGS) -std=c++0x
-Rasinki_LDADD = $(OGRE_LIBS) $(OIS_LIBS) $(bullet_LIBS) $(sdl_LIBS) $(SDLMIXER_LIBS) $(SDLNET_LIBS) $(CEGUI_LIBS) $(CEGUI_OGRE_LIBS)
+Rasinki_LDADD = $(OGRE_LIBS) $(OGRE_TERRAIN_LIBS) $(OIS_LIBS) $(bullet_LIBS) $(sdl_LIBS) $(SDLMIXER_LIBS) $(SDLNET_LIBS) $(CEGUI_LIBS) $(CEGUI_OGRE_LIBS)
 EXTRA_DIST = buildit makeit
 AUTOMAKE_OPTIONS = foreign
 all: config.h
