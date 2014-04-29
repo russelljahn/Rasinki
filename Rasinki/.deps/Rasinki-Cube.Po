@@ -1131,8 +1131,19 @@ Rasinki-Cube.o: src/Objects/Cube.cpp src/Objects/Cube.h src/GameObject.h \
  /usr/local/include/CEGUI/RendererModules/Ogre/../../CEGUIRenderer.h \
  /usr/local/include/CEGUI/RendererModules/Ogre/../../CEGUISize.h \
  /usr/local/include/CEGUI/RendererModules/Ogre/../../CEGUIVector.h \
- src/Components/Component.h src/Components/Transform.h \
- /usr/include/OGRE/OgreVector3.h src/Components/Transform.h \
+ /usr/include/OGRE/Terrain/OgreTerrain.h \
+ /usr/include/OGRE/Terrain/OgreTerrainPrerequisites.h \
+ /usr/include/OGRE/OgrePrerequisites.h /usr/include/OGRE/OgreCommon.h \
+ /usr/include/OGRE/OgreVector3.h /usr/include/OGRE/OgreAxisAlignedBox.h \
+ /usr/include/OGRE/Terrain/OgreTerrainMaterialGenerator.h \
+ /usr/include/OGRE/OgrePixelFormat.h /usr/include/OGRE/OgreMaterial.h \
+ /usr/include/OGRE/OgreTexture.h \
+ /usr/include/OGRE/Terrain/OgreTerrainLayerBlendMap.h \
+ /usr/include/OGRE/OgreDataStream.h /usr/include/OGRE/OgreWorkQueue.h \
+ /usr/include/OGRE/Terrain/OgreTerrainGroup.h \
+ /usr/include/OGRE/Terrain/OgreTerrain.h \
+ /usr/include/OGRE/OgreIteratorWrappers.h src/Components/Component.h \
+ src/Components/Transform.h src/Components/Transform.h \
  src/Components/Physics.h src/Components/Renderer.h
 
 src/Objects/Cube.h:
@@ -3743,11 +3754,41 @@ src/Input.h:
 
 /usr/local/include/CEGUI/RendererModules/Ogre/../../CEGUIVector.h:
 
+/usr/include/OGRE/Terrain/OgreTerrain.h:
+
+/usr/include/OGRE/Terrain/OgreTerrainPrerequisites.h:
+
+/usr/include/OGRE/OgrePrerequisites.h:
+
+/usr/include/OGRE/OgreCommon.h:
+
+/usr/include/OGRE/OgreVector3.h:
+
+/usr/include/OGRE/OgreAxisAlignedBox.h:
+
+/usr/include/OGRE/Terrain/OgreTerrainMaterialGenerator.h:
+
+/usr/include/OGRE/OgrePixelFormat.h:
+
+/usr/include/OGRE/OgreMaterial.h:
+
+/usr/include/OGRE/OgreTexture.h:
+
+/usr/include/OGRE/Terrain/OgreTerrainLayerBlendMap.h:
+
+/usr/include/OGRE/OgreDataStream.h:
+
+/usr/include/OGRE/OgreWorkQueue.h:
+
+/usr/include/OGRE/Terrain/OgreTerrainGroup.h:
+
+/usr/include/OGRE/Terrain/OgreTerrain.h:
+
+/usr/include/OGRE/OgreIteratorWrappers.h:
+
 src/Components/Component.h:
 
 src/Components/Transform.h:
-
-/usr/include/OGRE/OgreVector3.h:
 
 src/Components/Transform.h:
 

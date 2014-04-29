@@ -115,7 +115,7 @@ void RobotScript::HandleTower() {
 
     Ogre::Vector3 squareyPosition = squarey->gameObject->physics->getWorldPosition();    
 
-    glowTile->transform->setWorldPosition(squareyPosition + Ogre::Vector3(0.0f, 10.0f, 0.0f ));
+    glowTile->transform->setWorldPosition(squareyPosition + Ogre::Vector3(0.0f, 10.0f, 0.0f));
 
     if (Input::mouseReleased) {
        if (!squarey->IsOccupied()) {

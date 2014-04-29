@@ -1,0 +1,6353 @@
+Creating lights...
+Done creating lights!
+Creating GUI...
+Done creating GUI...
+Creating scene...
+Creating GameObject with id: 0
+Creating GameObject with id: 1
+Creating GameObject with id: 2
+Creating GameObject with id: 3
+Creating GameObject with id: 4
+Creating GameObject with id: 5
+Creating GameObject with id: 6
+Creating GameObject with id: 7
+Creating GameObject with id: 8
+Creating GameObject with id: 9
+Creating GameObject with id: 10
+Creating GameObject with id: 11
+Creating GameObject with id: 12
+Creating GameObject with id: 13
+Creating GameObject with id: 14
+Creating GameObject with id: 15
+Creating GameObject with id: 16
+Creating GameObject with id: 17
+Creating GameObject with id: 18
+Creating GameObject with id: 19
+Creating GameObject with id: 20
+Creating GameObject with id: 21
+Creating GameObject with id: 22
+Creating GameObject with id: 23
+Creating GameObject with id: 24
+Creating GameObject with id: 25
+Creating GameObject with id: 26
+Creating GameObject with id: 27
+Creating GameObject with id: 28
+Creating GameObject with id: 29
+Creating GameObject with id: 30
+Creating GameObject with id: 31
+Creating GameObject with id: 32
+Creating GameObject with id: 33
+Creating GameObject with id: 34
+Creating GameObject with id: 35
+Creating GameObject with id: 36
+Creating GameObject with id: 37
+Creating GameObject with id: 38
+Creating GameObject with id: 39
+Creating GameObject with id: 40
+Creating GameObject with id: 41
+Creating GameObject with id: 42
+Creating GameObject with id: 43
+Creating GameObject with id: 44
+Creating GameObject with id: 45
+Creating GameObject with id: 46
+Creating GameObject with id: 47
+Creating GameObject with id: 48
+Creating GameObject with id: 49
+Creating GameObject with id: 50
+Creating GameObject with id: 51
+Creating GameObject with id: 52
+Creating GameObject with id: 53
+Creating GameObject with id: 54
+Creating GameObject with id: 55
+Creating GameObject with id: 56
+Creating GameObject with id: 57
+Creating GameObject with id: 58
+Creating GameObject with id: 59
+Creating GameObject with id: 60
+Creating GameObject with id: 61
+Creating GameObject with id: 62
+Creating GameObject with id: 63
+Creating GameObject with id: 64
+Creating GameObject with id: 65
+Creating GameObject with id: 66
+Creating GameObject with id: 67
+Creating GameObject with id: 68
+Creating GameObject with id: 69
+Creating GameObject with id: 70
+Creating GameObject with id: 71
+Creating GameObject with id: 72
+Creating GameObject with id: 73
+Creating GameObject with id: 74
+Creating GameObject with id: 75
+Creating GameObject with id: 76
+Creating GameObject with id: 77
+Creating GameObject with id: 78
+Creating GameObject with id: 79
+Creating GameObject with id: 80
+Creating GameObject with id: 81
+Creating GameObject with id: 82
+Creating GameObject with id: 83
+Creating GameObject with id: 84
+Creating GameObject with id: 85
+Creating GameObject with id: 86
+Creating GameObject with id: 87
+Creating GameObject with id: 88
+Creating GameObject with id: 89
+Creating GameObject with id: 90
+Creating GameObject with id: 91
+Creating GameObject with id: 92
+Creating GameObject with id: 93
+Creating GameObject with id: 94
+Creating GameObject with id: 95
+Creating GameObject with id: 96
+Creating GameObject with id: 97
+Creating GameObject with id: 98
+Creating GameObject with id: 99
+Creating GameObject with id: 100
+Creating GameObject with id: 101
+Creating GameObject with id: 102
+Creating GameObject with id: 103
+Creating GameObject with id: 104
+Creating GameObject with id: 105
+Creating GameObject with id: 106
+Creating GameObject with id: 107
+Creating GameObject with id: 108
+Creating GameObject with id: 109
+Creating GameObject with id: 110
+Creating GameObject with id: 111
+Creating GameObject with id: 112
+Creating GameObject with id: 113
+Creating GameObject with id: 114
+Creating GameObject with id: 115
+Creating GameObject with id: 116
+Creating GameObject with id: 117
+Creating GameObject with id: 118
+Creating GameObject with id: 119
+Creating GameObject with id: 120
+Creating GameObject with id: 121
+Creating GameObject with id: 122
+Creating GameObject with id: 123
+Creating GameObject with id: 124
+Creating GameObject with id: 125
+Creating GameObject with id: 126
+Creating GameObject with id: 127
+Creating GameObject with id: 128
+Creating GameObject with id: 129
+Creating GameObject with id: 130
+Creating GameObject with id: 131
+Creating GameObject with id: 132
+Creating GameObject with id: 133
+Creating GameObject with id: 134
+Creating GameObject with id: 135
+Creating GameObject with id: 136
+Creating GameObject with id: 137
+Creating GameObject with id: 138
+Creating GameObject with id: 139
+Creating GameObject with id: 140
+Creating GameObject with id: 141
+Creating GameObject with id: 142
+Creating GameObject with id: 143
+Creating GameObject with id: 144
+Creating GameObject with id: 145
+Creating GameObject with id: 146
+Creating GameObject with id: 147
+Creating GameObject with id: 148
+Creating GameObject with id: 149
+Creating GameObject with id: 150
+Creating GameObject with id: 151
+Creating GameObject with id: 152
+Creating GameObject with id: 153
+Creating GameObject with id: 154
+Creating GameObject with id: 155
+Creating GameObject with id: 156
+Creating GameObject with id: 157
+Creating GameObject with id: 158
+Creating GameObject with id: 159
+Creating GameObject with id: 160
+Creating GameObject with id: 161
+Creating GameObject with id: 162
+Creating GameObject with id: 163
+Creating GameObject with id: 164
+Creating GameObject with id: 165
+Creating GameObject with id: 166
+Creating GameObject with id: 167
+Creating GameObject with id: 168
+Creating GameObject with id: 169
+Creating GameObject with id: 170
+Creating GameObject with id: 171
+Creating GameObject with id: 172
+Creating GameObject with id: 173
+Creating GameObject with id: 174
+Creating GameObject with id: 175
+Creating GameObject with id: 176
+Creating GameObject with id: 177
+Creating GameObject with id: 178
+Creating GameObject with id: 179
+Creating GameObject with id: 180
+Creating GameObject with id: 181
+Creating GameObject with id: 182
+Creating GameObject with id: 183
+Creating GameObject with id: 184
+Creating GameObject with id: 185
+Creating GameObject with id: 186
+Creating GameObject with id: 187
+Creating GameObject with id: 188
+Creating GameObject with id: 189
+Creating GameObject with id: 190
+Creating GameObject with id: 191
+Creating GameObject with id: 192
+Creating GameObject with id: 193
+Creating GameObject with id: 194
+Creating GameObject with id: 195
+Creating GameObject with id: 196
+Creating GameObject with id: 197
+Creating GameObject with id: 198
+Creating GameObject with id: 199
+Creating GameObject with id: 200
+Creating GameObject with id: 201
+Creating GameObject with id: 202
+Creating GameObject with id: 203
+Creating GameObject with id: 204
+Creating GameObject with id: 205
+Creating GameObject with id: 206
+Creating GameObject with id: 207
+Creating GameObject with id: 208
+Creating GameObject with id: 209
+Creating GameObject with id: 210
+Creating GameObject with id: 211
+Creating GameObject with id: 212
+Creating GameObject with id: 213
+Creating GameObject with id: 214
+Creating GameObject with id: 215
+Creating GameObject with id: 216
+Creating GameObject with id: 217
+Creating GameObject with id: 218
+Creating GameObject with id: 219
+Creating GameObject with id: 220
+Creating GameObject with id: 221
+Creating GameObject with id: 222
+Creating GameObject with id: 223
+Creating GameObject with id: 224
+Creating GameObject with id: 225
+Creating GameObject with id: 226
+Creating GameObject with id: 227
+Creating GameObject with id: 228
+Creating GameObject with id: 229
+Creating GameObject with id: 230
+Creating GameObject with id: 231
+Creating GameObject with id: 232
+Creating GameObject with id: 233
+Creating GameObject with id: 234
+Creating GameObject with id: 235
+Creating GameObject with id: 236
+Creating GameObject with id: 237
+Creating GameObject with id: 238
+Creating GameObject with id: 239
+Creating GameObject with id: 240
+Creating GameObject with id: 241
+Creating GameObject with id: 242
+Creating GameObject with id: 243
+Creating GameObject with id: 244
+Creating GameObject with id: 245
+Creating GameObject with id: 246
+Creating GameObject with id: 247
+Creating GameObject with id: 248
+Creating GameObject with id: 249
+Creating GameObject with id: 250
+Creating GameObject with id: 251
+Creating GameObject with id: 252
+Creating GameObject with id: 253
+Creating GameObject with id: 254
+Creating GameObject with id: 255
+Creating GameObject with id: 256
+Creating GameObject with id: 257
+Creating GameObject with id: 258
+Creating GameObject with id: 259
+Creating GameObject with id: 260
+Creating GameObject with id: 261
+Creating GameObject with id: 262
+Creating GameObject with id: 263
+Creating GameObject with id: 264
+Creating GameObject with id: 265
+Creating GameObject with id: 266
+Creating GameObject with id: 267
+Creating GameObject with id: 268
+Creating GameObject with id: 269
+Creating GameObject with id: 270
+Creating GameObject with id: 271
+Creating GameObject with id: 272
+Creating GameObject with id: 273
+Creating GameObject with id: 274
+Creating GameObject with id: 275
+Creating GameObject with id: 276
+Creating GameObject with id: 277
+Creating GameObject with id: 278
+Creating GameObject with id: 279
+Creating GameObject with id: 280
+Creating GameObject with id: 281
+Creating GameObject with id: 282
+Creating GameObject with id: 283
+Creating GameObject with id: 284
+Creating GameObject with id: 285
+Creating GameObject with id: 286
+Creating GameObject with id: 287
+Creating GameObject with id: 288
+Creating GameObject with id: 289
+Creating GameObject with id: 290
+Creating GameObject with id: 291
+Creating GameObject with id: 292
+Creating GameObject with id: 293
+Creating GameObject with id: 294
+Creating GameObject with id: 295
+Creating GameObject with id: 296
+Creating GameObject with id: 297
+Creating GameObject with id: 298
+Creating GameObject with id: 299
+Creating GameObject with id: 300
+Creating GameObject with id: 301
+Creating GameObject with id: 302
+Creating GameObject with id: 303
+Creating GameObject with id: 304
+Creating GameObject with id: 305
+Creating GameObject with id: 306
+Creating GameObject with id: 307
+Creating GameObject with id: 308
+Creating GameObject with id: 309
+Creating GameObject with id: 310
+Creating GameObject with id: 311
+Creating GameObject with id: 312
+Creating GameObject with id: 313
+Creating GameObject with id: 314
+Creating GameObject with id: 315
+Creating GameObject with id: 316
+Creating GameObject with id: 317
+Creating GameObject with id: 318
+Creating GameObject with id: 319
+Creating GameObject with id: 320
+Creating GameObject with id: 321
+Creating GameObject with id: 322
+Creating GameObject with id: 323
+Creating GameObject with id: 324
+Creating GameObject with id: 325
+Creating GameObject with id: 326
+Creating GameObject with id: 327
+Creating GameObject with id: 328
+Creating GameObject with id: 329
+Creating GameObject with id: 330
+Creating GameObject with id: 331
+Creating GameObject with id: 332
+Creating GameObject with id: 333
+Creating GameObject with id: 334
+Creating GameObject with id: 335
+Creating GameObject with id: 336
+Creating GameObject with id: 337
+Creating GameObject with id: 338
+Creating GameObject with id: 339
+Creating GameObject with id: 340
+Creating GameObject with id: 341
+Creating GameObject with id: 342
+Creating GameObject with id: 343
+Creating GameObject with id: 344
+Creating GameObject with id: 345
+Creating GameObject with id: 346
+Creating GameObject with id: 347
+Creating GameObject with id: 348
+Creating GameObject with id: 349
+Creating GameObject with id: 350
+Creating GameObject with id: 351
+Creating GameObject with id: 352
+Creating GameObject with id: 353
+Creating GameObject with id: 354
+Creating GameObject with id: 355
+Creating GameObject with id: 356
+Creating GameObject with id: 357
+Creating GameObject with id: 358
+Creating GameObject with id: 359
+Creating GameObject with id: 360
+Creating GameObject with id: 361
+Creating GameObject with id: 362
+Creating GameObject with id: 363
+Creating GameObject with id: 364
+Creating GameObject with id: 365
+Creating GameObject with id: 366
+Creating GameObject with id: 367
+Creating GameObject with id: 368
+Creating GameObject with id: 369
+Creating GameObject with id: 370
+Creating GameObject with id: 371
+Creating GameObject with id: 372
+Creating GameObject with id: 373
+Creating GameObject with id: 374
+Creating GameObject with id: 375
+Creating GameObject with id: 376
+Creating GameObject with id: 377
+Creating GameObject with id: 378
+Creating GameObject with id: 379
+Creating GameObject with id: 380
+Creating GameObject with id: 381
+Creating GameObject with id: 382
+Creating GameObject with id: 383
+Creating GameObject with id: 384
+Creating GameObject with id: 385
+Creating GameObject with id: 386
+Creating GameObject with id: 387
+Creating GameObject with id: 388
+Creating GameObject with id: 389
+Creating GameObject with id: 390
+Creating GameObject with id: 391
+Creating GameObject with id: 392
+Creating GameObject with id: 393
+Creating GameObject with id: 394
+Creating GameObject with id: 395
+Creating GameObject with id: 396
+Creating GameObject with id: 397
+Creating GameObject with id: 398
+Creating GameObject with id: 399
+Creating GameObject with id: 400
+Creating GameObject with id: 401
+Creating GameObject with id: 402
+Creating GameObject with id: 403
+Creating GameObject with id: 404
+Creating GameObject with id: 405
+Creating GameObject with id: 406
+Creating GameObject with id: 407
+Creating GameObject with id: 408
+Creating GameObject with id: 409
+Creating GameObject with id: 410
+Creating GameObject with id: 411
+Creating GameObject with id: 412
+Creating GameObject with id: 413
+Creating GameObject with id: 414
+Creating GameObject with id: 415
+Creating GameObject with id: 416
+Creating GameObject with id: 417
+Creating GameObject with id: 418
+Creating GameObject with id: 419
+Creating GameObject with id: 420
+Creating GameObject with id: 421
+Creating GameObject with id: 422
+Creating GameObject with id: 423
+Creating GameObject with id: 424
+Creating GameObject with id: 425
+Creating GameObject with id: 426
+Creating GameObject with id: 427
+Creating GameObject with id: 428
+Creating GameObject with id: 429
+Creating GameObject with id: 430
+Creating GameObject with id: 431
+Creating GameObject with id: 432
+Creating GameObject with id: 433
+Creating GameObject with id: 434
+Creating GameObject with id: 435
+Creating GameObject with id: 436
+Creating GameObject with id: 437
+Creating GameObject with id: 438
+Creating GameObject with id: 439
+Creating GameObject with id: 440
+Creating GameObject with id: 441
+Creating GameObject with id: 442
+Creating GameObject with id: 443
+Creating GameObject with id: 444
+Creating GameObject with id: 445
+Creating GameObject with id: 446
+Creating GameObject with id: 447
+Creating GameObject with id: 448
+Creating GameObject with id: 449
+Creating GameObject with id: 450
+Creating GameObject with id: 451
+Creating GameObject with id: 452
+Creating GameObject with id: 453
+Creating GameObject with id: 454
+Creating GameObject with id: 455
+Creating GameObject with id: 456
+Creating GameObject with id: 457
+Creating GameObject with id: 458
+Creating GameObject with id: 459
+Creating GameObject with id: 460
+Creating GameObject with id: 461
+Creating GameObject with id: 462
+Creating GameObject with id: 463
+Creating GameObject with id: 464
+Creating GameObject with id: 465
+Creating GameObject with id: 466
+Creating GameObject with id: 467
+Creating GameObject with id: 468
+Creating GameObject with id: 469
+Creating GameObject with id: 470
+Creating GameObject with id: 471
+Creating GameObject with id: 472
+Creating GameObject with id: 473
+Creating GameObject with id: 474
+Creating GameObject with id: 475
+Creating GameObject with id: 476
+Creating GameObject with id: 477
+Creating GameObject with id: 478
+Creating GameObject with id: 479
+Creating GameObject with id: 480
+Creating GameObject with id: 481
+Creating GameObject with id: 482
+Creating GameObject with id: 483
+Creating GameObject with id: 484
+Creating GameObject with id: 485
+Creating GameObject with id: 486
+Creating GameObject with id: 487
+Creating GameObject with id: 488
+Creating GameObject with id: 489
+Creating GameObject with id: 490
+Creating GameObject with id: 491
+Creating GameObject with id: 492
+Creating GameObject with id: 493
+Creating GameObject with id: 494
+Creating GameObject with id: 495
+Creating GameObject with id: 496
+Creating GameObject with id: 497
+Creating GameObject with id: 498
+Creating GameObject with id: 499
+Creating GameObject with id: 500
+Creating GameObject with id: 501
+Creating GameObject with id: 502
+Creating GameObject with id: 503
+Creating GameObject with id: 504
+Creating GameObject with id: 505
+Creating GameObject with id: 506
+Creating GameObject with id: 507
+Creating GameObject with id: 508
+Creating GameObject with id: 509
+Creating GameObject with id: 510
+Creating GameObject with id: 511
+Creating GameObject with id: 512
+Creating GameObject with id: 513
+Creating GameObject with id: 514
+Creating GameObject with id: 515
+Creating GameObject with id: 516
+Creating GameObject with id: 517
+Creating GameObject with id: 518
+Creating GameObject with id: 519
+Creating GameObject with id: 520
+Creating GameObject with id: 521
+Creating GameObject with id: 522
+Creating GameObject with id: 523
+Creating GameObject with id: 524
+Creating GameObject with id: 525
+Creating GameObject with id: 526
+Creating GameObject with id: 527
+Creating GameObject with id: 528
+Creating GameObject with id: 529
+Creating GameObject with id: 530
+Creating GameObject with id: 531
+Creating GameObject with id: 532
+Creating GameObject with id: 533
+Creating GameObject with id: 534
+Creating GameObject with id: 535
+Creating GameObject with id: 536
+Creating GameObject with id: 537
+Creating GameObject with id: 538
+Creating GameObject with id: 539
+Creating GameObject with id: 540
+Creating GameObject with id: 541
+Creating GameObject with id: 542
+Creating GameObject with id: 543
+Creating GameObject with id: 544
+Creating GameObject with id: 545
+Creating GameObject with id: 546
+Creating GameObject with id: 547
+Creating GameObject with id: 548
+Creating GameObject with id: 549
+Creating GameObject with id: 550
+Creating GameObject with id: 551
+Creating GameObject with id: 552
+Creating GameObject with id: 553
+Creating GameObject with id: 554
+Creating GameObject with id: 555
+Creating GameObject with id: 556
+Creating GameObject with id: 557
+Creating GameObject with id: 558
+Creating GameObject with id: 559
+Creating GameObject with id: 560
+Creating GameObject with id: 561
+Creating GameObject with id: 562
+Creating GameObject with id: 563
+Creating GameObject with id: 564
+Creating GameObject with id: 565
+Creating GameObject with id: 566
+Creating GameObject with id: 567
+Creating GameObject with id: 568
+Creating GameObject with id: 569
+Creating GameObject with id: 570
+Creating GameObject with id: 571
+Creating GameObject with id: 572
+Creating GameObject with id: 573
+Creating GameObject with id: 574
+Creating GameObject with id: 575
+Creating GameObject with id: 576
+Creating GameObject with id: 577
+Creating GameObject with id: 578
+Creating GameObject with id: 579
+Creating GameObject with id: 580
+Creating GameObject with id: 581
+Creating GameObject with id: 582
+Creating GameObject with id: 583
+Creating GameObject with id: 584
+Creating GameObject with id: 585
+Creating GameObject with id: 586
+Creating GameObject with id: 587
+Creating GameObject with id: 588
+Creating GameObject with id: 589
+Creating GameObject with id: 590
+Creating GameObject with id: 591
+Creating GameObject with id: 592
+Creating GameObject with id: 593
+Creating GameObject with id: 594
+Creating GameObject with id: 595
+Creating GameObject with id: 596
+Creating GameObject with id: 597
+Creating GameObject with id: 598
+Creating GameObject with id: 599
+Creating GameObject with id: 600
+Creating GameObject with id: 601
+Creating GameObject with id: 602
+Creating GameObject with id: 603
+Creating GameObject with id: 604
+Creating GameObject with id: 605
+Creating GameObject with id: 606
+Creating GameObject with id: 607
+Creating GameObject with id: 608
+Creating GameObject with id: 609
+Creating GameObject with id: 610
+Creating GameObject with id: 611
+Creating GameObject with id: 612
+Creating GameObject with id: 613
+Creating GameObject with id: 614
+Creating GameObject with id: 615
+Creating GameObject with id: 616
+Creating GameObject with id: 617
+Creating GameObject with id: 618
+Creating GameObject with id: 619
+Creating GameObject with id: 620
+Creating GameObject with id: 621
+Creating GameObject with id: 622
+Creating GameObject with id: 623
+Creating GameObject with id: 624
+Creating GameObject with id: 625
+Creating GameObject with id: 626
+Creating GameObject with id: 627
+Creating GameObject with id: 628
+Creating GameObject with id: 629
+Creating GameObject with id: 630
+Creating GameObject with id: 631
+Creating GameObject with id: 632
+Creating GameObject with id: 633
+Creating GameObject with id: 634
+0 0
+0 1
+0 2
+0 3
+0 4
+0 5
+0 6
+0 7
+0 8
+0 9
+0 10
+0 11
+0 12
+0 13
+0 14
+0 15
+0 16
+0 17
+0 18
+0 19
+0 20
+0 21
+0 22
+0 23
+0 24
+1 0
+1 1
+1 2
+1 3
+1 4
+1 5
+1 6
+1 7
+1 8
+1 9
+1 10
+1 11
+1 12
+1 13
+1 14
+1 15
+1 16
+1 17
+1 18
+1 19
+1 20
+1 21
+1 22
+1 23
+1 24
+2 0
+2 1
+2 2
+2 3
+2 4
+2 5
+2 6
+2 7
+2 8
+2 9
+2 10
+2 11
+2 12
+2 13
+2 14
+2 15
+2 16
+2 17
+2 18
+2 19
+2 20
+2 21
+2 22
+2 23
+2 24
+3 0
+3 1
+3 2
+3 3
+3 4
+3 5
+3 6
+3 7
+3 8
+3 9
+3 10
+3 11
+3 12
+3 13
+3 14
+3 15
+3 16
+3 17
+3 18
+3 19
+3 20
+3 21
+3 22
+3 23
+3 24
+4 0
+4 1
+4 2
+4 3
+4 4
+4 5
+4 6
+4 7
+4 8
+4 9
+4 10
+4 11
+4 12
+4 13
+4 14
+4 15
+4 16
+4 17
+4 18
+4 19
+4 20
+4 21
+4 22
+4 23
+4 24
+5 0
+5 1
+5 2
+5 3
+5 4
+5 5
+5 6
+5 7
+5 8
+5 9
+5 10
+5 11
+5 12
+5 13
+5 14
+5 15
+5 16
+5 17
+5 18
+5 19
+5 20
+5 21
+5 22
+5 23
+5 24
+6 0
+6 1
+6 2
+6 3
+6 4
+6 5
+6 6
+6 7
+6 8
+6 9
+6 10
+6 11
+6 12
+6 13
+6 14
+6 15
+6 16
+6 17
+6 18
+6 19
+6 20
+6 21
+6 22
+6 23
+6 24
+7 0
+7 1
+7 2
+7 3
+7 4
+7 5
+7 6
+7 7
+7 8
+7 9
+7 10
+7 11
+7 12
+7 13
+7 14
+7 15
+7 16
+7 17
+7 18
+7 19
+7 20
+7 21
+7 22
+7 23
+7 24
+8 0
+8 1
+8 2
+8 3
+8 4
+8 5
+8 6
+8 7
+8 8
+8 9
+8 10
+8 11
+8 12
+8 13
+8 14
+8 15
+8 16
+8 17
+8 18
+8 19
+8 20
+8 21
+8 22
+8 23
+8 24
+9 0
+9 1
+9 2
+9 3
+9 4
+9 5
+9 6
+9 7
+9 8
+9 9
+9 10
+9 11
+9 12
+9 13
+9 14
+9 15
+9 16
+9 17
+9 18
+9 19
+9 20
+9 21
+9 22
+9 23
+9 24
+10 0
+10 1
+10 2
+10 3
+10 4
+10 5
+10 6
+10 7
+10 8
+10 9
+10 10
+10 11
+10 12
+10 13
+10 14
+10 15
+10 16
+10 17
+10 18
+10 19
+10 20
+10 21
+10 22
+10 23
+10 24
+11 0
+11 1
+11 2
+11 3
+11 4
+11 5
+11 6
+11 7
+11 8
+11 9
+11 10
+11 11
+11 12
+11 13
+11 14
+11 15
+11 16
+11 17
+11 18
+11 19
+11 20
+11 21
+11 22
+11 23
+11 24
+12 0
+12 1
+12 2
+12 3
+12 4
+12 5
+12 6
+12 7
+12 8
+12 9
+12 10
+12 11
+12 12
+12 13
+12 14
+12 15
+12 16
+12 17
+12 18
+12 19
+12 20
+12 21
+12 22
+12 23
+12 24
+13 0
+13 1
+13 2
+13 3
+13 4
+13 5
+13 6
+13 7
+13 8
+13 9
+13 10
+13 11
+13 12
+13 13
+13 14
+13 15
+13 16
+13 17
+13 18
+13 19
+13 20
+13 21
+13 22
+13 23
+13 24
+14 0
+14 1
+14 2
+14 3
+14 4
+14 5
+14 6
+14 7
+14 8
+14 9
+14 10
+14 11
+14 12
+14 13
+14 14
+14 15
+14 16
+14 17
+14 18
+14 19
+14 20
+14 21
+14 22
+14 23
+14 24
+15 0
+15 1
+15 2
+15 3
+15 4
+15 5
+15 6
+15 7
+15 8
+15 9
+15 10
+15 11
+15 12
+15 13
+15 14
+15 15
+15 16
+15 17
+15 18
+15 19
+15 20
+15 21
+15 22
+15 23
+15 24
+16 0
+16 1
+16 2
+16 3
+16 4
+16 5
+16 6
+16 7
+16 8
+16 9
+16 10
+16 11
+16 12
+16 13
+16 14
+16 15
+16 16
+16 17
+16 18
+16 19
+16 20
+16 21
+16 22
+16 23
+16 24
+17 0
+17 1
+17 2
+17 3
+17 4
+17 5
+17 6
+17 7
+17 8
+17 9
+17 10
+17 11
+17 12
+17 13
+17 14
+17 15
+17 16
+17 17
+17 18
+17 19
+17 20
+17 21
+17 22
+17 23
+17 24
+18 0
+18 1
+18 2
+18 3
+18 4
+18 5
+18 6
+18 7
+18 8
+18 9
+18 10
+18 11
+18 12
+18 13
+18 14
+18 15
+18 16
+18 17
+18 18
+18 19
+18 20
+18 21
+18 22
+18 23
+18 24
+19 0
+19 1
+19 2
+19 3
+19 4
+19 5
+19 6
+19 7
+19 8
+19 9
+19 10
+19 11
+19 12
+19 13
+19 14
+19 15
+19 16
+19 17
+19 18
+19 19
+19 20
+19 21
+19 22
+19 23
+19 24
+20 0
+20 1
+20 2
+20 3
+20 4
+20 5
+20 6
+20 7
+20 8
+20 9
+20 10
+20 11
+20 12
+20 13
+20 14
+20 15
+20 16
+20 17
+20 18
+20 19
+20 20
+20 21
+20 22
+20 23
+20 24
+21 0
+21 1
+21 2
+21 3
+21 4
+21 5
+21 6
+21 7
+21 8
+21 9
+21 10
+21 11
+21 12
+21 13
+21 14
+21 15
+21 16
+21 17
+21 18
+21 19
+21 20
+21 21
+21 22
+21 23
+21 24
+22 0
+22 1
+22 2
+22 3
+22 4
+22 5
+22 6
+22 7
+22 8
+22 9
+22 10
+22 11
+22 12
+22 13
+22 14
+22 15
+22 16
+22 17
+22 18
+22 19
+22 20
+22 21
+22 22
+22 23
+22 24
+23 0
+23 1
+23 2
+23 3
+23 4
+23 5
+23 6
+23 7
+23 8
+23 9
+23 10
+23 11
+23 12
+23 13
+23 14
+23 15
+23 16
+23 17
+23 18
+23 19
+23 20
+23 21
+23 22
+23 23
+23 24
+24 0
+24 1
+24 2
+24 3
+24 4
+24 5
+24 6
+24 7
+24 8
+24 9
+24 10
+24 11
+24 12
+24 13
+24 14
+24 15
+24 16
+24 17
+24 18
+24 19
+24 20
+24 21
+24 22
+24 23
+24 24
+SET CURRENT POS: (2500, 100, 2500) 10 10
+FINDING PATH TO 0, 0
+i 0 xPos: 0 j 0 yPos 0
+i 0 xPos: 0 j 1 yPos 1
+i 0 xPos: 0 j 2 yPos 2
+i 0 xPos: 0 j 3 yPos 3
+i 0 xPos: 0 j 4 yPos 4
+i 0 xPos: 0 j 5 yPos 5
+i 0 xPos: 0 j 6 yPos 6
+i 0 xPos: 0 j 7 yPos 7
+i 0 xPos: 0 j 8 yPos 8
+i 0 xPos: 0 j 9 yPos 9
+i 0 xPos: 0 j 10 yPos 10
+i 0 xPos: 0 j 11 yPos 11
+i 0 xPos: 0 j 12 yPos 12
+i 0 xPos: 0 j 13 yPos 13
+i 0 xPos: 0 j 14 yPos 14
+i 0 xPos: 0 j 15 yPos 15
+i 0 xPos: 0 j 16 yPos 16
+i 0 xPos: 0 j 17 yPos 17
+i 0 xPos: 0 j 18 yPos 18
+i 0 xPos: 0 j 19 yPos 19
+i 0 xPos: 0 j 20 yPos 20
+i 0 xPos: 0 j 21 yPos 21
+i 0 xPos: 0 j 22 yPos 22
+i 0 xPos: 0 j 23 yPos 23
+i 0 xPos: 0 j 24 yPos 24
+i 1 xPos: 1 j 0 yPos 0
+i 1 xPos: 1 j 1 yPos 1
+i 1 xPos: 1 j 2 yPos 2
+i 1 xPos: 1 j 3 yPos 3
+i 1 xPos: 1 j 4 yPos 4
+i 1 xPos: 1 j 5 yPos 5
+i 1 xPos: 1 j 6 yPos 6
+i 1 xPos: 1 j 7 yPos 7
+i 1 xPos: 1 j 8 yPos 8
+i 1 xPos: 1 j 9 yPos 9
+i 1 xPos: 1 j 10 yPos 10
+i 1 xPos: 1 j 11 yPos 11
+i 1 xPos: 1 j 12 yPos 12
+i 1 xPos: 1 j 13 yPos 13
+i 1 xPos: 1 j 14 yPos 14
+i 1 xPos: 1 j 15 yPos 15
+i 1 xPos: 1 j 16 yPos 16
+i 1 xPos: 1 j 17 yPos 17
+i 1 xPos: 1 j 18 yPos 18
+i 1 xPos: 1 j 19 yPos 19
+i 1 xPos: 1 j 20 yPos 20
+i 1 xPos: 1 j 21 yPos 21
+i 1 xPos: 1 j 22 yPos 22
+i 1 xPos: 1 j 23 yPos 23
+i 1 xPos: 1 j 24 yPos 24
+i 2 xPos: 2 j 0 yPos 0
+i 2 xPos: 2 j 1 yPos 1
+i 2 xPos: 2 j 2 yPos 2
+i 2 xPos: 2 j 3 yPos 3
+i 2 xPos: 2 j 4 yPos 4
+i 2 xPos: 2 j 5 yPos 5
+i 2 xPos: 2 j 6 yPos 6
+i 2 xPos: 2 j 7 yPos 7
+i 2 xPos: 2 j 8 yPos 8
+i 2 xPos: 2 j 9 yPos 9
+i 2 xPos: 2 j 10 yPos 10
+i 2 xPos: 2 j 11 yPos 11
+i 2 xPos: 2 j 12 yPos 12
+i 2 xPos: 2 j 13 yPos 13
+i 2 xPos: 2 j 14 yPos 14
+i 2 xPos: 2 j 15 yPos 15
+i 2 xPos: 2 j 16 yPos 16
+i 2 xPos: 2 j 17 yPos 17
+i 2 xPos: 2 j 18 yPos 18
+i 2 xPos: 2 j 19 yPos 19
+i 2 xPos: 2 j 20 yPos 20
+i 2 xPos: 2 j 21 yPos 21
+i 2 xPos: 2 j 22 yPos 22
+i 2 xPos: 2 j 23 yPos 23
+i 2 xPos: 2 j 24 yPos 24
+i 3 xPos: 3 j 0 yPos 0
+i 3 xPos: 3 j 1 yPos 1
+i 3 xPos: 3 j 2 yPos 2
+i 3 xPos: 3 j 3 yPos 3
+i 3 xPos: 3 j 4 yPos 4
+i 3 xPos: 3 j 5 yPos 5
+i 3 xPos: 3 j 6 yPos 6
+i 3 xPos: 3 j 7 yPos 7
+i 3 xPos: 3 j 8 yPos 8
+i 3 xPos: 3 j 9 yPos 9
+i 3 xPos: 3 j 10 yPos 10
+i 3 xPos: 3 j 11 yPos 11
+i 3 xPos: 3 j 12 yPos 12
+i 3 xPos: 3 j 13 yPos 13
+i 3 xPos: 3 j 14 yPos 14
+i 3 xPos: 3 j 15 yPos 15
+i 3 xPos: 3 j 16 yPos 16
+i 3 xPos: 3 j 17 yPos 17
+i 3 xPos: 3 j 18 yPos 18
+i 3 xPos: 3 j 19 yPos 19
+i 3 xPos: 3 j 20 yPos 20
+i 3 xPos: 3 j 21 yPos 21
+i 3 xPos: 3 j 22 yPos 22
+i 3 xPos: 3 j 23 yPos 23
+i 3 xPos: 3 j 24 yPos 24
+i 4 xPos: 4 j 0 yPos 0
+i 4 xPos: 4 j 1 yPos 1
+i 4 xPos: 4 j 2 yPos 2
+i 4 xPos: 4 j 3 yPos 3
+i 4 xPos: 4 j 4 yPos 4
+i 4 xPos: 4 j 5 yPos 5
+i 4 xPos: 4 j 6 yPos 6
+i 4 xPos: 4 j 7 yPos 7
+i 4 xPos: 4 j 8 yPos 8
+i 4 xPos: 4 j 9 yPos 9
+i 4 xPos: 4 j 10 yPos 10
+i 4 xPos: 4 j 11 yPos 11
+i 4 xPos: 4 j 12 yPos 12
+i 4 xPos: 4 j 13 yPos 13
+i 4 xPos: 4 j 14 yPos 14
+i 4 xPos: 4 j 15 yPos 15
+i 4 xPos: 4 j 16 yPos 16
+i 4 xPos: 4 j 17 yPos 17
+i 4 xPos: 4 j 18 yPos 18
+i 4 xPos: 4 j 19 yPos 19
+i 4 xPos: 4 j 20 yPos 20
+i 4 xPos: 4 j 21 yPos 21
+i 4 xPos: 4 j 22 yPos 22
+i 4 xPos: 4 j 23 yPos 23
+i 4 xPos: 4 j 24 yPos 24
+i 5 xPos: 5 j 0 yPos 0
+i 5 xPos: 5 j 1 yPos 1
+i 5 xPos: 5 j 2 yPos 2
+i 5 xPos: 5 j 3 yPos 3
+i 5 xPos: 5 j 4 yPos 4
+i 5 xPos: 5 j 5 yPos 5
+i 5 xPos: 5 j 6 yPos 6
+i 5 xPos: 5 j 7 yPos 7
+i 5 xPos: 5 j 8 yPos 8
+i 5 xPos: 5 j 9 yPos 9
+i 5 xPos: 5 j 10 yPos 10
+i 5 xPos: 5 j 11 yPos 11
+i 5 xPos: 5 j 12 yPos 12
+i 5 xPos: 5 j 13 yPos 13
+i 5 xPos: 5 j 14 yPos 14
+i 5 xPos: 5 j 15 yPos 15
+i 5 xPos: 5 j 16 yPos 16
+i 5 xPos: 5 j 17 yPos 17
+i 5 xPos: 5 j 18 yPos 18
+i 5 xPos: 5 j 19 yPos 19
+i 5 xPos: 5 j 20 yPos 20
+i 5 xPos: 5 j 21 yPos 21
+i 5 xPos: 5 j 22 yPos 22
+i 5 xPos: 5 j 23 yPos 23
+i 5 xPos: 5 j 24 yPos 24
+i 6 xPos: 6 j 0 yPos 0
+i 6 xPos: 6 j 1 yPos 1
+i 6 xPos: 6 j 2 yPos 2
+i 6 xPos: 6 j 3 yPos 3
+i 6 xPos: 6 j 4 yPos 4
+i 6 xPos: 6 j 5 yPos 5
+i 6 xPos: 6 j 6 yPos 6
+i 6 xPos: 6 j 7 yPos 7
+i 6 xPos: 6 j 8 yPos 8
+i 6 xPos: 6 j 9 yPos 9
+i 6 xPos: 6 j 10 yPos 10
+i 6 xPos: 6 j 11 yPos 11
+i 6 xPos: 6 j 12 yPos 12
+i 6 xPos: 6 j 13 yPos 13
+i 6 xPos: 6 j 14 yPos 14
+i 6 xPos: 6 j 15 yPos 15
+i 6 xPos: 6 j 16 yPos 16
+i 6 xPos: 6 j 17 yPos 17
+i 6 xPos: 6 j 18 yPos 18
+i 6 xPos: 6 j 19 yPos 19
+i 6 xPos: 6 j 20 yPos 20
+i 6 xPos: 6 j 21 yPos 21
+i 6 xPos: 6 j 22 yPos 22
+i 6 xPos: 6 j 23 yPos 23
+i 6 xPos: 6 j 24 yPos 24
+i 7 xPos: 7 j 0 yPos 0
+i 7 xPos: 7 j 1 yPos 1
+i 7 xPos: 7 j 2 yPos 2
+i 7 xPos: 7 j 3 yPos 3
+i 7 xPos: 7 j 4 yPos 4
+i 7 xPos: 7 j 5 yPos 5
+i 7 xPos: 7 j 6 yPos 6
+i 7 xPos: 7 j 7 yPos 7
+i 7 xPos: 7 j 8 yPos 8
+i 7 xPos: 7 j 9 yPos 9
+i 7 xPos: 7 j 10 yPos 10
+i 7 xPos: 7 j 11 yPos 11
+i 7 xPos: 7 j 12 yPos 12
+i 7 xPos: 7 j 13 yPos 13
+i 7 xPos: 7 j 14 yPos 14
+i 7 xPos: 7 j 15 yPos 15
+i 7 xPos: 7 j 16 yPos 16
+i 7 xPos: 7 j 17 yPos 17
+i 7 xPos: 7 j 18 yPos 18
+i 7 xPos: 7 j 19 yPos 19
+i 7 xPos: 7 j 20 yPos 20
+i 7 xPos: 7 j 21 yPos 21
+i 7 xPos: 7 j 22 yPos 22
+i 7 xPos: 7 j 23 yPos 23
+i 7 xPos: 7 j 24 yPos 24
+i 8 xPos: 8 j 0 yPos 0
+i 8 xPos: 8 j 1 yPos 1
+i 8 xPos: 8 j 2 yPos 2
+i 8 xPos: 8 j 3 yPos 3
+i 8 xPos: 8 j 4 yPos 4
+i 8 xPos: 8 j 5 yPos 5
+i 8 xPos: 8 j 6 yPos 6
+i 8 xPos: 8 j 7 yPos 7
+i 8 xPos: 8 j 8 yPos 8
+i 8 xPos: 8 j 9 yPos 9
+i 8 xPos: 8 j 10 yPos 10
+i 8 xPos: 8 j 11 yPos 11
+i 8 xPos: 8 j 12 yPos 12
+i 8 xPos: 8 j 13 yPos 13
+i 8 xPos: 8 j 14 yPos 14
+i 8 xPos: 8 j 15 yPos 15
+i 8 xPos: 8 j 16 yPos 16
+i 8 xPos: 8 j 17 yPos 17
+i 8 xPos: 8 j 18 yPos 18
+i 8 xPos: 8 j 19 yPos 19
+i 8 xPos: 8 j 20 yPos 20
+i 8 xPos: 8 j 21 yPos 21
+i 8 xPos: 8 j 22 yPos 22
+i 8 xPos: 8 j 23 yPos 23
+i 8 xPos: 8 j 24 yPos 24
+i 9 xPos: 9 j 0 yPos 0
+i 9 xPos: 9 j 1 yPos 1
+i 9 xPos: 9 j 2 yPos 2
+i 9 xPos: 9 j 3 yPos 3
+i 9 xPos: 9 j 4 yPos 4
+i 9 xPos: 9 j 5 yPos 5
+i 9 xPos: 9 j 6 yPos 6
+i 9 xPos: 9 j 7 yPos 7
+i 9 xPos: 9 j 8 yPos 8
+i 9 xPos: 9 j 9 yPos 9
+i 9 xPos: 9 j 10 yPos 10
+i 9 xPos: 9 j 11 yPos 11
+i 9 xPos: 9 j 12 yPos 12
+i 9 xPos: 9 j 13 yPos 13
+i 9 xPos: 9 j 14 yPos 14
+i 9 xPos: 9 j 15 yPos 15
+i 9 xPos: 9 j 16 yPos 16
+i 9 xPos: 9 j 17 yPos 17
+i 9 xPos: 9 j 18 yPos 18
+i 9 xPos: 9 j 19 yPos 19
+i 9 xPos: 9 j 20 yPos 20
+i 9 xPos: 9 j 21 yPos 21
+i 9 xPos: 9 j 22 yPos 22
+i 9 xPos: 9 j 23 yPos 23
+i 9 xPos: 9 j 24 yPos 24
+i 10 xPos: 10 j 0 yPos 0
+i 10 xPos: 10 j 1 yPos 1
+i 10 xPos: 10 j 2 yPos 2
+i 10 xPos: 10 j 3 yPos 3
+i 10 xPos: 10 j 4 yPos 4
+i 10 xPos: 10 j 5 yPos 5
+i 10 xPos: 10 j 6 yPos 6
+i 10 xPos: 10 j 7 yPos 7
+i 10 xPos: 10 j 8 yPos 8
+i 10 xPos: 10 j 9 yPos 9
+i 10 xPos: 10 j 10 yPos 10
+i 10 xPos: 10 j 11 yPos 11
+i 10 xPos: 10 j 12 yPos 12
+i 10 xPos: 10 j 13 yPos 13
+i 10 xPos: 10 j 14 yPos 14
+i 10 xPos: 10 j 15 yPos 15
+i 10 xPos: 10 j 16 yPos 16
+i 10 xPos: 10 j 17 yPos 17
+i 10 xPos: 10 j 18 yPos 18
+i 10 xPos: 10 j 19 yPos 19
+i 10 xPos: 10 j 20 yPos 20
+i 10 xPos: 10 j 21 yPos 21
+i 10 xPos: 10 j 22 yPos 22
+i 10 xPos: 10 j 23 yPos 23
+i 10 xPos: 10 j 24 yPos 24
+i 11 xPos: 11 j 0 yPos 0
+i 11 xPos: 11 j 1 yPos 1
+i 11 xPos: 11 j 2 yPos 2
+i 11 xPos: 11 j 3 yPos 3
+i 11 xPos: 11 j 4 yPos 4
+i 11 xPos: 11 j 5 yPos 5
+i 11 xPos: 11 j 6 yPos 6
+i 11 xPos: 11 j 7 yPos 7
+i 11 xPos: 11 j 8 yPos 8
+i 11 xPos: 11 j 9 yPos 9
+i 11 xPos: 11 j 10 yPos 10
+i 11 xPos: 11 j 11 yPos 11
+i 11 xPos: 11 j 12 yPos 12
+i 11 xPos: 11 j 13 yPos 13
+i 11 xPos: 11 j 14 yPos 14
+i 11 xPos: 11 j 15 yPos 15
+i 11 xPos: 11 j 16 yPos 16
+i 11 xPos: 11 j 17 yPos 17
+i 11 xPos: 11 j 18 yPos 18
+i 11 xPos: 11 j 19 yPos 19
+i 11 xPos: 11 j 20 yPos 20
+i 11 xPos: 11 j 21 yPos 21
+i 11 xPos: 11 j 22 yPos 22
+i 11 xPos: 11 j 23 yPos 23
+i 11 xPos: 11 j 24 yPos 24
+i 12 xPos: 12 j 0 yPos 0
+i 12 xPos: 12 j 1 yPos 1
+i 12 xPos: 12 j 2 yPos 2
+i 12 xPos: 12 j 3 yPos 3
+i 12 xPos: 12 j 4 yPos 4
+i 12 xPos: 12 j 5 yPos 5
+i 12 xPos: 12 j 6 yPos 6
+i 12 xPos: 12 j 7 yPos 7
+i 12 xPos: 12 j 8 yPos 8
+i 12 xPos: 12 j 9 yPos 9
+i 12 xPos: 12 j 10 yPos 10
+i 12 xPos: 12 j 11 yPos 11
+i 12 xPos: 12 j 12 yPos 12
+i 12 xPos: 12 j 13 yPos 13
+i 12 xPos: 12 j 14 yPos 14
+i 12 xPos: 12 j 15 yPos 15
+i 12 xPos: 12 j 16 yPos 16
+i 12 xPos: 12 j 17 yPos 17
+i 12 xPos: 12 j 18 yPos 18
+i 12 xPos: 12 j 19 yPos 19
+i 12 xPos: 12 j 20 yPos 20
+i 12 xPos: 12 j 21 yPos 21
+i 12 xPos: 12 j 22 yPos 22
+i 12 xPos: 12 j 23 yPos 23
+i 12 xPos: 12 j 24 yPos 24
+i 13 xPos: 13 j 0 yPos 0
+i 13 xPos: 13 j 1 yPos 1
+i 13 xPos: 13 j 2 yPos 2
+i 13 xPos: 13 j 3 yPos 3
+i 13 xPos: 13 j 4 yPos 4
+i 13 xPos: 13 j 5 yPos 5
+i 13 xPos: 13 j 6 yPos 6
+i 13 xPos: 13 j 7 yPos 7
+i 13 xPos: 13 j 8 yPos 8
+i 13 xPos: 13 j 9 yPos 9
+i 13 xPos: 13 j 10 yPos 10
+i 13 xPos: 13 j 11 yPos 11
+i 13 xPos: 13 j 12 yPos 12
+i 13 xPos: 13 j 13 yPos 13
+i 13 xPos: 13 j 14 yPos 14
+i 13 xPos: 13 j 15 yPos 15
+i 13 xPos: 13 j 16 yPos 16
+i 13 xPos: 13 j 17 yPos 17
+i 13 xPos: 13 j 18 yPos 18
+i 13 xPos: 13 j 19 yPos 19
+i 13 xPos: 13 j 20 yPos 20
+i 13 xPos: 13 j 21 yPos 21
+i 13 xPos: 13 j 22 yPos 22
+i 13 xPos: 13 j 23 yPos 23
+i 13 xPos: 13 j 24 yPos 24
+i 14 xPos: 14 j 0 yPos 0
+i 14 xPos: 14 j 1 yPos 1
+i 14 xPos: 14 j 2 yPos 2
+i 14 xPos: 14 j 3 yPos 3
+i 14 xPos: 14 j 4 yPos 4
+i 14 xPos: 14 j 5 yPos 5
+i 14 xPos: 14 j 6 yPos 6
+i 14 xPos: 14 j 7 yPos 7
+i 14 xPos: 14 j 8 yPos 8
+i 14 xPos: 14 j 9 yPos 9
+i 14 xPos: 14 j 10 yPos 10
+i 14 xPos: 14 j 11 yPos 11
+i 14 xPos: 14 j 12 yPos 12
+i 14 xPos: 14 j 13 yPos 13
+i 14 xPos: 14 j 14 yPos 14
+i 14 xPos: 14 j 15 yPos 15
+i 14 xPos: 14 j 16 yPos 16
+i 14 xPos: 14 j 17 yPos 17
+i 14 xPos: 14 j 18 yPos 18
+i 14 xPos: 14 j 19 yPos 19
+i 14 xPos: 14 j 20 yPos 20
+i 14 xPos: 14 j 21 yPos 21
+i 14 xPos: 14 j 22 yPos 22
+i 14 xPos: 14 j 23 yPos 23
+i 14 xPos: 14 j 24 yPos 24
+i 15 xPos: 15 j 0 yPos 0
+i 15 xPos: 15 j 1 yPos 1
+i 15 xPos: 15 j 2 yPos 2
+i 15 xPos: 15 j 3 yPos 3
+i 15 xPos: 15 j 4 yPos 4
+i 15 xPos: 15 j 5 yPos 5
+i 15 xPos: 15 j 6 yPos 6
+i 15 xPos: 15 j 7 yPos 7
+i 15 xPos: 15 j 8 yPos 8
+i 15 xPos: 15 j 9 yPos 9
+i 15 xPos: 15 j 10 yPos 10
+i 15 xPos: 15 j 11 yPos 11
+i 15 xPos: 15 j 12 yPos 12
+i 15 xPos: 15 j 13 yPos 13
+i 15 xPos: 15 j 14 yPos 14
+i 15 xPos: 15 j 15 yPos 15
+i 15 xPos: 15 j 16 yPos 16
+i 15 xPos: 15 j 17 yPos 17
+i 15 xPos: 15 j 18 yPos 18
+i 15 xPos: 15 j 19 yPos 19
+i 15 xPos: 15 j 20 yPos 20
+i 15 xPos: 15 j 21 yPos 21
+i 15 xPos: 15 j 22 yPos 22
+i 15 xPos: 15 j 23 yPos 23
+i 15 xPos: 15 j 24 yPos 24
+i 16 xPos: 16 j 0 yPos 0
+i 16 xPos: 16 j 1 yPos 1
+i 16 xPos: 16 j 2 yPos 2
+i 16 xPos: 16 j 3 yPos 3
+i 16 xPos: 16 j 4 yPos 4
+i 16 xPos: 16 j 5 yPos 5
+i 16 xPos: 16 j 6 yPos 6
+i 16 xPos: 16 j 7 yPos 7
+i 16 xPos: 16 j 8 yPos 8
+i 16 xPos: 16 j 9 yPos 9
+i 16 xPos: 16 j 10 yPos 10
+i 16 xPos: 16 j 11 yPos 11
+i 16 xPos: 16 j 12 yPos 12
+i 16 xPos: 16 j 13 yPos 13
+i 16 xPos: 16 j 14 yPos 14
+i 16 xPos: 16 j 15 yPos 15
+i 16 xPos: 16 j 16 yPos 16
+i 16 xPos: 16 j 17 yPos 17
+i 16 xPos: 16 j 18 yPos 18
+i 16 xPos: 16 j 19 yPos 19
+i 16 xPos: 16 j 20 yPos 20
+i 16 xPos: 16 j 21 yPos 21
+i 16 xPos: 16 j 22 yPos 22
+i 16 xPos: 16 j 23 yPos 23
+i 16 xPos: 16 j 24 yPos 24
+i 17 xPos: 17 j 0 yPos 0
+i 17 xPos: 17 j 1 yPos 1
+i 17 xPos: 17 j 2 yPos 2
+i 17 xPos: 17 j 3 yPos 3
+i 17 xPos: 17 j 4 yPos 4
+i 17 xPos: 17 j 5 yPos 5
+i 17 xPos: 17 j 6 yPos 6
+i 17 xPos: 17 j 7 yPos 7
+i 17 xPos: 17 j 8 yPos 8
+i 17 xPos: 17 j 9 yPos 9
+i 17 xPos: 17 j 10 yPos 10
+i 17 xPos: 17 j 11 yPos 11
+i 17 xPos: 17 j 12 yPos 12
+i 17 xPos: 17 j 13 yPos 13
+i 17 xPos: 17 j 14 yPos 14
+i 17 xPos: 17 j 15 yPos 15
+i 17 xPos: 17 j 16 yPos 16
+i 17 xPos: 17 j 17 yPos 17
+i 17 xPos: 17 j 18 yPos 18
+i 17 xPos: 17 j 19 yPos 19
+i 17 xPos: 17 j 20 yPos 20
+i 17 xPos: 17 j 21 yPos 21
+i 17 xPos: 17 j 22 yPos 22
+i 17 xPos: 17 j 23 yPos 23
+i 17 xPos: 17 j 24 yPos 24
+i 18 xPos: 18 j 0 yPos 0
+i 18 xPos: 18 j 1 yPos 1
+i 18 xPos: 18 j 2 yPos 2
+i 18 xPos: 18 j 3 yPos 3
+i 18 xPos: 18 j 4 yPos 4
+i 18 xPos: 18 j 5 yPos 5
+i 18 xPos: 18 j 6 yPos 6
+i 18 xPos: 18 j 7 yPos 7
+i 18 xPos: 18 j 8 yPos 8
+i 18 xPos: 18 j 9 yPos 9
+i 18 xPos: 18 j 10 yPos 10
+i 18 xPos: 18 j 11 yPos 11
+i 18 xPos: 18 j 12 yPos 12
+i 18 xPos: 18 j 13 yPos 13
+i 18 xPos: 18 j 14 yPos 14
+i 18 xPos: 18 j 15 yPos 15
+i 18 xPos: 18 j 16 yPos 16
+i 18 xPos: 18 j 17 yPos 17
+i 18 xPos: 18 j 18 yPos 18
+i 18 xPos: 18 j 19 yPos 19
+i 18 xPos: 18 j 20 yPos 20
+i 18 xPos: 18 j 21 yPos 21
+i 18 xPos: 18 j 22 yPos 22
+i 18 xPos: 18 j 23 yPos 23
+i 18 xPos: 18 j 24 yPos 24
+i 19 xPos: 19 j 0 yPos 0
+i 19 xPos: 19 j 1 yPos 1
+i 19 xPos: 19 j 2 yPos 2
+i 19 xPos: 19 j 3 yPos 3
+i 19 xPos: 19 j 4 yPos 4
+i 19 xPos: 19 j 5 yPos 5
+i 19 xPos: 19 j 6 yPos 6
+i 19 xPos: 19 j 7 yPos 7
+i 19 xPos: 19 j 8 yPos 8
+i 19 xPos: 19 j 9 yPos 9
+i 19 xPos: 19 j 10 yPos 10
+i 19 xPos: 19 j 11 yPos 11
+i 19 xPos: 19 j 12 yPos 12
+i 19 xPos: 19 j 13 yPos 13
+i 19 xPos: 19 j 14 yPos 14
+i 19 xPos: 19 j 15 yPos 15
+i 19 xPos: 19 j 16 yPos 16
+i 19 xPos: 19 j 17 yPos 17
+i 19 xPos: 19 j 18 yPos 18
+i 19 xPos: 19 j 19 yPos 19
+i 19 xPos: 19 j 20 yPos 20
+i 19 xPos: 19 j 21 yPos 21
+i 19 xPos: 19 j 22 yPos 22
+i 19 xPos: 19 j 23 yPos 23
+i 19 xPos: 19 j 24 yPos 24
+i 20 xPos: 20 j 0 yPos 0
+i 20 xPos: 20 j 1 yPos 1
+i 20 xPos: 20 j 2 yPos 2
+i 20 xPos: 20 j 3 yPos 3
+i 20 xPos: 20 j 4 yPos 4
+i 20 xPos: 20 j 5 yPos 5
+i 20 xPos: 20 j 6 yPos 6
+i 20 xPos: 20 j 7 yPos 7
+i 20 xPos: 20 j 8 yPos 8
+i 20 xPos: 20 j 9 yPos 9
+i 20 xPos: 20 j 10 yPos 10
+i 20 xPos: 20 j 11 yPos 11
+i 20 xPos: 20 j 12 yPos 12
+i 20 xPos: 20 j 13 yPos 13
+i 20 xPos: 20 j 14 yPos 14
+i 20 xPos: 20 j 15 yPos 15
+i 20 xPos: 20 j 16 yPos 16
+i 20 xPos: 20 j 17 yPos 17
+i 20 xPos: 20 j 18 yPos 18
+i 20 xPos: 20 j 19 yPos 19
+i 20 xPos: 20 j 20 yPos 20
+i 20 xPos: 20 j 21 yPos 21
+i 20 xPos: 20 j 22 yPos 22
+i 20 xPos: 20 j 23 yPos 23
+i 20 xPos: 20 j 24 yPos 24
+i 21 xPos: 21 j 0 yPos 0
+i 21 xPos: 21 j 1 yPos 1
+i 21 xPos: 21 j 2 yPos 2
+i 21 xPos: 21 j 3 yPos 3
+i 21 xPos: 21 j 4 yPos 4
+i 21 xPos: 21 j 5 yPos 5
+i 21 xPos: 21 j 6 yPos 6
+i 21 xPos: 21 j 7 yPos 7
+i 21 xPos: 21 j 8 yPos 8
+i 21 xPos: 21 j 9 yPos 9
+i 21 xPos: 21 j 10 yPos 10
+i 21 xPos: 21 j 11 yPos 11
+i 21 xPos: 21 j 12 yPos 12
+i 21 xPos: 21 j 13 yPos 13
+i 21 xPos: 21 j 14 yPos 14
+i 21 xPos: 21 j 15 yPos 15
+i 21 xPos: 21 j 16 yPos 16
+i 21 xPos: 21 j 17 yPos 17
+i 21 xPos: 21 j 18 yPos 18
+i 21 xPos: 21 j 19 yPos 19
+i 21 xPos: 21 j 20 yPos 20
+i 21 xPos: 21 j 21 yPos 21
+i 21 xPos: 21 j 22 yPos 22
+i 21 xPos: 21 j 23 yPos 23
+i 21 xPos: 21 j 24 yPos 24
+i 22 xPos: 22 j 0 yPos 0
+i 22 xPos: 22 j 1 yPos 1
+i 22 xPos: 22 j 2 yPos 2
+i 22 xPos: 22 j 3 yPos 3
+i 22 xPos: 22 j 4 yPos 4
+i 22 xPos: 22 j 5 yPos 5
+i 22 xPos: 22 j 6 yPos 6
+i 22 xPos: 22 j 7 yPos 7
+i 22 xPos: 22 j 8 yPos 8
+i 22 xPos: 22 j 9 yPos 9
+i 22 xPos: 22 j 10 yPos 10
+i 22 xPos: 22 j 11 yPos 11
+i 22 xPos: 22 j 12 yPos 12
+i 22 xPos: 22 j 13 yPos 13
+i 22 xPos: 22 j 14 yPos 14
+i 22 xPos: 22 j 15 yPos 15
+i 22 xPos: 22 j 16 yPos 16
+i 22 xPos: 22 j 17 yPos 17
+i 22 xPos: 22 j 18 yPos 18
+i 22 xPos: 22 j 19 yPos 19
+i 22 xPos: 22 j 20 yPos 20
+i 22 xPos: 22 j 21 yPos 21
+i 22 xPos: 22 j 22 yPos 22
+i 22 xPos: 22 j 23 yPos 23
+i 22 xPos: 22 j 24 yPos 24
+i 23 xPos: 23 j 0 yPos 0
+i 23 xPos: 23 j 1 yPos 1
+i 23 xPos: 23 j 2 yPos 2
+i 23 xPos: 23 j 3 yPos 3
+i 23 xPos: 23 j 4 yPos 4
+i 23 xPos: 23 j 5 yPos 5
+i 23 xPos: 23 j 6 yPos 6
+i 23 xPos: 23 j 7 yPos 7
+i 23 xPos: 23 j 8 yPos 8
+i 23 xPos: 23 j 9 yPos 9
+i 23 xPos: 23 j 10 yPos 10
+i 23 xPos: 23 j 11 yPos 11
+i 23 xPos: 23 j 12 yPos 12
+i 23 xPos: 23 j 13 yPos 13
+i 23 xPos: 23 j 14 yPos 14
+i 23 xPos: 23 j 15 yPos 15
+i 23 xPos: 23 j 16 yPos 16
+i 23 xPos: 23 j 17 yPos 17
+i 23 xPos: 23 j 18 yPos 18
+i 23 xPos: 23 j 19 yPos 19
+i 23 xPos: 23 j 20 yPos 20
+i 23 xPos: 23 j 21 yPos 21
+i 23 xPos: 23 j 22 yPos 22
+i 23 xPos: 23 j 23 yPos 23
+i 23 xPos: 23 j 24 yPos 24
+i 24 xPos: 24 j 0 yPos 0
+i 24 xPos: 24 j 1 yPos 1
+i 24 xPos: 24 j 2 yPos 2
+i 24 xPos: 24 j 3 yPos 3
+i 24 xPos: 24 j 4 yPos 4
+i 24 xPos: 24 j 5 yPos 5
+i 24 xPos: 24 j 6 yPos 6
+i 24 xPos: 24 j 7 yPos 7
+i 24 xPos: 24 j 8 yPos 8
+i 24 xPos: 24 j 9 yPos 9
+i 24 xPos: 24 j 10 yPos 10
+i 24 xPos: 24 j 11 yPos 11
+i 24 xPos: 24 j 12 yPos 12
+i 24 xPos: 24 j 13 yPos 13
+i 24 xPos: 24 j 14 yPos 14
+i 24 xPos: 24 j 15 yPos 15
+i 24 xPos: 24 j 16 yPos 16
+i 24 xPos: 24 j 17 yPos 17
+i 24 xPos: 24 j 18 yPos 18
+i 24 xPos: 24 j 19 yPos 19
+i 24 xPos: 24 j 20 yPos 20
+i 24 xPos: 24 j 21 yPos 21
+i 24 xPos: 24 j 22 yPos 22
+i 24 xPos: 24 j 23 yPos 23
+i 24 xPos: 24 j 24 yPos 24
+FINDING PATH 0
+FINDING PATH 1
+FINDING PATH 2, Current: 10 10
+FINDING PATH 2, Current: 9 10
+FINDING PATH 2, Current: 10 9
+FINDING PATH 2, Current: 11 10
+FINDING PATH 2, Current: 10 11
+FINDING PATH 2, Current: 9 9
+FINDING PATH 2, Current: 9 11
+FINDING PATH 2, Current: 11 9
+FINDING PATH 2, Current: 11 11
+FINDING PATH 2, Current: 8 10
+FINDING PATH 2, Current: 10 8
+FINDING PATH 2, Current: 8 9
+FINDING PATH 2, Current: 9 8
+FINDING PATH 2, Current: 12 10
+FINDING PATH 2, Current: 10 12
+FINDING PATH 2, Current: 8 11
+FINDING PATH 2, Current: 11 8
+FINDING PATH 2, Current: 8 8
+FINDING PATH 2, Current: 12 9
+FINDING PATH 2, Current: 9 12
+FINDING PATH 2, Current: 12 11
+FINDING PATH 2, Current: 11 12
+FINDING PATH 2, Current: 7 10
+FINDING PATH 2, Current: 10 7
+FINDING PATH 2, Current: 8 12
+FINDING PATH 2, Current: 12 8
+FINDING PATH 2, Current: 7 9
+FINDING PATH 2, Current: 9 7
+FINDING PATH 2, Current: 12 12
+FINDING PATH 2, Current: 7 11
+FINDING PATH 2, Current: 11 7
+FINDING PATH 2, Current: 7 8
+FINDING PATH 2, Current: 8 7
+FINDING PATH 2, Current: 13 10
+FINDING PATH 2, Current: 10 13
+FINDING PATH 2, Current: 13 9
+FINDING PATH 2, Current: 9 13
+FINDING PATH 2, Current: 7 7
+FINDING PATH 2, Current: 6 10
+FINDING PATH 2, Current: 10 6
+FINDING PATH 2, Current: 7 12
+FINDING PATH 2, Current: 12 7
+FINDING PATH 2, Current: 13 11
+FINDING PATH 2, Current: 11 13
+FINDING PATH 2, Current: 13 8
+FINDING PATH 2, Current: 8 13
+FINDING PATH 2, Current: 6 9
+FINDING PATH 2, Current: 9 6
+FINDING PATH 2, Current: 6 11
+FINDING PATH 2, Current: 11 6
+FINDING PATH 2, Current: 7 13
+FINDING PATH 2, Current: 13 7
+FINDING PATH 2, Current: 6 8
+FINDING PATH 2, Current: 8 6
+FINDING PATH 2, Current: 13 12
+FINDING PATH 2, Current: 12 13
+FINDING PATH 2, Current: 14 10
+FINDING PATH 2, Current: 10 14
+FINDING PATH 2, Current: 6 7
+FINDING PATH 2, Current: 7 6
+FINDING PATH 2, Current: 5 10
+FINDING PATH 2, Current: 10 5
+FINDING PATH 2, Current: 6 12
+FINDING PATH 2, Current: 12 6
+FINDING PATH 2, Current: 14 9
+FINDING PATH 2, Current: 9 14
+FINDING PATH 2, Current: 13 13
+FINDING PATH 2, Current: 6 6
+FINDING PATH 2, Current: 5 9
+FINDING PATH 2, Current: 9 5
+FINDING PATH 2, Current: 14 11
+FINDING PATH 2, Current: 11 14
+FINDING PATH 2, Current: 14 8
+FINDING PATH 2, Current: 8 14
+FINDING PATH 2, Current: 5 11
+FINDING PATH 2, Current: 11 5
+FINDING PATH 2, Current: 6 13
+FINDING PATH 2, Current: 13 6
+FINDING PATH 2, Current: 5 8
+FINDING PATH 2, Current: 8 5
+FINDING PATH 2, Current: 14 7
+FINDING PATH 2, Current: 7 14
+FINDING PATH 2, Current: 14 12
+FINDING PATH 2, Current: 12 14
+FINDING PATH 2, Current: 5 7
+FINDING PATH 2, Current: 7 5
+FINDING PATH 2, Current: 4 10
+FINDING PATH 2, Current: 10 4
+FINDING PATH 2, Current: 5 12
+FINDING PATH 2, Current: 12 5
+FINDING PATH 2, Current: 15 10
+FINDING PATH 2, Current: 10 15
+FINDING PATH 2, Current: 6 14
+FINDING PATH 2, Current: 14 6
+FINDING PATH 2, Current: 5 6
+FINDING PATH 2, Current: 6 5
+FINDING PATH 2, Current: 4 9
+FINDING PATH 2, Current: 9 4
+FINDING PATH 2, Current: 15 9
+FINDING PATH 2, Current: 9 15
+FINDING PATH 2, Current: 14 13
+FINDING PATH 2, Current: 13 14
+FINDING PATH 2, Current: 4 11
+FINDING PATH 2, Current: 11 4
+FINDING PATH 2, Current: 15 11
+FINDING PATH 2, Current: 11 15
+FINDING PATH 2, Current: 5 13
+FINDING PATH 2, Current: 13 5
+FINDING PATH 2, Current: 5 5
+FINDING PATH 2, Current: 4 8
+FINDING PATH 2, Current: 8 4
+FINDING PATH 2, Current: 15 8
+FINDING PATH 2, Current: 8 15
+FINDING PATH 2, Current: 4 7
+FINDING PATH 2, Current: 7 4
+FINDING PATH 2, Current: 3 10
+FINDING PATH 2, Current: 10 3
+FINDING PATH 2, Current: 14 14
+FINDING PATH 2, Current: 15 7
+FINDING PATH 2, Current: 7 15
+FINDING PATH 2, Current: 4 12
+FINDING PATH 2, Current: 12 4
+FINDING PATH 2, Current: 15 12
+FINDING PATH 2, Current: 12 15
+FINDING PATH 2, Current: 5 14
+FINDING PATH 2, Current: 14 5
+FINDING PATH 2, Current: 4 6
+FINDING PATH 2, Current: 6 4
+FINDING PATH 2, Current: 3 9
+FINDING PATH 2, Current: 9 3
+FINDING PATH 2, Current: 16 10
+FINDING PATH 2, Current: 10 16
+FINDING PATH 2, Current: 15 6
+FINDING PATH 2, Current: 6 15
+FINDING PATH 2, Current: 3 11
+FINDING PATH 2, Current: 11 3
+FINDING PATH 2, Current: 4 13
+FINDING PATH 2, Current: 13 4
+FINDING PATH 2, Current: 16 9
+FINDING PATH 2, Current: 9 16
+FINDING PATH 2, Current: 4 5
+FINDING PATH 2, Current: 5 4
+FINDING PATH 2, Current: 3 8
+FINDING PATH 2, Current: 8 3
+FINDING PATH 2, Current: 15 13
+FINDING PATH 2, Current: 13 15
+FINDING PATH 2, Current: 5 15
+FINDING PATH 2, Current: 15 5
+FINDING PATH 2, Current: 16 11
+FINDING PATH 2, Current: 11 16
+FINDING PATH 2, Current: 16 8
+FINDING PATH 2, Current: 8 16
+FINDING PATH 2, Current: 4 4
+FINDING PATH 2, Current: 3 7
+FINDING PATH 2, Current: 7 3
+FINDING PATH 2, Current: 2 10
+FINDING PATH 2, Current: 10 2
+FINDING PATH 2, Current: 3 12
+FINDING PATH 2, Current: 12 3
+FINDING PATH 2, Current: 4 14
+FINDING PATH 2, Current: 14 4
+FINDING PATH 2, Current: 15 14
+FINDING PATH 2, Current: 14 15
+FINDING PATH 2, Current: 16 7
+FINDING PATH 2, Current: 7 16
+FINDING PATH 2, Current: 3 6
+FINDING PATH 2, Current: 6 3
+FINDING PATH 2, Current: 2 9
+FINDING PATH 2, Current: 9 2
+FINDING PATH 2, Current: 16 12
+FINDING PATH 2, Current: 12 16
+FINDING PATH 2, Current: 2 11
+FINDING PATH 2, Current: 11 2
+FINDING PATH 2, Current: 17 10
+FINDING PATH 2, Current: 10 17
+FINDING PATH 2, Current: 16 6
+FINDING PATH 2, Current: 6 16
+FINDING PATH 2, Current: 3 13
+FINDING PATH 2, Current: 13 3
+FINDING PATH 2, Current: 3 5
+FINDING PATH 2, Current: 5 3
+FINDING PATH 2, Current: 2 8
+FINDING PATH 2, Current: 8 2
+FINDING PATH 2, Current: 4 15
+FINDING PATH 2, Current: 15 4
+FINDING PATH 2, Current: 15 15
+FINDING PATH 2, Current: 17 9
+FINDING PATH 2, Current: 9 17
+FINDING PATH 2, Current: 16 13
+FINDING PATH 2, Current: 13 16
+FINDING PATH 2, Current: 16 5
+FINDING PATH 2, Current: 5 16
+FINDING PATH 2, Current: 3 4
+FINDING PATH 2, Current: 4 3
+FINDING PATH 2, Current: 2 7
+FINDING PATH 2, Current: 7 2
+FINDING PATH 2, Current: 1 10
+FINDING PATH 2, Current: 10 1
+FINDING PATH 2, Current: 17 11
+FINDING PATH 2, Current: 11 17
+FINDING PATH 2, Current: 2 12
+FINDING PATH 2, Current: 12 2
+FINDING PATH 2, Current: 3 14
+FINDING PATH 2, Current: 14 3
+FINDING PATH 2, Current: 17 8
+FINDING PATH 2, Current: 8 17
+FINDING PATH 2, Current: 4 16
+FINDING PATH 2, Current: 16 4
+FINDING PATH 2, Current: 3 3
+FINDING PATH 2, Current: 2 6
+FINDING PATH 2, Current: 6 2
+FINDING PATH 2, Current: 1 9
+FINDING PATH 2, Current: 9 1
+FINDING PATH 2, Current: 16 14
+FINDING PATH 2, Current: 14 16
+FINDING PATH 2, Current: 17 7
+FINDING PATH 2, Current: 7 17
+FINDING PATH 2, Current: 1 11
+FINDING PATH 2, Current: 11 1
+FINDING PATH 2, Current: 17 12
+FINDING PATH 2, Current: 12 17
+FINDING PATH 2, Current: 2 13
+FINDING PATH 2, Current: 13 2
+FINDING PATH 2, Current: 2 5
+FINDING PATH 2, Current: 5 2
+FINDING PATH 2, Current: 1 8
+FINDING PATH 2, Current: 8 1
+FINDING PATH 2, Current: 3 15
+FINDING PATH 2, Current: 15 3
+FINDING PATH 2, Current: 18 10
+FINDING PATH 2, Current: 10 18
+FINDING PATH 2, Current: 17 6
+FINDING PATH 2, Current: 6 17
+FINDING PATH 2, Current: 2 4
+FINDING PATH 2, Current: 4 2
+FINDING PATH 2, Current: 1 7
+FINDING PATH 2, Current: 7 1
+FINDING PATH 2, Current: 0 10
+FINDING PATH 2, Current: 10 0
+FINDING PATH 2, Current: 16 15
+FINDING PATH 2, Current: 15 16
+FINDING PATH 2, Current: 1 12
+FINDING PATH 2, Current: 12 1
+FINDING PATH 2, Current: 18 9
+FINDING PATH 2, Current: 9 18
+FINDING PATH 2, Current: 17 13
+FINDING PATH 2, Current: 13 17
+FINDING PATH 2, Current: 17 5
+FINDING PATH 2, Current: 5 17
+FINDING PATH 2, Current: 2 14
+FINDING PATH 2, Current: 14 2
+FINDING PATH 2, Current: 18 11
+FINDING PATH 2, Current: 11 18
+FINDING PATH 2, Current: 3 16
+FINDING PATH 2, Current: 16 3
+FINDING PATH 2, Current: 2 3
+FINDING PATH 2, Current: 3 2
+FINDING PATH 2, Current: 1 6
+FINDING PATH 2, Current: 6 1
+FINDING PATH 2, Current: 0 9
+FINDING PATH 2, Current: 9 0
+FINDING PATH 2, Current: 18 8
+FINDING PATH 2, Current: 8 18
+FINDING PATH 2, Current: 17 4
+FINDING PATH 2, Current: 4 17
+FINDING PATH 2, Current: 0 11
+FINDING PATH 2, Current: 11 0
+FINDING PATH 2, Current: 16 16
+FINDING PATH 2, Current: 1 13
+FINDING PATH 2, Current: 13 1
+FINDING PATH 2, Current: 2 2
+FINDING PATH 2, Current: 1 5
+FINDING PATH 2, Current: 5 1
+FINDING PATH 2, Current: 0 8
+FINDING PATH 2, Current: 8 0
+FINDING PATH 2, Current: 17 14
+FINDING PATH 2, Current: 14 17
+FINDING PATH 2, Current: 2 15
+FINDING PATH 2, Current: 15 2
+FINDING PATH 2, Current: 18 7
+FINDING PATH 2, Current: 7 18
+FINDING PATH 2, Current: 18 12
+FINDING PATH 2, Current: 12 18
+FINDING PATH 2, Current: 3 17
+FINDING PATH 2, Current: 17 3
+FINDING PATH 2, Current: 1 4
+FINDING PATH 2, Current: 4 1
+FINDING PATH 2, Current: 0 7
+FINDING PATH 2, Current: 7 0
+FINDING PATH 2, Current: 19 10
+FINDING PATH 2, Current: 10 19
+FINDING PATH 2, Current: 18 6
+FINDING PATH 2, Current: 6 18
+FINDING PATH 2, Current: 0 12
+FINDING PATH 2, Current: 12 0
+FINDING PATH 2, Current: 1 14
+FINDING PATH 2, Current: 14 1
+FINDING PATH 2, Current: 17 15
+FINDING PATH 2, Current: 15 17
+FINDING PATH 2, Current: 2 16
+FINDING PATH 2, Current: 16 2
+FINDING PATH 2, Current: 19 9
+FINDING PATH 2, Current: 9 19
+FINDING PATH 2, Current: 1 3
+FINDING PATH 2, Current: 3 1
+FINDING PATH 2, Current: 0 6
+FINDING PATH 2, Current: 6 0
+FINDING PATH 2, Current: 18 13
+FINDING PATH 2, Current: 13 18
+FINDING PATH 2, Current: 18 5
+FINDING PATH 2, Current: 5 18
+FINDING PATH 2, Current: 19 11
+FINDING PATH 2, Current: 11 19
+FINDING PATH 2, Current: 0 13
+FINDING PATH 2, Current: 13 0
+FINDING PATH 2, Current: 19 8
+FINDING PATH 2, Current: 8 19
+FINDING PATH 2, Current: 1 2
+FINDING PATH 2, Current: 2 1
+FINDING PATH 2, Current: 0 5
+FINDING PATH 2, Current: 5 0
+FINDING PATH 2, Current: 18 4
+FINDING PATH 2, Current: 4 18
+FINDING PATH 2, Current: 1 15
+FINDING PATH 2, Current: 15 1
+FINDING PATH 2, Current: 17 16
+FINDING PATH 2, Current: 16 17
+FINDING PATH 2, Current: 2 17
+FINDING PATH 2, Current: 17 2
+FINDING PATH 2, Current: 18 14
+FINDING PATH 2, Current: 14 18
+FINDING PATH 2, Current: 19 7
+FINDING PATH 2, Current: 7 19
+FINDING PATH 2, Current: 1 1
+FINDING PATH 2, Current: 0 4
+FINDING PATH 2, Current: 4 0
+FINDING PATH 2, Current: 19 12
+FINDING PATH 2, Current: 12 19
+FINDING PATH 2, Current: 18 3
+FINDING PATH 2, Current: 3 18
+FINDING PATH 2, Current: 0 14
+FINDING PATH 2, Current: 14 0
+FINDING PATH 2, Current: 20 10
+FINDING PATH 2, Current: 10 20
+FINDING PATH 2, Current: 1 16
+FINDING PATH 2, Current: 16 1
+FINDING PATH 2, Current: 19 6
+FINDING PATH 2, Current: 6 19
+FINDING PATH 2, Current: 0 3
+FINDING PATH 2, Current: 3 0
+FINDING PATH 2, Current: 17 17
+FINDING PATH 2, Current: 2 18
+FINDING PATH 2, Current: 18 2
+FINDING PATH 2, Current: 18 15
+FINDING PATH 2, Current: 15 18
+FINDING PATH 2, Current: 20 9
+FINDING PATH 2, Current: 9 20
+FINDING PATH 2, Current: 19 13
+FINDING PATH 2, Current: 13 19
+FINDING PATH 2, Current: 19 5
+FINDING PATH 2, Current: 5 19
+FINDING PATH 2, Current: 0 2
+FINDING PATH 2, Current: 2 0
+FINDING PATH 2, Current: 20 11
+FINDING PATH 2, Current: 11 20
+FINDING PATH 2, Current: 0 15
+FINDING PATH 2, Current: 15 0
+FINDING PATH 2, Current: 1 17
+FINDING PATH 2, Current: 17 1
+FINDING PATH 2, Current: 20 8
+FINDING PATH 2, Current: 8 20
+FINDING PATH 2, Current: 19 4
+FINDING PATH 2, Current: 4 19
+FINDING PATH 2, Current: 0 1
+FINDING PATH 2, Current: 1 0
+FINDING PATH 2, Current: 18 16
+FINDING PATH 2, Current: 16 18
+FINDING PATH 2, Current: 19 14
+FINDING PATH 2, Current: 14 19
+FINDING PATH 2, Current: 20 7
+FINDING PATH 2, Current: 7 20
+FINDING PATH 2, Current: 20 12
+FINDING PATH 2, Current: 12 20
+FINDING PATH 2, Current: 19 3
+FINDING PATH 2, Current: 3 19
+FINDING PATH 2, Current: 0 16
+FINDING PATH 2, Current: 16 0
+FINDING PATH 3
+Done creating scene!
+Mouse pressed
+Allocated socket set with size:  2, of which 1 are availble for use by clients.
+clientSocket[0] initialized to NULL
+Successfully resolved server host to IP: 0.0.0.0 port 60000
+
+Sucessfully created server socket.
+Awaiting clients...
+Creating lights...
+Done creating lights!
+Creating scene...
+Creating GameObject with id: 635
+Creating GameObject with id: 636
+Creating GameObject with id: 637
+Creating GameObject with id: 638
+Creating GameObject with id: 639
+Creating GameObject with id: 640
+Creating GameObject with id: 641
+Creating GameObject with id: 642
+Creating GameObject with id: 643
+Creating GameObject with id: 644
+Creating GameObject with id: 645
+Creating GameObject with id: 646
+Creating GameObject with id: 647
+Creating GameObject with id: 648
+Creating GameObject with id: 649
+Creating GameObject with id: 650
+Creating GameObject with id: 651
+Creating GameObject with id: 652
+Creating GameObject with id: 653
+Creating GameObject with id: 654
+Creating GameObject with id: 655
+Creating GameObject with id: 656
+Creating GameObject with id: 657
+Creating GameObject with id: 658
+Creating GameObject with id: 659
+Creating GameObject with id: 660
+Creating GameObject with id: 661
+Creating GameObject with id: 662
+Creating GameObject with id: 663
+Creating GameObject with id: 664
+Creating GameObject with id: 665
+Creating GameObject with id: 666
+Creating GameObject with id: 667
+Creating GameObject with id: 668
+Creating GameObject with id: 669
+Creating GameObject with id: 670
+Creating GameObject with id: 671
+Creating GameObject with id: 672
+Creating GameObject with id: 673
+Creating GameObject with id: 674
+Creating GameObject with id: 675
+Creating GameObject with id: 676
+Creating GameObject with id: 677
+Creating GameObject with id: 678
+Creating GameObject with id: 679
+Creating GameObject with id: 680
+Creating GameObject with id: 681
+Creating GameObject with id: 682
+Creating GameObject with id: 683
+Creating GameObject with id: 684
+Creating GameObject with id: 685
+Creating GameObject with id: 686
+Creating GameObject with id: 687
+Creating GameObject with id: 688
+Creating GameObject with id: 689
+Creating GameObject with id: 690
+Creating GameObject with id: 691
+Creating GameObject with id: 692
+Creating GameObject with id: 693
+Creating GameObject with id: 694
+Creating GameObject with id: 695
+Creating GameObject with id: 696
+Creating GameObject with id: 697
+Creating GameObject with id: 698
+Creating GameObject with id: 699
+Creating GameObject with id: 700
+Creating GameObject with id: 701
+Creating GameObject with id: 702
+Creating GameObject with id: 703
+Creating GameObject with id: 704
+Creating GameObject with id: 705
+Creating GameObject with id: 706
+Creating GameObject with id: 707
+Creating GameObject with id: 708
+Creating GameObject with id: 709
+Creating GameObject with id: 710
+Creating GameObject with id: 711
+Creating GameObject with id: 712
+Creating GameObject with id: 713
+Creating GameObject with id: 714
+Creating GameObject with id: 715
+Creating GameObject with id: 716
+Creating GameObject with id: 717
+Creating GameObject with id: 718
+Creating GameObject with id: 719
+Creating GameObject with id: 720
+Creating GameObject with id: 721
+Creating GameObject with id: 722
+Creating GameObject with id: 723
+Creating GameObject with id: 724
+Creating GameObject with id: 725
+Creating GameObject with id: 726
+Creating GameObject with id: 727
+Creating GameObject with id: 728
+Creating GameObject with id: 729
+Creating GameObject with id: 730
+Creating GameObject with id: 731
+Creating GameObject with id: 732
+Creating GameObject with id: 733
+Creating GameObject with id: 734
+Creating GameObject with id: 735
+Creating GameObject with id: 736
+Creating GameObject with id: 737
+Creating GameObject with id: 738
+Creating GameObject with id: 739
+Creating GameObject with id: 740
+Creating GameObject with id: 741
+Creating GameObject with id: 742
+Creating GameObject with id: 743
+Creating GameObject with id: 744
+Creating GameObject with id: 745
+Creating GameObject with id: 746
+Creating GameObject with id: 747
+Creating GameObject with id: 748
+Creating GameObject with id: 749
+Creating GameObject with id: 750
+Creating GameObject with id: 751
+Creating GameObject with id: 752
+Creating GameObject with id: 753
+Creating GameObject with id: 754
+Creating GameObject with id: 755
+Creating GameObject with id: 756
+Creating GameObject with id: 757
+Creating GameObject with id: 758
+Creating GameObject with id: 759
+Creating GameObject with id: 760
+Creating GameObject with id: 761
+Creating GameObject with id: 762
+Creating GameObject with id: 763
+Creating GameObject with id: 764
+Creating GameObject with id: 765
+Creating GameObject with id: 766
+Creating GameObject with id: 767
+Creating GameObject with id: 768
+Creating GameObject with id: 769
+Creating GameObject with id: 770
+Creating GameObject with id: 771
+Creating GameObject with id: 772
+Creating GameObject with id: 773
+Creating GameObject with id: 774
+Creating GameObject with id: 775
+Creating GameObject with id: 776
+Creating GameObject with id: 777
+Creating GameObject with id: 778
+Creating GameObject with id: 779
+Creating GameObject with id: 780
+Creating GameObject with id: 781
+Creating GameObject with id: 782
+Creating GameObject with id: 783
+Creating GameObject with id: 784
+Creating GameObject with id: 785
+Creating GameObject with id: 786
+Creating GameObject with id: 787
+Creating GameObject with id: 788
+Creating GameObject with id: 789
+Creating GameObject with id: 790
+Creating GameObject with id: 791
+Creating GameObject with id: 792
+Creating GameObject with id: 793
+Creating GameObject with id: 794
+Creating GameObject with id: 795
+Creating GameObject with id: 796
+Creating GameObject with id: 797
+Creating GameObject with id: 798
+Creating GameObject with id: 799
+Creating GameObject with id: 800
+Creating GameObject with id: 801
+Creating GameObject with id: 802
+Creating GameObject with id: 803
+Creating GameObject with id: 804
+Creating GameObject with id: 805
+Creating GameObject with id: 806
+Creating GameObject with id: 807
+Creating GameObject with id: 808
+Creating GameObject with id: 809
+Creating GameObject with id: 810
+Creating GameObject with id: 811
+Creating GameObject with id: 812
+Creating GameObject with id: 813
+Creating GameObject with id: 814
+Creating GameObject with id: 815
+Creating GameObject with id: 816
+Creating GameObject with id: 817
+Creating GameObject with id: 818
+Creating GameObject with id: 819
+Creating GameObject with id: 820
+Creating GameObject with id: 821
+Creating GameObject with id: 822
+Creating GameObject with id: 823
+Creating GameObject with id: 824
+Creating GameObject with id: 825
+Creating GameObject with id: 826
+Creating GameObject with id: 827
+Creating GameObject with id: 828
+Creating GameObject with id: 829
+Creating GameObject with id: 830
+Creating GameObject with id: 831
+Creating GameObject with id: 832
+Creating GameObject with id: 833
+Creating GameObject with id: 834
+Creating GameObject with id: 835
+Creating GameObject with id: 836
+Creating GameObject with id: 837
+Creating GameObject with id: 838
+Creating GameObject with id: 839
+Creating GameObject with id: 840
+Creating GameObject with id: 841
+Creating GameObject with id: 842
+Creating GameObject with id: 843
+Creating GameObject with id: 844
+Creating GameObject with id: 845
+Creating GameObject with id: 846
+Creating GameObject with id: 847
+Creating GameObject with id: 848
+Creating GameObject with id: 849
+Creating GameObject with id: 850
+Creating GameObject with id: 851
+Creating GameObject with id: 852
+Creating GameObject with id: 853
+Creating GameObject with id: 854
+Creating GameObject with id: 855
+Creating GameObject with id: 856
+Creating GameObject with id: 857
+Creating GameObject with id: 858
+Creating GameObject with id: 859
+Creating GameObject with id: 860
+Creating GameObject with id: 861
+Creating GameObject with id: 862
+Creating GameObject with id: 863
+Creating GameObject with id: 864
+Creating GameObject with id: 865
+Creating GameObject with id: 866
+Creating GameObject with id: 867
+Creating GameObject with id: 868
+Creating GameObject with id: 869
+Creating GameObject with id: 870
+Creating GameObject with id: 871
+Creating GameObject with id: 872
+Creating GameObject with id: 873
+Creating GameObject with id: 874
+Creating GameObject with id: 875
+Creating GameObject with id: 876
+Creating GameObject with id: 877
+Creating GameObject with id: 878
+Creating GameObject with id: 879
+Creating GameObject with id: 880
+Creating GameObject with id: 881
+Creating GameObject with id: 882
+Creating GameObject with id: 883
+Creating GameObject with id: 884
+Creating GameObject with id: 885
+Creating GameObject with id: 886
+Creating GameObject with id: 887
+Creating GameObject with id: 888
+Creating GameObject with id: 889
+Creating GameObject with id: 890
+Creating GameObject with id: 891
+Creating GameObject with id: 892
+Creating GameObject with id: 893
+Creating GameObject with id: 894
+Creating GameObject with id: 895
+Creating GameObject with id: 896
+Creating GameObject with id: 897
+Creating GameObject with id: 898
+Creating GameObject with id: 899
+Creating GameObject with id: 900
+Creating GameObject with id: 901
+Creating GameObject with id: 902
+Creating GameObject with id: 903
+Creating GameObject with id: 904
+Creating GameObject with id: 905
+Creating GameObject with id: 906
+Creating GameObject with id: 907
+Creating GameObject with id: 908
+Creating GameObject with id: 909
+Creating GameObject with id: 910
+Creating GameObject with id: 911
+Creating GameObject with id: 912
+Creating GameObject with id: 913
+Creating GameObject with id: 914
+Creating GameObject with id: 915
+Creating GameObject with id: 916
+Creating GameObject with id: 917
+Creating GameObject with id: 918
+Creating GameObject with id: 919
+Creating GameObject with id: 920
+Creating GameObject with id: 921
+Creating GameObject with id: 922
+Creating GameObject with id: 923
+Creating GameObject with id: 924
+Creating GameObject with id: 925
+Creating GameObject with id: 926
+Creating GameObject with id: 927
+Creating GameObject with id: 928
+Creating GameObject with id: 929
+Creating GameObject with id: 930
+Creating GameObject with id: 931
+Creating GameObject with id: 932
+Creating GameObject with id: 933
+Creating GameObject with id: 934
+Creating GameObject with id: 935
+Creating GameObject with id: 936
+Creating GameObject with id: 937
+Creating GameObject with id: 938
+Creating GameObject with id: 939
+Creating GameObject with id: 940
+Creating GameObject with id: 941
+Creating GameObject with id: 942
+Creating GameObject with id: 943
+Creating GameObject with id: 944
+Creating GameObject with id: 945
+Creating GameObject with id: 946
+Creating GameObject with id: 947
+Creating GameObject with id: 948
+Creating GameObject with id: 949
+Creating GameObject with id: 950
+Creating GameObject with id: 951
+Creating GameObject with id: 952
+Creating GameObject with id: 953
+Creating GameObject with id: 954
+Creating GameObject with id: 955
+Creating GameObject with id: 956
+Creating GameObject with id: 957
+Creating GameObject with id: 958
+Creating GameObject with id: 959
+Creating GameObject with id: 960
+Creating GameObject with id: 961
+Creating GameObject with id: 962
+Creating GameObject with id: 963
+Creating GameObject with id: 964
+Creating GameObject with id: 965
+Creating GameObject with id: 966
+Creating GameObject with id: 967
+Creating GameObject with id: 968
+Creating GameObject with id: 969
+Creating GameObject with id: 970
+Creating GameObject with id: 971
+Creating GameObject with id: 972
+Creating GameObject with id: 973
+Creating GameObject with id: 974
+Creating GameObject with id: 975
+Creating GameObject with id: 976
+Creating GameObject with id: 977
+Creating GameObject with id: 978
+Creating GameObject with id: 979
+Creating GameObject with id: 980
+Creating GameObject with id: 981
+Creating GameObject with id: 982
+Creating GameObject with id: 983
+Creating GameObject with id: 984
+Creating GameObject with id: 985
+Creating GameObject with id: 986
+Creating GameObject with id: 987
+Creating GameObject with id: 988
+Creating GameObject with id: 989
+Creating GameObject with id: 990
+Creating GameObject with id: 991
+Creating GameObject with id: 992
+Creating GameObject with id: 993
+Creating GameObject with id: 994
+Creating GameObject with id: 995
+Creating GameObject with id: 996
+Creating GameObject with id: 997
+Creating GameObject with id: 998
+Creating GameObject with id: 999
+Creating GameObject with id: 1000
+Creating GameObject with id: 1001
+Creating GameObject with id: 1002
+Creating GameObject with id: 1003
+Creating GameObject with id: 1004
+Creating GameObject with id: 1005
+Creating GameObject with id: 1006
+Creating GameObject with id: 1007
+Creating GameObject with id: 1008
+Creating GameObject with id: 1009
+Creating GameObject with id: 1010
+Creating GameObject with id: 1011
+Creating GameObject with id: 1012
+Creating GameObject with id: 1013
+Creating GameObject with id: 1014
+Creating GameObject with id: 1015
+Creating GameObject with id: 1016
+Creating GameObject with id: 1017
+Creating GameObject with id: 1018
+Creating GameObject with id: 1019
+Creating GameObject with id: 1020
+Creating GameObject with id: 1021
+Creating GameObject with id: 1022
+Creating GameObject with id: 1023
+Creating GameObject with id: 1024
+Creating GameObject with id: 1025
+Creating GameObject with id: 1026
+Creating GameObject with id: 1027
+Creating GameObject with id: 1028
+Creating GameObject with id: 1029
+Creating GameObject with id: 1030
+Creating GameObject with id: 1031
+Creating GameObject with id: 1032
+Creating GameObject with id: 1033
+Creating GameObject with id: 1034
+Creating GameObject with id: 1035
+Creating GameObject with id: 1036
+Creating GameObject with id: 1037
+Creating GameObject with id: 1038
+Creating GameObject with id: 1039
+Creating GameObject with id: 1040
+Creating GameObject with id: 1041
+Creating GameObject with id: 1042
+Creating GameObject with id: 1043
+Creating GameObject with id: 1044
+Creating GameObject with id: 1045
+Creating GameObject with id: 1046
+Creating GameObject with id: 1047
+Creating GameObject with id: 1048
+Creating GameObject with id: 1049
+Creating GameObject with id: 1050
+Creating GameObject with id: 1051
+Creating GameObject with id: 1052
+Creating GameObject with id: 1053
+Creating GameObject with id: 1054
+Creating GameObject with id: 1055
+Creating GameObject with id: 1056
+Creating GameObject with id: 1057
+Creating GameObject with id: 1058
+Creating GameObject with id: 1059
+Creating GameObject with id: 1060
+Creating GameObject with id: 1061
+Creating GameObject with id: 1062
+Creating GameObject with id: 1063
+Creating GameObject with id: 1064
+Creating GameObject with id: 1065
+Creating GameObject with id: 1066
+Creating GameObject with id: 1067
+Creating GameObject with id: 1068
+Creating GameObject with id: 1069
+Creating GameObject with id: 1070
+Creating GameObject with id: 1071
+Creating GameObject with id: 1072
+Creating GameObject with id: 1073
+Creating GameObject with id: 1074
+Creating GameObject with id: 1075
+Creating GameObject with id: 1076
+Creating GameObject with id: 1077
+Creating GameObject with id: 1078
+Creating GameObject with id: 1079
+Creating GameObject with id: 1080
+Creating GameObject with id: 1081
+Creating GameObject with id: 1082
+Creating GameObject with id: 1083
+Creating GameObject with id: 1084
+Creating GameObject with id: 1085
+Creating GameObject with id: 1086
+Creating GameObject with id: 1087
+Creating GameObject with id: 1088
+Creating GameObject with id: 1089
+Creating GameObject with id: 1090
+Creating GameObject with id: 1091
+Creating GameObject with id: 1092
+Creating GameObject with id: 1093
+Creating GameObject with id: 1094
+Creating GameObject with id: 1095
+Creating GameObject with id: 1096
+Creating GameObject with id: 1097
+Creating GameObject with id: 1098
+Creating GameObject with id: 1099
+Creating GameObject with id: 1100
+Creating GameObject with id: 1101
+Creating GameObject with id: 1102
+Creating GameObject with id: 1103
+Creating GameObject with id: 1104
+Creating GameObject with id: 1105
+Creating GameObject with id: 1106
+Creating GameObject with id: 1107
+Creating GameObject with id: 1108
+Creating GameObject with id: 1109
+Creating GameObject with id: 1110
+Creating GameObject with id: 1111
+Creating GameObject with id: 1112
+Creating GameObject with id: 1113
+Creating GameObject with id: 1114
+Creating GameObject with id: 1115
+Creating GameObject with id: 1116
+Creating GameObject with id: 1117
+Creating GameObject with id: 1118
+Creating GameObject with id: 1119
+Creating GameObject with id: 1120
+Creating GameObject with id: 1121
+Creating GameObject with id: 1122
+Creating GameObject with id: 1123
+Creating GameObject with id: 1124
+Creating GameObject with id: 1125
+Creating GameObject with id: 1126
+Creating GameObject with id: 1127
+Creating GameObject with id: 1128
+Creating GameObject with id: 1129
+Creating GameObject with id: 1130
+Creating GameObject with id: 1131
+Creating GameObject with id: 1132
+Creating GameObject with id: 1133
+Creating GameObject with id: 1134
+Creating GameObject with id: 1135
+Creating GameObject with id: 1136
+Creating GameObject with id: 1137
+Creating GameObject with id: 1138
+Creating GameObject with id: 1139
+Creating GameObject with id: 1140
+Creating GameObject with id: 1141
+Creating GameObject with id: 1142
+Creating GameObject with id: 1143
+Creating GameObject with id: 1144
+Creating GameObject with id: 1145
+Creating GameObject with id: 1146
+Creating GameObject with id: 1147
+Creating GameObject with id: 1148
+Creating GameObject with id: 1149
+Creating GameObject with id: 1150
+Creating GameObject with id: 1151
+Creating GameObject with id: 1152
+Creating GameObject with id: 1153
+Creating GameObject with id: 1154
+Creating GameObject with id: 1155
+Creating GameObject with id: 1156
+Creating GameObject with id: 1157
+Creating GameObject with id: 1158
+Creating GameObject with id: 1159
+Creating GameObject with id: 1160
+Creating GameObject with id: 1161
+Creating GameObject with id: 1162
+Creating GameObject with id: 1163
+Creating GameObject with id: 1164
+Creating GameObject with id: 1165
+Creating GameObject with id: 1166
+Creating GameObject with id: 1167
+Creating GameObject with id: 1168
+Creating GameObject with id: 1169
+Creating GameObject with id: 1170
+Creating GameObject with id: 1171
+Creating GameObject with id: 1172
+Creating GameObject with id: 1173
+Creating GameObject with id: 1174
+Creating GameObject with id: 1175
+Creating GameObject with id: 1176
+Creating GameObject with id: 1177
+Creating GameObject with id: 1178
+Creating GameObject with id: 1179
+Creating GameObject with id: 1180
+Creating GameObject with id: 1181
+Creating GameObject with id: 1182
+Creating GameObject with id: 1183
+Creating GameObject with id: 1184
+Creating GameObject with id: 1185
+Creating GameObject with id: 1186
+Creating GameObject with id: 1187
+Creating GameObject with id: 1188
+Creating GameObject with id: 1189
+Creating GameObject with id: 1190
+Creating GameObject with id: 1191
+Creating GameObject with id: 1192
+Creating GameObject with id: 1193
+Creating GameObject with id: 1194
+Creating GameObject with id: 1195
+Creating GameObject with id: 1196
+Creating GameObject with id: 1197
+Creating GameObject with id: 1198
+Creating GameObject with id: 1199
+Creating GameObject with id: 1200
+Creating GameObject with id: 1201
+Creating GameObject with id: 1202
+Creating GameObject with id: 1203
+Creating GameObject with id: 1204
+Creating GameObject with id: 1205
+Creating GameObject with id: 1206
+Creating GameObject with id: 1207
+Creating GameObject with id: 1208
+Creating GameObject with id: 1209
+Creating GameObject with id: 1210
+Creating GameObject with id: 1211
+Creating GameObject with id: 1212
+Creating GameObject with id: 1213
+Creating GameObject with id: 1214
+Creating GameObject with id: 1215
+Creating GameObject with id: 1216
+Creating GameObject with id: 1217
+Creating GameObject with id: 1218
+Creating GameObject with id: 1219
+Creating GameObject with id: 1220
+Creating GameObject with id: 1221
+Creating GameObject with id: 1222
+Creating GameObject with id: 1223
+Creating GameObject with id: 1224
+Creating GameObject with id: 1225
+Creating GameObject with id: 1226
+Creating GameObject with id: 1227
+Creating GameObject with id: 1228
+Creating GameObject with id: 1229
+Creating GameObject with id: 1230
+Creating GameObject with id: 1231
+Creating GameObject with id: 1232
+Creating GameObject with id: 1233
+Creating GameObject with id: 1234
+Creating GameObject with id: 1235
+Creating GameObject with id: 1236
+Creating GameObject with id: 1237
+Creating GameObject with id: 1238
+Creating GameObject with id: 1239
+Creating GameObject with id: 1240
+Creating GameObject with id: 1241
+Creating GameObject with id: 1242
+Creating GameObject with id: 1243
+Creating GameObject with id: 1244
+Creating GameObject with id: 1245
+Creating GameObject with id: 1246
+Creating GameObject with id: 1247
+Creating GameObject with id: 1248
+Creating GameObject with id: 1249
+Creating GameObject with id: 1250
+Creating GameObject with id: 1251
+Creating GameObject with id: 1252
+Creating GameObject with id: 1253
+Creating GameObject with id: 1254
+Creating GameObject with id: 1255
+Creating GameObject with id: 1256
+Creating GameObject with id: 1257
+Creating GameObject with id: 1258
+Creating GameObject with id: 1259
+Creating GameObject with id: 1260
+Creating GameObject with id: 1261
+Creating GameObject with id: 1262
+Creating GameObject with id: 1263
+Creating GameObject with id: 1264
+Creating GameObject with id: 1265
+Creating GameObject with id: 1266
+Creating GameObject with id: 1267
+Creating GameObject with id: 1268
+Creating GameObject with id: 1269
+0 0
+0 1
+0 2
+0 3
+0 4
+0 5
+0 6
+0 7
+0 8
+0 9
+0 10
+0 11
+0 12
+0 13
+0 14
+0 15
+0 16
+0 17
+0 18
+0 19
+0 20
+0 21
+0 22
+0 23
+0 24
+1 0
+1 1
+1 2
+1 3
+1 4
+1 5
+1 6
+1 7
+1 8
+1 9
+1 10
+1 11
+1 12
+1 13
+1 14
+1 15
+1 16
+1 17
+1 18
+1 19
+1 20
+1 21
+1 22
+1 23
+1 24
+2 0
+2 1
+2 2
+2 3
+2 4
+2 5
+2 6
+2 7
+2 8
+2 9
+2 10
+2 11
+2 12
+2 13
+2 14
+2 15
+2 16
+2 17
+2 18
+2 19
+2 20
+2 21
+2 22
+2 23
+2 24
+3 0
+3 1
+3 2
+3 3
+3 4
+3 5
+3 6
+3 7
+3 8
+3 9
+3 10
+3 11
+3 12
+3 13
+3 14
+3 15
+3 16
+3 17
+3 18
+3 19
+3 20
+3 21
+3 22
+3 23
+3 24
+4 0
+4 1
+4 2
+4 3
+4 4
+4 5
+4 6
+4 7
+4 8
+4 9
+4 10
+4 11
+4 12
+4 13
+4 14
+4 15
+4 16
+4 17
+4 18
+4 19
+4 20
+4 21
+4 22
+4 23
+4 24
+5 0
+5 1
+5 2
+5 3
+5 4
+5 5
+5 6
+5 7
+5 8
+5 9
+5 10
+5 11
+5 12
+5 13
+5 14
+5 15
+5 16
+5 17
+5 18
+5 19
+5 20
+5 21
+5 22
+5 23
+5 24
+6 0
+6 1
+6 2
+6 3
+6 4
+6 5
+6 6
+6 7
+6 8
+6 9
+6 10
+6 11
+6 12
+6 13
+6 14
+6 15
+6 16
+6 17
+6 18
+6 19
+6 20
+6 21
+6 22
+6 23
+6 24
+7 0
+7 1
+7 2
+7 3
+7 4
+7 5
+7 6
+7 7
+7 8
+7 9
+7 10
+7 11
+7 12
+7 13
+7 14
+7 15
+7 16
+7 17
+7 18
+7 19
+7 20
+7 21
+7 22
+7 23
+7 24
+8 0
+8 1
+8 2
+8 3
+8 4
+8 5
+8 6
+8 7
+8 8
+8 9
+8 10
+8 11
+8 12
+8 13
+8 14
+8 15
+8 16
+8 17
+8 18
+8 19
+8 20
+8 21
+8 22
+8 23
+8 24
+9 0
+9 1
+9 2
+9 3
+9 4
+9 5
+9 6
+9 7
+9 8
+9 9
+9 10
+9 11
+9 12
+9 13
+9 14
+9 15
+9 16
+9 17
+9 18
+9 19
+9 20
+9 21
+9 22
+9 23
+9 24
+10 0
+10 1
+10 2
+10 3
+10 4
+10 5
+10 6
+10 7
+10 8
+10 9
+10 10
+10 11
+10 12
+10 13
+10 14
+10 15
+10 16
+10 17
+10 18
+10 19
+10 20
+10 21
+10 22
+10 23
+10 24
+11 0
+11 1
+11 2
+11 3
+11 4
+11 5
+11 6
+11 7
+11 8
+11 9
+11 10
+11 11
+11 12
+11 13
+11 14
+11 15
+11 16
+11 17
+11 18
+11 19
+11 20
+11 21
+11 22
+11 23
+11 24
+12 0
+12 1
+12 2
+12 3
+12 4
+12 5
+12 6
+12 7
+12 8
+12 9
+12 10
+12 11
+12 12
+12 13
+12 14
+12 15
+12 16
+12 17
+12 18
+12 19
+12 20
+12 21
+12 22
+12 23
+12 24
+13 0
+13 1
+13 2
+13 3
+13 4
+13 5
+13 6
+13 7
+13 8
+13 9
+13 10
+13 11
+13 12
+13 13
+13 14
+13 15
+13 16
+13 17
+13 18
+13 19
+13 20
+13 21
+13 22
+13 23
+13 24
+14 0
+14 1
+14 2
+14 3
+14 4
+14 5
+14 6
+14 7
+14 8
+14 9
+14 10
+14 11
+14 12
+14 13
+14 14
+14 15
+14 16
+14 17
+14 18
+14 19
+14 20
+14 21
+14 22
+14 23
+14 24
+15 0
+15 1
+15 2
+15 3
+15 4
+15 5
+15 6
+15 7
+15 8
+15 9
+15 10
+15 11
+15 12
+15 13
+15 14
+15 15
+15 16
+15 17
+15 18
+15 19
+15 20
+15 21
+15 22
+15 23
+15 24
+16 0
+16 1
+16 2
+16 3
+16 4
+16 5
+16 6
+16 7
+16 8
+16 9
+16 10
+16 11
+16 12
+16 13
+16 14
+16 15
+16 16
+16 17
+16 18
+16 19
+16 20
+16 21
+16 22
+16 23
+16 24
+17 0
+17 1
+17 2
+17 3
+17 4
+17 5
+17 6
+17 7
+17 8
+17 9
+17 10
+17 11
+17 12
+17 13
+17 14
+17 15
+17 16
+17 17
+17 18
+17 19
+17 20
+17 21
+17 22
+17 23
+17 24
+18 0
+18 1
+18 2
+18 3
+18 4
+18 5
+18 6
+18 7
+18 8
+18 9
+18 10
+18 11
+18 12
+18 13
+18 14
+18 15
+18 16
+18 17
+18 18
+18 19
+18 20
+18 21
+18 22
+18 23
+18 24
+19 0
+19 1
+19 2
+19 3
+19 4
+19 5
+19 6
+19 7
+19 8
+19 9
+19 10
+19 11
+19 12
+19 13
+19 14
+19 15
+19 16
+19 17
+19 18
+19 19
+19 20
+19 21
+19 22
+19 23
+19 24
+20 0
+20 1
+20 2
+20 3
+20 4
+20 5
+20 6
+20 7
+20 8
+20 9
+20 10
+20 11
+20 12
+20 13
+20 14
+20 15
+20 16
+20 17
+20 18
+20 19
+20 20
+20 21
+20 22
+20 23
+20 24
+21 0
+21 1
+21 2
+21 3
+21 4
+21 5
+21 6
+21 7
+21 8
+21 9
+21 10
+21 11
+21 12
+21 13
+21 14
+21 15
+21 16
+21 17
+21 18
+21 19
+21 20
+21 21
+21 22
+21 23
+21 24
+22 0
+22 1
+22 2
+22 3
+22 4
+22 5
+22 6
+22 7
+22 8
+22 9
+22 10
+22 11
+22 12
+22 13
+22 14
+22 15
+22 16
+22 17
+22 18
+22 19
+22 20
+22 21
+22 22
+22 23
+22 24
+23 0
+23 1
+23 2
+23 3
+23 4
+23 5
+23 6
+23 7
+23 8
+23 9
+23 10
+23 11
+23 12
+23 13
+23 14
+23 15
+23 16
+23 17
+23 18
+23 19
+23 20
+23 21
+23 22
+23 23
+23 24
+24 0
+24 1
+24 2
+24 3
+24 4
+24 5
+24 6
+24 7
+24 8
+24 9
+24 10
+24 11
+24 12
+24 13
+24 14
+24 15
+24 16
+24 17
+24 18
+24 19
+24 20
+24 21
+24 22
+24 23
+24 24
+SET CURRENT POS: (2500, 100, 2500) 10 10
+FINDING PATH TO 0, 0
+i 0 xPos: 0 j 0 yPos 0
+i 0 xPos: 0 j 1 yPos 1
+i 0 xPos: 0 j 2 yPos 2
+i 0 xPos: 0 j 3 yPos 3
+i 0 xPos: 0 j 4 yPos 4
+i 0 xPos: 0 j 5 yPos 5
+i 0 xPos: 0 j 6 yPos 6
+i 0 xPos: 0 j 7 yPos 7
+i 0 xPos: 0 j 8 yPos 8
+i 0 xPos: 0 j 9 yPos 9
+i 0 xPos: 0 j 10 yPos 10
+i 0 xPos: 0 j 11 yPos 11
+i 0 xPos: 0 j 12 yPos 12
+i 0 xPos: 0 j 13 yPos 13
+i 0 xPos: 0 j 14 yPos 14
+i 0 xPos: 0 j 15 yPos 15
+i 0 xPos: 0 j 16 yPos 16
+i 0 xPos: 0 j 17 yPos 17
+i 0 xPos: 0 j 18 yPos 18
+i 0 xPos: 0 j 19 yPos 19
+i 0 xPos: 0 j 20 yPos 20
+i 0 xPos: 0 j 21 yPos 21
+i 0 xPos: 0 j 22 yPos 22
+i 0 xPos: 0 j 23 yPos 23
+i 0 xPos: 0 j 24 yPos 24
+i 1 xPos: 1 j 0 yPos 0
+i 1 xPos: 1 j 1 yPos 1
+i 1 xPos: 1 j 2 yPos 2
+i 1 xPos: 1 j 3 yPos 3
+i 1 xPos: 1 j 4 yPos 4
+i 1 xPos: 1 j 5 yPos 5
+i 1 xPos: 1 j 6 yPos 6
+i 1 xPos: 1 j 7 yPos 7
+i 1 xPos: 1 j 8 yPos 8
+i 1 xPos: 1 j 9 yPos 9
+i 1 xPos: 1 j 10 yPos 10
+i 1 xPos: 1 j 11 yPos 11
+i 1 xPos: 1 j 12 yPos 12
+i 1 xPos: 1 j 13 yPos 13
+i 1 xPos: 1 j 14 yPos 14
+i 1 xPos: 1 j 15 yPos 15
+i 1 xPos: 1 j 16 yPos 16
+i 1 xPos: 1 j 17 yPos 17
+i 1 xPos: 1 j 18 yPos 18
+i 1 xPos: 1 j 19 yPos 19
+i 1 xPos: 1 j 20 yPos 20
+i 1 xPos: 1 j 21 yPos 21
+i 1 xPos: 1 j 22 yPos 22
+i 1 xPos: 1 j 23 yPos 23
+i 1 xPos: 1 j 24 yPos 24
+i 2 xPos: 2 j 0 yPos 0
+i 2 xPos: 2 j 1 yPos 1
+i 2 xPos: 2 j 2 yPos 2
+i 2 xPos: 2 j 3 yPos 3
+i 2 xPos: 2 j 4 yPos 4
+i 2 xPos: 2 j 5 yPos 5
+i 2 xPos: 2 j 6 yPos 6
+i 2 xPos: 2 j 7 yPos 7
+i 2 xPos: 2 j 8 yPos 8
+i 2 xPos: 2 j 9 yPos 9
+i 2 xPos: 2 j 10 yPos 10
+i 2 xPos: 2 j 11 yPos 11
+i 2 xPos: 2 j 12 yPos 12
+i 2 xPos: 2 j 13 yPos 13
+i 2 xPos: 2 j 14 yPos 14
+i 2 xPos: 2 j 15 yPos 15
+i 2 xPos: 2 j 16 yPos 16
+i 2 xPos: 2 j 17 yPos 17
+i 2 xPos: 2 j 18 yPos 18
+i 2 xPos: 2 j 19 yPos 19
+i 2 xPos: 2 j 20 yPos 20
+i 2 xPos: 2 j 21 yPos 21
+i 2 xPos: 2 j 22 yPos 22
+i 2 xPos: 2 j 23 yPos 23
+i 2 xPos: 2 j 24 yPos 24
+i 3 xPos: 3 j 0 yPos 0
+i 3 xPos: 3 j 1 yPos 1
+i 3 xPos: 3 j 2 yPos 2
+i 3 xPos: 3 j 3 yPos 3
+i 3 xPos: 3 j 4 yPos 4
+i 3 xPos: 3 j 5 yPos 5
+i 3 xPos: 3 j 6 yPos 6
+i 3 xPos: 3 j 7 yPos 7
+i 3 xPos: 3 j 8 yPos 8
+i 3 xPos: 3 j 9 yPos 9
+i 3 xPos: 3 j 10 yPos 10
+i 3 xPos: 3 j 11 yPos 11
+i 3 xPos: 3 j 12 yPos 12
+i 3 xPos: 3 j 13 yPos 13
+i 3 xPos: 3 j 14 yPos 14
+i 3 xPos: 3 j 15 yPos 15
+i 3 xPos: 3 j 16 yPos 16
+i 3 xPos: 3 j 17 yPos 17
+i 3 xPos: 3 j 18 yPos 18
+i 3 xPos: 3 j 19 yPos 19
+i 3 xPos: 3 j 20 yPos 20
+i 3 xPos: 3 j 21 yPos 21
+i 3 xPos: 3 j 22 yPos 22
+i 3 xPos: 3 j 23 yPos 23
+i 3 xPos: 3 j 24 yPos 24
+i 4 xPos: 4 j 0 yPos 0
+i 4 xPos: 4 j 1 yPos 1
+i 4 xPos: 4 j 2 yPos 2
+i 4 xPos: 4 j 3 yPos 3
+i 4 xPos: 4 j 4 yPos 4
+i 4 xPos: 4 j 5 yPos 5
+i 4 xPos: 4 j 6 yPos 6
+i 4 xPos: 4 j 7 yPos 7
+i 4 xPos: 4 j 8 yPos 8
+i 4 xPos: 4 j 9 yPos 9
+i 4 xPos: 4 j 10 yPos 10
+i 4 xPos: 4 j 11 yPos 11
+i 4 xPos: 4 j 12 yPos 12
+i 4 xPos: 4 j 13 yPos 13
+i 4 xPos: 4 j 14 yPos 14
+i 4 xPos: 4 j 15 yPos 15
+i 4 xPos: 4 j 16 yPos 16
+i 4 xPos: 4 j 17 yPos 17
+i 4 xPos: 4 j 18 yPos 18
+i 4 xPos: 4 j 19 yPos 19
+i 4 xPos: 4 j 20 yPos 20
+i 4 xPos: 4 j 21 yPos 21
+i 4 xPos: 4 j 22 yPos 22
+i 4 xPos: 4 j 23 yPos 23
+i 4 xPos: 4 j 24 yPos 24
+i 5 xPos: 5 j 0 yPos 0
+i 5 xPos: 5 j 1 yPos 1
+i 5 xPos: 5 j 2 yPos 2
+i 5 xPos: 5 j 3 yPos 3
+i 5 xPos: 5 j 4 yPos 4
+i 5 xPos: 5 j 5 yPos 5
+i 5 xPos: 5 j 6 yPos 6
+i 5 xPos: 5 j 7 yPos 7
+i 5 xPos: 5 j 8 yPos 8
+i 5 xPos: 5 j 9 yPos 9
+i 5 xPos: 5 j 10 yPos 10
+i 5 xPos: 5 j 11 yPos 11
+i 5 xPos: 5 j 12 yPos 12
+i 5 xPos: 5 j 13 yPos 13
+i 5 xPos: 5 j 14 yPos 14
+i 5 xPos: 5 j 15 yPos 15
+i 5 xPos: 5 j 16 yPos 16
+i 5 xPos: 5 j 17 yPos 17
+i 5 xPos: 5 j 18 yPos 18
+i 5 xPos: 5 j 19 yPos 19
+i 5 xPos: 5 j 20 yPos 20
+i 5 xPos: 5 j 21 yPos 21
+i 5 xPos: 5 j 22 yPos 22
+i 5 xPos: 5 j 23 yPos 23
+i 5 xPos: 5 j 24 yPos 24
+i 6 xPos: 6 j 0 yPos 0
+i 6 xPos: 6 j 1 yPos 1
+i 6 xPos: 6 j 2 yPos 2
+i 6 xPos: 6 j 3 yPos 3
+i 6 xPos: 6 j 4 yPos 4
+i 6 xPos: 6 j 5 yPos 5
+i 6 xPos: 6 j 6 yPos 6
+i 6 xPos: 6 j 7 yPos 7
+i 6 xPos: 6 j 8 yPos 8
+i 6 xPos: 6 j 9 yPos 9
+i 6 xPos: 6 j 10 yPos 10
+i 6 xPos: 6 j 11 yPos 11
+i 6 xPos: 6 j 12 yPos 12
+i 6 xPos: 6 j 13 yPos 13
+i 6 xPos: 6 j 14 yPos 14
+i 6 xPos: 6 j 15 yPos 15
+i 6 xPos: 6 j 16 yPos 16
+i 6 xPos: 6 j 17 yPos 17
+i 6 xPos: 6 j 18 yPos 18
+i 6 xPos: 6 j 19 yPos 19
+i 6 xPos: 6 j 20 yPos 20
+i 6 xPos: 6 j 21 yPos 21
+i 6 xPos: 6 j 22 yPos 22
+i 6 xPos: 6 j 23 yPos 23
+i 6 xPos: 6 j 24 yPos 24
+i 7 xPos: 7 j 0 yPos 0
+i 7 xPos: 7 j 1 yPos 1
+i 7 xPos: 7 j 2 yPos 2
+i 7 xPos: 7 j 3 yPos 3
+i 7 xPos: 7 j 4 yPos 4
+i 7 xPos: 7 j 5 yPos 5
+i 7 xPos: 7 j 6 yPos 6
+i 7 xPos: 7 j 7 yPos 7
+i 7 xPos: 7 j 8 yPos 8
+i 7 xPos: 7 j 9 yPos 9
+i 7 xPos: 7 j 10 yPos 10
+i 7 xPos: 7 j 11 yPos 11
+i 7 xPos: 7 j 12 yPos 12
+i 7 xPos: 7 j 13 yPos 13
+i 7 xPos: 7 j 14 yPos 14
+i 7 xPos: 7 j 15 yPos 15
+i 7 xPos: 7 j 16 yPos 16
+i 7 xPos: 7 j 17 yPos 17
+i 7 xPos: 7 j 18 yPos 18
+i 7 xPos: 7 j 19 yPos 19
+i 7 xPos: 7 j 20 yPos 20
+i 7 xPos: 7 j 21 yPos 21
+i 7 xPos: 7 j 22 yPos 22
+i 7 xPos: 7 j 23 yPos 23
+i 7 xPos: 7 j 24 yPos 24
+i 8 xPos: 8 j 0 yPos 0
+i 8 xPos: 8 j 1 yPos 1
+i 8 xPos: 8 j 2 yPos 2
+i 8 xPos: 8 j 3 yPos 3
+i 8 xPos: 8 j 4 yPos 4
+i 8 xPos: 8 j 5 yPos 5
+i 8 xPos: 8 j 6 yPos 6
+i 8 xPos: 8 j 7 yPos 7
+i 8 xPos: 8 j 8 yPos 8
+i 8 xPos: 8 j 9 yPos 9
+i 8 xPos: 8 j 10 yPos 10
+i 8 xPos: 8 j 11 yPos 11
+i 8 xPos: 8 j 12 yPos 12
+i 8 xPos: 8 j 13 yPos 13
+i 8 xPos: 8 j 14 yPos 14
+i 8 xPos: 8 j 15 yPos 15
+i 8 xPos: 8 j 16 yPos 16
+i 8 xPos: 8 j 17 yPos 17
+i 8 xPos: 8 j 18 yPos 18
+i 8 xPos: 8 j 19 yPos 19
+i 8 xPos: 8 j 20 yPos 20
+i 8 xPos: 8 j 21 yPos 21
+i 8 xPos: 8 j 22 yPos 22
+i 8 xPos: 8 j 23 yPos 23
+i 8 xPos: 8 j 24 yPos 24
+i 9 xPos: 9 j 0 yPos 0
+i 9 xPos: 9 j 1 yPos 1
+i 9 xPos: 9 j 2 yPos 2
+i 9 xPos: 9 j 3 yPos 3
+i 9 xPos: 9 j 4 yPos 4
+i 9 xPos: 9 j 5 yPos 5
+i 9 xPos: 9 j 6 yPos 6
+i 9 xPos: 9 j 7 yPos 7
+i 9 xPos: 9 j 8 yPos 8
+i 9 xPos: 9 j 9 yPos 9
+i 9 xPos: 9 j 10 yPos 10
+i 9 xPos: 9 j 11 yPos 11
+i 9 xPos: 9 j 12 yPos 12
+i 9 xPos: 9 j 13 yPos 13
+i 9 xPos: 9 j 14 yPos 14
+i 9 xPos: 9 j 15 yPos 15
+i 9 xPos: 9 j 16 yPos 16
+i 9 xPos: 9 j 17 yPos 17
+i 9 xPos: 9 j 18 yPos 18
+i 9 xPos: 9 j 19 yPos 19
+i 9 xPos: 9 j 20 yPos 20
+i 9 xPos: 9 j 21 yPos 21
+i 9 xPos: 9 j 22 yPos 22
+i 9 xPos: 9 j 23 yPos 23
+i 9 xPos: 9 j 24 yPos 24
+i 10 xPos: 10 j 0 yPos 0
+i 10 xPos: 10 j 1 yPos 1
+i 10 xPos: 10 j 2 yPos 2
+i 10 xPos: 10 j 3 yPos 3
+i 10 xPos: 10 j 4 yPos 4
+i 10 xPos: 10 j 5 yPos 5
+i 10 xPos: 10 j 6 yPos 6
+i 10 xPos: 10 j 7 yPos 7
+i 10 xPos: 10 j 8 yPos 8
+i 10 xPos: 10 j 9 yPos 9
+i 10 xPos: 10 j 10 yPos 10
+i 10 xPos: 10 j 11 yPos 11
+i 10 xPos: 10 j 12 yPos 12
+i 10 xPos: 10 j 13 yPos 13
+i 10 xPos: 10 j 14 yPos 14
+i 10 xPos: 10 j 15 yPos 15
+i 10 xPos: 10 j 16 yPos 16
+i 10 xPos: 10 j 17 yPos 17
+i 10 xPos: 10 j 18 yPos 18
+i 10 xPos: 10 j 19 yPos 19
+i 10 xPos: 10 j 20 yPos 20
+i 10 xPos: 10 j 21 yPos 21
+i 10 xPos: 10 j 22 yPos 22
+i 10 xPos: 10 j 23 yPos 23
+i 10 xPos: 10 j 24 yPos 24
+i 11 xPos: 11 j 0 yPos 0
+i 11 xPos: 11 j 1 yPos 1
+i 11 xPos: 11 j 2 yPos 2
+i 11 xPos: 11 j 3 yPos 3
+i 11 xPos: 11 j 4 yPos 4
+i 11 xPos: 11 j 5 yPos 5
+i 11 xPos: 11 j 6 yPos 6
+i 11 xPos: 11 j 7 yPos 7
+i 11 xPos: 11 j 8 yPos 8
+i 11 xPos: 11 j 9 yPos 9
+i 11 xPos: 11 j 10 yPos 10
+i 11 xPos: 11 j 11 yPos 11
+i 11 xPos: 11 j 12 yPos 12
+i 11 xPos: 11 j 13 yPos 13
+i 11 xPos: 11 j 14 yPos 14
+i 11 xPos: 11 j 15 yPos 15
+i 11 xPos: 11 j 16 yPos 16
+i 11 xPos: 11 j 17 yPos 17
+i 11 xPos: 11 j 18 yPos 18
+i 11 xPos: 11 j 19 yPos 19
+i 11 xPos: 11 j 20 yPos 20
+i 11 xPos: 11 j 21 yPos 21
+i 11 xPos: 11 j 22 yPos 22
+i 11 xPos: 11 j 23 yPos 23
+i 11 xPos: 11 j 24 yPos 24
+i 12 xPos: 12 j 0 yPos 0
+i 12 xPos: 12 j 1 yPos 1
+i 12 xPos: 12 j 2 yPos 2
+i 12 xPos: 12 j 3 yPos 3
+i 12 xPos: 12 j 4 yPos 4
+i 12 xPos: 12 j 5 yPos 5
+i 12 xPos: 12 j 6 yPos 6
+i 12 xPos: 12 j 7 yPos 7
+i 12 xPos: 12 j 8 yPos 8
+i 12 xPos: 12 j 9 yPos 9
+i 12 xPos: 12 j 10 yPos 10
+i 12 xPos: 12 j 11 yPos 11
+i 12 xPos: 12 j 12 yPos 12
+i 12 xPos: 12 j 13 yPos 13
+i 12 xPos: 12 j 14 yPos 14
+i 12 xPos: 12 j 15 yPos 15
+i 12 xPos: 12 j 16 yPos 16
+i 12 xPos: 12 j 17 yPos 17
+i 12 xPos: 12 j 18 yPos 18
+i 12 xPos: 12 j 19 yPos 19
+i 12 xPos: 12 j 20 yPos 20
+i 12 xPos: 12 j 21 yPos 21
+i 12 xPos: 12 j 22 yPos 22
+i 12 xPos: 12 j 23 yPos 23
+i 12 xPos: 12 j 24 yPos 24
+i 13 xPos: 13 j 0 yPos 0
+i 13 xPos: 13 j 1 yPos 1
+i 13 xPos: 13 j 2 yPos 2
+i 13 xPos: 13 j 3 yPos 3
+i 13 xPos: 13 j 4 yPos 4
+i 13 xPos: 13 j 5 yPos 5
+i 13 xPos: 13 j 6 yPos 6
+i 13 xPos: 13 j 7 yPos 7
+i 13 xPos: 13 j 8 yPos 8
+i 13 xPos: 13 j 9 yPos 9
+i 13 xPos: 13 j 10 yPos 10
+i 13 xPos: 13 j 11 yPos 11
+i 13 xPos: 13 j 12 yPos 12
+i 13 xPos: 13 j 13 yPos 13
+i 13 xPos: 13 j 14 yPos 14
+i 13 xPos: 13 j 15 yPos 15
+i 13 xPos: 13 j 16 yPos 16
+i 13 xPos: 13 j 17 yPos 17
+i 13 xPos: 13 j 18 yPos 18
+i 13 xPos: 13 j 19 yPos 19
+i 13 xPos: 13 j 20 yPos 20
+i 13 xPos: 13 j 21 yPos 21
+i 13 xPos: 13 j 22 yPos 22
+i 13 xPos: 13 j 23 yPos 23
+i 13 xPos: 13 j 24 yPos 24
+i 14 xPos: 14 j 0 yPos 0
+i 14 xPos: 14 j 1 yPos 1
+i 14 xPos: 14 j 2 yPos 2
+i 14 xPos: 14 j 3 yPos 3
+i 14 xPos: 14 j 4 yPos 4
+i 14 xPos: 14 j 5 yPos 5
+i 14 xPos: 14 j 6 yPos 6
+i 14 xPos: 14 j 7 yPos 7
+i 14 xPos: 14 j 8 yPos 8
+i 14 xPos: 14 j 9 yPos 9
+i 14 xPos: 14 j 10 yPos 10
+i 14 xPos: 14 j 11 yPos 11
+i 14 xPos: 14 j 12 yPos 12
+i 14 xPos: 14 j 13 yPos 13
+i 14 xPos: 14 j 14 yPos 14
+i 14 xPos: 14 j 15 yPos 15
+i 14 xPos: 14 j 16 yPos 16
+i 14 xPos: 14 j 17 yPos 17
+i 14 xPos: 14 j 18 yPos 18
+i 14 xPos: 14 j 19 yPos 19
+i 14 xPos: 14 j 20 yPos 20
+i 14 xPos: 14 j 21 yPos 21
+i 14 xPos: 14 j 22 yPos 22
+i 14 xPos: 14 j 23 yPos 23
+i 14 xPos: 14 j 24 yPos 24
+i 15 xPos: 15 j 0 yPos 0
+i 15 xPos: 15 j 1 yPos 1
+i 15 xPos: 15 j 2 yPos 2
+i 15 xPos: 15 j 3 yPos 3
+i 15 xPos: 15 j 4 yPos 4
+i 15 xPos: 15 j 5 yPos 5
+i 15 xPos: 15 j 6 yPos 6
+i 15 xPos: 15 j 7 yPos 7
+i 15 xPos: 15 j 8 yPos 8
+i 15 xPos: 15 j 9 yPos 9
+i 15 xPos: 15 j 10 yPos 10
+i 15 xPos: 15 j 11 yPos 11
+i 15 xPos: 15 j 12 yPos 12
+i 15 xPos: 15 j 13 yPos 13
+i 15 xPos: 15 j 14 yPos 14
+i 15 xPos: 15 j 15 yPos 15
+i 15 xPos: 15 j 16 yPos 16
+i 15 xPos: 15 j 17 yPos 17
+i 15 xPos: 15 j 18 yPos 18
+i 15 xPos: 15 j 19 yPos 19
+i 15 xPos: 15 j 20 yPos 20
+i 15 xPos: 15 j 21 yPos 21
+i 15 xPos: 15 j 22 yPos 22
+i 15 xPos: 15 j 23 yPos 23
+i 15 xPos: 15 j 24 yPos 24
+i 16 xPos: 16 j 0 yPos 0
+i 16 xPos: 16 j 1 yPos 1
+i 16 xPos: 16 j 2 yPos 2
+i 16 xPos: 16 j 3 yPos 3
+i 16 xPos: 16 j 4 yPos 4
+i 16 xPos: 16 j 5 yPos 5
+i 16 xPos: 16 j 6 yPos 6
+i 16 xPos: 16 j 7 yPos 7
+i 16 xPos: 16 j 8 yPos 8
+i 16 xPos: 16 j 9 yPos 9
+i 16 xPos: 16 j 10 yPos 10
+i 16 xPos: 16 j 11 yPos 11
+i 16 xPos: 16 j 12 yPos 12
+i 16 xPos: 16 j 13 yPos 13
+i 16 xPos: 16 j 14 yPos 14
+i 16 xPos: 16 j 15 yPos 15
+i 16 xPos: 16 j 16 yPos 16
+i 16 xPos: 16 j 17 yPos 17
+i 16 xPos: 16 j 18 yPos 18
+i 16 xPos: 16 j 19 yPos 19
+i 16 xPos: 16 j 20 yPos 20
+i 16 xPos: 16 j 21 yPos 21
+i 16 xPos: 16 j 22 yPos 22
+i 16 xPos: 16 j 23 yPos 23
+i 16 xPos: 16 j 24 yPos 24
+i 17 xPos: 17 j 0 yPos 0
+i 17 xPos: 17 j 1 yPos 1
+i 17 xPos: 17 j 2 yPos 2
+i 17 xPos: 17 j 3 yPos 3
+i 17 xPos: 17 j 4 yPos 4
+i 17 xPos: 17 j 5 yPos 5
+i 17 xPos: 17 j 6 yPos 6
+i 17 xPos: 17 j 7 yPos 7
+i 17 xPos: 17 j 8 yPos 8
+i 17 xPos: 17 j 9 yPos 9
+i 17 xPos: 17 j 10 yPos 10
+i 17 xPos: 17 j 11 yPos 11
+i 17 xPos: 17 j 12 yPos 12
+i 17 xPos: 17 j 13 yPos 13
+i 17 xPos: 17 j 14 yPos 14
+i 17 xPos: 17 j 15 yPos 15
+i 17 xPos: 17 j 16 yPos 16
+i 17 xPos: 17 j 17 yPos 17
+i 17 xPos: 17 j 18 yPos 18
+i 17 xPos: 17 j 19 yPos 19
+i 17 xPos: 17 j 20 yPos 20
+i 17 xPos: 17 j 21 yPos 21
+i 17 xPos: 17 j 22 yPos 22
+i 17 xPos: 17 j 23 yPos 23
+i 17 xPos: 17 j 24 yPos 24
+i 18 xPos: 18 j 0 yPos 0
+i 18 xPos: 18 j 1 yPos 1
+i 18 xPos: 18 j 2 yPos 2
+i 18 xPos: 18 j 3 yPos 3
+i 18 xPos: 18 j 4 yPos 4
+i 18 xPos: 18 j 5 yPos 5
+i 18 xPos: 18 j 6 yPos 6
+i 18 xPos: 18 j 7 yPos 7
+i 18 xPos: 18 j 8 yPos 8
+i 18 xPos: 18 j 9 yPos 9
+i 18 xPos: 18 j 10 yPos 10
+i 18 xPos: 18 j 11 yPos 11
+i 18 xPos: 18 j 12 yPos 12
+i 18 xPos: 18 j 13 yPos 13
+i 18 xPos: 18 j 14 yPos 14
+i 18 xPos: 18 j 15 yPos 15
+i 18 xPos: 18 j 16 yPos 16
+i 18 xPos: 18 j 17 yPos 17
+i 18 xPos: 18 j 18 yPos 18
+i 18 xPos: 18 j 19 yPos 19
+i 18 xPos: 18 j 20 yPos 20
+i 18 xPos: 18 j 21 yPos 21
+i 18 xPos: 18 j 22 yPos 22
+i 18 xPos: 18 j 23 yPos 23
+i 18 xPos: 18 j 24 yPos 24
+i 19 xPos: 19 j 0 yPos 0
+i 19 xPos: 19 j 1 yPos 1
+i 19 xPos: 19 j 2 yPos 2
+i 19 xPos: 19 j 3 yPos 3
+i 19 xPos: 19 j 4 yPos 4
+i 19 xPos: 19 j 5 yPos 5
+i 19 xPos: 19 j 6 yPos 6
+i 19 xPos: 19 j 7 yPos 7
+i 19 xPos: 19 j 8 yPos 8
+i 19 xPos: 19 j 9 yPos 9
+i 19 xPos: 19 j 10 yPos 10
+i 19 xPos: 19 j 11 yPos 11
+i 19 xPos: 19 j 12 yPos 12
+i 19 xPos: 19 j 13 yPos 13
+i 19 xPos: 19 j 14 yPos 14
+i 19 xPos: 19 j 15 yPos 15
+i 19 xPos: 19 j 16 yPos 16
+i 19 xPos: 19 j 17 yPos 17
+i 19 xPos: 19 j 18 yPos 18
+i 19 xPos: 19 j 19 yPos 19
+i 19 xPos: 19 j 20 yPos 20
+i 19 xPos: 19 j 21 yPos 21
+i 19 xPos: 19 j 22 yPos 22
+i 19 xPos: 19 j 23 yPos 23
+i 19 xPos: 19 j 24 yPos 24
+i 20 xPos: 20 j 0 yPos 0
+i 20 xPos: 20 j 1 yPos 1
+i 20 xPos: 20 j 2 yPos 2
+i 20 xPos: 20 j 3 yPos 3
+i 20 xPos: 20 j 4 yPos 4
+i 20 xPos: 20 j 5 yPos 5
+i 20 xPos: 20 j 6 yPos 6
+i 20 xPos: 20 j 7 yPos 7
+i 20 xPos: 20 j 8 yPos 8
+i 20 xPos: 20 j 9 yPos 9
+i 20 xPos: 20 j 10 yPos 10
+i 20 xPos: 20 j 11 yPos 11
+i 20 xPos: 20 j 12 yPos 12
+i 20 xPos: 20 j 13 yPos 13
+i 20 xPos: 20 j 14 yPos 14
+i 20 xPos: 20 j 15 yPos 15
+i 20 xPos: 20 j 16 yPos 16
+i 20 xPos: 20 j 17 yPos 17
+i 20 xPos: 20 j 18 yPos 18
+i 20 xPos: 20 j 19 yPos 19
+i 20 xPos: 20 j 20 yPos 20
+i 20 xPos: 20 j 21 yPos 21
+i 20 xPos: 20 j 22 yPos 22
+i 20 xPos: 20 j 23 yPos 23
+i 20 xPos: 20 j 24 yPos 24
+i 21 xPos: 21 j 0 yPos 0
+i 21 xPos: 21 j 1 yPos 1
+i 21 xPos: 21 j 2 yPos 2
+i 21 xPos: 21 j 3 yPos 3
+i 21 xPos: 21 j 4 yPos 4
+i 21 xPos: 21 j 5 yPos 5
+i 21 xPos: 21 j 6 yPos 6
+i 21 xPos: 21 j 7 yPos 7
+i 21 xPos: 21 j 8 yPos 8
+i 21 xPos: 21 j 9 yPos 9
+i 21 xPos: 21 j 10 yPos 10
+i 21 xPos: 21 j 11 yPos 11
+i 21 xPos: 21 j 12 yPos 12
+i 21 xPos: 21 j 13 yPos 13
+i 21 xPos: 21 j 14 yPos 14
+i 21 xPos: 21 j 15 yPos 15
+i 21 xPos: 21 j 16 yPos 16
+i 21 xPos: 21 j 17 yPos 17
+i 21 xPos: 21 j 18 yPos 18
+i 21 xPos: 21 j 19 yPos 19
+i 21 xPos: 21 j 20 yPos 20
+i 21 xPos: 21 j 21 yPos 21
+i 21 xPos: 21 j 22 yPos 22
+i 21 xPos: 21 j 23 yPos 23
+i 21 xPos: 21 j 24 yPos 24
+i 22 xPos: 22 j 0 yPos 0
+i 22 xPos: 22 j 1 yPos 1
+i 22 xPos: 22 j 2 yPos 2
+i 22 xPos: 22 j 3 yPos 3
+i 22 xPos: 22 j 4 yPos 4
+i 22 xPos: 22 j 5 yPos 5
+i 22 xPos: 22 j 6 yPos 6
+i 22 xPos: 22 j 7 yPos 7
+i 22 xPos: 22 j 8 yPos 8
+i 22 xPos: 22 j 9 yPos 9
+i 22 xPos: 22 j 10 yPos 10
+i 22 xPos: 22 j 11 yPos 11
+i 22 xPos: 22 j 12 yPos 12
+i 22 xPos: 22 j 13 yPos 13
+i 22 xPos: 22 j 14 yPos 14
+i 22 xPos: 22 j 15 yPos 15
+i 22 xPos: 22 j 16 yPos 16
+i 22 xPos: 22 j 17 yPos 17
+i 22 xPos: 22 j 18 yPos 18
+i 22 xPos: 22 j 19 yPos 19
+i 22 xPos: 22 j 20 yPos 20
+i 22 xPos: 22 j 21 yPos 21
+i 22 xPos: 22 j 22 yPos 22
+i 22 xPos: 22 j 23 yPos 23
+i 22 xPos: 22 j 24 yPos 24
+i 23 xPos: 23 j 0 yPos 0
+i 23 xPos: 23 j 1 yPos 1
+i 23 xPos: 23 j 2 yPos 2
+i 23 xPos: 23 j 3 yPos 3
+i 23 xPos: 23 j 4 yPos 4
+i 23 xPos: 23 j 5 yPos 5
+i 23 xPos: 23 j 6 yPos 6
+i 23 xPos: 23 j 7 yPos 7
+i 23 xPos: 23 j 8 yPos 8
+i 23 xPos: 23 j 9 yPos 9
+i 23 xPos: 23 j 10 yPos 10
+i 23 xPos: 23 j 11 yPos 11
+i 23 xPos: 23 j 12 yPos 12
+i 23 xPos: 23 j 13 yPos 13
+i 23 xPos: 23 j 14 yPos 14
+i 23 xPos: 23 j 15 yPos 15
+i 23 xPos: 23 j 16 yPos 16
+i 23 xPos: 23 j 17 yPos 17
+i 23 xPos: 23 j 18 yPos 18
+i 23 xPos: 23 j 19 yPos 19
+i 23 xPos: 23 j 20 yPos 20
+i 23 xPos: 23 j 21 yPos 21
+i 23 xPos: 23 j 22 yPos 22
+i 23 xPos: 23 j 23 yPos 23
+i 23 xPos: 23 j 24 yPos 24
+i 24 xPos: 24 j 0 yPos 0
+i 24 xPos: 24 j 1 yPos 1
+i 24 xPos: 24 j 2 yPos 2
+i 24 xPos: 24 j 3 yPos 3
+i 24 xPos: 24 j 4 yPos 4
+i 24 xPos: 24 j 5 yPos 5
+i 24 xPos: 24 j 6 yPos 6
+i 24 xPos: 24 j 7 yPos 7
+i 24 xPos: 24 j 8 yPos 8
+i 24 xPos: 24 j 9 yPos 9
+i 24 xPos: 24 j 10 yPos 10
+i 24 xPos: 24 j 11 yPos 11
+i 24 xPos: 24 j 12 yPos 12
+i 24 xPos: 24 j 13 yPos 13
+i 24 xPos: 24 j 14 yPos 14
+i 24 xPos: 24 j 15 yPos 15
+i 24 xPos: 24 j 16 yPos 16
+i 24 xPos: 24 j 17 yPos 17
+i 24 xPos: 24 j 18 yPos 18
+i 24 xPos: 24 j 19 yPos 19
+i 24 xPos: 24 j 20 yPos 20
+i 24 xPos: 24 j 21 yPos 21
+i 24 xPos: 24 j 22 yPos 22
+i 24 xPos: 24 j 23 yPos 23
+i 24 xPos: 24 j 24 yPos 24
+FINDING PATH 0
+FINDING PATH 1
+FINDING PATH 2, Current: 10 10
+FINDING PATH 2, Current: 9 10
+FINDING PATH 2, Current: 10 9
+FINDING PATH 2, Current: 11 10
+FINDING PATH 2, Current: 10 11
+FINDING PATH 2, Current: 9 9
+FINDING PATH 2, Current: 9 11
+FINDING PATH 2, Current: 11 9
+FINDING PATH 2, Current: 11 11
+FINDING PATH 2, Current: 8 10
+FINDING PATH 2, Current: 10 8
+FINDING PATH 2, Current: 8 9
+FINDING PATH 2, Current: 9 8
+FINDING PATH 2, Current: 12 10
+FINDING PATH 2, Current: 10 12
+FINDING PATH 2, Current: 8 11
+FINDING PATH 2, Current: 11 8
+FINDING PATH 2, Current: 8 8
+FINDING PATH 2, Current: 12 9
+FINDING PATH 2, Current: 9 12
+FINDING PATH 2, Current: 12 11
+FINDING PATH 2, Current: 11 12
+FINDING PATH 2, Current: 7 10
+FINDING PATH 2, Current: 10 7
+FINDING PATH 2, Current: 8 12
+FINDING PATH 2, Current: 12 8
+FINDING PATH 2, Current: 7 9
+FINDING PATH 2, Current: 9 7
+FINDING PATH 2, Current: 12 12
+FINDING PATH 2, Current: 7 11
+FINDING PATH 2, Current: 11 7
+FINDING PATH 2, Current: 7 8
+FINDING PATH 2, Current: 8 7
+FINDING PATH 2, Current: 13 10
+FINDING PATH 2, Current: 10 13
+FINDING PATH 2, Current: 13 9
+FINDING PATH 2, Current: 9 13
+FINDING PATH 2, Current: 7 7
+FINDING PATH 2, Current: 6 10
+FINDING PATH 2, Current: 10 6
+FINDING PATH 2, Current: 7 12
+FINDING PATH 2, Current: 12 7
+FINDING PATH 2, Current: 13 11
+FINDING PATH 2, Current: 11 13
+FINDING PATH 2, Current: 13 8
+FINDING PATH 2, Current: 8 13
+FINDING PATH 2, Current: 6 9
+FINDING PATH 2, Current: 9 6
+FINDING PATH 2, Current: 6 11
+FINDING PATH 2, Current: 11 6
+FINDING PATH 2, Current: 7 13
+FINDING PATH 2, Current: 13 7
+FINDING PATH 2, Current: 6 8
+FINDING PATH 2, Current: 8 6
+FINDING PATH 2, Current: 13 12
+FINDING PATH 2, Current: 12 13
+FINDING PATH 2, Current: 14 10
+FINDING PATH 2, Current: 10 14
+FINDING PATH 2, Current: 6 7
+FINDING PATH 2, Current: 7 6
+FINDING PATH 2, Current: 5 10
+FINDING PATH 2, Current: 10 5
+FINDING PATH 2, Current: 6 12
+FINDING PATH 2, Current: 12 6
+FINDING PATH 2, Current: 14 9
+FINDING PATH 2, Current: 9 14
+FINDING PATH 2, Current: 13 13
+FINDING PATH 2, Current: 6 6
+FINDING PATH 2, Current: 5 9
+FINDING PATH 2, Current: 9 5
+FINDING PATH 2, Current: 14 11
+FINDING PATH 2, Current: 11 14
+FINDING PATH 2, Current: 14 8
+FINDING PATH 2, Current: 8 14
+FINDING PATH 2, Current: 5 11
+FINDING PATH 2, Current: 11 5
+FINDING PATH 2, Current: 6 13
+FINDING PATH 2, Current: 13 6
+FINDING PATH 2, Current: 5 8
+FINDING PATH 2, Current: 8 5
+FINDING PATH 2, Current: 14 7
+FINDING PATH 2, Current: 7 14
+FINDING PATH 2, Current: 14 12
+FINDING PATH 2, Current: 12 14
+FINDING PATH 2, Current: 5 7
+FINDING PATH 2, Current: 7 5
+FINDING PATH 2, Current: 4 10
+FINDING PATH 2, Current: 10 4
+FINDING PATH 2, Current: 5 12
+FINDING PATH 2, Current: 12 5
+FINDING PATH 2, Current: 15 10
+FINDING PATH 2, Current: 10 15
+FINDING PATH 2, Current: 6 14
+FINDING PATH 2, Current: 14 6
+FINDING PATH 2, Current: 5 6
+FINDING PATH 2, Current: 6 5
+FINDING PATH 2, Current: 4 9
+FINDING PATH 2, Current: 9 4
+FINDING PATH 2, Current: 15 9
+FINDING PATH 2, Current: 9 15
+FINDING PATH 2, Current: 14 13
+FINDING PATH 2, Current: 13 14
+FINDING PATH 2, Current: 4 11
+FINDING PATH 2, Current: 11 4
+FINDING PATH 2, Current: 15 11
+FINDING PATH 2, Current: 11 15
+FINDING PATH 2, Current: 5 13
+FINDING PATH 2, Current: 13 5
+FINDING PATH 2, Current: 5 5
+FINDING PATH 2, Current: 4 8
+FINDING PATH 2, Current: 8 4
+FINDING PATH 2, Current: 15 8
+FINDING PATH 2, Current: 8 15
+FINDING PATH 2, Current: 4 7
+FINDING PATH 2, Current: 7 4
+FINDING PATH 2, Current: 3 10
+FINDING PATH 2, Current: 10 3
+FINDING PATH 2, Current: 14 14
+FINDING PATH 2, Current: 15 7
+FINDING PATH 2, Current: 7 15
+FINDING PATH 2, Current: 4 12
+FINDING PATH 2, Current: 12 4
+FINDING PATH 2, Current: 15 12
+FINDING PATH 2, Current: 12 15
+FINDING PATH 2, Current: 5 14
+FINDING PATH 2, Current: 14 5
+FINDING PATH 2, Current: 4 6
+FINDING PATH 2, Current: 6 4
+FINDING PATH 2, Current: 3 9
+FINDING PATH 2, Current: 9 3
+FINDING PATH 2, Current: 16 10
+FINDING PATH 2, Current: 10 16
+FINDING PATH 2, Current: 15 6
+FINDING PATH 2, Current: 6 15
+FINDING PATH 2, Current: 3 11
+FINDING PATH 2, Current: 11 3
+FINDING PATH 2, Current: 4 13
+FINDING PATH 2, Current: 13 4
+FINDING PATH 2, Current: 16 9
+FINDING PATH 2, Current: 9 16
+FINDING PATH 2, Current: 4 5
+FINDING PATH 2, Current: 5 4
+FINDING PATH 2, Current: 3 8
+FINDING PATH 2, Current: 8 3
+FINDING PATH 2, Current: 15 13
+FINDING PATH 2, Current: 13 15
+FINDING PATH 2, Current: 5 15
+FINDING PATH 2, Current: 15 5
+FINDING PATH 2, Current: 16 11
+FINDING PATH 2, Current: 11 16
+FINDING PATH 2, Current: 16 8
+FINDING PATH 2, Current: 8 16
+FINDING PATH 2, Current: 4 4
+FINDING PATH 2, Current: 3 7
+FINDING PATH 2, Current: 7 3
+FINDING PATH 2, Current: 2 10
+FINDING PATH 2, Current: 10 2
+FINDING PATH 2, Current: 3 12
+FINDING PATH 2, Current: 12 3
+FINDING PATH 2, Current: 4 14
+FINDING PATH 2, Current: 14 4
+FINDING PATH 2, Current: 15 14
+FINDING PATH 2, Current: 14 15
+FINDING PATH 2, Current: 16 7
+FINDING PATH 2, Current: 7 16
+FINDING PATH 2, Current: 3 6
+FINDING PATH 2, Current: 6 3
+FINDING PATH 2, Current: 2 9
+FINDING PATH 2, Current: 9 2
+FINDING PATH 2, Current: 16 12
+FINDING PATH 2, Current: 12 16
+FINDING PATH 2, Current: 2 11
+FINDING PATH 2, Current: 11 2
+FINDING PATH 2, Current: 17 10
+FINDING PATH 2, Current: 10 17
+FINDING PATH 2, Current: 16 6
+FINDING PATH 2, Current: 6 16
+FINDING PATH 2, Current: 3 13
+FINDING PATH 2, Current: 13 3
+FINDING PATH 2, Current: 3 5
+FINDING PATH 2, Current: 5 3
+FINDING PATH 2, Current: 2 8
+FINDING PATH 2, Current: 8 2
+FINDING PATH 2, Current: 4 15
+FINDING PATH 2, Current: 15 4
+FINDING PATH 2, Current: 15 15
+FINDING PATH 2, Current: 17 9
+FINDING PATH 2, Current: 9 17
+FINDING PATH 2, Current: 16 13
+FINDING PATH 2, Current: 13 16
+FINDING PATH 2, Current: 16 5
+FINDING PATH 2, Current: 5 16
+FINDING PATH 2, Current: 3 4
+FINDING PATH 2, Current: 4 3
+FINDING PATH 2, Current: 2 7
+FINDING PATH 2, Current: 7 2
+FINDING PATH 2, Current: 1 10
+FINDING PATH 2, Current: 10 1
+FINDING PATH 2, Current: 17 11
+FINDING PATH 2, Current: 11 17
+FINDING PATH 2, Current: 2 12
+FINDING PATH 2, Current: 12 2
+FINDING PATH 2, Current: 3 14
+FINDING PATH 2, Current: 14 3
+FINDING PATH 2, Current: 17 8
+FINDING PATH 2, Current: 8 17
+FINDING PATH 2, Current: 4 16
+FINDING PATH 2, Current: 16 4
+FINDING PATH 2, Current: 3 3
+FINDING PATH 2, Current: 2 6
+FINDING PATH 2, Current: 6 2
+FINDING PATH 2, Current: 1 9
+FINDING PATH 2, Current: 9 1
+FINDING PATH 2, Current: 16 14
+FINDING PATH 2, Current: 14 16
+FINDING PATH 2, Current: 17 7
+FINDING PATH 2, Current: 7 17
+FINDING PATH 2, Current: 1 11
+FINDING PATH 2, Current: 11 1
+FINDING PATH 2, Current: 17 12
+FINDING PATH 2, Current: 12 17
+FINDING PATH 2, Current: 2 13
+FINDING PATH 2, Current: 13 2
+FINDING PATH 2, Current: 2 5
+FINDING PATH 2, Current: 5 2
+FINDING PATH 2, Current: 1 8
+FINDING PATH 2, Current: 8 1
+FINDING PATH 2, Current: 3 15
+FINDING PATH 2, Current: 15 3
+FINDING PATH 2, Current: 18 10
+FINDING PATH 2, Current: 10 18
+FINDING PATH 2, Current: 17 6
+FINDING PATH 2, Current: 6 17
+FINDING PATH 2, Current: 2 4
+FINDING PATH 2, Current: 4 2
+FINDING PATH 2, Current: 1 7
+FINDING PATH 2, Current: 7 1
+FINDING PATH 2, Current: 0 10
+FINDING PATH 2, Current: 10 0
+FINDING PATH 2, Current: 16 15
+FINDING PATH 2, Current: 15 16
+FINDING PATH 2, Current: 1 12
+FINDING PATH 2, Current: 12 1
+FINDING PATH 2, Current: 18 9
+FINDING PATH 2, Current: 9 18
+FINDING PATH 2, Current: 17 13
+FINDING PATH 2, Current: 13 17
+FINDING PATH 2, Current: 17 5
+FINDING PATH 2, Current: 5 17
+FINDING PATH 2, Current: 2 14
+FINDING PATH 2, Current: 14 2
+FINDING PATH 2, Current: 18 11
+FINDING PATH 2, Current: 11 18
+FINDING PATH 2, Current: 3 16
+FINDING PATH 2, Current: 16 3
+FINDING PATH 2, Current: 2 3
+FINDING PATH 2, Current: 3 2
+FINDING PATH 2, Current: 1 6
+FINDING PATH 2, Current: 6 1
+FINDING PATH 2, Current: 0 9
+FINDING PATH 2, Current: 9 0
+FINDING PATH 2, Current: 18 8
+FINDING PATH 2, Current: 8 18
+FINDING PATH 2, Current: 17 4
+FINDING PATH 2, Current: 4 17
+FINDING PATH 2, Current: 0 11
+FINDING PATH 2, Current: 11 0
+FINDING PATH 2, Current: 16 16
+FINDING PATH 2, Current: 1 13
+FINDING PATH 2, Current: 13 1
+FINDING PATH 2, Current: 2 2
+FINDING PATH 2, Current: 1 5
+FINDING PATH 2, Current: 5 1
+FINDING PATH 2, Current: 0 8
+FINDING PATH 2, Current: 8 0
+FINDING PATH 2, Current: 17 14
+FINDING PATH 2, Current: 14 17
+FINDING PATH 2, Current: 2 15
+FINDING PATH 2, Current: 15 2
+FINDING PATH 2, Current: 18 7
+FINDING PATH 2, Current: 7 18
+FINDING PATH 2, Current: 18 12
+FINDING PATH 2, Current: 12 18
+FINDING PATH 2, Current: 3 17
+FINDING PATH 2, Current: 17 3
+FINDING PATH 2, Current: 1 4
+FINDING PATH 2, Current: 4 1
+FINDING PATH 2, Current: 0 7
+FINDING PATH 2, Current: 7 0
+FINDING PATH 2, Current: 19 10
+FINDING PATH 2, Current: 10 19
+FINDING PATH 2, Current: 18 6
+FINDING PATH 2, Current: 6 18
+FINDING PATH 2, Current: 0 12
+FINDING PATH 2, Current: 12 0
+FINDING PATH 2, Current: 1 14
+FINDING PATH 2, Current: 14 1
+FINDING PATH 2, Current: 17 15
+FINDING PATH 2, Current: 15 17
+FINDING PATH 2, Current: 2 16
+FINDING PATH 2, Current: 16 2
+FINDING PATH 2, Current: 19 9
+FINDING PATH 2, Current: 9 19
+FINDING PATH 2, Current: 1 3
+FINDING PATH 2, Current: 3 1
+FINDING PATH 2, Current: 0 6
+FINDING PATH 2, Current: 6 0
+FINDING PATH 2, Current: 18 13
+FINDING PATH 2, Current: 13 18
+FINDING PATH 2, Current: 18 5
+FINDING PATH 2, Current: 5 18
+FINDING PATH 2, Current: 19 11
+FINDING PATH 2, Current: 11 19
+FINDING PATH 2, Current: 0 13
+FINDING PATH 2, Current: 13 0
+FINDING PATH 2, Current: 19 8
+FINDING PATH 2, Current: 8 19
+FINDING PATH 2, Current: 1 2
+FINDING PATH 2, Current: 2 1
+FINDING PATH 2, Current: 0 5
+FINDING PATH 2, Current: 5 0
+FINDING PATH 2, Current: 18 4
+FINDING PATH 2, Current: 4 18
+FINDING PATH 2, Current: 1 15
+FINDING PATH 2, Current: 15 1
+FINDING PATH 2, Current: 17 16
+FINDING PATH 2, Current: 16 17
+FINDING PATH 2, Current: 2 17
+FINDING PATH 2, Current: 17 2
+FINDING PATH 2, Current: 18 14
+FINDING PATH 2, Current: 14 18
+FINDING PATH 2, Current: 19 7
+FINDING PATH 2, Current: 7 19
+FINDING PATH 2, Current: 1 1
+FINDING PATH 2, Current: 0 4
+FINDING PATH 2, Current: 4 0
+FINDING PATH 2, Current: 19 12
+FINDING PATH 2, Current: 12 19
+FINDING PATH 2, Current: 18 3
+FINDING PATH 2, Current: 3 18
+FINDING PATH 2, Current: 0 14
+FINDING PATH 2, Current: 14 0
+FINDING PATH 2, Current: 20 10
+FINDING PATH 2, Current: 10 20
+FINDING PATH 2, Current: 1 16
+FINDING PATH 2, Current: 16 1
+FINDING PATH 2, Current: 19 6
+FINDING PATH 2, Current: 6 19
+FINDING PATH 2, Current: 0 3
+FINDING PATH 2, Current: 3 0
+FINDING PATH 2, Current: 17 17
+FINDING PATH 2, Current: 2 18
+FINDING PATH 2, Current: 18 2
+FINDING PATH 2, Current: 18 15
+FINDING PATH 2, Current: 15 18
+FINDING PATH 2, Current: 20 9
+FINDING PATH 2, Current: 9 20
+FINDING PATH 2, Current: 19 13
+FINDING PATH 2, Current: 13 19
+FINDING PATH 2, Current: 19 5
+FINDING PATH 2, Current: 5 19
+FINDING PATH 2, Current: 0 2
+FINDING PATH 2, Current: 2 0
+FINDING PATH 2, Current: 20 11
+FINDING PATH 2, Current: 11 20
+FINDING PATH 2, Current: 0 15
+FINDING PATH 2, Current: 15 0
+FINDING PATH 2, Current: 1 17
+FINDING PATH 2, Current: 17 1
+FINDING PATH 2, Current: 20 8
+FINDING PATH 2, Current: 8 20
+FINDING PATH 2, Current: 19 4
+FINDING PATH 2, Current: 4 19
+FINDING PATH 2, Current: 0 1
+FINDING PATH 2, Current: 1 0
+FINDING PATH 2, Current: 18 16
+FINDING PATH 2, Current: 16 18
+FINDING PATH 2, Current: 19 14
+FINDING PATH 2, Current: 14 19
+FINDING PATH 2, Current: 20 7
+FINDING PATH 2, Current: 7 20
+FINDING PATH 2, Current: 20 12
+FINDING PATH 2, Current: 12 20
+FINDING PATH 2, Current: 19 3
+FINDING PATH 2, Current: 3 19
+FINDING PATH 2, Current: 0 16
+FINDING PATH 2, Current: 16 0
+FINDING PATH 3
+Done creating scene!
+Am I null? true!
+Vector3(2250, 0, 2250) Vector3(2500, 100, 2500)
+Am I null? true!
+Vector3(2250, 0, 2250) Vector3(2488.21, 86.3889, 2488.21)
+Am I null? true!
+Vector3(2250, 0, 2250) Vector3(2482.32, 72.7778, 2482.32)
+Am I null? true!
+Vector3(2250, 0, 2250) Vector3(2476.43, 59.1667, 2476.43)
+Am I null? true!
+Vector3(2250, 0, 2250) Vector3(2476.43, 59.1667, 2476.43)
+Am I null? true!
+Vector3(2250, 0, 2250) Vector3(2470.54, 45.5555, 2470.54)
+Am I null? true!
+Vector3(2250, 0, 2250) Vector3(2470.54, 45.5555, 2470.54)
+Am I null? true!
+Vector3(2250, 0, 2250) Vector3(2467.21, 46.4444, 2467.21)
+Am I null? true!
+Vector3(2250, 0, 2250) Vector3(2467.21, 46.4444, 2467.21)
+Am I null? true!
+Vector3(2250, 0, 2250) Vector3(2463.85, 47.1555, 2463.85)
+Am I null? true!
+Vector3(2250, 0, 2250) Vector3(2463.85, 47.1555, 2463.85)
+Am I null? true!
+Vector3(2250, 0, 2250) Vector3(2463.85, 47.1555, 2463.85)
+Am I null? true!
+Vector3(2250, 0, 2250) Vector3(2460.46, 47.7244, 2460.46)
+Am I null? true!
+Vector3(2250, 0, 2250) Vector3(2460.46, 47.7244, 2460.46)
+Am I null? true!
+Vector3(2250, 0, 2250) Vector3(2457.06, 48.1795, 2457.06)
+Am I null? true!
+Vector3(2250, 0, 2250) Vector3(2457.06, 48.1795, 2457.06)
+Am I null? true!
+Vector3(2250, 0, 2250) Vector3(2453.63, 48.5436, 2453.63)
+Am I null? true!
+Vector3(2250, 0, 2250) Vector3(2453.63, 48.5436, 2453.63)
+Am I null? true!
+Vector3(2250, 0, 2250) Vector3(2450.2, 48.8349, 2450.2)
+Am I null? true!
+Vector3(2250, 0, 2250) Vector3(2450.2, 48.8349, 2450.2)
+Am I null? true!
+Vector3(2250, 0, 2250) Vector3(2450.2, 48.8349, 2450.2)
+Am I null? true!
+Vector3(2250, 0, 2250) Vector3(2446.75, 49.0679, 2446.75)
+Am I null? true!
+Vector3(2250, 0, 2250) Vector3(2443.3, 49.2543, 2443.3)
+Am I null? true!
+Vector3(2250, 0, 2250) Vector3(2443.3, 49.2543, 2443.3)
+Am I null? true!
+Vector3(2250, 0, 2250) Vector3(2439.84, 49.4035, 2439.84)
+Am I null? true!
+Vector3(2250, 0, 2250) Vector3(2439.84, 49.4035, 2439.84)
+Am I null? true!
+Vector3(2250, 0, 2250) Vector3(2439.84, 49.4035, 2439.84)
+Am I null? true!
+Vector3(2250, 0, 2250) Vector3(2436.37, 49.5228, 2436.37)
+Am I null? true!
+Vector3(2250, 0, 2250) Vector3(2436.37, 49.5228, 2436.37)
+Am I null? true!
+Vector3(2250, 0, 2250) Vector3(2432.9, 49.6182, 2432.9)
+Am I null? true!
+Vector3(2250, 0, 2250) Vector3(2432.9, 49.6182, 2432.9)
+Am I null? true!
+Vector3(2250, 0, 2250) Vector3(2429.43, 49.6946, 2429.43)
+Am I null? true!
+Vector3(2250, 0, 2250) Vector3(2429.43, 49.6946, 2429.43)
+Am I null? true!
+Vector3(2250, 0, 2250) Vector3(2429.43, 49.6946, 2429.43)
+Am I null? true!
+Vector3(2250, 0, 2250) Vector3(2425.96, 49.7557, 2425.96)
+Am I null? true!
+Vector3(2250, 0, 2250) Vector3(2425.96, 49.7557, 2425.96)
+Am I null? true!
+Vector3(2250, 0, 2250) Vector3(2422.48, 49.8045, 2422.48)
+Am I null? true!
+Vector3(2250, 0, 2250) Vector3(2422.48, 49.8045, 2422.48)
+Am I null? true!
+Vector3(2250, 0, 2250) Vector3(2419, 49.8436, 2419)
+Am I null? true!
+Vector3(2250, 0, 2250) Vector3(2419, 49.8436, 2419)
+Am I null? true!
+Vector3(2250, 0, 2250) Vector3(2415.52, 49.8749, 2415.52)
+Am I null? true!
+Vector3(2250, 0, 2250) Vector3(2415.52, 49.8749, 2415.52)
+Am I null? true!
+Vector3(2250, 0, 2250) Vector3(2415.52, 49.8749, 2415.52)
+Am I null? true!
+Vector3(2250, 0, 2250) Vector3(2412.04, 49.8999, 2412.04)
+Am I null? true!
+Vector3(2250, 0, 2250) Vector3(2412.04, 49.8999, 2412.04)
+Am I null? true!
+Vector3(2250, 0, 2250) Vector3(2408.55, 49.9199, 2408.55)
+Am I null? true!
+Vector3(2250, 0, 2250) Vector3(2405.07, 49.936, 2405.07)
+Am I null? true!
+Vector3(2250, 0, 2250) Vector3(2405.07, 49.936, 2405.07)
+Am I null? true!
+Vector3(2250, 0, 2250) Vector3(2401.59, 49.9488, 2401.59)
+Am I null? true!
+Vector3(2250, 0, 2250) Vector3(2401.59, 49.9488, 2401.59)
+Am I null? true!
+Vector3(2250, 0, 2250) Vector3(2398.1, 49.959, 2398.1)
+Am I null? true!
+Vector3(2250, 0, 2250) Vector3(2398.1, 49.959, 2398.1)
+Am I null? true!
+Vector3(2250, 0, 2250) Vector3(2394.62, 49.9672, 2394.62)
+Am I null? true!
+Vector3(2250, 0, 2250) Vector3(2394.62, 49.9672, 2394.62)
+Am I null? true!
+Vector3(2250, 0, 2250) Vector3(2391.13, 49.9738, 2391.13)
+Am I null? true!
+Vector3(2250, 0, 2250) Vector3(2391.13, 49.9738, 2391.13)
+Am I null? true!
+Vector3(2250, 0, 2250) Vector3(2387.64, 49.979, 2387.64)
+Am I null? true!
+Vector3(2250, 0, 2250) Vector3(2387.64, 49.979, 2387.64)
+Am I null? true!
+Vector3(2250, 0, 2250) Vector3(2384.16, 49.9832, 2384.16)
+Am I null? true!
+Vector3(2250, 0, 2250) Vector3(2384.16, 49.9832, 2384.16)
+Am I null? true!
+Vector3(2250, 0, 2250) Vector3(2380.67, 49.9866, 2380.67)
+Am I null? true!
+Vector3(2250, 0, 2250) Vector3(2380.67, 49.9866, 2380.67)
+Am I null? true!
+Vector3(2250, 0, 2250) Vector3(2377.19, 49.9893, 2377.19)
+Am I null? true!
+Vector3(2250, 0, 2250) Vector3(2377.19, 49.9893, 2377.19)
+Am I null? true!
+Vector3(2250, 0, 2250) Vector3(2373.7, 49.9914, 2373.7)
+Am I null? true!
+Vector3(2250, 0, 2250) Vector3(2373.7, 49.9914, 2373.7)
+Am I null? true!
+Vector3(2250, 0, 2250) Vector3(2373.7, 49.9914, 2373.7)
+Am I null? true!
+Vector3(2250, 0, 2250) Vector3(2370.22, 49.9931, 2370.22)
+Am I null? true!
+Vector3(2250, 0, 2250) Vector3(2370.22, 49.9931, 2370.22)
+Am I null? true!
+Vector3(2250, 0, 2250) Vector3(2366.73, 49.9945, 2366.73)
+Am I null? true!
+Vector3(2250, 0, 2250) Vector3(2366.73, 49.9945, 2366.73)
+Am I null? true!
+Vector3(2250, 0, 2250) Vector3(2363.24, 49.9956, 2363.24)
+Vector3(2250, 0, 2250) Vector3(2363.24, 49.9956, 2363.24)
+Vector3(2250, 0, 2250) Vector3(2359.76, 49.9965, 2359.76)
+Vector3(2250, 0, 2250) Vector3(2359.76, 49.9965, 2359.76)
+Vector3(2250, 0, 2250) Vector3(2356.27, 49.9972, 2356.27)
+Vector3(2250, 0, 2250) Vector3(2356.27, 49.9972, 2356.27)
+Vector3(2250, 0, 2250) Vector3(2352.78, 49.9977, 2352.78)
+Vector3(2250, 0, 2250) Vector3(2349.3, 49.9982, 2349.3)
+Vector3(2250, 0, 2250) Vector3(2349.3, 49.9982, 2349.3)
+Vector3(2250, 0, 2250) Vector3(2345.81, 49.9986, 2345.81)
+Vector3(2250, 0, 2250) Vector3(2345.81, 49.9986, 2345.81)
+Vector3(2250, 0, 2250) Vector3(2342.32, 49.9988, 2342.32)
+Vector3(2250, 0, 2250) Vector3(2342.32, 49.9988, 2342.32)
+Vector3(2250, 0, 2250) Vector3(2338.84, 49.9991, 2338.84)
+Vector3(2250, 0, 2250) Vector3(2338.84, 49.9991, 2338.84)
+Vector3(2250, 0, 2250) Vector3(2335.35, 49.9993, 2335.35)
+Vector3(2250, 0, 2250) Vector3(2331.87, 49.9994, 2331.87)
+Vector3(2250, 0, 2250) Vector3(2328.38, 49.9995, 2328.38)
+Vector3(2250, 0, 2250) Vector3(2328.38, 49.9995, 2328.38)
+Vector3(2250, 0, 2250) Vector3(2324.89, 49.9996, 2324.89)
+Vector3(2250, 0, 2250) Vector3(2324.89, 49.9996, 2324.89)
+Vector3(2250, 0, 2250) Vector3(2321.41, 49.9997, 2321.41)
+Vector3(2250, 0, 2250) Vector3(2317.92, 49.9998, 2317.92)
+Vector3(2250, 0, 2250) Vector3(2317.92, 49.9998, 2317.92)
+Vector3(2250, 0, 2250) Vector3(2314.43, 49.9998, 2314.43)
+Vector3(2250, 0, 2250) Vector3(2314.43, 49.9998, 2314.43)
+Vector3(2250, 0, 2250) Vector3(2310.95, 49.9999, 2310.95)
+Vector3(2250, 0, 2250) Vector3(2310.95, 49.9999, 2310.95)
+Vector3(2250, 0, 2250) Vector3(2307.46, 49.9999, 2307.46)
+Vector3(2250, 0, 2250) Vector3(2307.46, 49.9999, 2307.46)
+Vector3(2250, 0, 2250) Vector3(2303.98, 49.9999, 2303.98)
+Vector3(2250, 0, 2250) Vector3(2300.49, 49.9999, 2300.49)
+Vector3(2250, 0, 2250) Vector3(2300.49, 49.9999, 2300.49)
+Vector3(2250, 0, 2250) Vector3(2297, 49.9999, 2297)
+Vector3(2250, 0, 2250) Vector3(2297, 49.9999, 2297)
+Vector3(2250, 0, 2250) Vector3(2293.52, 49.9999, 2293.52)
+Vector3(2250, 0, 2250) Vector3(2293.52, 49.9999, 2293.52)
+Vector3(2250, 0, 2250) Vector3(2290.03, 49.9999, 2290.03)
+Vector3(2250, 0, 2250) Vector3(2286.54, 49.9999, 2286.54)
+Vector3(2250, 0, 2250) Vector3(2286.54, 49.9999, 2286.54)
+Vector3(2250, 0, 2250) Vector3(2283.06, 49.9999, 2283.06)
+Vector3(2250, 0, 2250) Vector3(2283.06, 49.9999, 2283.06)
+Vector3(2250, 0, 2250) Vector3(2279.57, 49.9999, 2279.57)
+Vector3(2250, 0, 2250) Vector3(2279.57, 49.9999, 2279.57)
+Vector3(2250, 0, 2250) Vector3(2276.08, 49.9999, 2276.08)
+Vector3(2250, 0, 2250) Vector3(2276.08, 49.9999, 2276.08)
+Vector3(2250, 0, 2250) Vector3(2272.6, 49.9999, 2272.6)
+Vector3(2250, 0, 2250) Vector3(2269.11, 49.9999, 2269.11)
+Vector3(2250, 0, 2250) Vector3(2269.11, 49.9999, 2269.11)
+Vector3(2250, 0, 2250) Vector3(2265.63, 49.9999, 2265.63)
+Vector3(2250, 0, 2250) Vector3(2262.14, 49.9999, 2262.14)
+Vector3(2250, 0, 2250) Vector3(2262.14, 49.9999, 2262.14)
+Vector3(2250, 0, 2250) Vector3(2258.65, 49.9999, 2258.65)
+Vector3(2250, 0, 2250) Vector3(2258.65, 49.9999, 2258.65)
+Vector3(2250, 0, 2250) Vector3(2255.17, 49.9999, 2255.17)
+Vector3(2250, 0, 2250) Vector3(2251.68, 49.9999, 2251.68)
+SET CURRENT POS: (2251.68, 49.9999, 2251.68) 9 9
+Vector3(2000, 0, 2000) Vector3(2251.68, 49.9999, 2251.68)
+Vector3(2000, 0, 2000) Vector3(2248.19, 49.9999, 2248.19)
+Vector3(2000, 0, 2000) Vector3(2244.71, 49.9999, 2244.71)
+Vector3(2000, 0, 2000) Vector3(2244.71, 49.9999, 2244.71)
+Vector3(2000, 0, 2000) Vector3(2241.22, 49.9999, 2241.22)
+Vector3(2000, 0, 2000) Vector3(2241.22, 49.9999, 2241.22)
+Vector3(2000, 0, 2000) Vector3(2237.74, 49.9999, 2237.74)
+Vector3(2000, 0, 2000) Vector3(2237.74, 49.9999, 2237.74)
+Vector3(2000, 0, 2000) Vector3(2234.25, 49.9999, 2234.25)
+Vector3(2000, 0, 2000) Vector3(2234.25, 49.9999, 2234.25)
+Vector3(2000, 0, 2000) Vector3(2230.76, 49.9999, 2230.76)
+Vector3(2000, 0, 2000) Vector3(2230.76, 49.9999, 2230.76)
+Vector3(2000, 0, 2000) Vector3(2227.28, 49.9999, 2227.28)
+Vector3(2000, 0, 2000) Vector3(2227.28, 49.9999, 2227.28)
+Vector3(2000, 0, 2000) Vector3(2227.28, 49.9999, 2227.28)
+Vector3(2000, 0, 2000) Vector3(2223.79, 49.9999, 2223.79)
+Vector3(2000, 0, 2000) Vector3(2223.79, 49.9999, 2223.79)
+Vector3(2000, 0, 2000) Vector3(2223.79, 49.9999, 2223.79)
+Vector3(2000, 0, 2000) Vector3(2220.3, 49.9999, 2220.3)
+Vector3(2000, 0, 2000) Vector3(2220.3, 49.9999, 2220.3)
+Vector3(2000, 0, 2000) Vector3(2220.3, 49.9999, 2220.3)
+Vector3(2000, 0, 2000) Vector3(2216.82, 49.9999, 2216.82)
+Vector3(2000, 0, 2000) Vector3(2216.82, 49.9999, 2216.82)
+Vector3(2000, 0, 2000) Vector3(2216.82, 49.9999, 2216.82)
+Vector3(2000, 0, 2000) Vector3(2213.33, 49.9999, 2213.33)
+Vector3(2000, 0, 2000) Vector3(2213.33, 49.9999, 2213.33)
+Vector3(2000, 0, 2000) Vector3(2213.33, 49.9999, 2213.33)
+Vector3(2000, 0, 2000) Vector3(2209.84, 49.9999, 2209.84)
+Vector3(2000, 0, 2000) Vector3(2209.84, 49.9999, 2209.84)
+Vector3(2000, 0, 2000) Vector3(2209.84, 49.9999, 2209.84)
+Vector3(2000, 0, 2000) Vector3(2206.36, 49.9999, 2206.36)
+Vector3(2000, 0, 2000) Vector3(2206.36, 49.9999, 2206.36)
+Vector3(2000, 0, 2000) Vector3(2206.36, 49.9999, 2206.36)
+Vector3(2000, 0, 2000) Vector3(2202.87, 49.9999, 2202.87)
+Vector3(2000, 0, 2000) Vector3(2202.87, 49.9999, 2202.87)
+Vector3(2000, 0, 2000) Vector3(2202.87, 49.9999, 2202.87)
+Vector3(2000, 0, 2000) Vector3(2202.87, 49.9999, 2202.87)
+Vector3(2000, 0, 2000) Vector3(2199.39, 49.9999, 2199.39)
+Vector3(2000, 0, 2000) Vector3(2199.39, 49.9999, 2199.39)
+Vector3(2000, 0, 2000) Vector3(2199.39, 49.9999, 2199.39)
+Vector3(2000, 0, 2000) Vector3(2195.9, 49.9999, 2195.9)
+Vector3(2000, 0, 2000) Vector3(2195.9, 49.9999, 2195.9)
+Vector3(2000, 0, 2000) Vector3(2195.9, 49.9999, 2195.9)
+Vector3(2000, 0, 2000) Vector3(2192.41, 49.9999, 2192.41)
+Vector3(2000, 0, 2000) Vector3(2192.41, 49.9999, 2192.41)
+Vector3(2000, 0, 2000) Vector3(2192.41, 49.9999, 2192.41)
+Vector3(2000, 0, 2000) Vector3(2192.41, 49.9999, 2192.41)
+Vector3(2000, 0, 2000) Vector3(2188.93, 49.9999, 2188.93)
+Vector3(2000, 0, 2000) Vector3(2188.93, 49.9999, 2188.93)
+Vector3(2000, 0, 2000) Vector3(2188.93, 49.9999, 2188.93)
+Vector3(2000, 0, 2000) Vector3(2185.44, 49.9999, 2185.44)
+Vector3(2000, 0, 2000) Vector3(2185.44, 49.9999, 2185.44)
+Vector3(2000, 0, 2000) Vector3(2185.44, 49.9999, 2185.44)
+Vector3(2000, 0, 2000) Vector3(2181.95, 49.9999, 2181.95)
+Vector3(2000, 0, 2000) Vector3(2181.95, 49.9999, 2181.95)
+Vector3(2000, 0, 2000) Vector3(2181.95, 49.9999, 2181.95)
+Vector3(2000, 0, 2000) Vector3(2181.95, 49.9999, 2181.95)
+Vector3(2000, 0, 2000) Vector3(2178.47, 49.9999, 2178.47)
+Vector3(2000, 0, 2000) Vector3(2178.47, 49.9999, 2178.47)
+Vector3(2000, 0, 2000) Vector3(2178.47, 49.9999, 2178.47)
+Vector3(2000, 0, 2000) Vector3(2178.47, 49.9999, 2178.47)
+Vector3(2000, 0, 2000) Vector3(2174.98, 49.9999, 2174.98)
+Vector3(2000, 0, 2000) Vector3(2174.98, 49.9999, 2174.98)
+Vector3(2000, 0, 2000) Vector3(2174.98, 49.9999, 2174.98)
+Vector3(2000, 0, 2000) Vector3(2174.98, 49.9999, 2174.98)
+Vector3(2000, 0, 2000) Vector3(2171.49, 49.9999, 2171.49)
+Vector3(2000, 0, 2000) Vector3(2171.49, 49.9999, 2171.49)
+Vector3(2000, 0, 2000) Vector3(2171.49, 49.9999, 2171.49)
+Vector3(2000, 0, 2000) Vector3(2171.49, 49.9999, 2171.49)
+Vector3(2000, 0, 2000) Vector3(2168.01, 49.9999, 2168.01)
+Vector3(2000, 0, 2000) Vector3(2168.01, 49.9999, 2168.01)
+Vector3(2000, 0, 2000) Vector3(2168.01, 49.9999, 2168.01)
+Vector3(2000, 0, 2000) Vector3(2168.01, 49.9999, 2168.01)
+Vector3(2000, 0, 2000) Vector3(2164.52, 49.9999, 2164.52)
+Vector3(2000, 0, 2000) Vector3(2164.52, 49.9999, 2164.52)
+Vector3(2000, 0, 2000) Vector3(2164.52, 49.9999, 2164.52)
+Vector3(2000, 0, 2000) Vector3(2164.52, 49.9999, 2164.52)
+Vector3(2000, 0, 2000) Vector3(2164.52, 49.9999, 2164.52)
+Vector3(2000, 0, 2000) Vector3(2161.04, 49.9999, 2161.04)
+Vector3(2000, 0, 2000) Vector3(2161.04, 49.9999, 2161.04)
+Vector3(2000, 0, 2000) Vector3(2161.04, 49.9999, 2161.04)
+Vector3(2000, 0, 2000) Vector3(2161.04, 49.9999, 2161.04)
+Vector3(2000, 0, 2000) Vector3(2157.55, 49.9999, 2157.55)
+Vector3(2000, 0, 2000) Vector3(2157.55, 49.9999, 2157.55)
+Vector3(2000, 0, 2000) Vector3(2157.55, 49.9999, 2157.55)
+Vector3(2000, 0, 2000) Vector3(2157.55, 49.9999, 2157.55)
+Vector3(2000, 0, 2000) Vector3(2157.55, 49.9999, 2157.55)
+Vector3(2000, 0, 2000) Vector3(2154.06, 49.9999, 2154.06)
+Vector3(2000, 0, 2000) Vector3(2154.06, 49.9999, 2154.06)
+Vector3(2000, 0, 2000) Vector3(2154.06, 49.9999, 2154.06)
+Vector3(2000, 0, 2000) Vector3(2154.06, 49.9999, 2154.06)
+Vector3(2000, 0, 2000) Vector3(2154.06, 49.9999, 2154.06)
+Vector3(2000, 0, 2000) Vector3(2150.58, 49.9999, 2150.58)
+Vector3(2000, 0, 2000) Vector3(2150.58, 49.9999, 2150.58)
+Vector3(2000, 0, 2000) Vector3(2150.58, 49.9999, 2150.58)
+Vector3(2000, 0, 2000) Vector3(2150.58, 49.9999, 2150.58)
+Vector3(2000, 0, 2000) Vector3(2150.58, 49.9999, 2150.58)
+Vector3(2000, 0, 2000) Vector3(2147.09, 49.9999, 2147.09)
+Vector3(2000, 0, 2000) Vector3(2147.09, 49.9999, 2147.09)
+Vector3(2000, 0, 2000) Vector3(2147.09, 49.9999, 2147.09)
+Vector3(2000, 0, 2000) Vector3(2147.09, 49.9999, 2147.09)
+Vector3(2000, 0, 2000) Vector3(2147.09, 49.9999, 2147.09)
+Vector3(2000, 0, 2000) Vector3(2143.6, 49.9999, 2143.6)
+Vector3(2000, 0, 2000) Vector3(2143.6, 49.9999, 2143.6)
+Vector3(2000, 0, 2000) Vector3(2143.6, 49.9999, 2143.6)
+Vector3(2000, 0, 2000) Vector3(2143.6, 49.9999, 2143.6)
+Vector3(2000, 0, 2000) Vector3(2143.6, 49.9999, 2143.6)
+Vector3(2000, 0, 2000) Vector3(2140.12, 49.9999, 2140.12)
+Vector3(2000, 0, 2000) Vector3(2140.12, 49.9999, 2140.12)
+Vector3(2000, 0, 2000) Vector3(2140.12, 49.9999, 2140.12)
+Vector3(2000, 0, 2000) Vector3(2140.12, 49.9999, 2140.12)
+Vector3(2000, 0, 2000) Vector3(2140.12, 49.9999, 2140.12)
+Vector3(2000, 0, 2000) Vector3(2140.12, 49.9999, 2140.12)
+Vector3(2000, 0, 2000) Vector3(2136.63, 49.9999, 2136.63)
+Vector3(2000, 0, 2000) Vector3(2136.63, 49.9999, 2136.63)
+Vector3(2000, 0, 2000) Vector3(2136.63, 49.9999, 2136.63)
+Vector3(2000, 0, 2000) Vector3(2136.63, 49.9999, 2136.63)
+Vector3(2000, 0, 2000) Vector3(2136.63, 49.9999, 2136.63)
+Vector3(2000, 0, 2000) Vector3(2133.15, 49.9999, 2133.15)
+Vector3(2000, 0, 2000) Vector3(2133.15, 49.9999, 2133.15)
+Vector3(2000, 0, 2000) Vector3(2133.15, 49.9999, 2133.15)
+Vector3(2000, 0, 2000) Vector3(2133.15, 49.9999, 2133.15)
+Vector3(2000, 0, 2000) Vector3(2133.15, 49.9999, 2133.15)
+Vector3(2000, 0, 2000) Vector3(2133.15, 49.9999, 2133.15)
+Vector3(2000, 0, 2000) Vector3(2129.66, 49.9999, 2129.66)
+Vector3(2000, 0, 2000) Vector3(2129.66, 49.9999, 2129.66)
+Vector3(2000, 0, 2000) Vector3(2129.66, 49.9999, 2129.66)
+Vector3(2000, 0, 2000) Vector3(2129.66, 49.9999, 2129.66)
+Vector3(2000, 0, 2000) Vector3(2129.66, 49.9999, 2129.66)
+Vector3(2000, 0, 2000) Vector3(2129.66, 49.9999, 2129.66)
+Vector3(2000, 0, 2000) Vector3(2126.17, 49.9999, 2126.17)
+Vector3(2000, 0, 2000) Vector3(2126.17, 49.9999, 2126.17)
+Vector3(2000, 0, 2000) Vector3(2126.17, 49.9999, 2126.17)
+Vector3(2000, 0, 2000) Vector3(2126.17, 49.9999, 2126.17)
+Vector3(2000, 0, 2000) Vector3(2126.17, 49.9999, 2126.17)
+Vector3(2000, 0, 2000) Vector3(2122.69, 49.9999, 2122.69)
+Vector3(2000, 0, 2000) Vector3(2122.69, 49.9999, 2122.69)
+Vector3(2000, 0, 2000) Vector3(2122.69, 49.9999, 2122.69)
+Vector3(2000, 0, 2000) Vector3(2122.69, 49.9999, 2122.69)
+Vector3(2000, 0, 2000) Vector3(2122.69, 49.9999, 2122.69)
+Vector3(2000, 0, 2000) Vector3(2122.69, 49.9999, 2122.69)
+Vector3(2000, 0, 2000) Vector3(2119.2, 49.9999, 2119.2)
+Vector3(2000, 0, 2000) Vector3(2119.2, 49.9999, 2119.2)
+Vector3(2000, 0, 2000) Vector3(2119.2, 49.9999, 2119.2)
+Vector3(2000, 0, 2000) Vector3(2119.2, 49.9999, 2119.2)
+Vector3(2000, 0, 2000) Vector3(2119.2, 49.9999, 2119.2)
+Vector3(2000, 0, 2000) Vector3(2119.2, 49.9999, 2119.2)
+Vector3(2000, 0, 2000) Vector3(2115.71, 49.9999, 2115.71)
+Vector3(2000, 0, 2000) Vector3(2115.71, 49.9999, 2115.71)
+Vector3(2000, 0, 2000) Vector3(2115.71, 49.9999, 2115.71)
+Vector3(2000, 0, 2000) Vector3(2115.71, 49.9999, 2115.71)
+Vector3(2000, 0, 2000) Vector3(2115.71, 49.9999, 2115.71)
+Vector3(2000, 0, 2000) Vector3(2115.71, 49.9999, 2115.71)
+Vector3(2000, 0, 2000) Vector3(2112.23, 49.9999, 2112.23)
+Vector3(2000, 0, 2000) Vector3(2112.23, 49.9999, 2112.23)
+Vector3(2000, 0, 2000) Vector3(2112.23, 49.9999, 2112.23)
+Vector3(2000, 0, 2000) Vector3(2112.23, 49.9999, 2112.23)
+Vector3(2000, 0, 2000) Vector3(2112.23, 49.9999, 2112.23)
+Vector3(2000, 0, 2000) Vector3(2112.23, 49.9999, 2112.23)
+Vector3(2000, 0, 2000) Vector3(2108.74, 49.9999, 2108.74)
+Vector3(2000, 0, 2000) Vector3(2108.74, 49.9999, 2108.74)
+Vector3(2000, 0, 2000) Vector3(2108.74, 49.9999, 2108.74)
+Vector3(2000, 0, 2000) Vector3(2108.74, 49.9999, 2108.74)
+Vector3(2000, 0, 2000) Vector3(2108.74, 49.9999, 2108.74)
+Vector3(2000, 0, 2000) Vector3(2108.74, 49.9999, 2108.74)
+Vector3(2000, 0, 2000) Vector3(2105.25, 49.9999, 2105.25)
+Vector3(2000, 0, 2000) Vector3(2105.25, 49.9999, 2105.25)
+Vector3(2000, 0, 2000) Vector3(2105.25, 49.9999, 2105.25)
+Vector3(2000, 0, 2000) Vector3(2105.25, 49.9999, 2105.25)
+Vector3(2000, 0, 2000) Vector3(2105.25, 49.9999, 2105.25)
+Vector3(2000, 0, 2000) Vector3(2105.25, 49.9999, 2105.25)
+Vector3(2000, 0, 2000) Vector3(2101.77, 49.9999, 2101.77)
+Vector3(2000, 0, 2000) Vector3(2101.77, 49.9999, 2101.77)
+Vector3(2000, 0, 2000) Vector3(2101.77, 49.9999, 2101.77)
+Vector3(2000, 0, 2000) Vector3(2101.77, 49.9999, 2101.77)
+Vector3(2000, 0, 2000) Vector3(2101.77, 49.9999, 2101.77)
+Vector3(2000, 0, 2000) Vector3(2098.28, 49.9999, 2098.28)
+Vector3(2000, 0, 2000) Vector3(2098.28, 49.9999, 2098.28)
+Vector3(2000, 0, 2000) Vector3(2098.28, 49.9999, 2098.28)
+Vector3(2000, 0, 2000) Vector3(2098.28, 49.9999, 2098.28)
+Vector3(2000, 0, 2000) Vector3(2098.28, 49.9999, 2098.28)
+Vector3(2000, 0, 2000) Vector3(2098.28, 49.9999, 2098.28)
+Vector3(2000, 0, 2000) Vector3(2094.8, 49.9999, 2094.8)
+Vector3(2000, 0, 2000) Vector3(2094.8, 49.9999, 2094.8)
+Vector3(2000, 0, 2000) Vector3(2094.8, 49.9999, 2094.8)
+Vector3(2000, 0, 2000) Vector3(2094.8, 49.9999, 2094.8)
+Vector3(2000, 0, 2000) Vector3(2094.8, 49.9999, 2094.8)
+Vector3(2000, 0, 2000) Vector3(2094.8, 49.9999, 2094.8)
+Vector3(2000, 0, 2000) Vector3(2091.31, 49.9999, 2091.31)
+Vector3(2000, 0, 2000) Vector3(2091.31, 49.9999, 2091.31)
+Vector3(2000, 0, 2000) Vector3(2091.31, 49.9999, 2091.31)
+Vector3(2000, 0, 2000) Vector3(2091.31, 49.9999, 2091.31)
+Vector3(2000, 0, 2000) Vector3(2091.31, 49.9999, 2091.31)
+Vector3(2000, 0, 2000) Vector3(2091.31, 49.9999, 2091.31)
+Vector3(2000, 0, 2000) Vector3(2087.82, 49.9999, 2087.82)
+Vector3(2000, 0, 2000) Vector3(2087.82, 49.9999, 2087.82)
+Vector3(2000, 0, 2000) Vector3(2087.82, 49.9999, 2087.82)
+Vector3(2000, 0, 2000) Vector3(2087.82, 49.9999, 2087.82)
+Vector3(2000, 0, 2000) Vector3(2087.82, 49.9999, 2087.82)
+Vector3(2000, 0, 2000) Vector3(2087.82, 49.9999, 2087.82)
+Vector3(2000, 0, 2000) Vector3(2084.34, 49.9999, 2084.34)
+Vector3(2000, 0, 2000) Vector3(2084.34, 49.9999, 2084.34)
+Vector3(2000, 0, 2000) Vector3(2084.34, 49.9999, 2084.34)
+Vector3(2000, 0, 2000) Vector3(2084.34, 49.9999, 2084.34)
+Vector3(2000, 0, 2000) Vector3(2084.34, 49.9999, 2084.34)
+Vector3(2000, 0, 2000) Vector3(2084.34, 49.9999, 2084.34)
+Vector3(2000, 0, 2000) Vector3(2080.85, 49.9999, 2080.85)
+Vector3(2000, 0, 2000) Vector3(2080.85, 49.9999, 2080.85)
+Vector3(2000, 0, 2000) Vector3(2080.85, 49.9999, 2080.85)
+Vector3(2000, 0, 2000) Vector3(2080.85, 49.9999, 2080.85)
+Vector3(2000, 0, 2000) Vector3(2080.85, 49.9999, 2080.85)
+Vector3(2000, 0, 2000) Vector3(2077.36, 49.9999, 2077.36)
+Vector3(2000, 0, 2000) Vector3(2077.36, 49.9999, 2077.36)
+Vector3(2000, 0, 2000) Vector3(2077.36, 49.9999, 2077.36)
+Vector3(2000, 0, 2000) Vector3(2077.36, 49.9999, 2077.36)
+Vector3(2000, 0, 2000) Vector3(2077.36, 49.9999, 2077.36)
+Vector3(2000, 0, 2000) Vector3(2077.36, 49.9999, 2077.36)
+Vector3(2000, 0, 2000) Vector3(2073.88, 49.9999, 2073.88)
+Vector3(2000, 0, 2000) Vector3(2073.88, 49.9999, 2073.88)
+Vector3(2000, 0, 2000) Vector3(2073.88, 49.9999, 2073.88)
+Vector3(2000, 0, 2000) Vector3(2073.88, 49.9999, 2073.88)
+Vector3(2000, 0, 2000) Vector3(2073.88, 49.9999, 2073.88)
+Vector3(2000, 0, 2000) Vector3(2073.88, 49.9999, 2073.88)
+Vector3(2000, 0, 2000) Vector3(2070.39, 49.9999, 2070.39)
+Vector3(2000, 0, 2000) Vector3(2070.39, 49.9999, 2070.39)
+Vector3(2000, 0, 2000) Vector3(2070.39, 49.9999, 2070.39)
+Vector3(2000, 0, 2000) Vector3(2070.39, 49.9999, 2070.39)
+Vector3(2000, 0, 2000) Vector3(2070.39, 49.9999, 2070.39)
+Vector3(2000, 0, 2000) Vector3(2066.91, 49.9999, 2066.91)
+Vector3(2000, 0, 2000) Vector3(2066.91, 49.9999, 2066.91)
+Vector3(2000, 0, 2000) Vector3(2066.91, 49.9999, 2066.91)
+Vector3(2000, 0, 2000) Vector3(2066.91, 49.9999, 2066.91)
+Vector3(2000, 0, 2000) Vector3(2066.91, 49.9999, 2066.91)
+Vector3(2000, 0, 2000) Vector3(2066.91, 49.9999, 2066.91)
+Vector3(2000, 0, 2000) Vector3(2063.42, 49.9999, 2063.42)
+Vector3(2000, 0, 2000) Vector3(2063.42, 49.9999, 2063.42)
+Vector3(2000, 0, 2000) Vector3(2063.42, 49.9999, 2063.42)
+Vector3(2000, 0, 2000) Vector3(2063.42, 49.9999, 2063.42)
+Vector3(2000, 0, 2000) Vector3(2063.42, 49.9999, 2063.42)
+Vector3(2000, 0, 2000) Vector3(2063.42, 49.9999, 2063.42)
+Vector3(2000, 0, 2000) Vector3(2059.93, 49.9999, 2059.93)
+Vector3(2000, 0, 2000) Vector3(2059.93, 49.9999, 2059.93)
+Vector3(2000, 0, 2000) Vector3(2059.93, 49.9999, 2059.93)
+Vector3(2000, 0, 2000) Vector3(2059.93, 49.9999, 2059.93)
+Vector3(2000, 0, 2000) Vector3(2059.93, 49.9999, 2059.93)
+Vector3(2000, 0, 2000) Vector3(2059.93, 49.9999, 2059.93)
+Vector3(2000, 0, 2000) Vector3(2056.45, 49.9999, 2056.45)
+Vector3(2000, 0, 2000) Vector3(2056.45, 49.9999, 2056.45)
+Vector3(2000, 0, 2000) Vector3(2056.45, 49.9999, 2056.45)
+Vector3(2000, 0, 2000) Vector3(2056.45, 49.9999, 2056.45)
+Vector3(2000, 0, 2000) Vector3(2056.45, 49.9999, 2056.45)
+Vector3(2000, 0, 2000) Vector3(2056.45, 49.9999, 2056.45)
+Vector3(2000, 0, 2000) Vector3(2052.96, 49.9999, 2052.96)
+Vector3(2000, 0, 2000) Vector3(2052.96, 49.9999, 2052.96)
+Vector3(2000, 0, 2000) Vector3(2052.96, 49.9999, 2052.96)
+Vector3(2000, 0, 2000) Vector3(2052.96, 49.9999, 2052.96)
+Vector3(2000, 0, 2000) Vector3(2052.96, 49.9999, 2052.96)
+Vector3(2000, 0, 2000) Vector3(2052.96, 49.9999, 2052.96)
+Vector3(2000, 0, 2000) Vector3(2049.47, 49.9999, 2049.47)
+Vector3(2000, 0, 2000) Vector3(2049.47, 49.9999, 2049.47)
+Vector3(2000, 0, 2000) Vector3(2049.47, 49.9999, 2049.47)
+Vector3(2000, 0, 2000) Vector3(2049.47, 49.9999, 2049.47)
+Vector3(2000, 0, 2000) Vector3(2049.47, 49.9999, 2049.47)
+Vector3(2000, 0, 2000) Vector3(2049.47, 49.9999, 2049.47)
+Vector3(2000, 0, 2000) Vector3(2045.99, 49.9999, 2045.99)
+Vector3(2000, 0, 2000) Vector3(2045.99, 49.9999, 2045.99)
+Vector3(2000, 0, 2000) Vector3(2045.99, 49.9999, 2045.99)
+Vector3(2000, 0, 2000) Vector3(2045.99, 49.9999, 2045.99)
+Vector3(2000, 0, 2000) Vector3(2045.99, 49.9999, 2045.99)
+Vector3(2000, 0, 2000) Vector3(2045.99, 49.9999, 2045.99)
+Vector3(2000, 0, 2000) Vector3(2042.5, 49.9999, 2042.5)
+Vector3(2000, 0, 2000) Vector3(2042.5, 49.9999, 2042.5)
+Vector3(2000, 0, 2000) Vector3(2042.5, 49.9999, 2042.5)
+Vector3(2000, 0, 2000) Vector3(2042.5, 49.9999, 2042.5)
+Vector3(2000, 0, 2000) Vector3(2042.5, 49.9999, 2042.5)
+Vector3(2000, 0, 2000) Vector3(2042.5, 49.9999, 2042.5)
+Vector3(2000, 0, 2000) Vector3(2039.01, 49.9999, 2039.01)
+Vector3(2000, 0, 2000) Vector3(2039.01, 49.9999, 2039.01)
+Vector3(2000, 0, 2000) Vector3(2039.01, 49.9999, 2039.01)
+Vector3(2000, 0, 2000) Vector3(2039.01, 49.9999, 2039.01)
+Vector3(2000, 0, 2000) Vector3(2039.01, 49.9999, 2039.01)
+Vector3(2000, 0, 2000) Vector3(2035.53, 49.9999, 2035.53)
+Vector3(2000, 0, 2000) Vector3(2035.53, 49.9999, 2035.53)
+Vector3(2000, 0, 2000) Vector3(2035.53, 49.9999, 2035.53)
+Vector3(2000, 0, 2000) Vector3(2035.53, 49.9999, 2035.53)
+Vector3(2000, 0, 2000) Vector3(2035.53, 49.9999, 2035.53)
+Vector3(2000, 0, 2000) Vector3(2035.53, 49.9999, 2035.53)
+Vector3(2000, 0, 2000) Vector3(2032.04, 49.9999, 2032.04)
+Vector3(2000, 0, 2000) Vector3(2032.04, 49.9999, 2032.04)
+Vector3(2000, 0, 2000) Vector3(2032.04, 49.9999, 2032.04)
+Vector3(2000, 0, 2000) Vector3(2032.04, 49.9999, 2032.04)
+Vector3(2000, 0, 2000) Vector3(2032.04, 49.9999, 2032.04)
+Vector3(2000, 0, 2000) Vector3(2032.04, 49.9999, 2032.04)
+Vector3(2000, 0, 2000) Vector3(2028.55, 49.9999, 2028.55)
+Vector3(2000, 0, 2000) Vector3(2028.55, 49.9999, 2028.55)
+Vector3(2000, 0, 2000) Vector3(2028.55, 49.9999, 2028.55)
+Vector3(2000, 0, 2000) Vector3(2028.55, 49.9999, 2028.55)
+Vector3(2000, 0, 2000) Vector3(2028.55, 49.9999, 2028.55)
+Vector3(2000, 0, 2000) Vector3(2028.55, 49.9999, 2028.55)
+Vector3(2000, 0, 2000) Vector3(2025.07, 49.9999, 2025.07)
+Vector3(2000, 0, 2000) Vector3(2025.07, 49.9999, 2025.07)
+Vector3(2000, 0, 2000) Vector3(2025.07, 49.9999, 2025.07)
+Vector3(2000, 0, 2000) Vector3(2025.07, 49.9999, 2025.07)
+Vector3(2000, 0, 2000) Vector3(2025.07, 49.9999, 2025.07)
+Vector3(2000, 0, 2000) Vector3(2021.58, 49.9999, 2021.58)
+Vector3(2000, 0, 2000) Vector3(2021.58, 49.9999, 2021.58)
+Vector3(2000, 0, 2000) Vector3(2021.58, 49.9999, 2021.58)
+Vector3(2000, 0, 2000) Vector3(2021.58, 49.9999, 2021.58)
+Vector3(2000, 0, 2000) Vector3(2021.58, 49.9999, 2021.58)
+Vector3(2000, 0, 2000) Vector3(2021.58, 49.9999, 2021.58)
+Vector3(2000, 0, 2000) Vector3(2018.1, 49.9999, 2018.1)
+Vector3(2000, 0, 2000) Vector3(2018.1, 49.9999, 2018.1)
+Vector3(2000, 0, 2000) Vector3(2018.1, 49.9999, 2018.1)
+Vector3(2000, 0, 2000) Vector3(2018.1, 49.9999, 2018.1)
+Vector3(2000, 0, 2000) Vector3(2018.1, 49.9999, 2018.1)
+Vector3(2000, 0, 2000) Vector3(2018.1, 49.9999, 2018.1)
+Vector3(2000, 0, 2000) Vector3(2014.61, 49.9999, 2014.61)
+Vector3(2000, 0, 2000) Vector3(2014.61, 49.9999, 2014.61)
+Vector3(2000, 0, 2000) Vector3(2014.61, 49.9999, 2014.61)
+Vector3(2000, 0, 2000) Vector3(2014.61, 49.9999, 2014.61)
+Vector3(2000, 0, 2000) Vector3(2014.61, 49.9999, 2014.61)
+Vector3(2000, 0, 2000) Vector3(2014.61, 49.9999, 2014.61)
+Vector3(2000, 0, 2000) Vector3(2011.12, 49.9999, 2011.12)
+Vector3(2000, 0, 2000) Vector3(2011.12, 49.9999, 2011.12)
+Vector3(2000, 0, 2000) Vector3(2011.12, 49.9999, 2011.12)
+Vector3(2000, 0, 2000) Vector3(2011.12, 49.9999, 2011.12)
+Vector3(2000, 0, 2000) Vector3(2011.12, 49.9999, 2011.12)
+Vector3(2000, 0, 2000) Vector3(2011.12, 49.9999, 2011.12)
+Vector3(2000, 0, 2000) Vector3(2007.64, 49.9999, 2007.64)
+Vector3(2000, 0, 2000) Vector3(2007.64, 49.9999, 2007.64)
+Vector3(2000, 0, 2000) Vector3(2007.64, 49.9999, 2007.64)
+Vector3(2000, 0, 2000) Vector3(2007.64, 49.9999, 2007.64)
+Vector3(2000, 0, 2000) Vector3(2007.64, 49.9999, 2007.64)
+Vector3(2000, 0, 2000) Vector3(2007.64, 49.9999, 2007.64)
+Vector3(2000, 0, 2000) Vector3(2004.15, 49.9999, 2004.15)
+Vector3(2000, 0, 2000) Vector3(2004.15, 49.9999, 2004.15)
+Vector3(2000, 0, 2000) Vector3(2004.15, 49.9999, 2004.15)
+Vector3(2000, 0, 2000) Vector3(2004.15, 49.9999, 2004.15)
+Vector3(2000, 0, 2000) Vector3(2004.15, 49.9999, 2004.15)
+Vector3(2000, 0, 2000) Vector3(2000.66, 49.9999, 2000.66)
+SET CURRENT POS: (2000.66, 49.9999, 2000.66) 8 8
+Vector3(1750, 0, 1750) Vector3(2000.66, 49.9999, 2000.66)
+Vector3(1750, 0, 1750) Vector3(2000.66, 49.9999, 2000.66)
+Vector3(1750, 0, 1750) Vector3(2000.66, 49.9999, 2000.66)
+Vector3(1750, 0, 1750) Vector3(2000.66, 49.9999, 2000.66)
+Vector3(1750, 0, 1750) Vector3(2000.66, 49.9999, 2000.66)
+Vector3(1750, 0, 1750) Vector3(2000.66, 49.9999, 2000.66)
+Vector3(1750, 0, 1750) Vector3(1997.18, 49.9999, 1997.18)
+Vector3(1750, 0, 1750) Vector3(1997.18, 49.9999, 1997.18)
+Vector3(1750, 0, 1750) Vector3(1997.18, 49.9999, 1997.18)
+Vector3(1750, 0, 1750) Vector3(1997.18, 49.9999, 1997.18)
+Vector3(1750, 0, 1750) Vector3(1997.18, 49.9999, 1997.18)
+Vector3(1750, 0, 1750) Vector3(1993.69, 49.9999, 1993.69)
+Vector3(1750, 0, 1750) Vector3(1993.69, 49.9999, 1993.69)
+Vector3(1750, 0, 1750) Vector3(1993.69, 49.9999, 1993.69)
+Vector3(1750, 0, 1750) Vector3(1993.69, 49.9999, 1993.69)
+Vector3(1750, 0, 1750) Vector3(1993.69, 49.9999, 1993.69)
+Vector3(1750, 0, 1750) Vector3(1993.69, 49.9999, 1993.69)
+Vector3(1750, 0, 1750) Vector3(1990.2, 49.9999, 1990.2)
+Vector3(1750, 0, 1750) Vector3(1990.2, 49.9999, 1990.2)
+Vector3(1750, 0, 1750) Vector3(1990.2, 49.9999, 1990.2)
+Vector3(1750, 0, 1750) Vector3(1990.2, 49.9999, 1990.2)
+Vector3(1750, 0, 1750) Vector3(1990.2, 49.9999, 1990.2)
+Vector3(1750, 0, 1750) Vector3(1990.2, 49.9999, 1990.2)
+Vector3(1750, 0, 1750) Vector3(1986.72, 49.9999, 1986.72)
+Vector3(1750, 0, 1750) Vector3(1986.72, 49.9999, 1986.72)
+Vector3(1750, 0, 1750) Vector3(1986.72, 49.9999, 1986.72)
+Vector3(1750, 0, 1750) Vector3(1986.72, 49.9999, 1986.72)
+Vector3(1750, 0, 1750) Vector3(1986.72, 49.9999, 1986.72)
+Vector3(1750, 0, 1750) Vector3(1983.23, 49.9999, 1983.23)
+Vector3(1750, 0, 1750) Vector3(1983.23, 49.9999, 1983.23)
+Vector3(1750, 0, 1750) Vector3(1983.23, 49.9999, 1983.23)
+Vector3(1750, 0, 1750) Vector3(1983.23, 49.9999, 1983.23)
+Vector3(1750, 0, 1750) Vector3(1983.23, 49.9999, 1983.23)
+Vector3(1750, 0, 1750) Vector3(1983.23, 49.9999, 1983.23)
+Vector3(1750, 0, 1750) Vector3(1979.74, 49.9999, 1979.74)
+Vector3(1750, 0, 1750) Vector3(1979.74, 49.9999, 1979.74)
+Vector3(1750, 0, 1750) Vector3(1979.74, 49.9999, 1979.74)
+Vector3(1750, 0, 1750) Vector3(1979.74, 49.9999, 1979.74)
+Vector3(1750, 0, 1750) Vector3(1979.74, 49.9999, 1979.74)
+Vector3(1750, 0, 1750) Vector3(1979.74, 49.9999, 1979.74)
+Vector3(1750, 0, 1750) Vector3(1976.26, 49.9999, 1976.26)
+Vector3(1750, 0, 1750) Vector3(1976.26, 49.9999, 1976.26)
+Vector3(1750, 0, 1750) Vector3(1976.26, 49.9999, 1976.26)
+Vector3(1750, 0, 1750) Vector3(1976.26, 49.9999, 1976.26)
+Vector3(1750, 0, 1750) Vector3(1976.26, 49.9999, 1976.26)
+Vector3(1750, 0, 1750) Vector3(1976.26, 49.9999, 1976.26)
+Vector3(1750, 0, 1750) Vector3(1972.77, 49.9999, 1972.77)
+Vector3(1750, 0, 1750) Vector3(1972.77, 49.9999, 1972.77)
+Vector3(1750, 0, 1750) Vector3(1972.77, 49.9999, 1972.77)
+Vector3(1750, 0, 1750) Vector3(1972.77, 49.9999, 1972.77)
+Vector3(1750, 0, 1750) Vector3(1972.77, 49.9999, 1972.77)
+Vector3(1750, 0, 1750) Vector3(1972.77, 49.9999, 1972.77)
+Vector3(1750, 0, 1750) Vector3(1969.29, 49.9999, 1969.29)
+Vector3(1750, 0, 1750) Vector3(1969.29, 49.9999, 1969.29)
+Vector3(1750, 0, 1750) Vector3(1969.29, 49.9999, 1969.29)
+Vector3(1750, 0, 1750) Vector3(1969.29, 49.9999, 1969.29)
+Vector3(1750, 0, 1750) Vector3(1969.29, 49.9999, 1969.29)
+Vector3(1750, 0, 1750) Vector3(1969.29, 49.9999, 1969.29)
+Vector3(1750, 0, 1750) Vector3(1965.8, 49.9999, 1965.8)
+Vector3(1750, 0, 1750) Vector3(1965.8, 49.9999, 1965.8)
+Vector3(1750, 0, 1750) Vector3(1965.8, 49.9999, 1965.8)
+Vector3(1750, 0, 1750) Vector3(1965.8, 49.9999, 1965.8)
+Vector3(1750, 0, 1750) Vector3(1965.8, 49.9999, 1965.8)
+Vector3(1750, 0, 1750) Vector3(1962.31, 49.9999, 1962.31)
+Vector3(1750, 0, 1750) Vector3(1962.31, 49.9999, 1962.31)
+Vector3(1750, 0, 1750) Vector3(1962.31, 49.9999, 1962.31)
+Vector3(1750, 0, 1750) Vector3(1962.31, 49.9999, 1962.31)
+Vector3(1750, 0, 1750) Vector3(1962.31, 49.9999, 1962.31)
+Vector3(1750, 0, 1750) Vector3(1962.31, 49.9999, 1962.31)
+Vector3(1750, 0, 1750) Vector3(1958.83, 49.9999, 1958.83)
+Vector3(1750, 0, 1750) Vector3(1958.83, 49.9999, 1958.83)
+Vector3(1750, 0, 1750) Vector3(1958.83, 49.9999, 1958.83)
+Vector3(1750, 0, 1750) Vector3(1958.83, 49.9999, 1958.83)
+Vector3(1750, 0, 1750) Vector3(1958.83, 49.9999, 1958.83)
+Vector3(1750, 0, 1750) Vector3(1958.83, 49.9999, 1958.83)
+Vector3(1750, 0, 1750) Vector3(1955.34, 49.9999, 1955.34)
+Vector3(1750, 0, 1750) Vector3(1955.34, 49.9999, 1955.34)
+Vector3(1750, 0, 1750) Vector3(1955.34, 49.9999, 1955.34)
+Vector3(1750, 0, 1750) Vector3(1955.34, 49.9999, 1955.34)
+Vector3(1750, 0, 1750) Vector3(1955.34, 49.9999, 1955.34)
+Vector3(1750, 0, 1750) Vector3(1955.34, 49.9999, 1955.34)
+Vector3(1750, 0, 1750) Vector3(1951.85, 49.9999, 1951.85)
+Vector3(1750, 0, 1750) Vector3(1951.85, 49.9999, 1951.85)
+Mouse pressed
+Vector3(1750, 0, 1750) Vector3(1951.85, 49.9999, 1951.85)
+Vector3(1750, 0, 1750) Vector3(1951.85, 49.9999, 1951.85)
+Vector3(1750, 0, 1750) Vector3(1951.85, 49.9999, 1951.85)
+Vector3(1750, 0, 1750) Vector3(1951.85, 49.9999, 1951.85)
+Vector3(1750, 0, 1750) Vector3(1948.37, 49.9999, 1948.37)
+Vector3(1750, 0, 1750) Vector3(1948.37, 49.9999, 1948.37)
+Vector3(1750, 0, 1750) Vector3(1948.37, 49.9999, 1948.37)
+Vector3(1750, 0, 1750) Vector3(1948.37, 49.9999, 1948.37)
+Vector3(1750, 0, 1750) Vector3(1948.37, 49.9999, 1948.37)
+Vector3(1750, 0, 1750) Vector3(1948.37, 49.9999, 1948.37)
+Vector3(1750, 0, 1750) Vector3(1944.88, 49.9999, 1944.88)
+Vector3(1750, 0, 1750) Vector3(1944.88, 49.9999, 1944.88)
+Vector3(1750, 0, 1750) Vector3(1944.88, 49.9999, 1944.88)
+Vector3(1750, 0, 1750) Vector3(1944.88, 49.9999, 1944.88)
+Vector3(1750, 0, 1750) Vector3(1944.88, 49.9999, 1944.88)
+Vector3(1750, 0, 1750) Vector3(1941.39, 49.9999, 1941.39)
+Vector3(1750, 0, 1750) Vector3(1941.39, 49.9999, 1941.39)
+Vector3(1750, 0, 1750) Vector3(1941.39, 49.9999, 1941.39)
+Vector3(1750, 0, 1750) Vector3(1941.39, 49.9999, 1941.39)
+Vector3(1750, 0, 1750) Vector3(1941.39, 49.9999, 1941.39)
+Vector3(1750, 0, 1750) Vector3(1941.39, 49.9999, 1941.39)
+Vector3(1750, 0, 1750) Vector3(1941.39, 49.9999, 1941.39)
+Vector3(1750, 0, 1750) Vector3(1937.91, 49.9999, 1937.91)
+Vector3(1750, 0, 1750) Vector3(1937.91, 49.9999, 1937.91)
+Vector3(1750, 0, 1750) Vector3(1937.91, 49.9999, 1937.91)
+Vector3(1750, 0, 1750) Vector3(1937.91, 49.9999, 1937.91)
+Vector3(1750, 0, 1750) Vector3(1937.91, 49.9999, 1937.91)
+Vector3(1750, 0, 1750) Vector3(1937.91, 49.9999, 1937.91)
+Creating GameObject with id: 1270
+Vector3(1750, 0, 1750) Vector3(1934.42, 49.9999, 1934.42)
+i 0 xPos: 0 j 0 yPos 0
+i 0 xPos: 0 j 1 yPos 1
+i 0 xPos: 0 j 2 yPos 2
+i 0 xPos: 0 j 3 yPos 3
+i 0 xPos: 0 j 4 yPos 4
+i 0 xPos: 0 j 5 yPos 5
+i 0 xPos: 0 j 6 yPos 6
+i 0 xPos: 0 j 7 yPos 7
+i 0 xPos: 0 j 8 yPos 8
+i 0 xPos: 0 j 9 yPos 9
+i 0 xPos: 0 j 10 yPos 10
+i 0 xPos: 0 j 11 yPos 11
+i 0 xPos: 0 j 12 yPos 12
+i 0 xPos: 0 j 13 yPos 13
+i 0 xPos: 0 j 14 yPos 14
+i 0 xPos: 0 j 15 yPos 15
+i 0 xPos: 0 j 16 yPos 16
+i 0 xPos: 0 j 17 yPos 17
+i 0 xPos: 0 j 18 yPos 18
+i 0 xPos: 0 j 19 yPos 19
+i 0 xPos: 0 j 20 yPos 20
+i 0 xPos: 0 j 21 yPos 21
+i 0 xPos: 0 j 22 yPos 22
+i 0 xPos: 0 j 23 yPos 23
+i 0 xPos: 0 j 24 yPos 24
+i 1 xPos: 1 j 0 yPos 0
+i 1 xPos: 1 j 1 yPos 1
+i 1 xPos: 1 j 2 yPos 2
+i 1 xPos: 1 j 3 yPos 3
+i 1 xPos: 1 j 4 yPos 4
+i 1 xPos: 1 j 5 yPos 5
+i 1 xPos: 1 j 6 yPos 6
+i 1 xPos: 1 j 7 yPos 7
+i 1 xPos: 1 j 8 yPos 8
+i 1 xPos: 1 j 9 yPos 9
+i 1 xPos: 1 j 10 yPos 10
+i 1 xPos: 1 j 11 yPos 11
+i 1 xPos: 1 j 12 yPos 12
+i 1 xPos: 1 j 13 yPos 13
+i 1 xPos: 1 j 14 yPos 14
+i 1 xPos: 1 j 15 yPos 15
+i 1 xPos: 1 j 16 yPos 16
+i 1 xPos: 1 j 17 yPos 17
+i 1 xPos: 1 j 18 yPos 18
+i 1 xPos: 1 j 19 yPos 19
+i 1 xPos: 1 j 20 yPos 20
+i 1 xPos: 1 j 21 yPos 21
+i 1 xPos: 1 j 22 yPos 22
+i 1 xPos: 1 j 23 yPos 23
+i 1 xPos: 1 j 24 yPos 24
+i 2 xPos: 2 j 0 yPos 0
+i 2 xPos: 2 j 1 yPos 1
+i 2 xPos: 2 j 2 yPos 2
+i 2 xPos: 2 j 3 yPos 3
+i 2 xPos: 2 j 4 yPos 4
+i 2 xPos: 2 j 5 yPos 5
+i 2 xPos: 2 j 6 yPos 6
+i 2 xPos: 2 j 7 yPos 7
+i 2 xPos: 2 j 8 yPos 8
+i 2 xPos: 2 j 9 yPos 9
+i 2 xPos: 2 j 10 yPos 10
+i 2 xPos: 2 j 11 yPos 11
+i 2 xPos: 2 j 12 yPos 12
+i 2 xPos: 2 j 13 yPos 13
+i 2 xPos: 2 j 14 yPos 14
+i 2 xPos: 2 j 15 yPos 15
+i 2 xPos: 2 j 16 yPos 16
+i 2 xPos: 2 j 17 yPos 17
+i 2 xPos: 2 j 18 yPos 18
+i 2 xPos: 2 j 19 yPos 19
+i 2 xPos: 2 j 20 yPos 20
+i 2 xPos: 2 j 21 yPos 21
+i 2 xPos: 2 j 22 yPos 22
+i 2 xPos: 2 j 23 yPos 23
+i 2 xPos: 2 j 24 yPos 24
+i 3 xPos: 3 j 0 yPos 0
+i 3 xPos: 3 j 1 yPos 1
+i 3 xPos: 3 j 2 yPos 2
+i 3 xPos: 3 j 3 yPos 3
+i 3 xPos: 3 j 4 yPos 4
+i 3 xPos: 3 j 5 yPos 5
+i 3 xPos: 3 j 6 yPos 6
+i 3 xPos: 3 j 7 yPos 7
+i 3 xPos: 3 j 8 yPos 8
+i 3 xPos: 3 j 9 yPos 9
+i 3 xPos: 3 j 10 yPos 10
+i 3 xPos: 3 j 11 yPos 11
+i 3 xPos: 3 j 12 yPos 12
+i 3 xPos: 3 j 13 yPos 13
+i 3 xPos: 3 j 14 yPos 14
+i 3 xPos: 3 j 15 yPos 15
+i 3 xPos: 3 j 16 yPos 16
+i 3 xPos: 3 j 17 yPos 17
+i 3 xPos: 3 j 18 yPos 18
+i 3 xPos: 3 j 19 yPos 19
+i 3 xPos: 3 j 20 yPos 20
+i 3 xPos: 3 j 21 yPos 21
+i 3 xPos: 3 j 22 yPos 22
+i 3 xPos: 3 j 23 yPos 23
+i 3 xPos: 3 j 24 yPos 24
+i 4 xPos: 4 j 0 yPos 0
+i 4 xPos: 4 j 1 yPos 1
+i 4 xPos: 4 j 2 yPos 2
+i 4 xPos: 4 j 3 yPos 3
+i 4 xPos: 4 j 4 yPos 4
+i 4 xPos: 4 j 5 yPos 5
+i 4 xPos: 4 j 6 yPos 6
+i 4 xPos: 4 j 7 yPos 7
+i 4 xPos: 4 j 8 yPos 8
+i 4 xPos: 4 j 9 yPos 9
+i 4 xPos: 4 j 10 yPos 10
+i 4 xPos: 4 j 11 yPos 11
+i 4 xPos: 4 j 12 yPos 12
+i 4 xPos: 4 j 13 yPos 13
+i 4 xPos: 4 j 14 yPos 14
+i 4 xPos: 4 j 15 yPos 15
+i 4 xPos: 4 j 16 yPos 16
+i 4 xPos: 4 j 17 yPos 17
+i 4 xPos: 4 j 18 yPos 18
+i 4 xPos: 4 j 19 yPos 19
+i 4 xPos: 4 j 20 yPos 20
+i 4 xPos: 4 j 21 yPos 21
+i 4 xPos: 4 j 22 yPos 22
+i 4 xPos: 4 j 23 yPos 23
+i 4 xPos: 4 j 24 yPos 24
+i 5 xPos: 5 j 0 yPos 0
+i 5 xPos: 5 j 1 yPos 1
+i 5 xPos: 5 j 2 yPos 2
+i 5 xPos: 5 j 3 yPos 3
+i 5 xPos: 5 j 4 yPos 4
+i 5 xPos: 5 j 5 yPos 5
+i 5 xPos: 5 j 6 yPos 6
+i 5 xPos: 5 j 7 yPos 7
+i 5 xPos: 5 j 8 yPos 8
+i 5 xPos: 5 j 9 yPos 9
+i 5 xPos: 5 j 10 yPos 10
+i 5 xPos: 5 j 11 yPos 11
+i 5 xPos: 5 j 12 yPos 12
+i 5 xPos: 5 j 13 yPos 13
+i 5 xPos: 5 j 14 yPos 14
+i 5 xPos: 5 j 15 yPos 15
+i 5 xPos: 5 j 16 yPos 16
+i 5 xPos: 5 j 17 yPos 17
+i 5 xPos: 5 j 18 yPos 18
+i 5 xPos: 5 j 19 yPos 19
+i 5 xPos: 5 j 20 yPos 20
+i 5 xPos: 5 j 21 yPos 21
+i 5 xPos: 5 j 22 yPos 22
+i 5 xPos: 5 j 23 yPos 23
+i 5 xPos: 5 j 24 yPos 24
+i 6 xPos: 6 j 0 yPos 0
+i 6 xPos: 6 j 1 yPos 1
+i 6 xPos: 6 j 2 yPos 2
+i 6 xPos: 6 j 3 yPos 3
+i 6 xPos: 6 j 4 yPos 4
+i 6 xPos: 6 j 5 yPos 5
+i 6 xPos: 6 j 6 yPos 6
+i 6 xPos: 6 j 7 yPos 7
+i 6 xPos: 6 j 8 yPos 8
+i 6 xPos: 6 j 9 yPos 9
+i 6 xPos: 6 j 10 yPos 10
+i 6 xPos: 6 j 11 yPos 11
+i 6 xPos: 6 j 12 yPos 12
+i 6 xPos: 6 j 13 yPos 13
+i 6 xPos: 6 j 14 yPos 14
+i 6 xPos: 6 j 15 yPos 15
+i 6 xPos: 6 j 16 yPos 16
+i 6 xPos: 6 j 17 yPos 17
+i 6 xPos: 6 j 18 yPos 18
+i 6 xPos: 6 j 19 yPos 19
+i 6 xPos: 6 j 20 yPos 20
+i 6 xPos: 6 j 21 yPos 21
+i 6 xPos: 6 j 22 yPos 22
+i 6 xPos: 6 j 23 yPos 23
+i 6 xPos: 6 j 24 yPos 24
+i 7 xPos: 7 j 0 yPos 0
+i 7 xPos: 7 j 1 yPos 1
+i 7 xPos: 7 j 2 yPos 2
+i 7 xPos: 7 j 3 yPos 3
+i 7 xPos: 7 j 4 yPos 4
+i 7 xPos: 7 j 5 yPos 5
+i 7 xPos: 7 j 6 yPos 6
+i 7 xPos: 7 j 7 yPos 7
+i 7 xPos: 7 j 8 yPos 8
+i 7 xPos: 7 j 9 yPos 9
+i 7 xPos: 7 j 10 yPos 10
+i 7 xPos: 7 j 11 yPos 11
+i 7 xPos: 7 j 12 yPos 12
+i 7 xPos: 7 j 13 yPos 13
+i 7 xPos: 7 j 14 yPos 14
+i 7 xPos: 7 j 15 yPos 15
+i 7 xPos: 7 j 16 yPos 16
+i 7 xPos: 7 j 17 yPos 17
+i 7 xPos: 7 j 18 yPos 18
+i 7 xPos: 7 j 19 yPos 19
+i 7 xPos: 7 j 20 yPos 20
+i 7 xPos: 7 j 21 yPos 21
+i 7 xPos: 7 j 22 yPos 22
+i 7 xPos: 7 j 23 yPos 23
+i 7 xPos: 7 j 24 yPos 24
+i 8 xPos: 8 j 0 yPos 0
+i 8 xPos: 8 j 1 yPos 1
+i 8 xPos: 8 j 2 yPos 2
+i 8 xPos: 8 j 3 yPos 3
+i 8 xPos: 8 j 4 yPos 4
+i 8 xPos: 8 j 5 yPos 5
+i 8 xPos: 8 j 6 yPos 6
+i 8 xPos: 8 j 7 yPos 7
+i 8 xPos: 8 j 8 yPos 8
+i 8 xPos: 8 j 9 yPos 9
+i 8 xPos: 8 j 10 yPos 10
+i 8 xPos: 8 j 11 yPos 11
+i 8 xPos: 8 j 12 yPos 12
+i 8 xPos: 8 j 13 yPos 13
+i 8 xPos: 8 j 14 yPos 14
+i 8 xPos: 8 j 15 yPos 15
+i 8 xPos: 8 j 16 yPos 16
+i 8 xPos: 8 j 17 yPos 17
+i 8 xPos: 8 j 18 yPos 18
+i 8 xPos: 8 j 19 yPos 19
+i 8 xPos: 8 j 20 yPos 20
+i 8 xPos: 8 j 21 yPos 21
+i 8 xPos: 8 j 22 yPos 22
+i 8 xPos: 8 j 23 yPos 23
+i 8 xPos: 8 j 24 yPos 24
+i 9 xPos: 9 j 0 yPos 0
+i 9 xPos: 9 j 1 yPos 1
+i 9 xPos: 9 j 2 yPos 2
+i 9 xPos: 9 j 3 yPos 3
+i 9 xPos: 9 j 4 yPos 4
+i 9 xPos: 9 j 5 yPos 5
+i 9 xPos: 9 j 6 yPos 6
+i 9 xPos: 9 j 7 yPos 7
+i 9 xPos: 9 j 8 yPos 8
+i 9 xPos: 9 j 9 yPos 9
+i 9 xPos: 9 j 10 yPos 10
+i 9 xPos: 9 j 11 yPos 11
+i 9 xPos: 9 j 12 yPos 12
+i 9 xPos: 9 j 13 yPos 13
+i 9 xPos: 9 j 14 yPos 14
+i 9 xPos: 9 j 15 yPos 15
+i 9 xPos: 9 j 16 yPos 16
+i 9 xPos: 9 j 17 yPos 17
+i 9 xPos: 9 j 18 yPos 18
+i 9 xPos: 9 j 19 yPos 19
+i 9 xPos: 9 j 20 yPos 20
+i 9 xPos: 9 j 21 yPos 21
+i 9 xPos: 9 j 22 yPos 22
+i 9 xPos: 9 j 23 yPos 23
+i 9 xPos: 9 j 24 yPos 24
+i 10 xPos: 10 j 0 yPos 0
+i 10 xPos: 10 j 1 yPos 1
+i 10 xPos: 10 j 2 yPos 2
+i 10 xPos: 10 j 3 yPos 3
+i 10 xPos: 10 j 4 yPos 4
+i 10 xPos: 10 j 5 yPos 5
+i 10 xPos: 10 j 6 yPos 6
+i 10 xPos: 10 j 7 yPos 7
+i 10 xPos: 10 j 8 yPos 8
+i 10 xPos: 10 j 9 yPos 9
+i 10 xPos: 10 j 10 yPos 10
+i 10 xPos: 10 j 11 yPos 11
+i 10 xPos: 10 j 12 yPos 12
+i 10 xPos: 10 j 13 yPos 13
+i 10 xPos: 10 j 14 yPos 14
+i 10 xPos: 10 j 15 yPos 15
+i 10 xPos: 10 j 16 yPos 16
+i 10 xPos: 10 j 17 yPos 17
+i 10 xPos: 10 j 18 yPos 18
+i 10 xPos: 10 j 19 yPos 19
+i 10 xPos: 10 j 20 yPos 20
+i 10 xPos: 10 j 21 yPos 21
+i 10 xPos: 10 j 22 yPos 22
+i 10 xPos: 10 j 23 yPos 23
+i 10 xPos: 10 j 24 yPos 24
+i 11 xPos: 11 j 0 yPos 0
+i 11 xPos: 11 j 1 yPos 1
+i 11 xPos: 11 j 2 yPos 2
+i 11 xPos: 11 j 3 yPos 3
+i 11 xPos: 11 j 4 yPos 4
+i 11 xPos: 11 j 5 yPos 5
+i 11 xPos: 11 j 6 yPos 6
+i 11 xPos: 11 j 7 yPos 7
+i 11 xPos: 11 j 8 yPos 8
+i 11 xPos: 11 j 9 yPos 9
+i 11 xPos: 11 j 10 yPos 10
+i 11 xPos: 11 j 11 yPos 11
+i 11 xPos: 11 j 12 yPos 12
+i 11 xPos: 11 j 13 yPos 13
+i 11 xPos: 11 j 14 yPos 14
+i 11 xPos: 11 j 15 yPos 15
+i 11 xPos: 11 j 16 yPos 16
+i 11 xPos: 11 j 17 yPos 17
+i 11 xPos: 11 j 18 yPos 18
+i 11 xPos: 11 j 19 yPos 19
+i 11 xPos: 11 j 20 yPos 20
+i 11 xPos: 11 j 21 yPos 21
+i 11 xPos: 11 j 22 yPos 22
+i 11 xPos: 11 j 23 yPos 23
+i 11 xPos: 11 j 24 yPos 24
+i 12 xPos: 12 j 0 yPos 0
+i 12 xPos: 12 j 1 yPos 1
+i 12 xPos: 12 j 2 yPos 2
+i 12 xPos: 12 j 3 yPos 3
+i 12 xPos: 12 j 4 yPos 4
+i 12 xPos: 12 j 5 yPos 5
+i 12 xPos: 12 j 6 yPos 6
+i 12 xPos: 12 j 7 yPos 7
+i 12 xPos: 12 j 8 yPos 8
+i 12 xPos: 12 j 9 yPos 9
+i 12 xPos: 12 j 10 yPos 10
+i 12 xPos: 12 j 11 yPos 11
+i 12 xPos: 12 j 12 yPos 12
+i 12 xPos: 12 j 13 yPos 13
+i 12 xPos: 12 j 14 yPos 14
+i 12 xPos: 12 j 15 yPos 15
+i 12 xPos: 12 j 16 yPos 16
+i 12 xPos: 12 j 17 yPos 17
+i 12 xPos: 12 j 18 yPos 18
+i 12 xPos: 12 j 19 yPos 19
+i 12 xPos: 12 j 20 yPos 20
+i 12 xPos: 12 j 21 yPos 21
+i 12 xPos: 12 j 22 yPos 22
+i 12 xPos: 12 j 23 yPos 23
+i 12 xPos: 12 j 24 yPos 24
+i 13 xPos: 13 j 0 yPos 0
+i 13 xPos: 13 j 1 yPos 1
+i 13 xPos: 13 j 2 yPos 2
+i 13 xPos: 13 j 3 yPos 3
+i 13 xPos: 13 j 4 yPos 4
+i 13 xPos: 13 j 5 yPos 5
+i 13 xPos: 13 j 6 yPos 6
+i 13 xPos: 13 j 7 yPos 7
+i 13 xPos: 13 j 8 yPos 8
+i 13 xPos: 13 j 9 yPos 9
+i 13 xPos: 13 j 10 yPos 10
+i 13 xPos: 13 j 11 yPos 11
+i 13 xPos: 13 j 12 yPos 12
+i 13 xPos: 13 j 13 yPos 13
+i 13 xPos: 13 j 14 yPos 14
+i 13 xPos: 13 j 15 yPos 15
+i 13 xPos: 13 j 16 yPos 16
+i 13 xPos: 13 j 17 yPos 17
+i 13 xPos: 13 j 18 yPos 18
+i 13 xPos: 13 j 19 yPos 19
+i 13 xPos: 13 j 20 yPos 20
+i 13 xPos: 13 j 21 yPos 21
+i 13 xPos: 13 j 22 yPos 22
+i 13 xPos: 13 j 23 yPos 23
+i 13 xPos: 13 j 24 yPos 24
+i 14 xPos: 14 j 0 yPos 0
+i 14 xPos: 14 j 1 yPos 1
+i 14 xPos: 14 j 2 yPos 2
+i 14 xPos: 14 j 3 yPos 3
+i 14 xPos: 14 j 4 yPos 4
+i 14 xPos: 14 j 5 yPos 5
+i 14 xPos: 14 j 6 yPos 6
+i 14 xPos: 14 j 7 yPos 7
+i 14 xPos: 14 j 8 yPos 8
+i 14 xPos: 14 j 9 yPos 9
+i 14 xPos: 14 j 10 yPos 10
+i 14 xPos: 14 j 11 yPos 11
+i 14 xPos: 14 j 12 yPos 12
+i 14 xPos: 14 j 13 yPos 13
+i 14 xPos: 14 j 14 yPos 14
+i 14 xPos: 14 j 15 yPos 15
+i 14 xPos: 14 j 16 yPos 16
+i 14 xPos: 14 j 17 yPos 17
+i 14 xPos: 14 j 18 yPos 18
+i 14 xPos: 14 j 19 yPos 19
+i 14 xPos: 14 j 20 yPos 20
+i 14 xPos: 14 j 21 yPos 21
+i 14 xPos: 14 j 22 yPos 22
+i 14 xPos: 14 j 23 yPos 23
+i 14 xPos: 14 j 24 yPos 24
+i 15 xPos: 15 j 0 yPos 0
+i 15 xPos: 15 j 1 yPos 1
+i 15 xPos: 15 j 2 yPos 2
+i 15 xPos: 15 j 3 yPos 3
+i 15 xPos: 15 j 4 yPos 4
+i 15 xPos: 15 j 5 yPos 5
+i 15 xPos: 15 j 6 yPos 6
+i 15 xPos: 15 j 7 yPos 7
+i 15 xPos: 15 j 8 yPos 8
+i 15 xPos: 15 j 9 yPos 9
+i 15 xPos: 15 j 10 yPos 10
+i 15 xPos: 15 j 11 yPos 11
+i 15 xPos: 15 j 12 yPos 12
+i 15 xPos: 15 j 13 yPos 13
+i 15 xPos: 15 j 14 yPos 14
+i 15 xPos: 15 j 15 yPos 15
+i 15 xPos: 15 j 16 yPos 16
+i 15 xPos: 15 j 17 yPos 17
+i 15 xPos: 15 j 18 yPos 18
+i 15 xPos: 15 j 19 yPos 19
+i 15 xPos: 15 j 20 yPos 20
+i 15 xPos: 15 j 21 yPos 21
+i 15 xPos: 15 j 22 yPos 22
+i 15 xPos: 15 j 23 yPos 23
+i 15 xPos: 15 j 24 yPos 24
+i 16 xPos: 16 j 0 yPos 0
+i 16 xPos: 16 j 1 yPos 1
+i 16 xPos: 16 j 2 yPos 2
+i 16 xPos: 16 j 3 yPos 3
+i 16 xPos: 16 j 4 yPos 4
+i 16 xPos: 16 j 5 yPos 5
+i 16 xPos: 16 j 6 yPos 6
+i 16 xPos: 16 j 7 yPos 7
+i 16 xPos: 16 j 8 yPos 8
+i 16 xPos: 16 j 9 yPos 9
+i 16 xPos: 16 j 10 yPos 10
+i 16 xPos: 16 j 11 yPos 11
+i 16 xPos: 16 j 12 yPos 12
+i 16 xPos: 16 j 13 yPos 13
+i 16 xPos: 16 j 14 yPos 14
+i 16 xPos: 16 j 15 yPos 15
+i 16 xPos: 16 j 16 yPos 16
+i 16 xPos: 16 j 17 yPos 17
+i 16 xPos: 16 j 18 yPos 18
+i 16 xPos: 16 j 19 yPos 19
+i 16 xPos: 16 j 20 yPos 20
+i 16 xPos: 16 j 21 yPos 21
+i 16 xPos: 16 j 22 yPos 22
+i 16 xPos: 16 j 23 yPos 23
+i 16 xPos: 16 j 24 yPos 24
+i 17 xPos: 17 j 0 yPos 0
+i 17 xPos: 17 j 1 yPos 1
+i 17 xPos: 17 j 2 yPos 2
+i 17 xPos: 17 j 3 yPos 3
+i 17 xPos: 17 j 4 yPos 4
+i 17 xPos: 17 j 5 yPos 5
+i 17 xPos: 17 j 6 yPos 6
+i 17 xPos: 17 j 7 yPos 7
+i 17 xPos: 17 j 8 yPos 8
+i 17 xPos: 17 j 9 yPos 9
+i 17 xPos: 17 j 10 yPos 10
+i 17 xPos: 17 j 11 yPos 11
+i 17 xPos: 17 j 12 yPos 12
+i 17 xPos: 17 j 13 yPos 13
+i 17 xPos: 17 j 14 yPos 14
+i 17 xPos: 17 j 15 yPos 15
+i 17 xPos: 17 j 16 yPos 16
+i 17 xPos: 17 j 17 yPos 17
+i 17 xPos: 17 j 18 yPos 18
+i 17 xPos: 17 j 19 yPos 19
+i 17 xPos: 17 j 20 yPos 20
+i 17 xPos: 17 j 21 yPos 21
+i 17 xPos: 17 j 22 yPos 22
+i 17 xPos: 17 j 23 yPos 23
+i 17 xPos: 17 j 24 yPos 24
+i 18 xPos: 18 j 0 yPos 0
+i 18 xPos: 18 j 1 yPos 1
+i 18 xPos: 18 j 2 yPos 2
+i 18 xPos: 18 j 3 yPos 3
+i 18 xPos: 18 j 4 yPos 4
+i 18 xPos: 18 j 5 yPos 5
+i 18 xPos: 18 j 6 yPos 6
+i 18 xPos: 18 j 7 yPos 7
+i 18 xPos: 18 j 8 yPos 8
+i 18 xPos: 18 j 9 yPos 9
+i 18 xPos: 18 j 10 yPos 10
+i 18 xPos: 18 j 11 yPos 11
+i 18 xPos: 18 j 12 yPos 12
+i 18 xPos: 18 j 13 yPos 13
+i 18 xPos: 18 j 14 yPos 14
+i 18 xPos: 18 j 15 yPos 15
+i 18 xPos: 18 j 16 yPos 16
+i 18 xPos: 18 j 17 yPos 17
+i 18 xPos: 18 j 18 yPos 18
+i 18 xPos: 18 j 19 yPos 19
+i 18 xPos: 18 j 20 yPos 20
+i 18 xPos: 18 j 21 yPos 21
+i 18 xPos: 18 j 22 yPos 22
+i 18 xPos: 18 j 23 yPos 23
+i 18 xPos: 18 j 24 yPos 24
+i 19 xPos: 19 j 0 yPos 0
+i 19 xPos: 19 j 1 yPos 1
+i 19 xPos: 19 j 2 yPos 2
+i 19 xPos: 19 j 3 yPos 3
+i 19 xPos: 19 j 4 yPos 4
+i 19 xPos: 19 j 5 yPos 5
+i 19 xPos: 19 j 6 yPos 6
+i 19 xPos: 19 j 7 yPos 7
+i 19 xPos: 19 j 8 yPos 8
+i 19 xPos: 19 j 9 yPos 9
+i 19 xPos: 19 j 10 yPos 10
+i 19 xPos: 19 j 11 yPos 11
+i 19 xPos: 19 j 12 yPos 12
+i 19 xPos: 19 j 13 yPos 13
+i 19 xPos: 19 j 14 yPos 14
+i 19 xPos: 19 j 15 yPos 15
+i 19 xPos: 19 j 16 yPos 16
+i 19 xPos: 19 j 17 yPos 17
+i 19 xPos: 19 j 18 yPos 18
+i 19 xPos: 19 j 19 yPos 19
+i 19 xPos: 19 j 20 yPos 20
+i 19 xPos: 19 j 21 yPos 21
+i 19 xPos: 19 j 22 yPos 22
+i 19 xPos: 19 j 23 yPos 23
+i 19 xPos: 19 j 24 yPos 24
+i 20 xPos: 20 j 0 yPos 0
+i 20 xPos: 20 j 1 yPos 1
+i 20 xPos: 20 j 2 yPos 2
+i 20 xPos: 20 j 3 yPos 3
+i 20 xPos: 20 j 4 yPos 4
+i 20 xPos: 20 j 5 yPos 5
+i 20 xPos: 20 j 6 yPos 6
+i 20 xPos: 20 j 7 yPos 7
+i 20 xPos: 20 j 8 yPos 8
+i 20 xPos: 20 j 9 yPos 9
+i 20 xPos: 20 j 10 yPos 10
+i 20 xPos: 20 j 11 yPos 11
+i 20 xPos: 20 j 12 yPos 12
+i 20 xPos: 20 j 13 yPos 13
+i 20 xPos: 20 j 14 yPos 14
+i 20 xPos: 20 j 15 yPos 15
+i 20 xPos: 20 j 16 yPos 16
+i 20 xPos: 20 j 17 yPos 17
+i 20 xPos: 20 j 18 yPos 18
+i 20 xPos: 20 j 19 yPos 19
+i 20 xPos: 20 j 20 yPos 20
+i 20 xPos: 20 j 21 yPos 21
+i 20 xPos: 20 j 22 yPos 22
+i 20 xPos: 20 j 23 yPos 23
+i 20 xPos: 20 j 24 yPos 24
+i 21 xPos: 21 j 0 yPos 0
+i 21 xPos: 21 j 1 yPos 1
+i 21 xPos: 21 j 2 yPos 2
+i 21 xPos: 21 j 3 yPos 3
+i 21 xPos: 21 j 4 yPos 4
+i 21 xPos: 21 j 5 yPos 5
+i 21 xPos: 21 j 6 yPos 6
+i 21 xPos: 21 j 7 yPos 7
+i 21 xPos: 21 j 8 yPos 8
+i 21 xPos: 21 j 9 yPos 9
+i 21 xPos: 21 j 10 yPos 10
+i 21 xPos: 21 j 11 yPos 11
+i 21 xPos: 21 j 12 yPos 12
+i 21 xPos: 21 j 13 yPos 13
+i 21 xPos: 21 j 14 yPos 14
+i 21 xPos: 21 j 15 yPos 15
+i 21 xPos: 21 j 16 yPos 16
+i 21 xPos: 21 j 17 yPos 17
+i 21 xPos: 21 j 18 yPos 18
+i 21 xPos: 21 j 19 yPos 19
+i 21 xPos: 21 j 20 yPos 20
+i 21 xPos: 21 j 21 yPos 21
+i 21 xPos: 21 j 22 yPos 22
+i 21 xPos: 21 j 23 yPos 23
+i 21 xPos: 21 j 24 yPos 24
+i 22 xPos: 22 j 0 yPos 0
+i 22 xPos: 22 j 1 yPos 1
+i 22 xPos: 22 j 2 yPos 2
+i 22 xPos: 22 j 3 yPos 3
+i 22 xPos: 22 j 4 yPos 4
+i 22 xPos: 22 j 5 yPos 5
+i 22 xPos: 22 j 6 yPos 6
+i 22 xPos: 22 j 7 yPos 7
+i 22 xPos: 22 j 8 yPos 8
+i 22 xPos: 22 j 9 yPos 9
+i 22 xPos: 22 j 10 yPos 10
+i 22 xPos: 22 j 11 yPos 11
+i 22 xPos: 22 j 12 yPos 12
+i 22 xPos: 22 j 13 yPos 13
+i 22 xPos: 22 j 14 yPos 14
+i 22 xPos: 22 j 15 yPos 15
+i 22 xPos: 22 j 16 yPos 16
+i 22 xPos: 22 j 17 yPos 17
+i 22 xPos: 22 j 18 yPos 18
+i 22 xPos: 22 j 19 yPos 19
+i 22 xPos: 22 j 20 yPos 20
+i 22 xPos: 22 j 21 yPos 21
+i 22 xPos: 22 j 22 yPos 22
+i 22 xPos: 22 j 23 yPos 23
+i 22 xPos: 22 j 24 yPos 24
+i 23 xPos: 23 j 0 yPos 0
+i 23 xPos: 23 j 1 yPos 1
+i 23 xPos: 23 j 2 yPos 2
+i 23 xPos: 23 j 3 yPos 3
+i 23 xPos: 23 j 4 yPos 4
+i 23 xPos: 23 j 5 yPos 5
+i 23 xPos: 23 j 6 yPos 6
+i 23 xPos: 23 j 7 yPos 7
+i 23 xPos: 23 j 8 yPos 8
+i 23 xPos: 23 j 9 yPos 9
+i 23 xPos: 23 j 10 yPos 10
+i 23 xPos: 23 j 11 yPos 11
+i 23 xPos: 23 j 12 yPos 12
+i 23 xPos: 23 j 13 yPos 13
+i 23 xPos: 23 j 14 yPos 14
+i 23 xPos: 23 j 15 yPos 15
+i 23 xPos: 23 j 16 yPos 16
+i 23 xPos: 23 j 17 yPos 17
+i 23 xPos: 23 j 18 yPos 18
+i 23 xPos: 23 j 19 yPos 19
+i 23 xPos: 23 j 20 yPos 20
+i 23 xPos: 23 j 21 yPos 21
+i 23 xPos: 23 j 22 yPos 22
+i 23 xPos: 23 j 23 yPos 23
+i 23 xPos: 23 j 24 yPos 24
+i 24 xPos: 24 j 0 yPos 0
+i 24 xPos: 24 j 1 yPos 1
+i 24 xPos: 24 j 2 yPos 2
+i 24 xPos: 24 j 3 yPos 3
+i 24 xPos: 24 j 4 yPos 4
+i 24 xPos: 24 j 5 yPos 5
+i 24 xPos: 24 j 6 yPos 6
+i 24 xPos: 24 j 7 yPos 7
+i 24 xPos: 24 j 8 yPos 8
+i 24 xPos: 24 j 9 yPos 9
+i 24 xPos: 24 j 10 yPos 10
+i 24 xPos: 24 j 11 yPos 11
+i 24 xPos: 24 j 12 yPos 12
+i 24 xPos: 24 j 13 yPos 13
+i 24 xPos: 24 j 14 yPos 14
+i 24 xPos: 24 j 15 yPos 15
+i 24 xPos: 24 j 16 yPos 16
+i 24 xPos: 24 j 17 yPos 17
+i 24 xPos: 24 j 18 yPos 18
+i 24 xPos: 24 j 19 yPos 19
+i 24 xPos: 24 j 20 yPos 20
+i 24 xPos: 24 j 21 yPos 21
+i 24 xPos: 24 j 22 yPos 22
+i 24 xPos: 24 j 23 yPos 23
+i 24 xPos: 24 j 24 yPos 24
+FINDING PATH 0
+FINDING PATH 1
+FINDING PATH 2, Current: 8 8
+FINDING PATH 2, Current: 7 8
+FINDING PATH 2, Current: 8 7
+FINDING PATH 2, Current: 9 8
+FINDING PATH 2, Current: 8 9
+FINDING PATH 2, Current: 7 7
+FINDING PATH 2, Current: 7 9
+FINDING PATH 2, Current: 9 7
+FINDING PATH 2, Current: 9 9
+FINDING PATH 2, Current: 6 8
+FINDING PATH 2, Current: 8 6
+FINDING PATH 2, Current: 6 7
+FINDING PATH 2, Current: 7 6
+FINDING PATH 2, Current: 10 8
+FINDING PATH 2, Current: 8 10
+FINDING PATH 2, Current: 6 9
+FINDING PATH 2, Current: 9 6
+FINDING PATH 2, Current: 6 6
+FINDING PATH 2, Current: 10 7
+FINDING PATH 2, Current: 7 10
+FINDING PATH 2, Current: 10 9
+FINDING PATH 2, Current: 9 10
+FINDING PATH 2, Current: 5 8
+FINDING PATH 2, Current: 8 5
+FINDING PATH 2, Current: 6 10
+FINDING PATH 2, Current: 10 6
+FINDING PATH 2, Current: 5 7
+FINDING PATH 2, Current: 7 5
+FINDING PATH 2, Current: 10 10
+FINDING PATH 2, Current: 5 9
+FINDING PATH 2, Current: 9 5
+FINDING PATH 2, Current: 5 6
+FINDING PATH 2, Current: 6 5
+FINDING PATH 2, Current: 11 8
+FINDING PATH 2, Current: 8 11
+FINDING PATH 2, Current: 11 7
+FINDING PATH 2, Current: 7 11
+FINDING PATH 2, Current: 5 5
+FINDING PATH 2, Current: 4 8
+FINDING PATH 2, Current: 8 4
+FINDING PATH 2, Current: 5 10
+FINDING PATH 2, Current: 10 5
+FINDING PATH 2, Current: 11 9
+FINDING PATH 2, Current: 9 11
+FINDING PATH 2, Current: 11 6
+FINDING PATH 2, Current: 6 11
+FINDING PATH 2, Current: 4 7
+FINDING PATH 2, Current: 7 4
+FINDING PATH 2, Current: 4 9
+FINDING PATH 2, Current: 9 4
+FINDING PATH 2, Current: 5 11
+FINDING PATH 2, Current: 11 5
+FINDING PATH 2, Current: 4 6
+FINDING PATH 2, Current: 6 4
+FINDING PATH 2, Current: 11 10
+FINDING PATH 2, Current: 10 11
+FINDING PATH 2, Current: 12 8
+FINDING PATH 2, Current: 8 12
+FINDING PATH 2, Current: 4 5
+FINDING PATH 2, Current: 5 4
+FINDING PATH 2, Current: 3 8
+FINDING PATH 2, Current: 8 3
+FINDING PATH 2, Current: 4 10
+FINDING PATH 2, Current: 10 4
+FINDING PATH 2, Current: 12 7
+FINDING PATH 2, Current: 7 12
+FINDING PATH 2, Current: 11 11
+FINDING PATH 2, Current: 4 4
+FINDING PATH 2, Current: 3 7
+FINDING PATH 2, Current: 7 3
+FINDING PATH 2, Current: 12 9
+FINDING PATH 2, Current: 9 12
+FINDING PATH 2, Current: 12 6
+FINDING PATH 2, Current: 6 12
+FINDING PATH 2, Current: 3 9
+FINDING PATH 2, Current: 9 3
+FINDING PATH 2, Current: 4 11
+FINDING PATH 2, Current: 11 4
+FINDING PATH 2, Current: 3 6
+FINDING PATH 2, Current: 6 3
+FINDING PATH 2, Current: 12 5
+FINDING PATH 2, Current: 5 12
+FINDING PATH 2, Current: 12 10
+FINDING PATH 2, Current: 10 12
+FINDING PATH 2, Current: 3 5
+FINDING PATH 2, Current: 5 3
+FINDING PATH 2, Current: 2 8
+FINDING PATH 2, Current: 8 2
+FINDING PATH 2, Current: 3 10
+FINDING PATH 2, Current: 10 3
+FINDING PATH 2, Current: 13 8
+FINDING PATH 2, Current: 8 13
+FINDING PATH 2, Current: 4 12
+FINDING PATH 2, Current: 12 4
+FINDING PATH 2, Current: 3 4
+FINDING PATH 2, Current: 4 3
+FINDING PATH 2, Current: 2 7
+FINDING PATH 2, Current: 7 2
+FINDING PATH 2, Current: 13 7
+FINDING PATH 2, Current: 7 13
+FINDING PATH 2, Current: 12 11
+FINDING PATH 2, Current: 11 12
+FINDING PATH 2, Current: 2 9
+FINDING PATH 2, Current: 9 2
+FINDING PATH 2, Current: 13 9
+FINDING PATH 2, Current: 9 13
+FINDING PATH 2, Current: 3 11
+FINDING PATH 2, Current: 11 3
+FINDING PATH 2, Current: 3 3
+FINDING PATH 2, Current: 2 6
+FINDING PATH 2, Current: 6 2
+FINDING PATH 2, Current: 13 6
+FINDING PATH 2, Current: 6 13
+FINDING PATH 2, Current: 2 5
+FINDING PATH 2, Current: 5 2
+FINDING PATH 2, Current: 1 8
+FINDING PATH 2, Current: 8 1
+FINDING PATH 2, Current: 12 12
+FINDING PATH 2, Current: 13 5
+FINDING PATH 2, Current: 5 13
+FINDING PATH 2, Current: 2 10
+FINDING PATH 2, Current: 10 2
+FINDING PATH 2, Current: 13 10
+FINDING PATH 2, Current: 10 13
+FINDING PATH 2, Current: 3 12
+FINDING PATH 2, Current: 12 3
+FINDING PATH 2, Current: 2 4
+FINDING PATH 2, Current: 4 2
+FINDING PATH 2, Current: 1 7
+FINDING PATH 2, Current: 7 1
+FINDING PATH 2, Current: 14 8
+FINDING PATH 2, Current: 8 14
+FINDING PATH 2, Current: 13 4
+FINDING PATH 2, Current: 4 13
+FINDING PATH 2, Current: 1 9
+FINDING PATH 2, Current: 9 1
+FINDING PATH 2, Current: 2 11
+FINDING PATH 2, Current: 11 2
+FINDING PATH 2, Current: 14 7
+FINDING PATH 2, Current: 7 14
+FINDING PATH 2, Current: 2 3
+FINDING PATH 2, Current: 3 2
+FINDING PATH 2, Current: 1 6
+FINDING PATH 2, Current: 6 1
+FINDING PATH 2, Current: 13 11
+FINDING PATH 2, Current: 11 13
+FINDING PATH 2, Current: 3 13
+FINDING PATH 2, Current: 13 3
+FINDING PATH 2, Current: 14 9
+FINDING PATH 2, Current: 9 14
+FINDING PATH 2, Current: 14 6
+FINDING PATH 2, Current: 6 14
+FINDING PATH 2, Current: 2 2
+FINDING PATH 2, Current: 1 5
+FINDING PATH 2, Current: 5 1
+FINDING PATH 2, Current: 0 8
+FINDING PATH 2, Current: 8 0
+FINDING PATH 2, Current: 1 10
+FINDING PATH 2, Current: 10 1
+FINDING PATH 2, Current: 2 12
+FINDING PATH 2, Current: 12 2
+FINDING PATH 2, Current: 13 12
+FINDING PATH 2, Current: 12 13
+FINDING PATH 2, Current: 14 5
+FINDING PATH 2, Current: 5 14
+FINDING PATH 2, Current: 1 4
+FINDING PATH 2, Current: 4 1
+FINDING PATH 2, Current: 0 7
+FINDING PATH 2, Current: 7 0
+FINDING PATH 2, Current: 14 10
+FINDING PATH 2, Current: 10 14
+FINDING PATH 2, Current: 0 9
+FINDING PATH 2, Current: 9 0
+FINDING PATH 2, Current: 15 8
+FINDING PATH 2, Current: 8 15
+FINDING PATH 2, Current: 14 4
+FINDING PATH 2, Current: 4 14
+FINDING PATH 2, Current: 1 11
+FINDING PATH 2, Current: 11 1
+FINDING PATH 2, Current: 1 3
+FINDING PATH 2, Current: 3 1
+FINDING PATH 2, Current: 0 6
+FINDING PATH 2, Current: 6 0
+FINDING PATH 2, Current: 2 13
+FINDING PATH 2, Current: 13 2
+FINDING PATH 2, Current: 13 13
+FINDING PATH 2, Current: 15 7
+FINDING PATH 2, Current: 7 15
+FINDING PATH 2, Current: 14 11
+FINDING PATH 2, Current: 11 14
+FINDING PATH 2, Current: 14 3
+FINDING PATH 2, Current: 3 14
+FINDING PATH 2, Current: 1 2
+FINDING PATH 2, Current: 2 1
+FINDING PATH 2, Current: 0 5
+FINDING PATH 2, Current: 5 0
+FINDING PATH 2, Current: 15 9
+FINDING PATH 2, Current: 9 15
+FINDING PATH 2, Current: 0 10
+FINDING PATH 2, Current: 10 0
+FINDING PATH 2, Current: 1 12
+FINDING PATH 2, Current: 12 1
+FINDING PATH 2, Current: 15 6
+FINDING PATH 2, Current: 6 15
+FINDING PATH 2, Current: 2 14
+FINDING PATH 2, Current: 14 2
+FINDING PATH 2, Current: 1 1
+FINDING PATH 2, Current: 0 4
+FINDING PATH 2, Current: 4 0
+FINDING PATH 2, Current: 14 12
+FINDING PATH 2, Current: 12 14
+FINDING PATH 2, Current: 15 5
+FINDING PATH 2, Current: 5 15
+FINDING PATH 2, Current: 15 10
+FINDING PATH 2, Current: 10 15
+FINDING PATH 2, Current: 0 11
+FINDING PATH 2, Current: 11 0
+FINDING PATH 2, Current: 0 3
+FINDING PATH 2, Current: 3 0
+FINDING PATH 2, Current: 1 13
+FINDING PATH 2, Current: 13 1
+FINDING PATH 2, Current: 16 8
+FINDING PATH 2, Current: 8 16
+FINDING PATH 2, Current: 15 4
+FINDING PATH 2, Current: 4 15
+FINDING PATH 2, Current: 0 2
+FINDING PATH 2, Current: 2 0
+FINDING PATH 2, Current: 14 13
+FINDING PATH 2, Current: 13 14
+FINDING PATH 2, Current: 16 7
+FINDING PATH 2, Current: 7 16
+FINDING PATH 2, Current: 15 11
+FINDING PATH 2, Current: 11 15
+FINDING PATH 2, Current: 15 3
+FINDING PATH 2, Current: 3 15
+FINDING PATH 2, Current: 0 12
+FINDING PATH 2, Current: 12 0
+FINDING PATH 2, Current: 16 9
+FINDING PATH 2, Current: 9 16
+FINDING PATH 2, Current: 1 14
+FINDING PATH 2, Current: 14 1
+FINDING PATH 2, Current: 0 1
+FINDING PATH 2, Current: 1 0
+FINDING PATH 2, Current: 16 6
+FINDING PATH 2, Current: 6 16
+FINDING PATH 2, Current: 15 2
+FINDING PATH 2, Current: 2 15
+FINDING PATH 2, Current: 14 14
+FINDING PATH 2, Current: 15 12
+FINDING PATH 2, Current: 12 15
+FINDING PATH 2, Current: 0 13
+FINDING PATH 2, Current: 13 0
+FINDING PATH 2, Current: 16 5
+FINDING PATH 2, Current: 5 16
+FINDING PATH 2, Current: 16 10
+FINDING PATH 2, Current: 10 16
+FINDING PATH 2, Current: 1 15
+FINDING PATH 2, Current: 15 1
+FINDING PATH 2, Current: 17 8
+FINDING PATH 2, Current: 8 17
+FINDING PATH 2, Current: 16 4
+FINDING PATH 2, Current: 4 16
+FINDING PATH 2, Current: 15 13
+FINDING PATH 2, Current: 13 15
+FINDING PATH 2, Current: 0 14
+FINDING PATH 2, Current: 14 0
+FINDING PATH 2, Current: 17 7
+FINDING PATH 2, Current: 7 17
+FINDING PATH 2, Current: 16 11
+FINDING PATH 2, Current: 11 16
+FINDING PATH 2, Current: 16 3
+FINDING PATH 2, Current: 3 16
+FINDING PATH 2, Current: 17 9
+FINDING PATH 2, Current: 9 17
+FINDING PATH 2, Current: 17 6
+FINDING PATH 2, Current: 6 17
+FINDING PATH 2, Current: 16 2
+FINDING PATH 2, Current: 2 16
+FINDING PATH 2, Current: 15 14
+FINDING PATH 2, Current: 14 15
+FINDING PATH 2, Current: 0 15
+FINDING PATH 2, Current: 15 0
+FINDING PATH 2, Current: 16 12
+FINDING PATH 2, Current: 12 16
+FINDING PATH 2, Current: 17 5
+FINDING PATH 2, Current: 5 17
+FINDING PATH 2, Current: 17 10
+FINDING PATH 2, Current: 10 17
+FINDING PATH 2, Current: 16 1
+FINDING PATH 2, Current: 1 16
+FINDING PATH 2, Current: 18 8
+FINDING PATH 2, Current: 8 18
+FINDING PATH 2, Current: 17 4
+FINDING PATH 2, Current: 4 17
+FINDING PATH 2, Current: 15 15
+FINDING PATH 2, Current: 0 16
+FINDING PATH 2, Current: 16 0
+FINDING PATH 2, Current: 16 13
+FINDING PATH 2, Current: 13 16
+FINDING PATH 2, Current: 18 7
+FINDING PATH 2, Current: 7 18
+FINDING PATH 2, Current: 17 11
+FINDING PATH 2, Current: 11 17
+FINDING PATH 2, Current: 17 3
+FINDING PATH 2, Current: 3 17
+FINDING PATH 2, Current: 18 9
+FINDING PATH 2, Current: 9 18
+FINDING PATH 2, Current: 18 6
+FINDING PATH 2, Current: 6 18
+FINDING PATH 2, Current: 17 2
+FINDING PATH 2, Current: 2 17
+FINDING PATH 2, Current: 16 14
+FINDING PATH 2, Current: 14 16
+FINDING PATH 2, Current: 17 12
+FINDING PATH 2, Current: 12 17
+FINDING PATH 2, Current: 18 5
+FINDING PATH 2, Current: 5 18
+FINDING PATH 2, Current: 18 10
+FINDING PATH 2, Current: 10 18
+FINDING PATH 2, Current: 17 1
+FINDING PATH 2, Current: 1 17
+FINDING PATH 2, Current: 19 8
+FINDING PATH 2, Current: 8 19
+FINDING PATH 2, Current: 18 4
+FINDING PATH 2, Current: 4 18
+FINDING PATH 2, Current: 16 15
+FINDING PATH 2, Current: 15 16
+FINDING PATH 2, Current: 17 0
+FINDING PATH 2, Current: 0 17
+FINDING PATH 2, Current: 17 13
+FINDING PATH 2, Current: 13 17
+FINDING PATH 2, Current: 19 7
+FINDING PATH 2, Current: 7 19
+FINDING PATH 2, Current: 18 11
+FINDING PATH 2, Current: 11 18
+FINDING PATH 2, Current: 18 3
+FINDING PATH 2, Current: 3 18
+FINDING PATH 2, Current: 19 9
+FINDING PATH 2, Current: 9 19
+FINDING PATH 2, Current: 19 6
+FINDING PATH 2, Current: 6 19
+FINDING PATH 2, Current: 16 16
+FINDING PATH 2, Current: 18 2
+FINDING PATH 2, Current: 2 18
+FINDING PATH 2, Current: 17 14
+FINDING PATH 2, Current: 14 17
+FINDING PATH 2, Current: 18 12
+FINDING PATH 2, Current: 12 18
+FINDING PATH 2, Current: 19 5
+FINDING PATH 2, Current: 5 19
+FINDING PATH 2, Current: 19 10
+FINDING PATH 2, Current: 10 19
+FINDING PATH 2, Current: 18 1
+FINDING PATH 2, Current: 1 18
+FINDING PATH 2, Current: 20 8
+FINDING PATH 2, Current: 8 20
+FINDING PATH 2, Current: 19 4
+FINDING PATH 2, Current: 4 19
+FINDING PATH 2, Current: 17 15
+FINDING PATH 2, Current: 15 17
+FINDING PATH 2, Current: 18 0
+FINDING PATH 2, Current: 0 18
+FINDING PATH 2, Current: 18 13
+FINDING PATH 2, Current: 13 18
+FINDING PATH 2, Current: 20 7
+FINDING PATH 2, Current: 7 20
+FINDING PATH 2, Current: 19 11
+FINDING PATH 2, Current: 11 19
+FINDING PATH 2, Current: 19 3
+FINDING PATH 2, Current: 3 19
+FINDING PATH 2, Current: 20 9
+FINDING PATH 2, Current: 9 20
+FINDING PATH 2, Current: 20 6
+FINDING PATH 2, Current: 6 20
+FINDING PATH 2, Current: 17 16
+FINDING PATH 2, Current: 16 17
+FINDING PATH 2, Current: 19 2
+FINDING PATH 2, Current: 2 19
+FINDING PATH 2, Current: 18 14
+FINDING PATH 2, Current: 14 18
+FINDING PATH 2, Current: 19 12
+FINDING PATH 2, Current: 12 19
+FINDING PATH 2, Current: 20 5
+FINDING PATH 2, Current: 5 20
+FINDING PATH 2, Current: 20 10
+FINDING PATH 2, Current: 10 20
+FINDING PATH 2, Current: 19 1
+FINDING PATH 2, Current: 1 19
+FINDING PATH 2, Current: 21 8
+FINDING PATH 2, Current: 8 21
+FINDING PATH 2, Current: 17 17
+FINDING PATH 2, Current: 20 4
+FINDING PATH 2, Current: 4 20
+FINDING PATH 2, Current: 18 15
+FINDING PATH 2, Current: 15 18
+FINDING PATH 2, Current: 19 0
+FINDING PATH 2, Current: 0 19
+FINDING PATH 2, Current: 19 13
+FINDING PATH 2, Current: 13 19
+FINDING PATH 2, Current: 21 7
+FINDING PATH 2, Current: 7 21
+FINDING PATH 2, Current: 20 11
+FINDING PATH 2, Current: 11 20
+FINDING PATH 2, Current: 20 3
+FINDING PATH 2, Current: 3 20
+FINDING PATH 2, Current: 21 9
+FINDING PATH 2, Current: 9 21
+FINDING PATH 2, Current: 21 6
+FINDING PATH 2, Current: 6 21
+FINDING PATH 2, Current: 18 16
+FINDING PATH 2, Current: 16 18
+FINDING PATH 2, Current: 20 2
+FINDING PATH 2, Current: 2 20
+FINDING PATH 2, Current: 19 14
+FINDING PATH 2, Current: 14 19
+FINDING PATH 2, Current: 20 12
+FINDING PATH 2, Current: 12 20
+FINDING PATH 2, Current: 21 5
+FINDING PATH 2, Current: 5 21
+FINDING PATH 2, Current: 21 10
+FINDING PATH 2, Current: 10 21
+FINDING PATH 2, Current: 20 1
+FINDING PATH 2, Current: 1 20
+FINDING PATH 2, Current: 22 8
+FINDING PATH 2, Current: 8 22
+FINDING PATH 2, Current: 18 17
+FINDING PATH 2, Current: 17 18
+FINDING PATH 2, Current: 21 4
+FINDING PATH 2, Current: 4 21
+FINDING PATH 2, Current: 19 15
+FINDING PATH 2, Current: 15 19
+FINDING PATH 2, Current: 20 0
+FINDING PATH 2, Current: 0 20
+FINDING PATH 2, Current: 20 13
+FINDING PATH 2, Current: 13 20
+FINDING PATH 2, Current: 22 7
+FINDING PATH 2, Current: 7 22
+FINDING PATH 2, Current: 21 11
+FINDING PATH 2, Current: 11 21
+FINDING PATH 2, Current: 21 3
+FINDING PATH 2, Current: 3 21
+FINDING PATH 2, Current: 22 9
+FINDING PATH 2, Current: 9 22
+FINDING PATH 2, Current: 18 18
+FINDING PATH 2, Current: 22 6
+FINDING PATH 2, Current: 6 22
+FINDING PATH 2, Current: 19 16
+FINDING PATH 2, Current: 16 19
+FINDING PATH 2, Current: 21 2
+FINDING PATH 2, Current: 2 21
+FINDING PATH 2, Current: 20 14
+FINDING PATH 2, Current: 14 20
+FINDING PATH 2, Current: 21 12
+FINDING PATH 2, Current: 12 21
+FINDING PATH 2, Current: 22 5
+FINDING PATH 2, Current: 5 22
+FINDING PATH 2, Current: 22 10
+FINDING PATH 2, Current: 10 22
+FINDING PATH 2, Current: 21 1
+FINDING PATH 2, Current: 1 21
+FINDING PATH 2, Current: 23 8
+FINDING PATH 2, Current: 8 23
+FINDING PATH 2, Current: 19 17
+FINDING PATH 2, Current: 17 19
+FINDING PATH 2, Current: 22 4
+FINDING PATH 2, Current: 4 22
+FINDING PATH 2, Current: 20 15
+FINDING PATH 2, Current: 15 20
+FINDING PATH 2, Current: 21 0
+FINDING PATH 2, Current: 0 21
+FINDING PATH 2, Current: 21 13
+FINDING PATH 2, Current: 13 21
+FINDING PATH 2, Current: 23 7
+FINDING PATH 2, Current: 7 23
+FINDING PATH 2, Current: 22 11
+FINDING PATH 2, Current: 11 22
+FINDING PATH 2, Current: 22 3
+FINDING PATH 2, Current: 3 22
+FINDING PATH 2, Current: 23 9
+FINDING PATH 2, Current: 9 23
+FINDING PATH 2, Current: 19 18
+FINDING PATH 2, Current: 18 19
+FINDING PATH 2, Current: 23 6
+FINDING PATH 2, Current: 6 23
+FINDING PATH 2, Current: 20 16
+FINDING PATH 2, Current: 16 20
+FINDING PATH 2, Current: 22 2
+FINDING PATH 2, Current: 2 22
+FINDING PATH 2, Current: 21 14
+FINDING PATH 2, Current: 14 21
+FINDING PATH 2, Current: 22 12
+FINDING PATH 2, Current: 12 22
+FINDING PATH 2, Current: 23 5
+FINDING PATH 2, Current: 5 23
+FINDING PATH 2, Current: 23 10
+FINDING PATH 2, Current: 10 23
+FINDING PATH 2, Current: 22 1
+FINDING PATH 2, Current: 1 22
+FINDING PATH 2, Current: 19 19
+FINDING PATH 2, Current: 24 8

@@ -40,6 +40,9 @@
 #include <CEGUI/CEGUI.h>
 #include <CEGUI/RendererModules/Ogre/CEGUIOgreRenderer.h>
 
+#include <Terrain/OgreTerrain.h>
+#include <Terrain/OgreTerrainGroup.h>
+
 
 /*Foward Declarations*/
 class GameObject;
@@ -185,6 +188,16 @@ protected:
 
     CEGUI::Window* mainMenu;
     CEGUI::Window* multiplayerMenu;
+
+private:
+    //Ogre Terrain
+    Ogre::TerrainGlobalOptions* mTerrainGlobals;
+    Ogre::TerrainGroup* mTerrainGroup;
+    bool mTerrainsImported;
+ 
+    void defineTerrain(long x, long y);
+    void initBlendMaps(Ogre::Terrain* terrain);
+    void configureTerrainDefaults(Ogre::Light* light);
 };
 
 #endif // #ifndef __Game_h_
