@@ -23,6 +23,11 @@ void EnemyScript::Initialize(Pathfinder* pathfinder) {
 }
 void EnemyScript::Update() {
 	Ogre::Vector3 veloc = Ogre::Vector3::ZERO;
+	if (_currentPath.size() == 0) {
+	 	//_currentPath = pathfinder->FindPath(0, 0);
+	 	gameObject->physics->setLinearVelocity(veloc);
+	 	return;
+	 }
 	if (_currentPath.size() > 0) {
 		std::cout << _currentPath.front()->getPosition() << " " << gameObject->physics->getWorldPosition() << std::endl;
 	}
