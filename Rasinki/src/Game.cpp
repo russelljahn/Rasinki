@@ -860,6 +860,7 @@ void Game::createScene(void) {
     enemy->transform->setWorldPosition(Ogre::Vector3(2500, 100, 2500));
     enemyScript->Initialize(enemyPathfinder);
     enemy->transform->setLocalScale(Ogre::Vector3(1, 1, 1));
+    enemyScript->grid = grid;
     enemy->name = "enemy";
     gameObjects.push_back(enemy);
 

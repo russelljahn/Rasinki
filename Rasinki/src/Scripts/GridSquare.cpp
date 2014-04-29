@@ -1,4 +1,5 @@
 #include "GridSquare.h"
+#include "Scripts/EnemyScript.h"
 #include <ctime>
 
 GridSquare::GridSquare(GameObject *attachedGameObject) : Script(attachedGameObject) {
@@ -49,4 +50,12 @@ Ogre::Vector3 GridSquare::getBounds() {
 
 bool GridSquare::IsOccupied() {
     return occupant != NULL;
+}
+
+void GridSquare::RemoveEnemy(EnemyScript *enemyToRemove) {
+	enemy = NULL;
+}
+
+void GridSquare::AddEnemy(EnemyScript *enemyToAdd) {
+	enemy = enemyToAdd;
 }

@@ -4,8 +4,12 @@
 
 #include "../Components/Script.h"
 #include "Scripts/Pathfinder.h"
+
+#include "Grid.h"
+
 using namespace std;
 
+class GridSquare;
 class Pathfinder;
 /* 
 	Code to control Gameplay behavior.
@@ -20,6 +24,11 @@ class EnemyScript : public Script {
 		void Start(void);
 		void Update(void);
 		Ogre::Vector3 destination;
+
+		Grid *grid;
+		GridSquare *lastSquare;
+		GridSquare *currentSquare;
+
 	private:
 		float moveSpeed;
 		Pathfinder* pathfinder;

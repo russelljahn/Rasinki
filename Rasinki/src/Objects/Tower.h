@@ -1,6 +1,8 @@
 #ifndef __TOWER_H__
 #define __TOWER_H__
 
+#include <vector>
+#include "../Scripts/GridSquare.h"
 
 
 
@@ -16,6 +18,8 @@ class Tower : public GameObject {
 
 		void Kill();
 		void OnCollision(Ogre::Vector3 point, GameObject* collidedWith);
+
+		std::vector<GridSquare> inRangeSquares;
 };
 
 

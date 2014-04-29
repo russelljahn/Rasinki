@@ -1,4 +1,5 @@
 #include "EnemyScript.h"
+#include "GridSquare.h"
 
 EnemyScript::EnemyScript(GameObject *attachedGameObject) : Script(attachedGameObject) {
 	moveSpeed = 500.0f;
@@ -7,12 +8,16 @@ EnemyScript::EnemyScript(GameObject *attachedGameObject) : Script(attachedGameOb
 	Start();
 }
 void EnemyScript::Start() {
-
+	lastSquare = NULL;
+	currentSquare = NULL;
+	grid = NULL;
 	//_currentPath = pathfinder->FindPath(0, 0);
 }
 void EnemyScript::Initialize(Pathfinder* pathfinder) {
 	this->pathfinder = pathfinder;
 	pathfinder->setCurrentGridSquare(gameObject->transform->getWorldPosition());
+	// currentSquare = grid->gridSquareAtPos(gameObject->physics->getWorldPosition());
+	// lastSquare = currentSquare;
 	std::cout << "FINDING PATH TO 0, 0" << std::endl;
 	_currentPath = pathfinder->FindPath(0, 0);
 }
@@ -25,6 +30,21 @@ void EnemyScript::Update() {
 		veloc = (_currentPath.front()->getPosition() - gameObject->physics->getWorldPosition());
 		veloc.y = 0;
 		if (veloc.squaredLength() < 10) {
+
+			assert (grid != NULL);
+			lastSquare = currentSquare;
+			currentSquare = grid->gridSquareAtPos(gameObject->physics->getWorldPosition());
+
+			if (lastSquare != currentSquare) {
+
+				if (lastSquare != NULL) {
+					lastSquare->RemoveEnemy(this);
+				}
+				if (currentSquare != NULL) {
+					currentSquare->AddEnemy(this);
+				}
+			}
+
 			pathfinder->setCurrentGridSquare(gameObject->physics->getWorldPosition());
 			_currentPath.pop_front();
 		}
