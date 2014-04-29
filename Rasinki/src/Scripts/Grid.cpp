@@ -1,6 +1,7 @@
 #include "Grid.h"
 #include "GridSquare.h"
 #include "../Objects/Cube.h"
+#include "EnemySpawner.h"
 #include <ctime>
 
 Grid::Grid(GameObject *attachedGameObject) : Script(attachedGameObject) {
@@ -24,6 +25,9 @@ Grid::Grid(GameObject *attachedGameObject) : Script(attachedGameObject) {
             this->gameObject->game->gameObjects.push_back(cube);
         }
     }
+    EnemySpawner *enemySpawnerScript = squares[width*depth - 1]->gameObject->AddComponentOfType<EnemySpawner>();
+    enemySpawnerScript->grid = this;
+    
     Ogre::Vector3 bounds = squares[0]->getBounds();
     float height = 50;
 

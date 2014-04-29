@@ -8,6 +8,8 @@ int GameObject::nextAvailableId = 0;
 
 
 GameObject::GameObject(Game *attachedGame) {
+	physics = NULL;
+	transform = NULL;
 	this->game = attachedGame;
 	this->enabled = true;
 	this->id = GameObject::nextAvailableId++;
@@ -42,7 +44,8 @@ GameObject::~GameObject() {
 	if (physics != NULL)
 		delete physics;
 	delete renderer;
-	delete transform;
+	if (transform != NULL)
+		delete transform;
 	for (auto componentsIter = components.begin(); componentsIter != components.end(); ++componentsIter) {
        delete (*componentsIter);
     }

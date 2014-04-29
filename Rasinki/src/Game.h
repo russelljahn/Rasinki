@@ -102,6 +102,7 @@ public:
     vector<Player *> playerList;
     vector<GameObject *> gameObjects;
 
+    float getDeltaTime() { return deltaTime; }
 protected:
     virtual bool setup();
     virtual bool configure(void);
@@ -198,6 +199,8 @@ private:
     void defineTerrain(long x, long y);
     void initBlendMaps(Ogre::Terrain* terrain);
     void configureTerrainDefaults(Ogre::Light* light);
+
+    float deltaTime;
 };
 
 #endif // #ifndef __Game_h_

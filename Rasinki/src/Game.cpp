@@ -16,6 +16,7 @@ using namespace std;
 #include "Scripts/GridSquare.h"
 #include "Scripts/EnemyScript.h"
 #include "Scripts/Pathfinder.h"
+#include "Scripts/EnemySpawner.h"
 
 
 #include "Objects/Paddle.h"
@@ -397,9 +398,10 @@ bool Game::frameRenderingQueued(const Ogre::FrameEvent& evt)
 
     mTrayManager->frameRenderingQueued(evt);
     CEGUI::System::getSingleton().injectTimePulse(evt.timeSinceLastFrame);
+    deltaTime = evt.timeSinceLastFrame;
     if (gameMode == true)
     {
-        if (mNetwork->isServer) 
+        if (mNetwork == NULL || mNetwork->isServer) 
         {
             mAnimationState->addTime(evt.timeSinceLastFrame*2);
             mPhysicsSimulator->stepSimulation(evt.timeSinceLastFrame);
@@ -852,17 +854,6 @@ void Game::createScene(void) {
     mAnimationState->setEnabled(true);
 
     gameObjects.push_back(bob);
-
-    Cube *enemy = new Cube(this, 1);
-    Pathfinder *enemyPathfinder = enemy->AddComponentOfType<Pathfinder>();
-    enemyPathfinder->Initialize(grid);
-    EnemyScript *enemyScript = enemy->AddComponentOfType<EnemyScript>();
-    enemy->transform->setWorldPosition(Ogre::Vector3(2500, 100, 2500));
-    enemyScript->Initialize(enemyPathfinder);
-    enemy->transform->setLocalScale(Ogre::Vector3(1, 1, 1));
-    enemyScript->grid = grid;
-    enemy->name = "enemy";
-    gameObjects.push_back(enemy);
 
     // //Setting up Terrain
  
