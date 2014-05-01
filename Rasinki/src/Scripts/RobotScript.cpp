@@ -124,8 +124,6 @@ void RobotScript::HandleTower() {
             tower->grid = grid;
             tower->Initialize();
             squarey->occupant = tower;
-
-            //this->gameObject->game->gameObjects.push_back(tower);    
         }
         else
         {

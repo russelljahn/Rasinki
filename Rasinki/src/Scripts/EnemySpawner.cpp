@@ -21,7 +21,6 @@ void EnemySpawner::Update() {
 	    enemy->transform->setLocalScale(Ogre::Vector3(1, 1, 1));
 	    enemyScript->grid = grid;
 	    enemy->name = "enemy";
-	    gameObject->game->gameObjects.push_back(enemy);
 	    timeSinceLastSpawn = 0;
 	}
 }

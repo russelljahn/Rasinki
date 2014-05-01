@@ -1,6 +1,6 @@
 #include <sstream>
 #include "GameObject.h"
-
+#include <utility>
 
 
 int GameObject::nextAvailableId = 0;
@@ -23,6 +23,7 @@ GameObject::GameObject(Game *attachedGame) {
 
 	std::cout << "Creating GameObject with id: " << id << std::endl;
 	Start();
+	this->game->gameObjects.insert(std::pair<int, GameObject *>(this->id, this));
 }
 GameObject::GameObject(Game *attachedGame, int playerNum) {
 	this->game = attachedGame;
@@ -39,6 +40,7 @@ GameObject::GameObject(Game *attachedGame, int playerNum) {
 
 	std::cout << "Creating GameObject with id: " << id << std::endl;
 	Start();
+	this->game->gameObjects.insert(std::pair<int, GameObject *>(this->id, this));
 }
 GameObject::~GameObject() {
 	if (physics != NULL)
@@ -49,6 +51,7 @@ GameObject::~GameObject() {
 	for (auto componentsIter = components.begin(); componentsIter != components.end(); ++componentsIter) {
        delete (*componentsIter);
     }
+    this->game->gameObjects.erase(this->id);
 	// components.clear();
 }
 void GameObject::Start() {

@@ -249,7 +249,7 @@ void Game::createFrameListener(void)
 void Game::destroyScene(void)
 {
     for (auto gameObjectIter = gameObjects.begin(); gameObjectIter != gameObjects.end(); ++gameObjectIter) {
-       delete (*gameObjectIter);
+       delete (*gameObjectIter).second;
     }
     gameObjects.clear();
     playerList[0]->reset();
@@ -376,7 +376,6 @@ bool Game::setup(void)
     // Create the scene
     createLights();
     createGUI();
-    createScene();
 
     createFrameListener();
     return true;
@@ -408,7 +407,7 @@ bool Game::frameRenderingQueued(const Ogre::FrameEvent& evt)
         }
         else {
             for (auto gameObjectIter = gameObjects.begin(); gameObjectIter != gameObjects.end(); ++gameObjectIter) {
-                (*gameObjectIter)->FixedUpdate();
+                (*gameObjectIter).second->FixedUpdate();
              }
         }
 
@@ -427,23 +426,23 @@ bool Game::frameRenderingQueued(const Ogre::FrameEvent& evt)
         // }
 
         for (auto gameObjectIter = gameObjects.begin(); gameObjectIter != gameObjects.end(); ++gameObjectIter) {
-            (*gameObjectIter)->Update();
+            (*gameObjectIter).second->Update();
         }
     }
-    if (mNetwork != NULL) {
-        if (gameMode && mNetwork->isServer && gameObjects.size()) {
-                mNetwork->SendMessageToClient(ServerMessage(0, gameObjects[0]->physics->getWorldPosition()));
-                mNetwork->SendMessageToClient(ServerMessage(1, gameObjects[1]->physics->getWorldPosition()));
-                mNetwork->SendMessageToClient(ServerMessage(2, gameObjects[2]->physics->getWorldPosition()));
-                //ScoreMessage(0, playerList[0]->deltaScore).print();
-                if (playerList[0]->deltaScore > 0) {
-                    //ScoreMessage(0, playerList[0]->deltaScore).print();
-                    mNetwork->SendMessageToClient(ScoreMessage(0, playerList[0]->deltaScore));
-                    playerList[0]->deltaScore = 0;
-                }
-        }
-        mNetwork->OnNetworkUpdate();
-    }
+    // if (mNetwork != NULL) {
+    //     if (gameMode && mNetwork->isServer && gameObjects.size()) {
+    //             mNetwork->SendMessageToClient(ServerMessage(0, gameObjects[0]->physics->getWorldPosition()));
+    //             mNetwork->SendMessageToClient(ServerMessage(1, gameObjects[1]->physics->getWorldPosition()));
+    //             mNetwork->SendMessageToClient(ServerMessage(2, gameObjects[2]->physics->getWorldPosition()));
+    //             //ScoreMessage(0, playerList[0]->deltaScore).print();
+    //             if (playerList[0]->deltaScore > 0) {
+    //                 //ScoreMessage(0, playerList[0]->deltaScore).print();
+    //                 mNetwork->SendMessageToClient(ScoreMessage(0, playerList[0]->deltaScore));
+    //                 playerList[0]->deltaScore = 0;
+    //             }
+    //     }
+    //     mNetwork->OnNetworkUpdate();
+    // }
     Input::Update();
     return true;
 }
@@ -853,7 +852,7 @@ void Game::createScene(void) {
     mAnimationState->setLoop(true);
     mAnimationState->setEnabled(true);
 
-    gameObjects.push_back(bob);
+    // gameObjects.push_back(bob);
 
     // //Setting up Terrain
  

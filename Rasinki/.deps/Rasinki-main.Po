@@ -753,8 +753,8 @@ Rasinki-main.o: src/main.cpp src/Game.h \
  /usr/include/OGRE/OgreTextAreaOverlayElement.h \
  /usr/include/OGRE/SdkCameraMan.h src/GameObject.h src/Game.h \
  src/Components/Component.h src/GameObject.h src/Components/Transform.h \
- /usr/include/OGRE/OgreVector3.h src/Components/Transform.h \
- src/Components/Physics.h \
+ /usr/include/OGRE/OgreVector3.h /usr/include/OGRE/OgreNode.h \
+ src/Components/Transform.h src/Components/Physics.h \
  /usr/local/include/bullet/btBulletDynamicsCommon.h \
  /usr/local/include/bullet/btBulletCollisionCommon.h \
  /usr/local/include/bullet/BulletCollision/CollisionDispatch/btCollisionWorld.h \
@@ -2956,6 +2956,8 @@ src/GameObject.h:
 src/Components/Transform.h:
 
 /usr/include/OGRE/OgreVector3.h:
+
+/usr/include/OGRE/OgreNode.h:
 
 src/Components/Transform.h:
 

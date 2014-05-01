@@ -643,8 +643,8 @@ Rasinki-Transform.o: src/Components/Transform.cpp \
  /usr/include/OGRE/OgreRotationalSpline.h \
  /usr/include/OGRE/OgreKeyFrame.h /usr/include/OGRE/OgreAnimable.h \
  /usr/include/OGRE/OgreVector2.h /usr/include/OGRE/OgrePose.h \
- src/GameObject.h /usr/include/OGRE/OgreEntity.h \
- /usr/include/OGRE/OgreMovableObject.h \
+ /usr/include/OGRE/OgreNode.h src/GameObject.h \
+ /usr/include/OGRE/OgreEntity.h /usr/include/OGRE/OgreMovableObject.h \
  /usr/include/OGRE/OgreRenderQueue.h /usr/include/OGRE/OgreSphere.h \
  /usr/include/OGRE/OgreShadowCaster.h /usr/include/OGRE/OgreFactoryObj.h \
  /usr/include/OGRE/OgreHardwareBufferManager.h \
@@ -2650,6 +2650,8 @@ src/Components/Transform.h:
 /usr/include/OGRE/OgreVector2.h:
 
 /usr/include/OGRE/OgrePose.h:
+
+/usr/include/OGRE/OgreNode.h:
 
 src/GameObject.h:
 

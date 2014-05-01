@@ -753,8 +753,8 @@ Rasinki-Game.o: src/Game.cpp src/Game.h \
  /usr/include/OGRE/OgreTextAreaOverlayElement.h \
  /usr/include/OGRE/SdkCameraMan.h src/GameObject.h src/Game.h \
  src/Components/Component.h src/GameObject.h src/Components/Transform.h \
- /usr/include/OGRE/OgreVector3.h src/Components/Transform.h \
- src/Components/Physics.h \
+ /usr/include/OGRE/OgreVector3.h /usr/include/OGRE/OgreNode.h \
+ src/Components/Transform.h src/Components/Physics.h \
  /usr/local/include/bullet/btBulletDynamicsCommon.h \
  /usr/local/include/bullet/btBulletCollisionCommon.h \
  /usr/local/include/bullet/BulletCollision/CollisionDispatch/btCollisionWorld.h \
@@ -1156,9 +1156,9 @@ Rasinki-Game.o: src/Game.cpp src/Game.h \
  src/Scripts/GameplayScript.h src/Scripts/Grid.h src/Scripts/GridSquare.h \
  src/Scripts/EnemyScript.h src/Scripts/Pathfinder.h \
  src/Scripts/../Components/Script.h src/Scripts/GridSquare.h \
- src/Scripts/Grid.h src/Scripts/Pathfinder.h src/Objects/Paddle.h \
- src/Objects/Sphere.h src/Objects/Plane.h src/Objects/Cube.h \
- src/Objects/Robot.h
+ src/Scripts/Grid.h src/Scripts/Pathfinder.h src/Scripts/EnemySpawner.h \
+ src/Objects/Paddle.h src/Objects/Sphere.h src/Objects/Plane.h \
+ src/Objects/Cube.h src/Objects/Robot.h
 
 src/Game.h:
 
@@ -2970,6 +2970,8 @@ src/Components/Transform.h:
 
 /usr/include/OGRE/OgreVector3.h:
 
+/usr/include/OGRE/OgreNode.h:
+
 src/Components/Transform.h:
 
 src/Components/Physics.h:
@@ -3855,6 +3857,8 @@ src/Scripts/GridSquare.h:
 src/Scripts/Grid.h:
 
 src/Scripts/Pathfinder.h:
+
+src/Scripts/EnemySpawner.h:
 
 src/Objects/Paddle.h:
 

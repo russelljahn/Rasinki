@@ -4,6 +4,8 @@
 
 #include <OgreVector3.h>
 #include <OgreSceneNode.h>
+#include <OgreNode.h>
+
 
 #include "GameObject.h"
 

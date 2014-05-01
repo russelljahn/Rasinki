@@ -1,6 +1,7 @@
 #include "Tower.h"
 #include "GameObject.h"
 #include "Cube.h"
+#include "../Scripts/EnemyScript.h"
 #include <btBulletDynamicsCommon.h>
 
 Tower::Tower(Game *attachedGame) : GameObject(attachedGame){
@@ -8,6 +9,13 @@ Tower::Tower(Game *attachedGame) : GameObject(attachedGame){
 }
 Tower::Tower(Game *attachedGame, int pNum) : GameObject(attachedGame, pNum){
 	Start();
+}
+Tower::~Tower() {
+	// glowTiles.clear();
+	for (int i = 0; i < glowTiles.size(); ++i)
+	{
+		delete glowTiles[i];
+	}
 }
 void Tower::Start() {
 
@@ -51,7 +59,7 @@ void Tower::Initialize() {
 		Cube *glowTile = new Cube(this->gameObject->game, 0);
     	glowTile->transform->setWorldScale(Ogre::Vector3(2.5, .125, 2.5));
     	glowTile->physics->disableCollider();
-    	glowTile->renderer->setMaterial("SquareGlow1");
+    	glowTile->renderer->setMaterial("SquareGlow2");
     	glowTile->transform->setWorldPosition(gs0->gameObject->physics->getWorldPosition() + Ogre::Vector3(0,10,0));
     	glowTiles.push_back(glowTile);
 		inRangeSquares.push_back(gs0);
@@ -62,7 +70,7 @@ void Tower::Initialize() {
 		Cube *glowTile = new Cube(this->gameObject->game, 0);
     	glowTile->transform->setWorldScale(Ogre::Vector3(2.5, .125, 2.5));
     	glowTile->physics->disableCollider();
-    	glowTile->renderer->setMaterial("SquareGlow1");
+    	glowTile->renderer->setMaterial("SquareGlow2");
     	glowTile->transform->setWorldPosition(gs1->gameObject->physics->getWorldPosition() + Ogre::Vector3(0,10,0));
     	glowTiles.push_back(glowTile);
 		inRangeSquares.push_back(gs1);
@@ -73,7 +81,7 @@ void Tower::Initialize() {
 		Cube *glowTile = new Cube(this->gameObject->game, 0);
     	glowTile->transform->setWorldScale(Ogre::Vector3(2.5, .125, 2.5));
     	glowTile->physics->disableCollider();
-    	glowTile->renderer->setMaterial("SquareGlow1");
+    	glowTile->renderer->setMaterial("SquareGlow2");
     	glowTile->transform->setWorldPosition(gs2->gameObject->physics->getWorldPosition() + Ogre::Vector3(0,10,0));
     	glowTiles.push_back(glowTile);
 		inRangeSquares.push_back(gs2);
@@ -84,7 +92,7 @@ void Tower::Initialize() {
 		Cube *glowTile = new Cube(this->gameObject->game, 0);
     	glowTile->transform->setWorldScale(Ogre::Vector3(2.5, .125, 2.5));
     	glowTile->physics->disableCollider();
-    	glowTile->renderer->setMaterial("SquareGlow1");
+    	glowTile->renderer->setMaterial("SquareGlow2");
     	glowTile->transform->setWorldPosition(gs3->gameObject->physics->getWorldPosition() + Ogre::Vector3(0,10,0));
     	glowTiles.push_back(glowTile);
 		inRangeSquares.push_back(gs3);
@@ -95,7 +103,7 @@ void Tower::Initialize() {
 		Cube *glowTile = new Cube(this->gameObject->game, 0);
     	glowTile->transform->setWorldScale(Ogre::Vector3(2.5, .125, 2.5));
     	glowTile->physics->disableCollider();
-    	glowTile->renderer->setMaterial("SquareGlow1");
+    	glowTile->renderer->setMaterial("SquareGlow2");
     	glowTile->transform->setWorldPosition(gs4->gameObject->physics->getWorldPosition() + Ogre::Vector3(0,10,0));
     	glowTiles.push_back(glowTile);
 		inRangeSquares.push_back(gs4);
@@ -106,7 +114,7 @@ void Tower::Initialize() {
 		Cube *glowTile = new Cube(this->gameObject->game, 0);
     	glowTile->transform->setWorldScale(Ogre::Vector3(2.5, .125, 2.5));
     	glowTile->physics->disableCollider();
-    	glowTile->renderer->setMaterial("SquareGlow1");
+    	glowTile->renderer->setMaterial("SquareGlow2");
     	glowTile->transform->setWorldPosition(gs5->gameObject->physics->getWorldPosition() + Ogre::Vector3(0,10,0));
     	glowTiles.push_back(glowTile);
 		inRangeSquares.push_back(gs5);
@@ -117,7 +125,7 @@ void Tower::Initialize() {
 		Cube *glowTile = new Cube(this->gameObject->game, 0);
     	glowTile->transform->setWorldScale(Ogre::Vector3(2.5, .125, 2.5));
     	glowTile->physics->disableCollider();
-    	glowTile->renderer->setMaterial("SquareGlow1");
+    	glowTile->renderer->setMaterial("SquareGlow2");
     	glowTile->transform->setWorldPosition(gs6->gameObject->physics->getWorldPosition() + Ogre::Vector3(0,10,0));
     	glowTiles.push_back(glowTile);
 		inRangeSquares.push_back(gs6);
@@ -128,7 +136,7 @@ void Tower::Initialize() {
 		Cube *glowTile = new Cube(this->gameObject->game, 0);
     	glowTile->transform->setWorldScale(Ogre::Vector3(2.5, .125, 2.5));
     	glowTile->physics->disableCollider();
-    	glowTile->renderer->setMaterial("SquareGlow1");
+    	glowTile->renderer->setMaterial("SquareGlow2");
     	glowTile->transform->setWorldPosition(gs7->gameObject->physics->getWorldPosition() + Ogre::Vector3(0,10,0));
     	glowTiles.push_back(glowTile);
 		inRangeSquares.push_back(gs7);
@@ -139,7 +147,7 @@ void Tower::Initialize() {
 		Cube *glowTile = new Cube(this->gameObject->game, 0);
     	glowTile->transform->setWorldScale(Ogre::Vector3(2.5, .125, 2.5));
     	glowTile->physics->disableCollider();
-    	glowTile->renderer->setMaterial("SquareGlow1");
+    	glowTile->renderer->setMaterial("SquareGlow2");
     	glowTile->transform->setWorldPosition(gs8->gameObject->physics->getWorldPosition() + Ogre::Vector3(0,10,0));
     	glowTiles.push_back(glowTile);
 		inRangeSquares.push_back(gs8);
@@ -150,7 +158,7 @@ void Tower::Initialize() {
 		Cube *glowTile = new Cube(this->gameObject->game, 0);
     	glowTile->transform->setWorldScale(Ogre::Vector3(2.5, .125, 2.5));
     	glowTile->physics->disableCollider();
-    	glowTile->renderer->setMaterial("SquareGlow1");
+    	glowTile->renderer->setMaterial("SquareGlow2");
     	glowTile->transform->setWorldPosition(gs9->gameObject->physics->getWorldPosition() + Ogre::Vector3(0,10,0));
     	glowTiles.push_back(glowTile);
 		inRangeSquares.push_back(gs9);
@@ -161,7 +169,7 @@ void Tower::Initialize() {
 		Cube *glowTile = new Cube(this->gameObject->game, 0);
     	glowTile->transform->setWorldScale(Ogre::Vector3(2.5, .125, 2.5));
     	glowTile->physics->disableCollider();
-    	glowTile->renderer->setMaterial("SquareGlow1");
+    	glowTile->renderer->setMaterial("SquareGlow2");
     	glowTile->transform->setWorldPosition(gs10->gameObject->physics->getWorldPosition() + Ogre::Vector3(0,10,0));
     	glowTiles.push_back(glowTile);
 		inRangeSquares.push_back(gs10);
@@ -172,7 +180,7 @@ void Tower::Initialize() {
 		Cube *glowTile = new Cube(this->gameObject->game, 0);
     	glowTile->transform->setWorldScale(Ogre::Vector3(2.5, .125, 2.5));
     	glowTile->physics->disableCollider();
-    	glowTile->renderer->setMaterial("SquareGlow1");
+    	glowTile->renderer->setMaterial("SquareGlow2");
     	glowTile->transform->setWorldPosition(gs11->gameObject->physics->getWorldPosition() + Ogre::Vector3(0,10,0));
     	glowTiles.push_back(glowTile);
 		inRangeSquares.push_back(gs11);
@@ -183,7 +191,7 @@ void Tower::Initialize() {
 		Cube *glowTile = new Cube(this->gameObject->game, 0);
     	glowTile->transform->setWorldScale(Ogre::Vector3(2.5, .125, 2.5));
     	glowTile->physics->disableCollider();
-    	glowTile->renderer->setMaterial("SquareGlow1");
+    	glowTile->renderer->setMaterial("SquareGlow2");
     	glowTile->transform->setWorldPosition(gs12->gameObject->physics->getWorldPosition() + Ogre::Vector3(0,10,0));
     	glowTiles.push_back(glowTile);
 		inRangeSquares.push_back(gs12);
@@ -192,16 +200,23 @@ void Tower::Initialize() {
 }
 
 void Tower::Update() {
-	
+	std::cout << "Tower::Update()!" << std::endl;
+	for (int i = 0; i < glowTiles.size(); ++i) {
+		Ogre::Vector3 tilePosition = glowTiles[i]->gameObject->transform->getWorldPosition();
+		std::cout << "tilePosition: " << tilePosition << std::endl; 
+		GridSquare *square = grid->gridSquareAtPos(tilePosition);
+		if (square->enemy != NULL) {
+			std::cout << "square->enemy != NULL " << std::endl; 
+			Ogre::Vector3 enemyPosition = square->enemy->gameObject->transform->getWorldPosition();
+			this->gameObject->transform->sceneNode->lookAt(enemyPosition, Ogre::Node::TransformSpace::TS_LOCAL, Ogre::Vector3::NEGATIVE_UNIT_Z);	
+		}
+		else {
+			std::cout << "square->enemy == NULL " << std::endl; 
+		}
+	}
 }
 
 void Tower::FixedUpdate() {
 
 }
 
-void Tower::Kill(){
-	for (int i = 0; i < glowTiles.size(); ++i)
-	{
-		delete glowTiles[i];
-	}
-}

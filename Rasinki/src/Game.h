@@ -29,6 +29,7 @@
 #include <SdkCameraMan.h>
 
 #include <vector>
+#include <map>
 
 #include "GameObject.h"
 #include "PhysicsSimulator.h"
@@ -100,7 +101,7 @@ public:
 
     // Miscellaneous
     vector<Player *> playerList;
-    vector<GameObject *> gameObjects;
+    map<int, GameObject *> gameObjects;
 
     float getDeltaTime() { return deltaTime; }
 protected:

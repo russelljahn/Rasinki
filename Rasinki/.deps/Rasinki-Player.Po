@@ -1143,8 +1143,9 @@ Rasinki-Player.o: src/Player.cpp src/Player.h \
  /usr/include/OGRE/Terrain/OgreTerrainGroup.h \
  /usr/include/OGRE/Terrain/OgreTerrain.h \
  /usr/include/OGRE/OgreIteratorWrappers.h src/Components/Component.h \
- src/GameObject.h src/Components/Transform.h src/Components/Transform.h \
- src/Components/Physics.h src/Components/Renderer.h
+ src/GameObject.h src/Components/Transform.h /usr/include/OGRE/OgreNode.h \
+ src/Components/Transform.h src/Components/Physics.h \
+ src/Components/Renderer.h
 
 src/Player.h:
 
@@ -3787,6 +3788,8 @@ src/Components/Component.h:
 src/GameObject.h:
 
 src/Components/Transform.h:
+
+/usr/include/OGRE/OgreNode.h:
 
 src/Components/Transform.h:
 

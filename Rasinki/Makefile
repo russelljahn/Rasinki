@@ -68,7 +68,8 @@ am_Rasinki_OBJECTS = Rasinki-Game.$(OBJEXT) Rasinki-main.$(OBJEXT) \
 	Rasinki-GameplayScript.$(OBJEXT) Rasinki-RobotScript.$(OBJEXT) \
 	Rasinki-Time.$(OBJEXT) Rasinki-Network.$(OBJEXT) \
 	Rasinki-Input.$(OBJEXT) Rasinki-EnemyScript.$(OBJEXT) \
-	Rasinki-Pathfinder.$(OBJEXT) Rasinki-Tower.$(OBJEXT)
+	Rasinki-Pathfinder.$(OBJEXT) Rasinki-Tower.$(OBJEXT) \
+	Rasinki-EnemySpawner.$(OBJEXT)
 Rasinki_OBJECTS = $(am_Rasinki_OBJECTS)
 am__DEPENDENCIES_1 =
 Rasinki_DEPENDENCIES = $(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1) \
@@ -255,9 +256,9 @@ target_alias =
 top_build_prefix = 
 top_builddir = .
 top_srcdir = .
-noinst_HEADERS = src/Game.h src/GameObject.h src/Components/Component.h src/PhysicsSimulator.h src/Components/Transform.h src/Components/Renderer.h src/Components/Script.h src/Scripts/PaddleScript.h src/Scripts/PointBlock.h src/Scripts/Wall.h src/Objects/Sphere.h src/Objects/Paddle.h src/Objects/Plane.h src/Objects/Cube.h src/Objects/Robot.h src/Player.h src/SoundManager.h src/Scripts/SphereComponent.h src/Scripts/GameplayScript.h src/Scripts/Grid.h src/Scripts/GridSquare.h src/Scripts/RobotScript.h src/Time.h src/Network.h src/Input.h src/Scripts/EnemyScript.h src/Scripts/Pathfinder.h src/Objects/Tower.h
+noinst_HEADERS = src/Game.h src/GameObject.h src/Components/Component.h src/PhysicsSimulator.h src/Components/Transform.h src/Components/Renderer.h src/Components/Script.h src/Scripts/PaddleScript.h src/Scripts/PointBlock.h src/Scripts/Wall.h src/Objects/Sphere.h src/Objects/Paddle.h src/Objects/Plane.h src/Objects/Cube.h src/Objects/Robot.h src/Player.h src/SoundManager.h src/Scripts/SphereComponent.h src/Scripts/GameplayScript.h src/Scripts/Grid.h src/Scripts/GridSquare.h src/Scripts/RobotScript.h src/Time.h src/Network.h src/Input.h src/Scripts/EnemyScript.h src/Scripts/Pathfinder.h src/Objects/Tower.h src/Scripts/EnemySpawner.h
 Rasinki_CPPFLAGS = -I$(top_srcdir)/src
-Rasinki_SOURCES = src/Game.cpp src/main.cpp src/GameObject.cpp src/Components/Component.cpp src/PhysicsSimulator.cpp src/Components/Transform.cpp src/Components/Renderer.cpp src/Components/Script.cpp src/Scripts/PaddleScript.cpp src/Scripts/PointBlock.cpp src/Scripts/Wall.cpp src/Components/Physics.cpp src/Objects/Sphere.cpp src/Objects/Paddle.cpp src/Objects/Plane.cpp src/Objects/Cube.cpp src/Scripts/Grid.cpp src/Scripts/GridSquare.cpp src/Objects/Robot.cpp src/Player.cpp src/SoundManager.cpp src/Scripts/SphereComponent.cpp src/Scripts/GameplayScript.cpp src/Scripts/RobotScript.cpp src/Time.cpp src/Network.cpp src/Input.cpp src/Scripts/EnemyScript.cpp src/Scripts/Pathfinder.cpp src/Objects/Tower.cpp
+Rasinki_SOURCES = src/Game.cpp src/main.cpp src/GameObject.cpp src/Components/Component.cpp src/PhysicsSimulator.cpp src/Components/Transform.cpp src/Components/Renderer.cpp src/Components/Script.cpp src/Scripts/PaddleScript.cpp src/Scripts/PointBlock.cpp src/Scripts/Wall.cpp src/Components/Physics.cpp src/Objects/Sphere.cpp src/Objects/Paddle.cpp src/Objects/Plane.cpp src/Objects/Cube.cpp src/Scripts/Grid.cpp src/Scripts/GridSquare.cpp src/Objects/Robot.cpp src/Player.cpp src/SoundManager.cpp src/Scripts/SphereComponent.cpp src/Scripts/GameplayScript.cpp src/Scripts/RobotScript.cpp src/Time.cpp src/Network.cpp src/Input.cpp src/Scripts/EnemyScript.cpp src/Scripts/Pathfinder.cpp src/Objects/Tower.cpp src/Scripts/EnemySpawner.cpp
 Rasinki_CXXFLAGS = $(OGRE_CFLAGS) $(OIS_CFLAGS) $(bullet_CFLAGS) $(sdl_CFLAGS) $(SDLMIXER_CFLAGS) $(SDLNET_CFLAGS) -std=c++0x
 Rasinki_LDADD = $(OGRE_LIBS) $(OGRE_TERRAIN_LIBS) $(OIS_LIBS) $(bullet_LIBS) $(sdl_LIBS) $(SDLMIXER_LIBS) $(SDLNET_LIBS) $(CEGUI_LIBS) $(CEGUI_OGRE_LIBS)
 EXTRA_DIST = buildit makeit
@@ -372,6 +373,7 @@ distclean-compile:
 include ./$(DEPDIR)/Rasinki-Component.Po
 include ./$(DEPDIR)/Rasinki-Cube.Po
 include ./$(DEPDIR)/Rasinki-EnemyScript.Po
+include ./$(DEPDIR)/Rasinki-EnemySpawner.Po
 include ./$(DEPDIR)/Rasinki-Game.Po
 include ./$(DEPDIR)/Rasinki-GameObject.Po
 include ./$(DEPDIR)/Rasinki-GameplayScript.Po
@@ -840,6 +842,20 @@ Rasinki-Tower.obj: src/Objects/Tower.cpp
 #	source='src/Objects/Tower.cpp' object='Rasinki-Tower.obj' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
 #	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(Rasinki_CPPFLAGS) $(CPPFLAGS) $(Rasinki_CXXFLAGS) $(CXXFLAGS) -c -o Rasinki-Tower.obj `if test -f 'src/Objects/Tower.cpp'; then $(CYGPATH_W) 'src/Objects/Tower.cpp'; else $(CYGPATH_W) '$(srcdir)/src/Objects/Tower.cpp'; fi`
+
+Rasinki-EnemySpawner.o: src/Scripts/EnemySpawner.cpp
+	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(Rasinki_CPPFLAGS) $(CPPFLAGS) $(Rasinki_CXXFLAGS) $(CXXFLAGS) -MT Rasinki-EnemySpawner.o -MD -MP -MF $(DEPDIR)/Rasinki-EnemySpawner.Tpo -c -o Rasinki-EnemySpawner.o `test -f 'src/Scripts/EnemySpawner.cpp' || echo '$(srcdir)/'`src/Scripts/EnemySpawner.cpp
+	$(am__mv) $(DEPDIR)/Rasinki-EnemySpawner.Tpo $(DEPDIR)/Rasinki-EnemySpawner.Po
+#	source='src/Scripts/EnemySpawner.cpp' object='Rasinki-EnemySpawner.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
+#	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(Rasinki_CPPFLAGS) $(CPPFLAGS) $(Rasinki_CXXFLAGS) $(CXXFLAGS) -c -o Rasinki-EnemySpawner.o `test -f 'src/Scripts/EnemySpawner.cpp' || echo '$(srcdir)/'`src/Scripts/EnemySpawner.cpp
+
+Rasinki-EnemySpawner.obj: src/Scripts/EnemySpawner.cpp
+	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(Rasinki_CPPFLAGS) $(CPPFLAGS) $(Rasinki_CXXFLAGS) $(CXXFLAGS) -MT Rasinki-EnemySpawner.obj -MD -MP -MF $(DEPDIR)/Rasinki-EnemySpawner.Tpo -c -o Rasinki-EnemySpawner.obj `if test -f 'src/Scripts/EnemySpawner.cpp'; then $(CYGPATH_W) 'src/Scripts/EnemySpawner.cpp'; else $(CYGPATH_W) '$(srcdir)/src/Scripts/EnemySpawner.cpp'; fi`
+	$(am__mv) $(DEPDIR)/Rasinki-EnemySpawner.Tpo $(DEPDIR)/Rasinki-EnemySpawner.Po
+#	source='src/Scripts/EnemySpawner.cpp' object='Rasinki-EnemySpawner.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
+#	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(Rasinki_CPPFLAGS) $(CPPFLAGS) $(Rasinki_CXXFLAGS) $(CXXFLAGS) -c -o Rasinki-EnemySpawner.obj `if test -f 'src/Scripts/EnemySpawner.cpp'; then $(CYGPATH_W) 'src/Scripts/EnemySpawner.cpp'; else $(CYGPATH_W) '$(srcdir)/src/Scripts/EnemySpawner.cpp'; fi`
 
 mostlyclean-libtool:
 	-rm -f *.lo
