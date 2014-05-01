@@ -200,15 +200,16 @@ void Tower::Initialize() {
 }
 
 void Tower::Update() {
+	GameObject::Update();
 	std::cout << "Tower::Update()!" << std::endl;
 	for (int i = 0; i < glowTiles.size(); ++i) {
 		Ogre::Vector3 tilePosition = glowTiles[i]->gameObject->transform->getWorldPosition();
 		std::cout << "tilePosition: " << tilePosition << std::endl; 
 		GridSquare *square = grid->gridSquareAtPos(tilePosition);
-		if (square->enemy != NULL) {
+		if (square != NULL && square->enemy != NULL) {
 			std::cout << "square->enemy != NULL " << std::endl; 
 			Ogre::Vector3 enemyPosition = square->enemy->gameObject->transform->getWorldPosition();
-			this->gameObject->transform->sceneNode->lookAt(enemyPosition, Ogre::Node::TransformSpace::TS_LOCAL, Ogre::Vector3::NEGATIVE_UNIT_Z);	
+			// this->gameObject->transform->sceneNode->lookAt(enemyPosition, Ogre::Node::TransformSpace::TS_LOCAL, Ogre::Vector3::NEGATIVE_UNIT_Z);	
 		}
 		else {
 			std::cout << "square->enemy == NULL " << std::endl; 

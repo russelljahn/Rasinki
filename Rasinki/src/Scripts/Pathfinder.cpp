@@ -45,7 +45,7 @@ list<PathSquare*> Pathfinder::FindPath(int goalX, int goalY) {
     closedSet.push_back(current);
     list<PathSquare*> neighbors;
     //Need to check for out of bounds
-     std::cout << "FINDING PATH 2, Current: " << current->x << " " << current->y << std::endl;
+     // std::cout << "FINDING PATH 2, Current: " << current->x << " " << current->y << std::endl;
     if (current->x > 0) {
       if (current->y > 0) {
         neighbors.push_back(_grid[(current->x - 1)*gridWidth + (current->y - 1)]);

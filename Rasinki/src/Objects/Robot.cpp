@@ -22,15 +22,3 @@ void Robot::Start() {
 
 	renderer->setMaterial("Robot_01");
 }
-
-void Robot::Update() {
-
-}
-
-void Robot::FixedUpdate() {
-
-}
-
-void Robot::Kill() {
-	
-}

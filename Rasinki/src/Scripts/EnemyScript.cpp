@@ -18,7 +18,7 @@ void EnemyScript::Initialize(Pathfinder* pathfinder) {
 	pathfinder->setCurrentGridSquare(gameObject->transform->getWorldPosition());
 	// currentSquare = grid->gridSquareAtPos(gameObject->physics->getWorldPosition());
 	// lastSquare = currentSquare;
-	std::cout << "FINDING PATH TO 0, 0" << std::endl;
+	// std::cout << "FINDING PATH TO 0, 0" << std::endl;
 	_currentPath = pathfinder->FindPath(0, 0);
 }
 void EnemyScript::Update() {
@@ -29,7 +29,7 @@ void EnemyScript::Update() {
 	 	return;
 	 }
 	if (_currentPath.size() > 0) {
-		std::cout << _currentPath.front()->getPosition() << " " << gameObject->physics->getWorldPosition() << std::endl;
+		// std::cout << _currentPath.front()->getPosition() << " " << gameObject->physics->getWorldPosition() << std::endl;
 	}
 	while (veloc.squaredLength () < 10 && _currentPath.size() > 0) {
 		veloc = (_currentPath.front()->getPosition() - gameObject->physics->getWorldPosition());

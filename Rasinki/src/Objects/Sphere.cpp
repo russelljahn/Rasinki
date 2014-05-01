@@ -19,15 +19,3 @@ void Sphere::Start() {
 	// physics->setLinearVelocity(Ogre::Vector3(0,-100, 0));
 }
 
-void Sphere::Update() {
-
-}
-
-void Sphere::FixedUpdate() {
-
-}
-
-void Sphere::Kill() {
-	
-}
-

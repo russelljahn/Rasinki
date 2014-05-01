@@ -6,8 +6,5 @@ class Sphere : public GameObject {
 
 		Sphere(Game *attachedGame, float radius = 100);
 		void Start();
-		void Update();
-		void FixedUpdate();
 
-		void Kill();
 };

@@ -20,6 +20,7 @@ GridSquare::GridSquare(GameObject *attachedGameObject) : Script(attachedGameObje
 	}
 
 	occupant = NULL;
+	enemy = NULL;
 };
 
 void GridSquare::Start() {
