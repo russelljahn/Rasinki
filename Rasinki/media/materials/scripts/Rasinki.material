@@ -62,7 +62,6 @@ material Cloud1
 }
 
 
-
 material SquareGlow1
 {
 	technique
@@ -82,7 +81,6 @@ material SquareGlow1
 }
 
 
-
 material SquareGlow2
 {
 	technique
@@ -96,6 +94,25 @@ material SquareGlow2
 			{
 				scroll_anim 0.20 0.20
 				texture square_glow2.png
+			}
+		}
+	}
+}
+
+
+material SquareGlow3
+{
+	technique
+	{
+		pass
+		{
+			lighting off
+			scene_blend alpha_blend
+
+			texture_unit
+			{
+				scroll_anim 0.20 0.20
+				texture square_glow3.png
 			}
 		}
 	}

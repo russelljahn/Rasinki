@@ -201,18 +201,23 @@ void Tower::Initialize() {
 
 void Tower::Update() {
 	GameObject::Update();
-	std::cout << "Tower::Update()!" << std::endl;
-	for (int i = 0; i < glowTiles.size(); ++i) {
-		Ogre::Vector3 tilePosition = glowTiles[i]->gameObject->transform->getWorldPosition();
-		std::cout << "tilePosition: " << tilePosition << std::endl; 
-		GridSquare *square = grid->gridSquareAtPos(tilePosition);
+
+	for (int i = 0; i < inRangeSquares.size(); ++i) {
+		GridSquare *square = inRangeSquares[i];
+		Ogre::Vector3 tilePosition = square->gameObject->transform->getWorldPosition();
+
 		if (square != NULL && square->enemy != NULL) {
-			std::cout << "square->enemy != NULL " << std::endl; 
+			// Rotate tower to face first enemy it can find
 			Ogre::Vector3 enemyPosition = square->enemy->gameObject->transform->getWorldPosition();
-			// this->gameObject->transform->sceneNode->lookAt(enemyPosition, Ogre::Node::TransformSpace::TS_LOCAL, Ogre::Vector3::NEGATIVE_UNIT_Z);	
-		}
-		else {
-			std::cout << "square->enemy == NULL " << std::endl; 
+			Ogre::Vector3 towerPosition = this->gameObject->transform->getWorldPosition();
+			this->gameObject->transform->sceneNode->lookAt(enemyPosition, Ogre::Node::TransformSpace::TS_WORLD, Ogre::Vector3::NEGATIVE_UNIT_X);	
+
+			// Lock lookAt() rotation to only along the y-axis
+			Ogre::Quaternion newRotation = this->gameObject->transform->sceneNode->getOrientation();
+			newRotation.x = 0.0f;
+			newRotation.z = 0.0f;
+			this->gameObject->transform->sceneNode->setOrientation(newRotation);
+			return;
 		}
 	}
 }

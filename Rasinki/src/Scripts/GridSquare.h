@@ -20,6 +20,7 @@ class GridSquare : public Script {
 		
 		Ogre::Vector3 getBounds();
         bool IsOccupied();
+        bool HasEnemies();
 
         void RemoveEnemy(EnemyScript *enemyToRemove);
         void AddEnemy(EnemyScript *enemyToAdd);

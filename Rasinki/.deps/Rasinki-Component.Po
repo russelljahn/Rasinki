@@ -1145,8 +1145,9 @@ Rasinki-Component.o: src/Components/Component.cpp \
  /usr/include/OGRE/Terrain/OgreTerrain.h \
  /usr/include/OGRE/OgreIteratorWrappers.h src/Components/Component.h \
  src/Components/Transform.h /usr/include/OGRE/OgreNode.h \
- src/Components/Physics.h src/Components/Transform.h \
- src/Components/Renderer.h src/Components/Transform.h
+ /usr/include/OGRE/OgreQuaternion.h src/Components/Physics.h \
+ src/Components/Transform.h src/Components/Renderer.h \
+ src/Components/Transform.h
 
 src/Components/Component.h:
 
@@ -3793,6 +3794,8 @@ src/Components/Component.h:
 src/Components/Transform.h:
 
 /usr/include/OGRE/OgreNode.h:
+
+/usr/include/OGRE/OgreQuaternion.h:
 
 src/Components/Physics.h:
 

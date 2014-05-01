@@ -1145,8 +1145,8 @@ Rasinki-Sphere.o: src/Objects/Sphere.cpp src/Objects/Sphere.h \
  /usr/include/OGRE/Terrain/OgreTerrain.h \
  /usr/include/OGRE/OgreIteratorWrappers.h src/Components/Component.h \
  src/Components/Transform.h /usr/include/OGRE/OgreNode.h \
- src/Components/Transform.h src/Components/Physics.h \
- src/Components/Renderer.h
+ /usr/include/OGRE/OgreQuaternion.h src/Components/Transform.h \
+ src/Components/Physics.h src/Components/Renderer.h
 
 src/Objects/Sphere.h:
 
@@ -3793,6 +3793,8 @@ src/Components/Component.h:
 src/Components/Transform.h:
 
 /usr/include/OGRE/OgreNode.h:
+
+/usr/include/OGRE/OgreQuaternion.h:
 
 src/Components/Transform.h:
 

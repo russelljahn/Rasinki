@@ -53,6 +53,10 @@ bool GridSquare::IsOccupied() {
     return occupant != NULL;
 }
 
+bool GridSquare::HasEnemies() {
+    return enemy != NULL;
+}
+
 void GridSquare::RemoveEnemy(EnemyScript *enemyToRemove) {
 	enemy = NULL;
 }

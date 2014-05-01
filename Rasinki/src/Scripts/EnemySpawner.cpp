@@ -5,7 +5,7 @@
 
 EnemySpawner::EnemySpawner(GameObject* game) : Script(game) {
 	spawnPeriod = 5;
-	timeSinceLastSpawn = 0;
+	timeSinceLastSpawn = 5;
 }
 void EnemySpawner::Start(){}
 

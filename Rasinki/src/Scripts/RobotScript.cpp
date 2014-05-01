@@ -116,21 +116,28 @@ void RobotScript::HandleTower() {
     Ogre::Vector3 squareyPosition = squarey->gameObject->physics->getWorldPosition();    
 
     glowTile->transform->setWorldPosition(squareyPosition + Ogre::Vector3(0.0f, 10.0f, 0.0f));
+    if (squarey->IsOccupied() || squarey->HasEnemies()) {
+        glowTile->renderer->setMaterial("SquareGlow3");
+    }
+    else {
+        glowTile->renderer->setMaterial("SquareGlow1"); 
+    }
 
     if (Input::mouseReleased) {
-       if (!squarey->IsOccupied()) {
+       if (!squarey->IsOccupied() && !squarey->HasEnemies()) {
             Tower *tower = new Tower(this->gameObject->game,0);
             tower->physics->setWorldPosition(squareyPosition + Ogre::Vector3(00.0f, 65.0f, 40.0f));
             tower->grid = grid;
             tower->Initialize();
             squarey->occupant = tower;
         }
-        else
-        {
+        else if (squarey->IsOccupied()) {
             delete squarey->occupant;
             squarey->occupant = NULL;
         }
     }
+
+
 }
 
 
