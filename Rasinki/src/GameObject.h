@@ -40,6 +40,7 @@ class GameObject {
 		int id;
 		int objIndex;
 		bool enabled;
+		bool destroyed;
 		int playerNum;
 		GameObject *gameObject; // Pointer to self.
 		Transform *transform; // TODO: Make this protected but retrievable through GetComponentOfType<>()!
@@ -49,7 +50,7 @@ class GameObject {
 		
 		GameObject(Game *attachedGame);
 		GameObject(Game *atatchedGame, int playerNum);
-		~GameObject();
+		virtual ~GameObject();
 		
 		void Start();
 		void virtual Update();

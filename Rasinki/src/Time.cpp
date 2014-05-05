@@ -24,4 +24,3 @@ void Time::Reset() {
 	Time::timeProgramStarted = clock();
 	Time::timeLastFrame = 0;
 }
-

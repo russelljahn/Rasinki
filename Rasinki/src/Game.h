@@ -71,6 +71,7 @@ class Game : public Ogre::FrameListener, public Ogre::WindowEventListener, publi
 {
 public:
     Game(void);
+    void destroyGameObject(GameObject* object);
     virtual ~Game(void);
 
     virtual void run(void);
