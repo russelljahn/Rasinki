@@ -82,22 +82,6 @@ void Grid::Update() {
 		this->gameObject->physics->setEnabled(false);
 	}
 
-
-    if (this->gameObject->game->viewMode == true)
-    {
-        std::cout << "disable walls" << std::endl;
-        north->renderer->setEnabled(false);
-        east->renderer->setEnabled(false);
-        west->renderer->setEnabled(false);
-        south->renderer->setEnabled(false);
-    }
-    else
-    {
-        north->renderer->setEnabled(true);
-        east->renderer->setEnabled(true);
-        west->renderer->setEnabled(true);
-        south->renderer->setEnabled(true);
-    }
 }
 
 

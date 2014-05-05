@@ -49,7 +49,7 @@ class GameObject {
 		
 		GameObject(Game *attachedGame);
 		GameObject(Game *atatchedGame, int playerNum);
-		~GameObject();
+		virtual ~GameObject();
 		
 		void Start();
 		void virtual Update();

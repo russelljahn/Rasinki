@@ -11,11 +11,12 @@ Tower::Tower(Game *attachedGame, int pNum) : GameObject(attachedGame, pNum){
 	Start();
 }
 Tower::~Tower() {
-	// glowTiles.clear();
+	std::cout << "Deleting tower" << std::endl;
 	for (int i = 0; i < glowTiles.size(); ++i)
 	{
-		delete glowTiles[i];
+		delete glowTiles[i]->gameObject;
 	}
+	glowTiles.clear();
 }
 void Tower::Start() {
 
