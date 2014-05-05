@@ -3,6 +3,7 @@
 
 EnemyScript::EnemyScript(GameObject *attachedGameObject) : Script(attachedGameObject) {
 	moveSpeed = 500.0f;
+	hitPoints = 5;
 	destination = gameObject->transform->getWorldPosition();
 	gameObject->renderer->setMaterial("Examples/Chrome_Red");
 	Start();
@@ -64,5 +65,14 @@ void EnemyScript::Update() {
 			_currentPath = pathfinder->FindPath(0, 0);
 			break;
 		}
+	}
+}
+void EnemyScript::Attacked() {
+	hitPoints --;
+	std::cout << "ENEMY SHOT ID: " << gameObject->id << " HP REMAINING: " << hitPoints << std::endl;
+	if (hitPoints == 0) {
+		currentSquare->RemoveEnemy(this);
+		gameObject->game->playerList[0]->scored();
+		gameObject->Kill();
 	}
 }

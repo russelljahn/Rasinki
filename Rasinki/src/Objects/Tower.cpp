@@ -3,11 +3,14 @@
 #include "Cube.h"
 #include "../Scripts/EnemyScript.h"
 #include <btBulletDynamicsCommon.h>
+#include "Time.h"
 
 Tower::Tower(Game *attachedGame) : GameObject(attachedGame){
+	weaponCooldownTime = 1;
 	Start();
 }
 Tower::Tower(Game *attachedGame, int pNum) : GameObject(attachedGame, pNum){
+	weaponCooldownTime = 1;
 	Start();
 }
 Tower::~Tower() {
@@ -225,6 +228,10 @@ void Tower::Update() {
 			Ogre::Vector3 towerPosition = this->gameObject->transform->getWorldPosition();
 			this->gameObject->transform->sceneNode->lookAt(enemyPosition, Ogre::Node::TransformSpace::TS_WORLD, Ogre::Vector3::NEGATIVE_UNIT_X);	
 
+			if (Time::time > timeLastAttack + weaponCooldownTime) {
+				timeLastAttack = Time::time;
+				square->enemy->Attacked();
+			}
 			// Lock lookAt() rotation to only along the y-axis
 			Ogre::Quaternion newRotation = this->gameObject->transform->sceneNode->getOrientation();
 			newRotation.x = 0.0f;

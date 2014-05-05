@@ -23,6 +23,7 @@ class EnemyScript : public Script {
 		void Initialize(Pathfinder* pathfinder);		
 		void Start(void);
 		void Update(void);
+		void Attacked();
 		Ogre::Vector3 destination;
 
 		Grid *grid;
@@ -31,6 +32,7 @@ class EnemyScript : public Script {
 
 	private:
 		float moveSpeed;
+		int hitPoints;
 		Pathfinder* pathfinder;
 		list<PathSquare*> _currentPath;
 };

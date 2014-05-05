@@ -18,7 +18,7 @@ GameObject::GameObject(Game *attachedGame) {
 	nameCoverter << id;
 	this->name = nameCoverter.str();
 	this->gameObject = this;
-
+	destroyed = false;
 	renderer = new Renderer(this);
 
 	std::cout << "Creating GameObject with id: " << id << std::endl;
@@ -30,7 +30,7 @@ GameObject::GameObject(Game *attachedGame, int playerNum) {
 	this->enabled = true;
 	this->id = GameObject::nextAvailableId++;
 	this->playerNum = playerNum;
-
+	destroyed = false;
 	ostringstream nameCoverter;
 	nameCoverter << id;
 	this->name = nameCoverter.str();
@@ -76,7 +76,7 @@ void GameObject::FixedUpdate() {
 
 
 void GameObject::Kill() {
-	// TODO
+	destroyed = true;
 }
 
 void GameObject::OnCollision(Ogre::Vector3 point, GameObject* collidedWith) {

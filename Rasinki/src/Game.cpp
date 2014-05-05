@@ -6,7 +6,6 @@ using namespace std;
 #include "Game.h"
 #include "Time.h"
 
-#include "Scripts/PaddleScript.h"
 #include "Scripts/RobotScript.h"
 #include "Scripts/PointBlock.h"
 #include "Scripts/Wall.h"
@@ -253,7 +252,6 @@ void Game::destroyScene(void)
     }
     gameObjects.clear();
     playerList[0]->reset();
-    playerList[1]->reset();
     mSceneManager->clearScene();
     Time::Reset();
 
@@ -348,7 +346,6 @@ bool Game::setup(void)
     mPhysicsSimulator = new PhysicsSimulator();
     mSoundManager = new SoundManager();
     playerList.push_back(new Player(LOCAL));
-    playerList.push_back(new Player(NETWORK));
     setupResources();
 
     bool carryOn = configure();
@@ -427,6 +424,9 @@ bool Game::frameRenderingQueued(const Ogre::FrameEvent& evt)
 
         for (auto gameObjectIter = gameObjects.begin(); gameObjectIter != gameObjects.end(); ++gameObjectIter) {
             (*gameObjectIter).second->Update();
+            if((*gameObjectIter).second->destroyed) {
+                destroyGameObject((*gameObjectIter).second);
+            }
         }
     }
     // if (mNetwork != NULL) {
@@ -851,47 +851,6 @@ void Game::createScene(void) {
     mAnimationState = bob->renderer->entity->getAnimationState("Idle");
     mAnimationState->setLoop(true);
     mAnimationState->setEnabled(true);
-
-    // gameObjects.push_back(bob);
-
-    // //Setting up Terrain
- 
-    // Ogre::Vector3 lightdir(0.55, -0.3, 0.75);
-    // lightdir.normalise();
- 
-    // Ogre::Light* light = mSceneManager->createLight("tstLight");
-    // light->setType(Ogre::Light::LT_DIRECTIONAL);
-    // light->setDirection(lightdir);
-    // light->setDiffuseColour(Ogre::ColourValue::White);
-
-
-    // mTerrainGlobals = OGRE_NEW Ogre::TerrainGlobalOptions();
- 
-    // mTerrainGroup = OGRE_NEW Ogre::TerrainGroup(mSceneManager, Ogre::Terrain::ALIGN_X_Z, 513, 12000.0f);
-    // mTerrainGroup->setFilenameConvention(Ogre::String("BasicTutorial3Terrain"), Ogre::String("dat"));
-    // mTerrainGroup->setOrigin(Ogre::Vector3::ZERO);
- 
-    // configureTerrainDefaults(light);
- 
-    // for (long x = 0; x <= 0; ++x)
-    //     for (long y = 0; y <= 0; ++y)
-    //         defineTerrain(x, y);
- 
-    // // sync load since we want everything in place when we start
-    // mTerrainGroup->loadAllTerrains(true);
- 
-    // if (mTerrainsImported)
-    // {
-    //     Ogre::TerrainGroup::TerrainIterator ti = mTerrainGroup->getTerrainIterator();
-    //     while(ti.hasMoreElements())
-    //     {
-    //         Ogre::Terrain* t = ti.getNext()->instance;
-    //         initBlendMaps(t);
-    //     }
-    // }
- 
-    // mTerrainGroup->freeTemporaryResources();
-
     cout << "Done creating scene!" << endl;
 }
 
@@ -1028,4 +987,7 @@ bool Game::onConnectToServer(const CEGUI::EventArgs &e) {
     if (mNetwork->ConnectToServer()) {
         disableMultiplayerMenu();
     }
+}
+void Game::destroyGameObject(GameObject* object) {
+    delete gameObjects[object->id];
 }

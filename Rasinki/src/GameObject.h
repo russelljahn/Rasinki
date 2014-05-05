@@ -40,6 +40,7 @@ class GameObject {
 		int id;
 		int objIndex;
 		bool enabled;
+		bool destroyed;
 		int playerNum;
 		GameObject *gameObject; // Pointer to self.
 		Transform *transform; // TODO: Make this protected but retrievable through GetComponentOfType<>()!
