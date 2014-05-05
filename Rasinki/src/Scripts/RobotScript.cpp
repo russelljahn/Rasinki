@@ -124,17 +124,27 @@ void RobotScript::HandleTower() {
     }
 
     if (Input::mouseReleased) {
-       if (!squarey->IsOccupied() && !squarey->HasEnemies()) {
-            Tower *tower = new Tower(this->gameObject->game,0);
-            tower->physics->setWorldPosition(squareyPosition + Ogre::Vector3(00.0f, 65.0f, 40.0f));
-            tower->grid = grid;
-            tower->Initialize();
-            squarey->occupant = tower;
+        if (!squarey->IsOccupied() && !squarey->HasEnemies()) {
+            if (Input::IsKeyDown(OIS::KC_1))
+            {
+                Tower *tower = new Tower(this->gameObject->game,0);
+                tower->physics->setWorldPosition(squareyPosition + Ogre::Vector3(00.0f, 65.0f, 40.0f));
+                tower->grid = grid;
+                tower->Initialize();
+                squarey->occupant = tower;
+            }
+            else if(Input::IsKeyDown(OIS::KC_2))
+            {
+                Barrier *barrier = new Barrier(this->gameObject->game);
+                barrier->physics->setWorldPosition(squareyPosition);
+                squarey->occupant = barrier;
+            }
         }
         else if (squarey->IsOccupied()) {
             delete squarey->occupant;
             squarey->occupant = NULL;
         }
+        
     }
 
 
