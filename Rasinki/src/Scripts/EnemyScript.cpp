@@ -68,5 +68,6 @@ void EnemyScript::Update() {
 }
 void EnemyScript::Attacked() {
 	currentSquare->RemoveEnemy(this);
+	gameObject->game->playerList[0]->scored();
 	gameObject->Kill();
 }

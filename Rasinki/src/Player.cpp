@@ -9,7 +9,7 @@ Player::Player(ControlType type) {
 void Player::scored(int points) {
 	mScore += points;
 	deltaScore += points;
-	// std::cout << "Player score: " << mScore << std::endl;
+	std::cout << "Player score: " << mScore << std::endl;
 }
 bool Player::IsKeyDown(OIS::KeyCode key) {
 	if (mControlType == LOCAL)

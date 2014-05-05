@@ -6,7 +6,6 @@ using namespace std;
 #include "Game.h"
 #include "Time.h"
 
-#include "Scripts/PaddleScript.h"
 #include "Scripts/RobotScript.h"
 #include "Scripts/PointBlock.h"
 #include "Scripts/Wall.h"
@@ -253,7 +252,6 @@ void Game::destroyScene(void)
     }
     gameObjects.clear();
     playerList[0]->reset();
-    playerList[1]->reset();
     mSceneManager->clearScene();
     Time::Reset();
 
@@ -348,7 +346,6 @@ bool Game::setup(void)
     mPhysicsSimulator = new PhysicsSimulator();
     mSoundManager = new SoundManager();
     playerList.push_back(new Player(LOCAL));
-    playerList.push_back(new Player(NETWORK));
     setupResources();
 
     bool carryOn = configure();
