@@ -21,7 +21,7 @@ public:
     GridSquare* gridSquare;
 	PathSquare* parent;
 	PathSquare(int xIndex, int yIndex, GridSquare* gridSquare) {
-		std::cout << xIndex << " " << yIndex << std::endl;
+		// std::cout << xIndex << " " << yIndex << std::endl;
 		x = xIndex; y = yIndex;
 		this->gridSquare = gridSquare;
 		parent = NULL;
@@ -70,7 +70,7 @@ public:
 			square = _grid[0];
 		currentX = square->x;
 		currentY = square->y;
-		cout << "SET CURRENT POS: (" << worldPos.x << ", " << worldPos.y<< ", " << worldPos.z << ") "<<currentX << " " << currentY << std::endl;
+		// cout << "SET CURRENT POS: (" << worldPos.x << ", " << worldPos.y<< ", " << worldPos.z << ") "<<currentX << " " << currentY << std::endl;
 	}
 private:
 	int currentX, currentY; 

@@ -32,6 +32,7 @@ class EnemyScript : public Script {
 
 	private:
 		float moveSpeed;
+		int hitPoints;
 		Pathfinder* pathfinder;
 		list<PathSquare*> _currentPath;
 };

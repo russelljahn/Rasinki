@@ -6,9 +6,11 @@
 #include "Time.h"
 
 Tower::Tower(Game *attachedGame) : GameObject(attachedGame){
+	weaponCooldownTime = 1;
 	Start();
 }
 Tower::Tower(Game *attachedGame, int pNum) : GameObject(attachedGame, pNum){
+	weaponCooldownTime = 1;
 	Start();
 }
 Tower::~Tower() {
