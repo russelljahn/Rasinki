@@ -8,6 +8,7 @@
 #include "GridSquare.h"
 #include "../Objects/Cube.h"
 #include "../Objects/Tower.h"
+#include "../Objects/Barrier.h"
 
 
 /* 
