@@ -25,6 +25,7 @@ Grid::Grid(GameObject *attachedGameObject) : Script(attachedGameObject) {
         }
     }
     EnemySpawner *enemySpawnerScript = squares[width*depth - 1]->gameObject->AddComponentOfType<EnemySpawner>();
+    attachedGameObject->game->enemySpawner = enemySpawnerScript;
     enemySpawnerScript->grid = this;
     
     Ogre::Vector3 bounds = squares[0]->getBounds();

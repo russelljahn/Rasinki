@@ -51,6 +51,7 @@ class PhysicsSimulator;
 class Player;
 class SoundManager;
 class Network;
+class EnemySpawner;
 
 using namespace std;
 
@@ -103,7 +104,7 @@ public:
     // Miscellaneous
     vector<Player *> playerList;
     map<int, GameObject *> gameObjects;
-
+    EnemySpawner* enemySpawner;
     float getDeltaTime() { return deltaTime; }
 protected:
     virtual bool setup();

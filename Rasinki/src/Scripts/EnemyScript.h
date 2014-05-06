@@ -29,10 +29,10 @@ class EnemyScript : public Script {
 		Grid *grid;
 		GridSquare *lastSquare;
 		GridSquare *currentSquare;
-
-	private:
 		float moveSpeed;
 		int hitPoints;
+
+	private:
 		Pathfinder* pathfinder;
 		list<PathSquare*> _currentPath;
 };

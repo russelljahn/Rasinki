@@ -2,8 +2,8 @@
 #include "GridSquare.h"
 
 EnemyScript::EnemyScript(GameObject *attachedGameObject) : Script(attachedGameObject) {
-	moveSpeed = 500.0f;
-	hitPoints = 5;
+	//moveSpeed = 500.0f;
+	//hitPoints = 5;
 	destination = gameObject->transform->getWorldPosition();
 	gameObject->renderer->setMaterial("Examples/Chrome_Red");
 	Start();

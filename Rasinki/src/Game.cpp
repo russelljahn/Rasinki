@@ -493,22 +493,13 @@ bool Game::keyPressed( const OIS::KeyEvent &arg )
             vp->setCamera(getCamera());
         }
     }
-    /*
+    
     else if (arg.key == OIS::KC_Z)
     {
-        for (int i = 0; i < 10; ++i)
-        {
-            float rot = Ogre::Math::HALF_PI/10;
-            Ogre::Vector3 pos = mCamera->getPosition();
-            Ogre::Vector3 rotPos = Ogre::Vector3::ZERO;
-            rotPos.x = Ogre::Math::Cos(-rot)*pos.x + Ogre::Math::Sin(-rot)*pos.z;
-            rotPos.z = Ogre::Math::Sin(-rot)*-pos.x + Ogre::Math::Cos(-rot)*pos.z;
-            mCamera->setPosition(Ogre::Vector3(rotPos.x, pos.y, rotPos.z));
-            mCamera->lookAt(Ogre::Vector3(0,-200,0));
-            mCamera->setNearClipDistance(5);
-            mRoot->renderOneFrame();
+        if (!enemySpawner->isSpawning()) {
+            enemySpawner->startSpawning();
         }
-    }*/
+    }
     else if (arg.key == OIS::KC_N)
     {
         if (mNetwork != NULL && mNetwork->isServer) {
