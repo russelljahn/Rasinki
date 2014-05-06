@@ -27,6 +27,8 @@ void EnemyScript::Update() {
 	if (_currentPath.size() == 0) {
 	 	//_currentPath = pathfinder->FindPath(0, 0);
 	 	gameObject->physics->setLinearVelocity(veloc);
+	 	gameObject->game->playerList[0]->loseHealth();
+	 	gameObject->Kill();
 	 	return;
 	 }
 	if (_currentPath.size() > 0) {

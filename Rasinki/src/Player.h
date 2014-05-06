@@ -20,6 +20,7 @@ class Player {
 
 		Player(ControlType type);
 		void scored(int points = 1);
+		void loseHealth();
 		int getScore() { return mScore; }
 		void reset() {mScore = 0;}
 		bool IsKeyDown(OIS::KeyCode);
@@ -27,6 +28,7 @@ class Player {
 		ClientInput* clientInput;
 	private:
 		int mScore;
+		int currentHealth;
 		ControlType mControlType;
 };
 #endif
