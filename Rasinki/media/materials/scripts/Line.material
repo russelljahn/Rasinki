@@ -1,0 +1,22 @@
+material Line/Simple
+{
+    technique
+    {
+        pass
+        {
+            ambient vertexcolour
+        }
+    }
+}
+ 
+material Line/NoDepth
+{
+    technique
+    {
+        pass
+        {
+            ambient vertexcolour
+            depth_check off
+        }
+    }
+}

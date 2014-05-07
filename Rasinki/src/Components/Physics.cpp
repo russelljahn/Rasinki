@@ -1,6 +1,6 @@
 #include "Physics.h"
 
-Physics::Physics(GameObject* attachedGameObject, float mass, btCollisionShape* collider, Ogre::Vector3 opos) {
+Physics::Physics(GameObject* attachedGameObject, float mass, btCollisionShape* collider, Ogre::Vector3 opos, bool collides) {
 	//Create rigidbody
 	// std::cout << "attachedGameObject " << (&attachedGameObject != NULL) << std::endl;
 	gameObject = attachedGameObject;
@@ -24,9 +24,11 @@ Physics::Physics(GameObject* attachedGameObject, float mass, btCollisionShape* c
 	//Add rigidbody to world
 	float multiplier = 50;
 	mGravity = btVector3(0,multiplier*-980,0);
-	mRigidBody->setGravity(btVector3(0,multiplier*-980,0));
+	if (!collides)
+		mGravity =btVector3(0,0,0);
+	mRigidBody->setGravity(mGravity);
 	//instance of btDiscreteDynamicsWorld->addRigidBody(mRigidBody)
-	gameObject->game->getPhysicsSimulator()->addObject(mRigidBody);
+	gameObject->game->getPhysicsSimulator()->addObject(mRigidBody, collides);
 	//std::cout << "COLLIDER AT " << pos.x() << ", " << pos.y() << ", " << pos.z() << std::endl;	
 	// std::cout << "<4>" << std::endl;
 	enabled = true;

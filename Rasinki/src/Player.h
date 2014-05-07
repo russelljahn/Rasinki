@@ -5,7 +5,6 @@
 #include "GameObject.h"
 #include <OISEvents.h>
 #include <OISKeyboard.h>
-#include "Network.h"
 
 
 /* Forward Declarations */
@@ -22,7 +21,11 @@ class Player {
 		void scored(int points = 1);
 		void loseHealth();
 		int getScore() { return mScore; }
+		int getGold() { return mGold; }
 		void reset() {mScore = 0;}
+		void changeGold(int ammount) {
+			mGold += ammount;
+		}
 		bool IsKeyDown(OIS::KeyCode);
 
 		int mScore;
@@ -31,6 +34,8 @@ class Player {
 
 		ClientInput* clientInput;
 	private:
+		int mScore;
+    	int mGold;
 		ControlType mControlType;
 };
 #endif

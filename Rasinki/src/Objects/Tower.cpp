@@ -237,6 +237,7 @@ void Tower::Update() {
 			newRotation.x = 0.0f;
 			newRotation.z = 0.0f;
 			this->gameObject->transform->sceneNode->setOrientation(newRotation);
+			this->gameObject->transform->setWorldPosition(towerPosition);
 			return;
 		}
 	}

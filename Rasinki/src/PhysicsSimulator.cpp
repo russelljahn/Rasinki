@@ -43,8 +43,12 @@ PhysicsSimulator::PhysicsSimulator(Ogre::Real fixedTimeStep) {
 	btAlignedObjectArray<btCollisionShape*> collisionShapes;
 	gContactProcessedCallback = OnCollision;
 }
-void PhysicsSimulator::addObject(btRigidBody* body) {
-	dynamicsWorld->addRigidBody(body);
+void PhysicsSimulator::addObject(btRigidBody* body, bool collides) {
+	if (!collides) {
+		dynamicsWorld->addRigidBody(body, 0, 0);
+	}
+	else
+		dynamicsWorld->addRigidBody(body);
 	if (body->getUserPointer() == NULL)
 		return;
 	objList.push_back((GameObject*)(body->getUserPointer()));

@@ -72,6 +72,7 @@ public:
 		currentY = square->y;
 		// cout << "SET CURRENT POS: (" << worldPos.x << ", " << worldPos.y<< ", " << worldPos.z << ") "<<currentX << " " << currentY << std::endl;
 	}
+	static bool ExistsValidPath(Grid* grid, int startX, int startY, int goalX, int goalY, GridSquare* testGrid = NULL);
 private:
 	int currentX, currentY; 
 };

@@ -3,7 +3,6 @@
 #define __Robot_SCRIPT_H__
 
 #include "../Components/Script.h"
-#include "RobotState.h"
 #include "Grid.h"
 #include "GridSquare.h"
 #include "../Objects/Cube.h"
@@ -39,6 +38,7 @@ class RobotScript : public Script {
 		bool right;
 		bool jumping;
 		bool falling;
+		bool upgraded;
 };
 
 

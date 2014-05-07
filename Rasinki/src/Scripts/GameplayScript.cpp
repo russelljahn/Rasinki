@@ -1,6 +1,5 @@
 
 #include "GameplayScript.h"
-#include "SphereComponent.h"
 #include "../Time.h"
 
 bool GameplayScript::gameOver = false;
@@ -29,7 +28,7 @@ void GameplayScript::Update() {
 
 	// std::cout << "SphereComponent::numSpheres: " << SphereComponent::numSpheres << std::endl;
 	
-	if (SphereComponent::numSpheres <= 0 && !GameplayScript::IsGameOver()) {
+	if (!GameplayScript::IsGameOver()) {
 		GameplayScript::gameOver = true;
 		GameplayScript::gameOverTime = Time::time;
 		gameObject->game->getSoundManager()->playSound3();
