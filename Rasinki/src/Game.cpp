@@ -496,8 +496,10 @@ bool Game::keyPressed( const OIS::KeyEvent &arg )
         if (mNetwork != NULL) {
             gameMode = !gameMode;
             CEGUI::EventArgs args;
-            if( gameMode == true )
+            if( gameMode == true ){
                 disableMainMenu();
+                enableGameWindow();
+            }
             else{
                 disableGameWindow();
                 enableMainMenu();
@@ -766,10 +768,22 @@ void Game::createGUI(void) {
     lives->setSize(CEGUI::UVector2(CEGUI::UDim(0.15, 0), CEGUI::UDim(0.05, 0)));
     lives->setPosition(CEGUI::UVector2(CEGUI::UDim(0.0f, 0),CEGUI::UDim(0.1f, 0)));
 
+    CEGUI::Window *towerhelp = wmgr.createWindow("TaharezLook/Button", "towerhelp");
+    towerhelp->setText("Tap 1: turret"); // + playerList[0]->mGold);
+    towerhelp->setSize(CEGUI::UVector2(CEGUI::UDim(0.15, 0), CEGUI::UDim(0.05, 0)));
+    towerhelp->setPosition(CEGUI::UVector2(CEGUI::UDim(0.8f, 0),CEGUI::UDim(0.0f, 0)));
+    
+    CEGUI::Window *wallhelp = wmgr.createWindow("TaharezLook/Button", "wallhelp");
+    wallhelp->setText("Tap 2: wall"); // + playerList[0]->mGold);
+    wallhelp->setSize(CEGUI::UVector2(CEGUI::UDim(0.15, 0), CEGUI::UDim(0.05, 0)));
+    wallhelp->setPosition(CEGUI::UVector2(CEGUI::UDim(0.8f, 0),CEGUI::UDim(0.05f, 0)));
+
     rootWindow->addChildWindow(gameWindow);
     gameWindow->addChildWindow(gold);
     gameWindow->addChildWindow(score);
     gameWindow->addChildWindow(lives);
+    gameWindow->addChildWindow(towerhelp);
+    gameWindow->addChildWindow(wallhelp);
 
     disableGameWindow();
     enableMainMenu();
