@@ -198,6 +198,7 @@ protected:
     //Strings
     string* playerGold;
     string* playerScore;
+    string* playerLives;
 
 
 private:

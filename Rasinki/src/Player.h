@@ -28,13 +28,12 @@ class Player {
 		}
 		bool IsKeyDown(OIS::KeyCode);
 
-		
-		int currentHealth;
+		int mScore;
+    int mGold;
+		int mLives;
 
 		ClientInput* clientInput;
 	private:
-		int mScore;
-    	int mGold;
 		ControlType mControlType;
 };
 #endif
