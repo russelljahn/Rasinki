@@ -245,9 +245,9 @@ void Game::createFrameListener(void)
 //-------------------------------------------------------------------------------------
 void Game::destroyScene(void)
 {
-    for (auto gameObjectIter = gameObjects.begin(); gameObjectIter != gameObjects.end(); ++gameObjectIter) {
+    /*for (auto gameObjectIter = gameObjects.begin(); gameObjectIter != gameObjects.end(); ++gameObjectIter) {
        delete (*gameObjectIter).second;
-    }
+    }*/
     gameObjects.clear();
     playerList[0]->reset();
     mSceneManager->clearScene();

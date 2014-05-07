@@ -7,14 +7,15 @@
 
 RobotScript::RobotScript(GameObject *attachedGameObject) : Script(attachedGameObject) {
     Start();
+    currentTower = 1;
 };
 
 
 
 void RobotScript::Start() {
     Script::Start();
-    glowTile = new Cube(this->gameObject->game, 0);
-    glowTile->transform->setWorldScale(Ogre::Vector3(2.5, .125, 2.5));
+    glowTile = new Tower(this->gameObject->game, 0);
+    //glowTile->transform->setWorldScale(Ogre::Vector3(2.5, .125, 2.5));
     glowTile->physics->disableCollider();
     glowTile->renderer->setMaterial("SquareGlow1");
     jumping = false;
@@ -81,7 +82,26 @@ void RobotScript::Update() {
         gameObject->physics->setLinearVelocity(veloc);
         gameObject->game->setAnimationState(gameObject->renderer->entity->getAnimationState("Walk"));
     }
-
+    if (Input::IsKeyDown(OIS::KC_1)) {
+        if (currentTower != 1) {
+            delete glowTile;
+            glowTile = new Tower(this->gameObject->game, 0);
+            //glowTile->transform->setWorldScale(Ogre::Vector3(2.5, .125, 2.5));
+            glowTile->physics->disableCollider();
+            glowTile->renderer->setMaterial("SquareGlow1");
+        }
+        currentTower = 1;
+    }
+    if (Input::IsKeyDown(OIS::KC_2)) {
+        if (currentTower != 2) {
+            delete glowTile;
+            glowTile = new Cube(this->gameObject->game, 0);
+            glowTile->transform->setWorldScale(Ogre::Vector3(2.5, .5, 2.5));
+            glowTile->physics->disableCollider();
+            glowTile->renderer->setMaterial("SquareGlow1");
+        }
+        currentTower = 2;
+    }
     if (Input::IsKeyDown(OIS::KC_SPACE) && !jumping && !falling) {
         Ogre::Vector3 veloc = gameObject->physics->getLinearVelocity();
         veloc.y = movementSpeed*15;
@@ -149,9 +169,11 @@ void RobotScript::HandleTower() {
         return;
     }
     Ogre::Vector3 squareyPosition = squarey->gameObject->physics->getWorldPosition();    
-
-    glowTile->transform->setWorldPosition(squareyPosition + Ogre::Vector3(0.0f, 10.0f, 0.0f));
-    if (squarey->IsOccupied() || squarey->HasEnemies()) {
+    if (currentTower == 2)
+        glowTile->transform->setWorldPosition(squareyPosition + Ogre::Vector3(0.0f, 10.0f, 0.0f));
+    if (currentTower == 1)
+        glowTile->transform->setWorldPosition(squareyPosition + Ogre::Vector3(0, 68, 40));
+    if (squarey->IsOccupied() || squarey->HasEnemies() || !Pathfinder::ExistsValidPath(grid, 24, 24, 0, 0, squarey)) {
         glowTile->renderer->setMaterial("SquareGlow3");
     }
     else {
@@ -160,7 +182,7 @@ void RobotScript::HandleTower() {
 
     if (Input::mouseReleased) {
         if (!squarey->IsOccupied() && !squarey->HasEnemies() && Pathfinder::ExistsValidPath(grid, 24, 24, 0, 0, squarey)) {
-            if (Input::IsKeyDown(OIS::KC_1))
+            if (currentTower == 1)
             {
                 if ((gameObject->game->playerList[0]->getGold() - 25) >= 0)
                 {
@@ -172,7 +194,7 @@ void RobotScript::HandleTower() {
                     gameObject->game->playerList[0]->changeGold(-25);
                 }
             }
-            else if(Input::IsKeyDown(OIS::KC_2))
+            else if(currentTower == 2)
             {
                 if ((gameObject->game->playerList[0]->getGold() - 5) >= 0)
                 {

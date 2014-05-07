@@ -29,8 +29,10 @@ class RobotScript : public Script {
     void upgradeTower();
 
 		Grid *grid;
-		Cube *glowTile;
+		GameObject *glowTile;
     bool can_move;
+
+    int currentTower;
 	private:
 		bool up;
 		bool down;
