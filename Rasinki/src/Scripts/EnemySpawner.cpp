@@ -19,11 +19,26 @@ EnemySpawner::EnemySpawner(GameObject* game) : Script(game) {
 	Wave wave4(1000, 10, 50, 0.4f, 3);
   //Boss
 	Wave wave5(500, 200, 1, 0.7f, 50);
+  //Boss
+	Wave wave6(500, 200, 1, 0.7f, 50);
+  //Boss
+	Wave wave7(500, 200, 1, 0.7f, 50);
+  //Boss
+	Wave wave8(500, 200, 1, 0.7f, 50);
+  //Boss
+	Wave wave9(500, 200, 1, 0.7f, 50);
+  //Boss
+	Wave wave10(500, 200, 1, 0.7f, 50);
 	waveVector.push_back(wave1);
 	waveVector.push_back(wave2);
 	waveVector.push_back(wave3);
 	waveVector.push_back(wave4);
 	waveVector.push_back(wave5);
+	waveVector.push_back(wave6);
+	waveVector.push_back(wave7);
+	waveVector.push_back(wave8);
+	waveVector.push_back(wave9);
+	waveVector.push_back(wave10);
 }
 void EnemySpawner::Start(){}
 
@@ -32,8 +47,9 @@ void EnemySpawner::Update() {
 		return;
 	}
 	if (waveNum >= waveVector.size()) {
-		waveNum = 0;
+		waveNum++;
 		std::cout << "FINISHED ALL WAVES" << std::endl;
+    gameObject->game->enableWinnerMenu();
 		return;
 	}
 	timeSinceLastSpawn += gameObject->game->getDeltaTime();

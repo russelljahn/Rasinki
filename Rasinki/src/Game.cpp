@@ -295,6 +295,12 @@ bool Game::frameRenderingQueued(const Ogre::FrameEvent& evt)
     if (mShutDown)
         return false;
 
+    if (playerList[0]->mLives <= 0 && lost == false){
+        lost = true;
+        robotScript->can_move = false;
+        disableGameWindow();
+        enableGameOverMenu();
+    }
     //Need to capture/update each device
     mKeyboard->capture();
     mMouse->capture();
@@ -348,10 +354,13 @@ bool Game::keyPressed( const OIS::KeyEvent &arg )
         if( gameMode == true ){
             enableGameWindow();
             disableMainMenu();
+            robotScript->can_move = true;
         }
         else{
             disableGameWindow();
             enableMainMenu();
+            robotScript->can_move = false;
+
         }
     }
     else if (arg.key == OIS::KC_LSHIFT)
@@ -607,6 +616,7 @@ void Game::createGUI(void) {
     taphelp->setSize(CEGUI::UVector2(CEGUI::UDim(0.15, 0), CEGUI::UDim(0.05, 0)));
     taphelp->setPosition(CEGUI::UVector2(CEGUI::UDim(0.8f, 0),CEGUI::UDim(0.1f, 0)));
 
+
     rootWindow->addChildWindow(gameWindow);
     gameWindow->addChildWindow(gold);
     gameWindow->addChildWindow(score);
@@ -673,15 +683,90 @@ void Game::createGUI(void) {
 
     disableTowerMenu();
     enableMainMenu();
+
+
+    winnerMenu = wmgr.createWindow((CEGUI::utf8*)"DefaultWindow", (CEGUI::utf8*)"winnerMenu");  
+
+    CEGUI::Window *winner = wmgr.createWindow("TaharezLook/Button", "winner");
+    winner->setText("You Won!"); // + playerList[0]->mGold);
+    winner->setSize(CEGUI::UVector2(CEGUI::UDim(0.3, 0), CEGUI::UDim(0.15, 0)));
+    winner->setPosition(CEGUI::UVector2(CEGUI::UDim(0.35f, 0),CEGUI::UDim(0.1f, 0)));
+
+    CEGUI::Window *quit2 = wmgr.createWindow("TaharezLook/Button", "quit2");
+    quit2->setText("Quit");
+    quit2->setSize(CEGUI::UVector2(CEGUI::UDim(0.15, 0), CEGUI::UDim(0.05, 0)));
+    quit2->setPosition(CEGUI::UVector2(CEGUI::UDim(0.375f, 0),CEGUI::UDim(0.5f, 0)));
+    quit2->subscribeEvent(CEGUI::PushButton::EventClicked, CEGUI::Event::Subscriber(&Game::quit, this));
+
+    CEGUI::Window *newGame2 = wmgr.createWindow("TaharezLook/Button", "newGame2");
+    newGame2->setText("NewGame");
+    newGame2->setSize(CEGUI::UVector2(CEGUI::UDim(0.15, 0), CEGUI::UDim(0.05, 0)));
+    newGame2->setPosition(CEGUI::UVector2(CEGUI::UDim(0.375f, 0),CEGUI::UDim(0.4f, 0)));
+    newGame2->subscribeEvent(CEGUI::PushButton::EventClicked, CEGUI::Event::Subscriber(&Game::newGame, this));
+
+    rootWindow->addChildWindow(winnerMenu);
+    winnerMenu->addChildWindow(winner);
+    winnerMenu->addChildWindow(newGame2);
+    winnerMenu->addChildWindow(quit2);
+
+    disableWinnerMenu();
+    enableMainMenu();
+
+    gameOverMenu = wmgr.createWindow((CEGUI::utf8*)"DefaultWindow", (CEGUI::utf8*)"gameOverMenu");  
     
+    CEGUI::Window *gameover = wmgr.createWindow("TaharezLook/Button", "gameover");
+    gameover->setText("Game Over"); // + playerList[0]->mGold);
+    gameover->setSize(CEGUI::UVector2(CEGUI::UDim(0.3, 0), CEGUI::UDim(0.15, 0)));
+    gameover->setPosition(CEGUI::UVector2(CEGUI::UDim(0.35f, 0),CEGUI::UDim(0.1f, 0)));
+
+    CEGUI::Window *quit1 = wmgr.createWindow("TaharezLook/Button", "quit1");
+    quit1->setText("Quit");
+    quit1->setSize(CEGUI::UVector2(CEGUI::UDim(0.15, 0), CEGUI::UDim(0.05, 0)));
+    quit1->setPosition(CEGUI::UVector2(CEGUI::UDim(0.375f, 0),CEGUI::UDim(0.5f, 0)));
+    quit1->subscribeEvent(CEGUI::PushButton::EventClicked, CEGUI::Event::Subscriber(&Game::quit, this));
+
+    CEGUI::Window *newGame1 = wmgr.createWindow("TaharezLook/Button", "newGame1");
+    newGame1->setText("NewGame");
+    newGame1->setSize(CEGUI::UVector2(CEGUI::UDim(0.15, 0), CEGUI::UDim(0.05, 0)));
+    newGame1->setPosition(CEGUI::UVector2(CEGUI::UDim(0.375f, 0),CEGUI::UDim(0.4f, 0)));
+    newGame1->subscribeEvent(CEGUI::PushButton::EventClicked, CEGUI::Event::Subscriber(&Game::newGame, this));
     // mainMenu->addChildWindow(hostIP);
     CEGUI::System::getSingleton().setGUISheet(rootWindow);
     Ogre::Root::getSingleton().renderOneFrame();
 
+    rootWindow->addChildWindow(gameOverMenu);
+    gameOverMenu->addChildWindow(gameover);
+    gameOverMenu->addChildWindow(newGame1);
+    gameOverMenu->addChildWindow(quit1);
+
+    disableGameOverMenu();
+    enableMainMenu();
+
     cout << "Done creating GUI..." << endl;
 }
 
-//Tower Menu gui functions
+//Gui functions
+
+void Game::disableWinnerMenu(){
+  winnerMenu->disable();
+  winnerMenu->setVisible(false);
+}
+
+void Game::enableWinnerMenu(){
+  winnerMenu->enable();
+  winnerMenu->setVisible(true);
+}
+
+void Game::disableGameOverMenu(){
+  gameOverMenu->disable();
+  gameOverMenu->setVisible(false);
+}
+
+void Game::enableGameOverMenu(){
+  gameOverMenu->enable();
+  gameOverMenu->setVisible(true);
+}
+
 void Game::disableTowerMenu(){
   towerMenu->disable();
   towerMenu->setVisible(false);
@@ -866,16 +951,31 @@ bool Game::quit(const CEGUI::EventArgs &e){
 
 bool Game::newGame(const CEGUI::EventArgs &e){
     gameMode = true;
+    disableGameOverMenu();
     disableMainMenu();
+    disableWinnerMenu();
     enableGameWindow();
     destroyScene();
     createLights();
     createScene();
+    playerList[0]->mGold = 150;
+    playerList[0]->mScore = 0;
+    playerList[0]->mLives = 10;
+    enemySpawner->waveNum = 0;
+    lost = false;
 }
 bool Game::newGame() {
     gameMode = true;
+    disableGameOverMenu();
     disableMainMenu();
+    disableWinnerMenu();
+    enableGameWindow();
     destroyScene();
     createLights();
     createScene();
+    playerList[0]->mGold = 150;
+    playerList[0]->mScore = 0;
+    playerList[0]->mLives = 10;
+    enemySpawner->waveNum = 0;
+    lost = false;
 }

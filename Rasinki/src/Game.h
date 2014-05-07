@@ -99,15 +99,19 @@ public:
     bool multiplayer;
 
     //Gui
+    virtual void disableWinnerMenu();
+    virtual void enableWinnerMenu(); 
     virtual void disableMainMenu();
     virtual void enableMainMenu();
     virtual void disableGameWindow();
     virtual void enableGameWindow();
+    virtual void disableGameOverMenu();
+    virtual void enableGameOverMenu();
     virtual void disableTowerMenu();
     virtual void enableTowerMenu(bool);
     virtual bool sell(const CEGUI::EventArgs &e);
     virtual bool upgrade(const CEGUI::EventArgs &e);
-
+    bool lost;
     // Miscellaneous
     vector<Player *> playerList;
     map<int, GameObject *> gameObjects;
@@ -191,6 +195,13 @@ protected:
     CEGUI::Window* multiplayerMenu;
     CEGUI::Window* gameWindow;
     CEGUI::Window* towerMenu;
+    CEGUI::Window* gameOverMenu;
+    CEGUI::Window* winnerMenu;
+
+    
+    //Obsolete
+    CEGUI::Window* gameover;
+    CEGUI::Window* winner;
 
 
     
