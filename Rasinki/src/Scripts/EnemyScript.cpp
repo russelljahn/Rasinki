@@ -6,7 +6,7 @@ EnemyScript::EnemyScript(GameObject *attachedGameObject) : Script(attachedGameOb
 	//moveSpeed = 500.0f;
 	//hitPoints = 5;
 	destination = gameObject->transform->getWorldPosition();
-	gameObject->renderer->setMaterial("Examples/Chrome_Red");
+	// gameObject->renderer->setMaterial("Examples/Chrome_Red");
 	Start();
 }
 void EnemyScript::Start() {

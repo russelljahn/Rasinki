@@ -9,16 +9,19 @@ Enemy::Enemy(Game *attachedGame, float mass) : GameObject(attachedGame) {
 
 void Enemy::Start() {
 	ostringstream nameCoverter;
-	nameCoverter << "cube ";
+	nameCoverter << "Enemy ";
 	nameCoverter << id;
 
 	float colliderScale = 50;
 
 	transform = new Transform(this, game->getSceneRoot());
 
-	renderer->entity = game->getSceneManager()->createEntity(nameCoverter.str(), "cube.mesh");
+	renderer->entity = game->getSceneManager()->createEntity(nameCoverter.str(), "ninja.mesh");
 	transform->sceneNode->attachObject(renderer->entity);
 	physics = new Physics(this, mass , new btBoxShape(btVector3(colliderScale,colliderScale,colliderScale)), Ogre::Vector3::ZERO, false);
-	renderer->setMaterial("Examples/Rockwall");
+	renderer->setMaterial("Examples/Ninja");
+	gameObject->renderer->mAnimationState = gameObject->renderer->entity->getAnimationState("Walk");
+	gameObject->renderer->mAnimationState->setLoop(true);
+    gameObject->renderer->mAnimationState->setEnabled(true);
 }
 

@@ -621,8 +621,8 @@ void Game::createLights(void) {
 
     Ogre::Light* directionalLight = mSceneManager->createLight("directionalLight");
     directionalLight->setType(Ogre::Light::LT_DIRECTIONAL);
-    directionalLight->setDirection(Ogre::Vector3(0.25,.25,0));
-    directionalLight->setDiffuseColour(Ogre::ColourValue(.5, .5, .5));
+    directionalLight->setDirection(Ogre::Vector3(0.75,.25,0));
+    directionalLight->setDiffuseColour(Ogre::ColourValue(.25, .25, .25));
     directionalLight->setSpecularColour(Ogre::ColourValue(.25, .25, 0));
 
     Ogre::Light *pointLight = mSceneManager->createLight("pointLight");
@@ -631,39 +631,23 @@ void Game::createLights(void) {
     pointLight->setDiffuseColour(1.0, 0.8, 0.8);
     pointLight->setSpecularColour(1.0, 0.8, 0.8);
 
-    Ogre::Light* spotLight1 = mSceneManager->createLight("spotLight1");
-    spotLight1->setType(Ogre::Light::LT_SPOTLIGHT);
-    spotLight1->setDiffuseColour(0.8, 0.8, 1.0);
-    spotLight1->setSpecularColour(0.8, 0.8, 1.0);
-    spotLight1->setDirection(-1, -1, 0);
-    spotLight1->setPosition(Ogre::Vector3(0, 300, 0));
-    spotLight1->setSpotlightRange(Ogre::Degree(35), Ogre::Degree(50));
-
-    Ogre::Light* spotLight2 = mSceneManager->createLight("spotLight2");
-    spotLight2->setType(Ogre::Light::LT_SPOTLIGHT);
-    spotLight2->setDiffuseColour(1.0, 0.8, 0.8);
-    spotLight2->setSpecularColour(1.0, 0.8, 0.8);
-    spotLight2->setDirection(-1, 1, 0);
-    spotLight2->setPosition(Ogre::Vector3(0, -300, 0));
-    spotLight2->setSpotlightRange(Ogre::Degree(35), Ogre::Degree(50));
-
-    Ogre::Light* spotLight3 = mSceneManager->createLight("spotLight3");
-    spotLight3->setType(Ogre::Light::LT_SPOTLIGHT);
-    spotLight3->setDiffuseColour(1.0, 0.8, 0.8);
-    spotLight3->setSpecularColour(1.0, 0.8, 0.8);
-    spotLight3->setDirection(1, -1, 0);
-    spotLight3->setPosition(Ogre::Vector3(0, 300, 0));
-    spotLight3->setSpotlightRange(Ogre::Degree(35), Ogre::Degree(50));
+    // Ogre::Light* spotLight3 = mSceneManager->createLight("spotLight3");
+    // spotLight3->setType(Ogre::Light::LT_SPOTLIGHT);
+    // spotLight3->setDiffuseColour(1.0, 0.8, 0.8);
+    // spotLight3->setSpecularColour(1.0, 0.8, 0.8);
+    // spotLight3->setDirection(1, -1, 0);
+    // spotLight3->setPosition(Ogre::Vector3(0, 300, 0));
+    // spotLight3->setSpotlightRange(Ogre::Degree(35), Ogre::Degree(50));
 
     Ogre::Light* spotLight4 = mSceneManager->createLight("spotLight4");
     spotLight4->setType(Ogre::Light::LT_SPOTLIGHT);
     spotLight4->setDiffuseColour(0.8, 0.8, 1.0);
     spotLight4->setSpecularColour(0.8, 0.8, 1.0);
-    spotLight4->setDirection(1, 1, 0);
+    spotLight4->setDirection(.25, .4, 0);
     spotLight4->setPosition(Ogre::Vector3(0, -300, 0));
     spotLight4->setSpotlightRange(Ogre::Degree(35), Ogre::Degree(50));
 
-    mSceneManager->setAmbientLight(Ogre::ColourValue(.35, .35, .35));
+    mSceneManager->setAmbientLight(Ogre::ColourValue(.5, .5, .5));
     mSceneManager->setShadowTechnique(Ogre::SHADOWTYPE_STENCIL_ADDITIVE);
     mSceneManager->setShadowColour(Ogre::ColourValue::Black);
 
