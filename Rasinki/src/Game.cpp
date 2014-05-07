@@ -960,7 +960,7 @@ bool Game::newGame(const CEGUI::EventArgs &e){
     createScene();
     playerList[0]->mGold = 150;
     playerList[0]->mScore = 0;
-    playerList[0]->mLives = 10;
+    playerList[0]->mLives = 25;
     enemySpawner->waveNum = 0;
     lost = false;
 }
