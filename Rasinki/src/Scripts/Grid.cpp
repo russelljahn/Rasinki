@@ -2,6 +2,7 @@
 #include "GridSquare.h"
 #include "../Objects/Cube.h"
 #include "EnemySpawner.h"
+#include "../Objects/SpawnPoint.h"
 #include <ctime>
 
 Grid::Grid(GameObject *attachedGameObject) : Script(attachedGameObject) {
@@ -22,6 +23,10 @@ Grid::Grid(GameObject *attachedGameObject) : Script(attachedGameObject) {
             cube->physics->disableCollider();
 
             squares[i*width + j] = square;
+            if (i == width-1 && j == depth-1) {
+                SpawnPoint *spawnPoint = new SpawnPoint(this->gameObject->game);
+                spawnPoint->gameObject->transform->setWorldPosition(position + Ogre::Vector3(0, 5, 0));
+            }
         }
     }
     EnemySpawner *enemySpawnerScript = squares[width*depth - 1]->gameObject->AddComponentOfType<EnemySpawner>();
