@@ -20,7 +20,8 @@ class Tower : public GameObject {
 		void Update();
 		void FixedUpdate();
 		void Initialize();
-
+		void setUpgraded(bool u);
+		bool isUpgraded() { return upgraded; }
 		void OnCollision(Ogre::Vector3 point, GameObject* collidedWith);
 
 		std::vector<GridSquare *> inRangeSquares;
@@ -28,10 +29,11 @@ class Tower : public GameObject {
 		Grid *grid;
 
     //Upgrades
-    bool upgraded;
 	private:
 		float weaponCooldownTime;
+		int damage;
 		float timeLastAttack;
+		bool upgraded;
 };
 
 
