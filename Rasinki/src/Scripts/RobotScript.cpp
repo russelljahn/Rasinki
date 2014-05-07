@@ -103,6 +103,13 @@ void RobotScript::Update() {
     // gameObject->game->getCamera()->setNearClipDistance(5);
 }
 
+void RobotScript::sellTower(){
+    Ogre::Vector3 forward = gameObject->transform->sceneNode->getOrientation() * Ogre::Vector3(1,0,0)*250;
+    GridSquare *squarey = grid->gridSquareAtPos(this->gameObject->physics->getWorldPosition() + forward);
+    delete squarey->occupant;
+    squarey->occupant = NULL;
+
+}
 
 
 void RobotScript::HandleTower() {
@@ -141,8 +148,7 @@ void RobotScript::HandleTower() {
             }
         }
         else if (squarey->IsOccupied()) {
-            delete squarey->occupant;
-            squarey->occupant = NULL;
+          gameObject->game->enableTowerMenu();
         }
         
     }

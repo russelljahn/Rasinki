@@ -1146,7 +1146,13 @@ Rasinki-main.o: src/main.cpp src/Game.h \
  /usr/include/OGRE/OgreDataStream.h /usr/include/OGRE/OgreWorkQueue.h \
  /usr/include/OGRE/Terrain/OgreTerrainGroup.h \
  /usr/include/OGRE/Terrain/OgreTerrain.h \
- /usr/include/OGRE/OgreIteratorWrappers.h
+ /usr/include/OGRE/OgreIteratorWrappers.h src/Scripts/RobotScript.h \
+ src/Scripts/../Components/Script.h src/Scripts/RobotState.h \
+ src/Scripts/Grid.h src/Scripts/GridSquare.h \
+ src/Scripts/../Objects/Cube.h src/Scripts/../Objects/Tower.h \
+ src/Scripts/../Objects/../Scripts/GridSquare.h \
+ src/Scripts/../Objects/../Scripts/Grid.h \
+ src/Scripts/../Objects/Barrier.h
 
 src/Game.h:
 
@@ -3799,3 +3805,23 @@ src/Input.h:
 /usr/include/OGRE/Terrain/OgreTerrain.h:
 
 /usr/include/OGRE/OgreIteratorWrappers.h:
+
+src/Scripts/RobotScript.h:
+
+src/Scripts/../Components/Script.h:
+
+src/Scripts/RobotState.h:
+
+src/Scripts/Grid.h:
+
+src/Scripts/GridSquare.h:
+
+src/Scripts/../Objects/Cube.h:
+
+src/Scripts/../Objects/Tower.h:
+
+src/Scripts/../Objects/../Scripts/GridSquare.h:
+
+src/Scripts/../Objects/../Scripts/Grid.h:
+
+src/Scripts/../Objects/Barrier.h:

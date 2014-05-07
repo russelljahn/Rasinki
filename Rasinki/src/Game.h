@@ -44,7 +44,6 @@
 #include <Terrain/OgreTerrain.h>
 #include <Terrain/OgreTerrainGroup.h>
 
-
 /*Foward Declarations*/
 class GameObject;
 class PhysicsSimulator;
@@ -128,8 +127,14 @@ protected:
     virtual bool onClickBackFromMultiplayerMenu(const CEGUI::EventArgs &e);
     virtual void disableMainMenu();
     virtual void enableMainMenu();
+    virtual void disableGameWindow();
+    virtual void enableGameWindow();
     virtual void disableMultiplayerMenu();
     virtual void enableMultiplayerMenu();
+    virtual void disableTowerMenu();
+    virtual void enableTowerMenu();
+    virtual void sell();
+    virtual void upgrade();
 
 
     // OIS::KeyListener
@@ -192,6 +197,17 @@ protected:
 
     CEGUI::Window* mainMenu;
     CEGUI::Window* multiplayerMenu;
+    CEGUI::Window* gameWindow;
+    CEGUI::Window* towerMenu;
+
+
+    RobotScript *robotScript;
+    
+    
+    //Strings
+    string* playerGold;
+    string* playerScore;
+
 
 private:
     //Ogre Terrain
