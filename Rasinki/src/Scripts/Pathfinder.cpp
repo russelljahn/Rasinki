@@ -15,6 +15,21 @@ void Pathfinder::Initialize(Grid* grid) {
     }
   } 
 }
+bool Pathfinder::ExistsValidPath(Grid* grid, int startX, int startY, int goalX, int goalY, GridSquare* testSquare) {
+   GameObject* previousGO;
+  if (testSquare != NULL) {
+    previousGO = testSquare->occupant;
+    testSquare->occupant = grid->gameObject;
+  }
+  Pathfinder p(NULL);
+  p.currentX = startX;
+  p.currentY = startY;
+  p.Initialize(grid);
+  bool result = p.FindPath(goalX, goalY).size() > 0;
+  if (testSquare != NULL)
+    testSquare->occupant = previousGO;
+  return result;
+}
 list<PathSquare*> Pathfinder::FindPath(int goalX, int goalY) {
   for (int i = 0; i < gridWidth; i++) {
     for (int j = 0; j < gridDepth; j++) {

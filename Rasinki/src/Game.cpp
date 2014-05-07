@@ -389,12 +389,12 @@ bool Game::frameRenderingQueued(const Ogre::FrameEvent& evt)
     mMouse->capture();
     
     *playerGold = string("Gold: ");
-    int num = playerList[0]->mGold;       // number to be converted to a string
+    int num = playerList[0]->getGold();       // number to be converted to a string
     ostringstream convert;   // stream used for the conversion
     convert << num;      // insert the textual representation of 'Number' in the characters in the stream
     playerGold->append(convert.str()); // set 'Result' to the contents of the stream
     *playerScore = string("Score: ");
-    num = playerList[0]->mScore;       // number to be converted to a string
+    num = playerList[0]->getScore();       // number to be converted to a string
     convert;   // stream used for the conversion
     convert << num;      // insert the textual representation of 'Number' in the characters in the stream
     playerScore->append(convert.str()); // set 'Result' to the contents of the stream

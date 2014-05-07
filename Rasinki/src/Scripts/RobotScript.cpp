@@ -3,6 +3,7 @@
 #include "RobotScript.h"
 #include "../Input.h"
 #include <string>
+#include "Pathfinder.h"
 
 RobotScript::RobotScript(GameObject *attachedGameObject) : Script(attachedGameObject) {
     Start();
@@ -113,7 +114,7 @@ void RobotScript::sellTower(){
     GridSquare *squarey = grid->gridSquareAtPos(this->gameObject->physics->getWorldPosition() + forward);
     delete squarey->occupant;
     squarey->occupant = NULL;
-    gameObject->game->playerList[0]->mGold += 13;
+    gameObject->game->playerList[0]->changeGold(13);
     return;
 }
 
@@ -158,27 +159,27 @@ void RobotScript::HandleTower() {
     }
 
     if (Input::mouseReleased) {
-        if (!squarey->IsOccupied() && !squarey->HasEnemies()) {
+        if (!squarey->IsOccupied() && !squarey->HasEnemies() && Pathfinder::ExistsValidPath(grid, 24, 24, 0, 0, squarey)) {
             if (Input::IsKeyDown(OIS::KC_1))
             {
-                if ((gameObject->game->playerList[0]->mGold - 25) >= 0)
+                if ((gameObject->game->playerList[0]->getGold() - 25) >= 0)
                 {
                     Tower *tower = new Tower(this->gameObject->game,0);
                     tower->physics->setWorldPosition(squareyPosition + Ogre::Vector3(00.0f, 65.0f, 40.0f));
                     tower->grid = grid;
                     tower->Initialize();
                     squarey->occupant = tower;
-                    gameObject->game->playerList[0]->mGold -= 25;
+                    gameObject->game->playerList[0]->changeGold(-25);
                 }
             }
             else if(Input::IsKeyDown(OIS::KC_2))
             {
-                if ((gameObject->game->playerList[0]->mGold - 5) >= 0)
+                if ((gameObject->game->playerList[0]->getGold() - 5) >= 0)
                 {
                     Barrier *barrier = new Barrier(this->gameObject->game);
                     barrier->physics->setWorldPosition(squareyPosition);
                     squarey->occupant = barrier;
-                    gameObject->game->playerList[0]->mGold -= 5;
+                    gameObject->game->playerList[0]->changeGold(-5);
                 }
             }
         }
