@@ -1,6 +1,7 @@
 #include "EnemyScript.h"
 #include "GridSquare.h"
 #include "Time.h"
+#include "Objects/Explosion.h"
 #include "EnemySpawner.h"
 
 EnemyScript::EnemyScript(GameObject *attachedGameObject) : Script(attachedGameObject) {
@@ -85,6 +86,9 @@ void EnemyScript::Update() {
 void EnemyScript::Attacked() {
 	hitPoints --;
 	std::cout << "ENEMY SHOT ID: " << gameObject->id << " HP REMAINING: " << hitPoints << std::endl;
+	Explosion* ex = new Explosion(gameObject->game);
+	ex->transform->setWorldPosition(gameObject->transform->getWorldPosition() + Ogre::Vector3(0, 120, 0));
+	ex->transform->setWorldScale(Ogre::Vector3(4,4,4));
 	if (hitPoints == 0) {
 		gameObject->game->playerList[0]->changeGold(gameObject->game->enemySpawner->waveVector[gameObject->game->enemySpawner->waveNum].reward);
 		currentSquare->RemoveEnemy(this);
