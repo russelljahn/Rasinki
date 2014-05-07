@@ -4,7 +4,7 @@ Player::Player(ControlType type) {
 	mControlType = type;
 	mScore = 99; //Debug purposes
   mGold = 100; //Debug purposes
-	currentHealth = 10;
+	mLives = 10;
 	deltaScore = 0;
 	clientInput = NULL;
 }
@@ -19,6 +19,6 @@ bool Player::IsKeyDown(OIS::KeyCode key) {
 	return false;
 }
 void Player::loseHealth(){
-	currentHealth--;
-	std::cout<< "Player lost health, current health: " << currentHealth <<std::endl;
+	mLives--;
+	std::cout<< "Player lost a life, current lives: " << mLives <<std::endl;
 }
