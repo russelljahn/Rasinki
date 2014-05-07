@@ -14,7 +14,7 @@ RobotScript::RobotScript(GameObject *attachedGameObject) : Script(attachedGameOb
 
 void RobotScript::Start() {
     Script::Start();
-    glowTile = new Tower(this->gameObject->game, 0);
+    glowTile = new Tower(this->gameObject->game);
     //glowTile->transform->setWorldScale(Ogre::Vector3(2.5, .125, 2.5));
     glowTile->physics->disableCollider();
     glowTile->renderer->setMaterial("SquareGlow1");
@@ -85,7 +85,7 @@ void RobotScript::Update() {
     if (Input::IsKeyDown(OIS::KC_1)) {
         if (currentTower != 1) {
             delete glowTile;
-            glowTile = new Tower(this->gameObject->game, 0);
+            glowTile = new Tower(this->gameObject->game);
             //glowTile->transform->setWorldScale(Ogre::Vector3(2.5, .125, 2.5));
             glowTile->physics->disableCollider();
             glowTile->renderer->setMaterial("SquareGlow1");
@@ -146,7 +146,7 @@ void RobotScript::upgradeTower(){
     squarey->occupant = NULL;
 
     Ogre::Vector3 squareyPosition = squarey->gameObject->physics->getWorldPosition();
-    Tower *tower = new Tower(this->gameObject->game,0);
+    Tower *tower = new Tower(this->gameObject->game, "turret_02.mesh");
     Ogre::Vector3 scale = tower->transform->getWorldScale();
     tower->transform->setWorldScale(scale*1.25);
     tower->grid = grid;
@@ -191,7 +191,7 @@ void RobotScript::HandleTower() {
             {
                 if ((gameObject->game->playerList[0]->getGold() - 25) >= 0)
                 {
-                    Tower *tower = new Tower(this->gameObject->game,0);
+                    Tower *tower = new Tower(this->gameObject->game);
                     tower->physics->setWorldPosition(squareyPosition + Ogre::Vector3(00.0f, 65.0f, 40.0f));
                     tower->grid = grid;
                     tower->Initialize();
