@@ -880,8 +880,7 @@ Rasinki-PhysicsSimulator.o: src/PhysicsSimulator.cpp \
  /usr/include/OGRE/OgrePanelOverlayElement.h \
  /usr/include/OGRE/OgreTextAreaOverlayElement.h \
  /usr/include/OGRE/SdkCameraMan.h src/PhysicsSimulator.h src/Player.h \
- src/Network.h src/Game.h /usr/include/SDL/SDL_net.h \
- /usr/include/SDL/SDL.h /usr/include/SDL/SDL_main.h \
+ src/SoundManager.h /usr/include/SDL/SDL.h /usr/include/SDL/SDL_main.h \
  /usr/include/SDL/SDL_stdinc.h /usr/include/SDL/SDL_config.h \
  /usr/include/SDL/SDL_platform.h /usr/include/strings.h \
  /usr/include/inttypes.h /usr/include/iconv.h \
@@ -895,7 +894,8 @@ Rasinki-PhysicsSimulator.o: src/PhysicsSimulator.cpp \
  /usr/include/SDL/SDL_mouse.h /usr/include/SDL/SDL_video.h \
  /usr/include/SDL/SDL_joystick.h /usr/include/SDL/SDL_quit.h \
  /usr/include/SDL/SDL_loadso.h /usr/include/SDL/SDL_timer.h \
- /usr/include/SDL/SDL_version.h src/Input.h \
+ /usr/include/SDL/SDL_version.h /usr/include/SDL/SDL_mixer.h \
+ /usr/include/SDL/SDL_types.h src/Input.h \
  /usr/local/include/CEGUI/CEGUI.h \
  /usr/local/include/CEGUI/CEGUIAffector.h \
  /usr/local/include/CEGUI/CEGUIString.h \
@@ -1126,8 +1126,6 @@ Rasinki-PhysicsSimulator.o: src/PhysicsSimulator.cpp \
  /usr/local/include/CEGUI/elements/CEGUITreeItem.h \
  /usr/local/include/CEGUI/elements/CEGUITreeProperties.h \
  /usr/local/include/CEGUI/elements/CEGUIVerticalLayoutContainer.h \
- src/SoundManager.h /usr/include/SDL/SDL.h /usr/include/SDL/SDL_mixer.h \
- /usr/include/SDL/SDL_types.h src/Input.h \
  /usr/local/include/CEGUI/RendererModules/Ogre/CEGUIOgreRenderer.h \
  /usr/local/include/CEGUI/RendererModules/Ogre/../../CEGUIRenderer.h \
  /usr/local/include/CEGUI/RendererModules/Ogre/../../CEGUISize.h \
@@ -3210,11 +3208,7 @@ src/PhysicsSimulator.h:
 
 src/Player.h:
 
-src/Network.h:
-
-src/Game.h:
-
-/usr/include/SDL/SDL_net.h:
+src/SoundManager.h:
 
 /usr/include/SDL/SDL.h:
 
@@ -3273,6 +3267,10 @@ src/Game.h:
 /usr/include/SDL/SDL_timer.h:
 
 /usr/include/SDL/SDL_version.h:
+
+/usr/include/SDL/SDL_mixer.h:
+
+/usr/include/SDL/SDL_types.h:
 
 src/Input.h:
 
@@ -3735,16 +3733,6 @@ src/Input.h:
 /usr/local/include/CEGUI/elements/CEGUITreeProperties.h:
 
 /usr/local/include/CEGUI/elements/CEGUIVerticalLayoutContainer.h:
-
-src/SoundManager.h:
-
-/usr/include/SDL/SDL.h:
-
-/usr/include/SDL/SDL_mixer.h:
-
-/usr/include/SDL/SDL_types.h:
-
-src/Input.h:
 
 /usr/local/include/CEGUI/RendererModules/Ogre/CEGUIOgreRenderer.h:
 
