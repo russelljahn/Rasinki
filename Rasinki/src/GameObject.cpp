@@ -43,14 +43,21 @@ GameObject::GameObject(Game *attachedGame, int playerNum) {
 	this->game->gameObjects.insert(std::pair<int, GameObject *>(this->id, this));
 }
 GameObject::~GameObject() {
+	std::cout << "	delete physics" << std::endl;
 	if (physics != NULL)
 		delete physics;
-	delete renderer;
+	std::cout << "	delete renderer" << std::endl;
+	if (renderer != NULL)
+		delete renderer;
+	std::cout << "	delete transform" << std::endl;
 	if (transform != NULL)
 		delete transform;
+	
+	std::cout << "	delete components" << std::endl;
 	for (auto componentsIter = components.begin(); componentsIter != components.end(); ++componentsIter) {
        delete (*componentsIter);
     }
+    std::cout << "	erase from gameObjects" << std::endl;
     this->game->gameObjects.erase(this->id);
 	// components.clear();
 }

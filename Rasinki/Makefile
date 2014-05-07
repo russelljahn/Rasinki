@@ -111,12 +111,21 @@ distuninstallcheck_listfiles = find . -type f -print
 am__distuninstallcheck_listfiles = $(distuninstallcheck_listfiles) \
   | sed 's|^\./|$(prefix)/|' | grep -v '$(infodir)/dir$$'
 distcleancheck_listfiles = find . -type f -print
+<<<<<<< HEAD
 ACLOCAL = ${SHELL} /v/filer4b/v38q001/wrj322/CS354R/Rasinki/Rasinki/missing --run aclocal-1.11
 AMTAR = $${TAR-tar}
 AR = ar
 AUTOCONF = ${SHELL} /v/filer4b/v38q001/wrj322/CS354R/Rasinki/Rasinki/missing --run autoconf
 AUTOHEADER = ${SHELL} /v/filer4b/v38q001/wrj322/CS354R/Rasinki/Rasinki/missing --run autoheader
 AUTOMAKE = ${SHELL} /v/filer4b/v38q001/wrj322/CS354R/Rasinki/Rasinki/missing --run automake-1.11
+=======
+ACLOCAL = ${SHELL} /u/safaa/CS354R/Assignment3/Rasinki/Rasinki/missing --run aclocal-1.11
+AMTAR = $${TAR-tar}
+AR = ar
+AUTOCONF = ${SHELL} /u/safaa/CS354R/Assignment3/Rasinki/Rasinki/missing --run autoconf
+AUTOHEADER = ${SHELL} /u/safaa/CS354R/Assignment3/Rasinki/Rasinki/missing --run autoheader
+AUTOMAKE = ${SHELL} /u/safaa/CS354R/Assignment3/Rasinki/Rasinki/missing --run automake-1.11
+>>>>>>> 3d5d5138a0401fbd79c061f49bcf2645a5cc722e
 AWK = gawk
 BULLET_CFLAGS = 
 BULLET_LIBS = 
@@ -159,7 +168,11 @@ LIBTOOL = $(SHELL) $(top_builddir)/libtool
 LIPO = 
 LN_S = ln -s
 LTLIBOBJS = 
+<<<<<<< HEAD
 MAKEINFO = ${SHELL} /v/filer4b/v38q001/wrj322/CS354R/Rasinki/Rasinki/missing --run makeinfo
+=======
+MAKEINFO = ${SHELL} /u/safaa/CS354R/Assignment3/Rasinki/Rasinki/missing --run makeinfo
+>>>>>>> 3d5d5138a0401fbd79c061f49bcf2645a5cc722e
 MANIFEST_TOOL = :
 MKDIR_P = /bin/mkdir -p
 NM = /usr/bin/nm -B
@@ -197,10 +210,17 @@ SET_MAKE =
 SHELL = /bin/bash
 STRIP = strip
 VERSION = 0.1
+<<<<<<< HEAD
 abs_builddir = /v/filer4b/v38q001/wrj322/CS354R/Rasinki/Rasinki
 abs_srcdir = /v/filer4b/v38q001/wrj322/CS354R/Rasinki/Rasinki
 abs_top_builddir = /v/filer4b/v38q001/wrj322/CS354R/Rasinki/Rasinki
 abs_top_srcdir = /v/filer4b/v38q001/wrj322/CS354R/Rasinki/Rasinki
+=======
+abs_builddir = /u/safaa/CS354R/Assignment3/Rasinki/Rasinki
+abs_srcdir = /u/safaa/CS354R/Assignment3/Rasinki/Rasinki
+abs_top_builddir = /u/safaa/CS354R/Assignment3/Rasinki/Rasinki
+abs_top_srcdir = /u/safaa/CS354R/Assignment3/Rasinki/Rasinki
+>>>>>>> 3d5d5138a0401fbd79c061f49bcf2645a5cc722e
 ac_ct_AR = ar
 ac_ct_CC = gcc
 ac_ct_CXX = g++
@@ -232,7 +252,11 @@ host_vendor = unknown
 htmldir = ${docdir}
 includedir = ${prefix}/include
 infodir = ${datarootdir}/info
+<<<<<<< HEAD
 install_sh = ${SHELL} /v/filer4b/v38q001/wrj322/CS354R/Rasinki/Rasinki/install-sh
+=======
+install_sh = ${SHELL} /u/safaa/CS354R/Assignment3/Rasinki/Rasinki/install-sh
+>>>>>>> 3d5d5138a0401fbd79c061f49bcf2645a5cc722e
 libdir = ${exec_prefix}/lib
 libexecdir = ${exec_prefix}/libexec
 localedir = ${datarootdir}/locale
