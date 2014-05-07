@@ -34,8 +34,6 @@ class Player {
 
 		ClientInput* clientInput;
 	private:
-		int mScore;
-    	int mGold;
 		ControlType mControlType;
 };
 #endif
