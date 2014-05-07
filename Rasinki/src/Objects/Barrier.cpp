@@ -25,9 +25,9 @@ void Barrier::Start() {
 	physics = new Physics(this, 0, new btBoxShape(btVector3(scale, scale, scale)));
 	physics->setLinearFactor(Ogre::Vector3(1,0,1));
 
-	renderer->setMaterial("Examples/Rockwall");
+	renderer->setMaterial("Brick1");
 
-	transform->setWorldScale(Ogre::Vector3(2.5, 1, 2.5));
+	transform->setWorldScale(Ogre::Vector3(2.5, 2, 2.5));
 
 }
 

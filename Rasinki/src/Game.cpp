@@ -1,19 +1,23 @@
 #include <Game.h>
 #include <iostream>
+#include <stdlib.h>
 
 using namespace std;
 
 #include "Game.h"
 #include "Time.h"
 
-#include "Scripts/RobotScript.h"
 #include "Scripts/GameplayScript.h"
 #include "Scripts/Grid.h"
 #include "Scripts/GridSquare.h"
-#include "Scripts/EnemyScript.h"
 #include "Scripts/Pathfinder.h"
 #include "Scripts/EnemySpawner.h"
+#include "Scripts/EnemyScript.h"
+#include "Scripts/RobotScript.h"
 
+
+#include "Objects/Sphere.h"
+#include "Objects/Plane.h"
 #include "Objects/Cube.h"
 #include "Objects/Robot.h"
 
@@ -224,7 +228,6 @@ void Game::createFrameListener(void)
     statsPanelItems.push_back("Score");
     statsPanelItems.push_back("Balls Left");
     mStatsPanel = mTrayManager->createParamsPanel(OgreBites::TL_NONE, "StatsPanel", 200, statsPanelItems);
-    mStatsPanel->hide();
 
     // create a params panel for displaying game over details
     Ogre::StringVector gameOverPanelItems;
@@ -249,8 +252,9 @@ void Game::destroyScene(void)
     mSceneManager->clearScene();
     Time::Reset();
 
-    mStatsPanel->hide();
+    mStatsPanel->show();
     mGameOverPanel->hide();
+    SphereComponent::numSpheres = 0;
 }
 //-------------------------------------------------------------------------------------
 void Game::createViewports(void)
@@ -384,6 +388,20 @@ bool Game::frameRenderingQueued(const Ogre::FrameEvent& evt)
     //Need to capture/update each device
     mKeyboard->capture();
     mMouse->capture();
+    
+    *playerGold = string("Gold: ");
+    int num = playerList[0]->mGold;       // number to be converted to a string
+    ostringstream convert;   // stream used for the conversion
+    convert << num;      // insert the textual representation of 'Number' in the characters in the stream
+    playerGold->append(convert.str()); // set 'Result' to the contents of the stream
+    *playerScore = string("Score: ");
+    num = playerList[0]->mScore;       // number to be converted to a string
+    convert;   // stream used for the conversion
+    convert << num;      // insert the textual representation of 'Number' in the characters in the stream
+    playerScore->append(convert.str()); // set 'Result' to the contents of the stream
+    gameWindow->getChild("gold")->setText(*playerGold);
+    gameWindow->getChild("score")->setText(*playerScore);
+
 
     mTrayManager->frameRenderingQueued(evt);
     CEGUI::System::getSingleton().injectTimePulse(evt.timeSinceLastFrame);
@@ -465,8 +483,10 @@ bool Game::keyPressed( const OIS::KeyEvent &arg )
             CEGUI::EventArgs args;
             if( gameMode == true )
                 disableMainMenu();
-            else
+            else{
+                disableGameWindow();
                 enableMainMenu();
+            }
         }
     }
     else if (arg.key == OIS::KC_LSHIFT)
@@ -715,6 +735,72 @@ void Game::createGUI(void) {
 //     mainMenu->addChildWindow(level1);
 //     mainMenu->addChildWindow(connectToGame);
 
+    // Game Window
+    gameWindow = wmgr.createWindow((CEGUI::utf8*)"DefaultWindow", (CEGUI::utf8*)"gameWindow");  
+    
+    playerGold = new string(); 
+    playerScore = new string();
+
+    *playerGold = string("Gold: ");
+    *playerScore = string("Score: ");
+
+    CEGUI::Window *gold = wmgr.createWindow("TaharezLook/Button", "gold");
+    gold->setText(*playerGold); // + playerList[0]->mGold);
+    gold->setSize(CEGUI::UVector2(CEGUI::UDim(0.15, 0), CEGUI::UDim(0.05, 0)));
+    gold->setPosition(CEGUI::UVector2(CEGUI::UDim(0.0f, 0),CEGUI::UDim(0.0f, 0)));
+    gold->subscribeEvent(CEGUI::PushButton::EventClicked, CEGUI::Event::Subscriber(&Game::quit, this));
+
+    CEGUI::Window *score = wmgr.createWindow("TaharezLook/Button", "score");
+    score->setText(*playerScore); // + playerList[0]->mScore);
+
+    score->setSize(CEGUI::UVector2(CEGUI::UDim(0.15, 0), CEGUI::UDim(0.05, 0)));
+    score->setPosition(CEGUI::UVector2(CEGUI::UDim(0.0f, 0),CEGUI::UDim(0.05f, 0)));
+    score->subscribeEvent(CEGUI::PushButton::EventClicked, CEGUI::Event::Subscriber(&Game::newGame, this));
+    
+
+    rootWindow->addChildWindow(gameWindow);
+    gameWindow->addChildWindow(gold);
+    gameWindow->addChildWindow(score);
+
+    disableGameWindow();
+    enableMainMenu();
+
+    // Tower Menu
+    towerMenu = wmgr.createWindow((CEGUI::utf8*)"DefaultWindow", (CEGUI::utf8*)"towerMenu");  
+    CEGUI::Window *towerBackground = wmgr.createWindow("TaharezLook/StaticImage", "tbackground");
+    towerBackground->setPosition( CEGUI::UVector2( CEGUI::UDim( 0.4f, 0.0f ), CEGUI::UDim( 0.4f, 0.0f) ) );
+    towerBackground->setSize( CEGUI::UVector2( CEGUI::UDim( 0.6f, 0.0f ), CEGUI::UDim( 0.6f, 0.0f ) ) );  // full screen
+    
+    playerGold = new string(); 
+    playerScore = new string();
+
+    *playerGold = string("Gold: ");
+    *playerScore = string("Score: ");
+
+    CEGUI::Window *sell = wmgr.createWindow("TaharezLook/Button", "sell");
+    sell->setText("Sell"); 
+    sell->setSize(CEGUI::UVector2(CEGUI::UDim(0.15, 0), CEGUI::UDim(0.05, 0)));
+    sell->setPosition(CEGUI::UVector2(CEGUI::UDim(0.375f, 0),CEGUI::UDim(0.5f, 0)));
+    sell->subscribeEvent(CEGUI::PushButton::EventClicked, CEGUI::Event::Subscriber(&Game::sell, this));
+
+    CEGUI::Window *upgrade = wmgr.createWindow("TaharezLook/Button", "upgrade");
+    upgrade->setText(Upgrade);
+
+    upgrade->setSize(CEGUI::UVector2(CEGUI::UDim(0.15, 0), CEGUI::UDim(0.05, 0)));
+    upgrade->setPosition(CEGUI::UVector2(CEGUI::UDim(0.375f, 0),CEGUI::UDim(0.4f, 0)));
+    upgrade->subscribeEvent(CEGUI::PushButton::EventClicked, CEGUI::Event::Subscriber(&Game::upgrade, this));
+    
+
+    rootWindow->addChildWindow(towerMenu);
+    towerMenu->addChildWindow(towerBackground);
+    towerBackground->addChildWindow(sell);
+    towerBackground->addChildWindow(upgrade);
+
+    disableTowerMenu();
+    enableMainMenu();
+    
+
+
     // Multiplayer Menu
     multiplayerMenu = wmgr.createWindow((CEGUI::utf8*)"DefaultWindow", (CEGUI::utf8*)"multiplayerMenu");  
 
@@ -760,6 +846,30 @@ bool Game::onClickBackFromMultiplayerMenu(const CEGUI::EventArgs &e) {
     disableMultiplayerMenu();
     Ogre::Root::getSingleton().renderOneFrame();
 }
+//Tower Menu gui functions
+void Game::disableTowerMenu(){
+  towerMenu->disable();
+  towerMenu->setVisible(false);
+}
+
+void Game::enableTowerMenu(){
+  towerMenu->enable();
+  towerMenu->setVisible(true);
+}
+
+void Game::sell(){
+  //TODO: update player resources
+  robotScript->sellTower();
+  disableTowerMenu();
+}
+
+void Game::upgrade(){
+  //TODO: This function
+  disableTowerMenu();
+  return;
+}
+
+//Main Menu gui functions
 void Game::disableMainMenu() {
     mainMenu->disable();
     mainMenu->setVisible(false);
@@ -786,6 +896,14 @@ void Game::disableMultiplayerMenu() {
     multiplayerMenu->setVisible(false);
     inMultiplayerMenu = false;
 }
+void Game::disableGameWindow() {
+    gameWindow->disable();
+    gameWindow->setVisible(false);
+}
+void Game::enableGameWindow() {
+    gameWindow->enable();
+    gameWindow->setVisible(true);
+}
 void Game::enableMultiplayerMenu() {
 
     multiplayerMenu->enable();
@@ -811,7 +929,7 @@ void Game::createScene(void) {
     Grid *grid = gridGameObject->AddComponentOfType<Grid>();
     
     Robot *bob = new Robot(this);
-    RobotScript *robotScript = bob->AddComponentOfType<RobotScript>();
+    robotScript = bob->AddComponentOfType<RobotScript>();
     bob->transform->setWorldPosition(Ogre::Vector3(0,10,0));
     bob->transform->setWorldScale(Ogre::Vector3(1,1,1));
     bob->physics->setGravity(Ogre::Vector3(0,-9.8f,0));
@@ -835,6 +953,9 @@ void Game::createScene(void) {
     mAnimationState = bob->renderer->entity->getAnimationState("Idle");
     mAnimationState->setLoop(true);
     mAnimationState->setEnabled(true);
+
+    GameObject *baseModel = new GameObject(this);
+    baseModel->renderer->setMaterial("House1");
     cout << "Done creating scene!" << endl;
 }
 
@@ -937,6 +1058,7 @@ bool Game::newGame(const CEGUI::EventArgs &e){
     multiplayer = mNetwork->clientCount != 0 || !mNetwork->isServer;
 
     disableMainMenu();
+    enableGameWindow();
     destroyScene();
     createLights();
     createScene();

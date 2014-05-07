@@ -1,3 +1,19 @@
+material Brick1
+{
+	technique
+	{
+		pass
+		{
+			texture_unit
+			{
+				texture brick_001.jpg
+			}
+		}
+	}
+}
+
+
+
 material Rock1
 {
 	technique
