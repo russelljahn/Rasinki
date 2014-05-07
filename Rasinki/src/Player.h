@@ -21,15 +21,20 @@ class Player {
 		void scored(int points = 1);
 		void loseHealth();
 		int getScore() { return mScore; }
+		int getGold() { return mGold; }
 		void reset() {mScore = 0;}
+		void changeGold(int ammount) {
+			mGold += ammount;
+		}
 		bool IsKeyDown(OIS::KeyCode);
 
-		int mScore;
-    int mGold;
+		
 		int currentHealth;
 
 		ClientInput* clientInput;
 	private:
+		int mScore;
+    	int mGold;
 		ControlType mControlType;
 };
 #endif

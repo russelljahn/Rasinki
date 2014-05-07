@@ -33,7 +33,18 @@ void EnemyScript::Update() {
 	 	return;
 	 }
 	if (_currentPath.size() > 0) {
-		// std::cout << _currentPath.front()->getPosition() << " " << gameObject->physics->getWorldPosition() << std::endl;
+		lastSquare = currentSquare;
+		GridSquare* square = grid->gridSquareAtPos(gameObject->physics->getWorldPosition());
+		if (square != currentSquare) {
+			if (lastSquare != NULL) {
+				lastSquare->RemoveEnemy(this);
+				lastSquare = currentSquare;
+			}
+			currentSquare = square;
+			if (currentSquare != NULL) {
+				currentSquare->AddEnemy(this);
+			}
+		}
 	}
 	while (veloc.squaredLength () < Time::deltaTime*moveSpeed*2 && _currentPath.size() > 0) {
 		veloc = (_currentPath.front()->getPosition() - gameObject->physics->getWorldPosition());
@@ -43,17 +54,6 @@ void EnemyScript::Update() {
 			assert (grid != NULL);
 			lastSquare = currentSquare;
 			currentSquare = grid->gridSquareAtPos(gameObject->physics->getWorldPosition());
-
-			if (lastSquare != currentSquare) {
-
-				if (lastSquare != NULL) {
-					lastSquare->RemoveEnemy(this);
-				}
-				if (currentSquare != NULL) {
-					currentSquare->AddEnemy(this);
-				}
-			}
-
 			pathfinder->setCurrentGridSquare(gameObject->physics->getWorldPosition());
 			_currentPath.pop_front();
 		}
@@ -74,7 +74,7 @@ void EnemyScript::Attacked() {
 	hitPoints --;
 	std::cout << "ENEMY SHOT ID: " << gameObject->id << " HP REMAINING: " << hitPoints << std::endl;
 	if (hitPoints == 0) {
-		gameObject->game->playerList[0]->mGold += 2;
+		gameObject->game->playerList[0]->changeGold(2);
 		currentSquare->RemoveEnemy(this);
 		gameObject->game->playerList[0]->scored();
 		gameObject->Kill();

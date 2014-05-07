@@ -16,6 +16,8 @@ using namespace std;
 #include "Scripts/EnemyScript.h"
 #include "Scripts/RobotScript.h"
 
+#include "Objects/SpawnPoint.h"
+#include "Objects/HomeBase.h"
 #include "Objects/Cube.h"
 #include "Objects/Robot.h"
 
@@ -385,12 +387,12 @@ bool Game::frameRenderingQueued(const Ogre::FrameEvent& evt)
     mMouse->capture();
     
     *playerGold = string("Gold: ");
-    int num = playerList[0]->mGold;       // number to be converted to a string
+    int num = playerList[0]->getGold();       // number to be converted to a string
     ostringstream convert;   // stream used for the conversion
     convert << num;      // insert the textual representation of 'Number' in the characters in the stream
     playerGold->append(convert.str()); // set 'Result' to the contents of the stream
     *playerScore = string("Score: ");
-    num = playerList[0]->mScore;       // number to be converted to a string
+    num = playerList[0]->getScore();       // number to be converted to a string
     convert;   // stream used for the conversion
     convert << num;      // insert the textual representation of 'Number' in the characters in the stream
     playerScore->append(convert.str()); // set 'Result' to the contents of the stream
@@ -562,7 +564,7 @@ void Game::createLights(void) {
 
     Ogre::Light* directionalLight = mSceneManager->createLight("directionalLight");
     directionalLight->setType(Ogre::Light::LT_DIRECTIONAL);
-    directionalLight->setDirection(Ogre::Vector3(0,-1,0));
+    directionalLight->setDirection(Ogre::Vector3(0.25,.25,0));
     directionalLight->setDiffuseColour(Ogre::ColourValue(.5, .5, .5));
     directionalLight->setSpecularColour(Ogre::ColourValue(.25, .25, 0));
 
@@ -604,7 +606,7 @@ void Game::createLights(void) {
     spotLight4->setPosition(Ogre::Vector3(0, -300, 0));
     spotLight4->setSpotlightRange(Ogre::Degree(35), Ogre::Degree(50));
 
-    mSceneManager->setAmbientLight(Ogre::ColourValue(.15, .15, .15));
+    mSceneManager->setAmbientLight(Ogre::ColourValue(.35, .35, .35));
     mSceneManager->setShadowTechnique(Ogre::SHADOWTYPE_STENCIL_ADDITIVE);
     mSceneManager->setShadowColour(Ogre::ColourValue::Black);
 
@@ -825,6 +827,10 @@ void Game::createScene(void) {
     mAnimationState = bob->renderer->entity->getAnimationState("Idle");
     mAnimationState->setLoop(true);
     mAnimationState->setEnabled(true);
+
+
+    HomeBase *homeBase = new HomeBase(this);
+
     cout << "Done creating scene!" << endl;
 }
 
