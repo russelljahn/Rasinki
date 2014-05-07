@@ -2,6 +2,7 @@
 #include "GridSquare.h"
 #include "Time.h"
 #include "Objects/Explosion.h"
+#include "EnemySpawner.h"
 
 EnemyScript::EnemyScript(GameObject *attachedGameObject) : Script(attachedGameObject) {
 	//moveSpeed = 500.0f;
@@ -31,6 +32,7 @@ void EnemyScript::Update() {
 	Ogre::Vector3 veloc = Ogre::Vector3::ZERO;
 	if (_currentPath.size() == 0) {
 	 	//_currentPath = pathfinder->FindPath(0, 0);
+	 	gameObject->renderer->setEnabled(false);
 	 	gameObject->physics->setLinearVelocity(veloc);
 	 	gameObject->game->playerList[0]->loseHealth();
 	 	gameObject->Kill();
@@ -63,6 +65,13 @@ void EnemyScript::Update() {
 		}
 	}
 	veloc.normalise();
+	Ogre::Vector3 src = gameObject->transform->sceneNode->getOrientation() * Ogre::Vector3::UNIT_Z;
+	src.y = 0;
+	src.normalise();
+	Ogre::Quaternion quat = src.getRotationTo(veloc);
+	gameObject->transform->sceneNode->rotate(quat);
+	gameObject->transform->sceneNode->yaw(Ogre::Degree(180));
+
 	veloc *= moveSpeed;
 	//std::cout << "VELOC: " << veloc << std::endl;
 	gameObject->physics->setLinearVelocity(veloc);
@@ -81,9 +90,10 @@ void EnemyScript::Attacked() {
 	ex->transform->setWorldPosition(gameObject->transform->getWorldPosition() + Ogre::Vector3(0, 120, 0));
 	ex->transform->setWorldScale(Ogre::Vector3(4,4,4));
 	if (hitPoints == 0) {
-		gameObject->game->playerList[0]->changeGold(2);
+		gameObject->game->playerList[0]->changeGold(gameObject->game->enemySpawner->waveVector[gameObject->game->enemySpawner->waveNum].reward);
 		currentSquare->RemoveEnemy(this);
 		gameObject->game->playerList[0]->scored();
 		gameObject->Kill();
+		gameObject->renderer->setEnabled(false);
 	}
 }

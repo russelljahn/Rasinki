@@ -18,10 +18,13 @@ void Enemy::Start() {
 
 	renderer->entity = game->getSceneManager()->createEntity(nameCoverter.str(), "ninja.mesh");
 	transform->sceneNode->attachObject(renderer->entity);
+
 	physics = new Physics(this, mass , new btBoxShape(btVector3(colliderScale,colliderScale,colliderScale)), Ogre::Vector3::ZERO, false);
 	renderer->setMaterial("Examples/Ninja");
 	gameObject->renderer->mAnimationState = gameObject->renderer->entity->getAnimationState("Walk");
 	gameObject->renderer->mAnimationState->setLoop(true);
     gameObject->renderer->mAnimationState->setEnabled(true);
+
+    transform->setWorldScale(Ogre::Vector3(0.5f, 0.5f, 0.5f));
 }
 

@@ -14,13 +14,15 @@ RobotScript::RobotScript(GameObject *attachedGameObject) : Script(attachedGameOb
 
 void RobotScript::Start() {
     Script::Start();
-    glowTile = new Tower(this->gameObject->game, 0);
+    glowTile = new Tower(this->gameObject->game);
     //glowTile->transform->setWorldScale(Ogre::Vector3(2.5, .125, 2.5));
     glowTile->physics->disableCollider();
     glowTile->renderer->setMaterial("SquareGlow1");
     jumping = false;
     falling = false;
     can_move = true;
+    upgraded = false;
+    sold = false;
 }
 
 
@@ -51,11 +53,11 @@ void RobotScript::Update() {
     }
     else if( quat.z <= -0.2 )
     {
-        gameObject->game->getCameraNode()->setOrientation(quat.w, quat.x, quat.y, -0.1999);
+        gameObject->game->getCameraNode()->setOrientation(quat.w, quat.x, quat.y, -0.1999999);
     }
     else
     {
-        gameObject->game->getCameraNode()->setOrientation(quat.w, quat.x, quat.y, .3499);
+        gameObject->game->getCameraNode()->setOrientation(quat.w, quat.x, quat.y, .3499999);
     }
     
     if (Input::IsKeyDown(OIS::KC_LEFT) || Input::IsKeyDown(OIS::KC_A)) {
@@ -84,8 +86,9 @@ void RobotScript::Update() {
     }
     if (Input::IsKeyDown(OIS::KC_1)) {
         if (currentTower != 1) {
+            glowTile->renderer->setEnabled(false);
             delete glowTile;
-            glowTile = new Tower(this->gameObject->game, 0);
+            glowTile = new Tower(this->gameObject->game);
             //glowTile->transform->setWorldScale(Ogre::Vector3(2.5, .125, 2.5));
             glowTile->physics->disableCollider();
             glowTile->renderer->setMaterial("SquareGlow1");
@@ -94,6 +97,7 @@ void RobotScript::Update() {
     }
     if (Input::IsKeyDown(OIS::KC_2)) {
         if (currentTower != 2) {
+            glowTile->renderer->setEnabled(false);
             delete glowTile;
             glowTile = new Cube(this->gameObject->game, 0);
             glowTile->transform->setWorldScale(Ogre::Vector3(2.5, .5, 2.5));
@@ -132,9 +136,11 @@ void RobotScript::Update() {
 void RobotScript::sellTower(){
     Ogre::Vector3 forward = gameObject->transform->sceneNode->getOrientation() * Ogre::Vector3(1,0,0)*250;
     GridSquare *squarey = grid->gridSquareAtPos(this->gameObject->physics->getWorldPosition() + forward);
+    squarey->occupant->renderer->setEnabled(false);
     delete squarey->occupant;
     squarey->occupant = NULL;
     gameObject->game->playerList[0]->changeGold(13);
+    sold = true;
     return;
 }
 
@@ -142,16 +148,18 @@ void RobotScript::upgradeTower(){
 //TODO: Make this not just sell
     Ogre::Vector3 forward = gameObject->transform->sceneNode->getOrientation() * Ogre::Vector3(1,0,0)*250;
     GridSquare *squarey = grid->gridSquareAtPos(this->gameObject->physics->getWorldPosition() + forward);
+    squarey->occupant->renderer->setEnabled(false);
     delete squarey->occupant;
     squarey->occupant = NULL;
 
     Ogre::Vector3 squareyPosition = squarey->gameObject->physics->getWorldPosition();
-    Tower *tower = new Tower(this->gameObject->game,0);
+    Tower *tower = new Tower(this->gameObject->game, "turret_02.mesh");
     Ogre::Vector3 scale = tower->transform->getWorldScale();
     tower->transform->setWorldScale(scale*1.25);
     tower->grid = grid;
     tower->Initialize();
     tower->physics->setWorldPosition(squareyPosition + Ogre::Vector3(00.0f, 65.0f, 40.0f));
+    tower->upgraded = true;
     squarey->occupant = tower;
     upgraded = true;
     return;
@@ -164,8 +172,9 @@ void RobotScript::HandleTower() {
     if (squarey == NULL) {
         return;
     }
-    if (upgraded){
+    if (upgraded || sold){
         upgraded = false;
+        sold = false;
         return;
     }
     Ogre::Vector3 squareyPosition = squarey->gameObject->physics->getWorldPosition();    
@@ -191,7 +200,7 @@ void RobotScript::HandleTower() {
             {
                 if ((gameObject->game->playerList[0]->getGold() - 25) >= 0)
                 {
-                    Tower *tower = new Tower(this->gameObject->game,0);
+                    Tower *tower = new Tower(this->gameObject->game);
                     tower->physics->setWorldPosition(squareyPosition + Ogre::Vector3(00.0f, 65.0f, 40.0f));
                     tower->grid = grid;
                     tower->Initialize();
@@ -212,7 +221,7 @@ void RobotScript::HandleTower() {
         }
         else if (squarey->IsOccupied()) {
           gameObject->game->disableGameWindow();
-          gameObject->game->enableTowerMenu();
+          gameObject->game->enableTowerMenu(((Tower*)squarey->occupant)->upgraded);
           can_move = false;
         }
         

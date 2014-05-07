@@ -31,6 +31,7 @@ class RobotScript : public Script {
 		Grid *grid;
 		GameObject *glowTile;
     bool can_move;
+    bool sold;
 
     int currentTower;
 	private:

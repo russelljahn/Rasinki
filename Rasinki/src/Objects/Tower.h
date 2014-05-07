@@ -2,6 +2,7 @@
 #define __TOWER_H__
 
 #include <vector>
+#include <string>
 #include "../Scripts/GridSquare.h"
 #include "../Scripts/Grid.h"
 
@@ -12,7 +13,7 @@
 class Tower : public GameObject {
 	public:
 		Tower(Game *attachedGame);
-		Tower(Game *attachedGame, int pNum);
+		Tower(Game *attachedGame, std::string entityName);
 		~Tower();
 
 		void Start();
@@ -25,6 +26,9 @@ class Tower : public GameObject {
 		std::vector<GridSquare *> inRangeSquares;
 		std::vector<Cube *> glowTiles;
 		Grid *grid;
+
+    //Upgrades
+    bool upgraded;
 	private:
 		float weaponCooldownTime;
 		float timeLastAttack;
