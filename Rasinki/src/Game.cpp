@@ -393,7 +393,7 @@ bool Game::frameRenderingQueued(const Ogre::FrameEvent& evt)
     playerGold->append(convert.str()); // set 'Result' to the contents of the stream
     *playerScore = string("Score: ");
     num = playerList[0]->getScore();       // number to be converted to a string
-    convert;   // stream used for the conversion
+    convert.str("");   // stream used for the conversion
     convert << num;      // insert the textual representation of 'Number' in the characters in the stream
     playerScore->append(convert.str()); // set 'Result' to the contents of the stream
     gameWindow->getChild("gold")->setText(*playerGold);
