@@ -22,3 +22,4 @@ void Player::loseHealth(){
 	mLives--;
 	std::cout<< "Player lost a life, current lives: " << mLives <<std::endl;
 }
+
