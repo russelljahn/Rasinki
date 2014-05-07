@@ -1153,10 +1153,10 @@ Rasinki-Game.o: src/Game.cpp src/Game.h \
  src/Scripts/../Objects/../Scripts/GridSquare.h \
  src/Scripts/../Objects/../Scripts/Grid.h \
  src/Scripts/../Objects/Barrier.h src/Scripts/GameplayScript.h \
- src/Scripts/Grid.h src/Scripts/GridSquare.h src/Scripts/EnemyScript.h \
- src/Scripts/Pathfinder.h src/Scripts/../Components/Script.h \
- src/Scripts/GridSquare.h src/Scripts/Grid.h src/Scripts/Pathfinder.h \
- src/Scripts/EnemySpawner.h src/Objects/Cube.h src/Objects/Robot.h
+ src/Scripts/Grid.h src/Scripts/GridSquare.h src/Scripts/Pathfinder.h \
+ src/Scripts/GridSquare.h src/Scripts/Grid.h src/Scripts/EnemySpawner.h \
+ src/Scripts/EnemyScript.h src/Scripts/Pathfinder.h \
+ src/Objects/HomeBase.h src/Objects/Cube.h src/Objects/Robot.h
 
 src/Game.h:
 
@@ -3838,19 +3838,19 @@ src/Scripts/Grid.h:
 
 src/Scripts/GridSquare.h:
 
-src/Scripts/EnemyScript.h:
-
 src/Scripts/Pathfinder.h:
-
-src/Scripts/../Components/Script.h:
 
 src/Scripts/GridSquare.h:
 
 src/Scripts/Grid.h:
 
+src/Scripts/EnemySpawner.h:
+
+src/Scripts/EnemyScript.h:
+
 src/Scripts/Pathfinder.h:
 
-src/Scripts/EnemySpawner.h:
+src/Objects/HomeBase.h:
 
 src/Objects/Cube.h:
 

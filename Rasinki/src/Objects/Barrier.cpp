@@ -27,7 +27,7 @@ void Barrier::Start() {
 
 	renderer->setMaterial("Brick1");
 
-	transform->setWorldScale(Ogre::Vector3(2.5, 2, 2.5));
+	transform->setWorldScale(Ogre::Vector3(2.5, 1, 2.5));
 
 }
 

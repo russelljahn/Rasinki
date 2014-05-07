@@ -2,7 +2,8 @@
 
 Player::Player(ControlType type) {
 	mControlType = type;
-	mScore = 0;
+	mScore = 99; //Debug purposes
+  mGold = 100; //Debug purposes
 	currentHealth = 10;
 	deltaScore = 0;
 	clientInput = NULL;

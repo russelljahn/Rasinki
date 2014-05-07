@@ -74,6 +74,7 @@ void EnemyScript::Attacked() {
 	hitPoints --;
 	std::cout << "ENEMY SHOT ID: " << gameObject->id << " HP REMAINING: " << hitPoints << std::endl;
 	if (hitPoints == 0) {
+		gameObject->game->playerList[0]->mGold += 2;
 		currentSquare->RemoveEnemy(this);
 		gameObject->game->playerList[0]->scored();
 		gameObject->Kill();
