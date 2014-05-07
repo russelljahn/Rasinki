@@ -16,7 +16,7 @@ void Pathfinder::Initialize(Grid* grid) {
   } 
 }
 bool Pathfinder::ExistsValidPath(Grid* grid, int startX, int startY, int goalX, int goalY, GridSquare* testSquare) {
-   GameObject* previousGO;
+  GameObject* previousGO;
   if (testSquare != NULL) {
     previousGO = testSquare->occupant;
     testSquare->occupant = grid->gameObject;
@@ -84,6 +84,8 @@ list<PathSquare*> Pathfinder::FindPath(int goalX, int goalY) {
     if (current->y < gridDepth - 1)
       neighbors.push_back(_grid[(current->x)*gridWidth + (current->y + 1)]);
     for (i = neighbors.begin(); i != neighbors.end(); i++) {
+      if ((*i) == NULL)
+        continue;
       if (!(*i)->isWalkable() || (*i)->closed)
         continue;
       if ((*i)->open) {

@@ -28,7 +28,6 @@ void RobotScript::Start() {
 
 
 void RobotScript::Update() {
-  
     Script::Update();
 
     HandleTower();
@@ -125,7 +124,6 @@ void RobotScript::Update() {
 
 
     Ogre::Vector3 subpos = gameObject->physics->getWorldPosition();
-
     // // Position it at 500 in Z direction
     // gameObject->game->getCamera()->setPosition(Ogre::Vector3(subpos.x - 500,subpos.y + 750,subpos.z));
     // // Look back along -Z

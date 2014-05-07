@@ -29,7 +29,6 @@ void GridSquare::Start() {
 }
 
 void GridSquare::Update() {
-	
 	Script::Update();
 	if (!this->gameObject->renderer->isEnabled()) {
 		this->gameObject->physics->setEnabled(false);

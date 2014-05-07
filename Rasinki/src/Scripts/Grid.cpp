@@ -82,12 +82,10 @@ void Grid::Start() {
 
 
 void Grid::Update() {
-	
 	Script::Update();
 	if (!this->gameObject->renderer->isEnabled()) {
 		this->gameObject->physics->setEnabled(false);
 	}
-
 }
 
 

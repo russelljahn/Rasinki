@@ -26,7 +26,6 @@ void EnemyScript::Initialize(Pathfinder* pathfinder) {
 	_currentPath = pathfinder->FindPath(0, 0);
 }
 void EnemyScript::Update() {
-
 	gameObject->renderer->mAnimationState->addTime(0.5f*Time::deltaTime);
 
 	Ogre::Vector3 veloc = Ogre::Vector3::ZERO;
@@ -64,6 +63,7 @@ void EnemyScript::Update() {
 			_currentPath.pop_front();
 		}
 	}
+	veloc.y = 0;
 	veloc.normalise();
 	Ogre::Vector3 src = gameObject->transform->sceneNode->getOrientation() * Ogre::Vector3::UNIT_Z;
 	src.y = 0;

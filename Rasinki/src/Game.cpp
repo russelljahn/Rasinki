@@ -289,7 +289,6 @@ bool Game::setup(void)
 bool Game::frameRenderingQueued(const Ogre::FrameEvent& evt)
 {
     Time::Update();
-
     if (mWindow->isClosed())
         return false;
 
@@ -299,8 +298,7 @@ bool Game::frameRenderingQueued(const Ogre::FrameEvent& evt)
     //Need to capture/update each device
     mKeyboard->capture();
     mMouse->capture();
-
-    
+   
     *playerGold = string("Gold: ");
     int num = playerList[0]->mGold;       // number to be converted to a string
     ostringstream convert;   // stream used for int to string conversion
@@ -322,7 +320,6 @@ bool Game::frameRenderingQueued(const Ogre::FrameEvent& evt)
     towerMenu->getChild("gold1")->setText(*playerGold);
     towerMenu->getChild("score1")->setText(*playerScore);
     towerMenu->getChild("lives1")->setText(*playerLives);
-
     mTrayManager->frameRenderingQueued(evt);
     CEGUI::System::getSingleton().injectTimePulse(evt.timeSinceLastFrame);
     deltaTime = evt.timeSinceLastFrame;
@@ -333,9 +330,6 @@ bool Game::frameRenderingQueued(const Ogre::FrameEvent& evt)
 
         for (auto gameObjectIter = gameObjects.begin(); gameObjectIter != gameObjects.end(); ++gameObjectIter) {
             (*gameObjectIter).second->Update();
-            if((*gameObjectIter).second->destroyed) {
-                destroyGameObject((*gameObjectIter).second);
-            }
         }
     }
     Input::Update();
@@ -884,8 +878,4 @@ bool Game::newGame() {
     destroyScene();
     createLights();
     createScene();
-}
-
-void Game::destroyGameObject(GameObject* object) {
-    delete gameObjects[object->id];
 }

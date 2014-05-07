@@ -24,6 +24,7 @@ void GameplayScript::Start() {
 
 
 void GameplayScript::Update() {
+	std::cout << "GameplayScript update begin" << std::endl;
 	Script::Update();
 
 	// std::cout << "SphereComponent::numSpheres: " << SphereComponent::numSpheres << std::endl;
@@ -33,7 +34,7 @@ void GameplayScript::Update() {
 		GameplayScript::gameOverTime = Time::time;
 		gameObject->game->getSoundManager()->playSound3();
 	}
-
+	std::cout << "GameplayScript update begin" << std::endl;
 }
 
 

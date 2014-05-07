@@ -43,7 +43,10 @@ Ogre::Vector3 Transform::getLocalPosition() const {
 }
 Ogre::Vector3 Transform::getWorldPosition() const {
 	if (gameObject->physics == NULL) {
-		std::cout<< "SEG FAULTING IN GETWORLDPOSITION" << std::endl;
+		std::cout << "SEG FAULTING IN GETWORLDPOSITION? " << std::endl;
+		Ogre::Vector3 pos = sceneNode->getPosition();
+		std::cout << "Nope" << std::endl;
+		return pos;	
 	}
 	assert (sceneNode !=  NULL);
 	return gameObject->physics->getWorldPosition();

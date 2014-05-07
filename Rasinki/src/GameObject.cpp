@@ -68,6 +68,8 @@ void GameObject::Start() {
 
 
 void GameObject::Update() {
+	if (destroyed)
+		return;
 	for (auto componentsIter = components.begin(); componentsIter != components.end(); ++componentsIter) {
         (*componentsIter)->Update();
     }
