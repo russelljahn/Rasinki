@@ -35,7 +35,6 @@
 #include "PhysicsSimulator.h"
 #include "Player.h"
 #include "SoundManager.h"
-#include "Network.h"
 #include "Input.h"
 
 #include <CEGUI/CEGUI.h>
@@ -97,8 +96,6 @@ public:
     int level;
     bool viewMode;
     bool gameMode;
-    bool inMultiplayerMenu;
-    bool OnServerQuit();
     bool multiplayer;
 
     //Gui
@@ -106,8 +103,6 @@ public:
     virtual void enableMainMenu();
     virtual void disableGameWindow();
     virtual void enableGameWindow();
-    virtual void disableMultiplayerMenu();
-    virtual void enableMultiplayerMenu();
     virtual void disableTowerMenu();
     virtual void enableTowerMenu();
     virtual bool sell(const CEGUI::EventArgs &e);
@@ -133,13 +128,6 @@ protected:
     virtual void setupResources(void);
     virtual void createResourceListener(void);
     virtual void loadResources(void);
-
-    //GUI 
-    virtual bool onStartServer(const CEGUI::EventArgs &e);
-    virtual bool onConnectToServer(const CEGUI::EventArgs &e);
-    virtual bool onClickPlayMultiplayer(const CEGUI::EventArgs &e);
-    virtual bool onClickBackFromMultiplayerMenu(const CEGUI::EventArgs &e);
-
 
     // OIS::KeyListener
     virtual bool keyPressed( const OIS::KeyEvent &arg );

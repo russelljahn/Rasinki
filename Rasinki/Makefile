@@ -62,12 +62,11 @@ am_Rasinki_OBJECTS = Rasinki-Game.$(OBJEXT) Rasinki-main.$(OBJEXT) \
 	Rasinki-Robot.$(OBJEXT) Rasinki-Player.$(OBJEXT) \
 	Rasinki-SoundManager.$(OBJEXT) \
 	Rasinki-GameplayScript.$(OBJEXT) Rasinki-RobotScript.$(OBJEXT) \
-	Rasinki-Time.$(OBJEXT) Rasinki-Network.$(OBJEXT) \
-	Rasinki-Input.$(OBJEXT) Rasinki-EnemyScript.$(OBJEXT) \
-	Rasinki-Pathfinder.$(OBJEXT) Rasinki-Tower.$(OBJEXT) \
-	Rasinki-Barrier.$(OBJEXT) Rasinki-EnemySpawner.$(OBJEXT) \
-	Rasinki-Enemy.$(OBJEXT) Rasinki-HomeBase.$(OBJEXT) \
-	Rasinki-SpawnPoint.$(OBJEXT)
+	Rasinki-Time.$(OBJEXT) Rasinki-Input.$(OBJEXT) \
+	Rasinki-EnemyScript.$(OBJEXT) Rasinki-Pathfinder.$(OBJEXT) \
+	Rasinki-Tower.$(OBJEXT) Rasinki-Barrier.$(OBJEXT) \
+	Rasinki-EnemySpawner.$(OBJEXT) Rasinki-Enemy.$(OBJEXT) \
+	Rasinki-HomeBase.$(OBJEXT) Rasinki-SpawnPoint.$(OBJEXT)
 Rasinki_OBJECTS = $(am_Rasinki_OBJECTS)
 am__DEPENDENCIES_1 =
 Rasinki_DEPENDENCIES = $(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1) \
@@ -111,12 +110,12 @@ distuninstallcheck_listfiles = find . -type f -print
 am__distuninstallcheck_listfiles = $(distuninstallcheck_listfiles) \
   | sed 's|^\./|$(prefix)/|' | grep -v '$(infodir)/dir$$'
 distcleancheck_listfiles = find . -type f -print
-ACLOCAL = ${SHELL} /u/wrj322/CS354R/Rasinki/Rasinki/missing --run aclocal-1.11
+ACLOCAL = ${SHELL} /u/safaa/CS354R/Assignment3/Rasinki/Rasinki/missing --run aclocal-1.11
 AMTAR = $${TAR-tar}
 AR = ar
-AUTOCONF = ${SHELL} /u/wrj322/CS354R/Rasinki/Rasinki/missing --run autoconf
-AUTOHEADER = ${SHELL} /u/wrj322/CS354R/Rasinki/Rasinki/missing --run autoheader
-AUTOMAKE = ${SHELL} /u/wrj322/CS354R/Rasinki/Rasinki/missing --run automake-1.11
+AUTOCONF = ${SHELL} /u/safaa/CS354R/Assignment3/Rasinki/Rasinki/missing --run autoconf
+AUTOHEADER = ${SHELL} /u/safaa/CS354R/Assignment3/Rasinki/Rasinki/missing --run autoheader
+AUTOMAKE = ${SHELL} /u/safaa/CS354R/Assignment3/Rasinki/Rasinki/missing --run automake-1.11
 AWK = gawk
 BULLET_CFLAGS = 
 BULLET_LIBS = 
@@ -159,7 +158,7 @@ LIBTOOL = $(SHELL) $(top_builddir)/libtool
 LIPO = 
 LN_S = ln -s
 LTLIBOBJS = 
-MAKEINFO = ${SHELL} /u/wrj322/CS354R/Rasinki/Rasinki/missing --run makeinfo
+MAKEINFO = ${SHELL} /u/safaa/CS354R/Assignment3/Rasinki/Rasinki/missing --run makeinfo
 MANIFEST_TOOL = :
 MKDIR_P = /bin/mkdir -p
 NM = /usr/bin/nm -B
@@ -197,10 +196,10 @@ SET_MAKE =
 SHELL = /bin/bash
 STRIP = strip
 VERSION = 0.1
-abs_builddir = /u/wrj322/CS354R/Rasinki/Rasinki
-abs_srcdir = /u/wrj322/CS354R/Rasinki/Rasinki
-abs_top_builddir = /u/wrj322/CS354R/Rasinki/Rasinki
-abs_top_srcdir = /u/wrj322/CS354R/Rasinki/Rasinki
+abs_builddir = /u/safaa/CS354R/Assignment3/Rasinki/Rasinki
+abs_srcdir = /u/safaa/CS354R/Assignment3/Rasinki/Rasinki
+abs_top_builddir = /u/safaa/CS354R/Assignment3/Rasinki/Rasinki
+abs_top_srcdir = /u/safaa/CS354R/Assignment3/Rasinki/Rasinki
 ac_ct_AR = ar
 ac_ct_CC = gcc
 ac_ct_CXX = g++
@@ -232,7 +231,7 @@ host_vendor = unknown
 htmldir = ${docdir}
 includedir = ${prefix}/include
 infodir = ${datarootdir}/info
-install_sh = ${SHELL} /u/wrj322/CS354R/Rasinki/Rasinki/install-sh
+install_sh = ${SHELL} /u/safaa/CS354R/Assignment3/Rasinki/Rasinki/install-sh
 libdir = ${exec_prefix}/lib
 libexecdir = ${exec_prefix}/libexec
 localedir = ${datarootdir}/locale
@@ -254,9 +253,9 @@ target_alias =
 top_build_prefix = 
 top_builddir = .
 top_srcdir = .
-noinst_HEADERS = src/Game.h src/GameObject.h src/Components/Component.h src/PhysicsSimulator.h src/Components/Transform.h src/Components/Renderer.h src/Components/Script.h src/Objects/Cube.h src/Objects/Robot.h src/Player.h src/SoundManager.h src/Scripts/GameplayScript.h src/Scripts/Grid.h src/Scripts/GridSquare.h src/Scripts/RobotScript.h src/Time.h src/Network.h src/Input.h src/Scripts/EnemyScript.h src/Scripts/Pathfinder.h src/Objects/Tower.h src/Objects/Barrier.h src/Scripts/EnemySpawner.h src/Objects/Enemy.h src/Objects/HomeBase.h src/Objects/SpawnPoint.h
+noinst_HEADERS = src/Game.h src/GameObject.h src/Components/Component.h src/PhysicsSimulator.h src/Components/Transform.h src/Components/Renderer.h src/Components/Script.h src/Objects/Cube.h src/Objects/Robot.h src/Player.h src/SoundManager.h src/Scripts/GameplayScript.h src/Scripts/Grid.h src/Scripts/GridSquare.h src/Scripts/RobotScript.h src/Time.h src/Input.h src/Scripts/EnemyScript.h src/Scripts/Pathfinder.h src/Objects/Tower.h src/Objects/Barrier.h src/Scripts/EnemySpawner.h src/Objects/Enemy.h src/Objects/HomeBase.h src/Objects/SpawnPoint.h
 Rasinki_CPPFLAGS = -I$(top_srcdir)/src
-Rasinki_SOURCES = src/Game.cpp src/main.cpp src/GameObject.cpp src/Components/Component.cpp src/PhysicsSimulator.cpp src/Components/Transform.cpp src/Components/Renderer.cpp src/Components/Script.cpp src/Components/Physics.cpp src/Objects/Cube.cpp src/Scripts/Grid.cpp src/Scripts/GridSquare.cpp src/Objects/Robot.cpp src/Player.cpp src/SoundManager.cpp src/Scripts/GameplayScript.cpp src/Scripts/RobotScript.cpp src/Time.cpp src/Network.cpp src/Input.cpp src/Scripts/EnemyScript.cpp src/Scripts/Pathfinder.cpp src/Objects/Tower.cpp src/Objects/Barrier.cpp  src/Scripts/EnemySpawner.cpp src/Objects/Enemy.cpp src/Objects/HomeBase.cpp src/Objects/SpawnPoint.cpp
+Rasinki_SOURCES = src/Game.cpp src/main.cpp src/GameObject.cpp src/Components/Component.cpp src/PhysicsSimulator.cpp src/Components/Transform.cpp src/Components/Renderer.cpp src/Components/Script.cpp src/Components/Physics.cpp src/Objects/Cube.cpp src/Scripts/Grid.cpp src/Scripts/GridSquare.cpp src/Objects/Robot.cpp src/Player.cpp src/SoundManager.cpp src/Scripts/GameplayScript.cpp src/Scripts/RobotScript.cpp src/Time.cpp src/Input.cpp src/Scripts/EnemyScript.cpp src/Scripts/Pathfinder.cpp src/Objects/Tower.cpp src/Objects/Barrier.cpp  src/Scripts/EnemySpawner.cpp src/Objects/Enemy.cpp src/Objects/HomeBase.cpp src/Objects/SpawnPoint.cpp
 Rasinki_CXXFLAGS = $(OGRE_CFLAGS) $(OIS_CFLAGS) $(bullet_CFLAGS) $(sdl_CFLAGS) $(SDLMIXER_CFLAGS) $(SDLNET_CFLAGS) -std=c++0x
 Rasinki_LDADD = $(OGRE_LIBS) $(OGRE_TERRAIN_LIBS) $(OIS_LIBS) $(bullet_LIBS) $(sdl_LIBS) $(SDLMIXER_LIBS) $(SDLNET_LIBS) $(CEGUI_LIBS) $(CEGUI_OGRE_LIBS)
 EXTRA_DIST = buildit makeit
@@ -381,7 +380,6 @@ include ./$(DEPDIR)/Rasinki-Grid.Po
 include ./$(DEPDIR)/Rasinki-GridSquare.Po
 include ./$(DEPDIR)/Rasinki-HomeBase.Po
 include ./$(DEPDIR)/Rasinki-Input.Po
-include ./$(DEPDIR)/Rasinki-Network.Po
 include ./$(DEPDIR)/Rasinki-Pathfinder.Po
 include ./$(DEPDIR)/Rasinki-Physics.Po
 include ./$(DEPDIR)/Rasinki-PhysicsSimulator.Po
@@ -669,20 +667,6 @@ Rasinki-Time.obj: src/Time.cpp
 #	source='src/Time.cpp' object='Rasinki-Time.obj' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
 #	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(Rasinki_CPPFLAGS) $(CPPFLAGS) $(Rasinki_CXXFLAGS) $(CXXFLAGS) -c -o Rasinki-Time.obj `if test -f 'src/Time.cpp'; then $(CYGPATH_W) 'src/Time.cpp'; else $(CYGPATH_W) '$(srcdir)/src/Time.cpp'; fi`
-
-Rasinki-Network.o: src/Network.cpp
-	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(Rasinki_CPPFLAGS) $(CPPFLAGS) $(Rasinki_CXXFLAGS) $(CXXFLAGS) -MT Rasinki-Network.o -MD -MP -MF $(DEPDIR)/Rasinki-Network.Tpo -c -o Rasinki-Network.o `test -f 'src/Network.cpp' || echo '$(srcdir)/'`src/Network.cpp
-	$(am__mv) $(DEPDIR)/Rasinki-Network.Tpo $(DEPDIR)/Rasinki-Network.Po
-#	source='src/Network.cpp' object='Rasinki-Network.o' libtool=no \
-#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
-#	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(Rasinki_CPPFLAGS) $(CPPFLAGS) $(Rasinki_CXXFLAGS) $(CXXFLAGS) -c -o Rasinki-Network.o `test -f 'src/Network.cpp' || echo '$(srcdir)/'`src/Network.cpp
-
-Rasinki-Network.obj: src/Network.cpp
-	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(Rasinki_CPPFLAGS) $(CPPFLAGS) $(Rasinki_CXXFLAGS) $(CXXFLAGS) -MT Rasinki-Network.obj -MD -MP -MF $(DEPDIR)/Rasinki-Network.Tpo -c -o Rasinki-Network.obj `if test -f 'src/Network.cpp'; then $(CYGPATH_W) 'src/Network.cpp'; else $(CYGPATH_W) '$(srcdir)/src/Network.cpp'; fi`
-	$(am__mv) $(DEPDIR)/Rasinki-Network.Tpo $(DEPDIR)/Rasinki-Network.Po
-#	source='src/Network.cpp' object='Rasinki-Network.obj' libtool=no \
-#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
-#	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(Rasinki_CPPFLAGS) $(CPPFLAGS) $(Rasinki_CXXFLAGS) $(CXXFLAGS) -c -o Rasinki-Network.obj `if test -f 'src/Network.cpp'; then $(CYGPATH_W) 'src/Network.cpp'; else $(CYGPATH_W) '$(srcdir)/src/Network.cpp'; fi`
 
 Rasinki-Input.o: src/Input.cpp
 	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(Rasinki_CPPFLAGS) $(CPPFLAGS) $(Rasinki_CXXFLAGS) $(CXXFLAGS) -MT Rasinki-Input.o -MD -MP -MF $(DEPDIR)/Rasinki-Input.Tpo -c -o Rasinki-Input.o `test -f 'src/Input.cpp' || echo '$(srcdir)/'`src/Input.cpp

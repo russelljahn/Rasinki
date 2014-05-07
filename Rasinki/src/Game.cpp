@@ -351,7 +351,6 @@ bool Game::setup(void)
     level = 1;
     viewMode = false;
     gameMode = false;
-    inMultiplayerMenu = false;
 
     chooseSceneManager();
     createCamera();
@@ -364,8 +363,6 @@ bool Game::setup(void)
     createResourceListener();
     // Load resources
     loadResources();
-
-    mNetwork = NULL;
 
     // Create the scene
     createLights();
@@ -409,30 +406,8 @@ bool Game::frameRenderingQueued(const Ogre::FrameEvent& evt)
     deltaTime = evt.timeSinceLastFrame;
     if (gameMode == true)
     {
-        if (mNetwork == NULL || mNetwork->isServer) 
-        {
-            mAnimationState->addTime(evt.timeSinceLastFrame*2);
-            mPhysicsSimulator->stepSimulation(evt.timeSinceLastFrame);
-        }
-        else {
-            for (auto gameObjectIter = gameObjects.begin(); gameObjectIter != gameObjects.end(); ++gameObjectIter) {
-                (*gameObjectIter).second->FixedUpdate();
-             }
-        }
-
-        // if (GameplayScript::IsGameOver()) {
-        //     mStatsPanel->hide();
-        //     mGameOverPanel->show();
-        //     mGameOverPanel->setParamValue(0, " "); // Score
-        //     mGameOverPanel->setParamValue(1, Ogre::StringConverter::toString(playerList[0]->getScore())); // Score
-        //     mGameOverPanel->setParamValue(2, Ogre::StringConverter::toString(GameplayScript::GetGameOverTime())); // Time elapsed
-        // }
-        // else {
-        //     mStatsPanel->show();
-        //     mGameOverPanel->hide();
-        //     mStatsPanel->setParamValue(0, Ogre::StringConverter::toString(playerList[0]->getScore())); // Score
-        //     mStatsPanel->setParamValue(1, Ogre::StringConverter::toString(SphereComponent::numSpheres)); // Balls remaining
-        // }
+        mAnimationState->addTime(evt.timeSinceLastFrame*2);
+        mPhysicsSimulator->stepSimulation(evt.timeSinceLastFrame);
 
         for (auto gameObjectIter = gameObjects.begin(); gameObjectIter != gameObjects.end(); ++gameObjectIter) {
             (*gameObjectIter).second->Update();
@@ -441,20 +416,6 @@ bool Game::frameRenderingQueued(const Ogre::FrameEvent& evt)
             }
         }
     }
-    // if (mNetwork != NULL) {
-    //     if (gameMode && mNetwork->isServer && gameObjects.size()) {
-    //             mNetwork->SendMessageToClient(ServerMessage(0, gameObjects[0]->physics->getWorldPosition()));
-    //             mNetwork->SendMessageToClient(ServerMessage(1, gameObjects[1]->physics->getWorldPosition()));
-    //             mNetwork->SendMessageToClient(ServerMessage(2, gameObjects[2]->physics->getWorldPosition()));
-    //             //ScoreMessage(0, playerList[0]->deltaScore).print();
-    //             if (playerList[0]->deltaScore > 0) {
-    //                 //ScoreMessage(0, playerList[0]->deltaScore).print();
-    //                 mNetwork->SendMessageToClient(ScoreMessage(0, playerList[0]->deltaScore));
-    //                 playerList[0]->deltaScore = 0;
-    //             }
-    //     }
-    //     mNetwork->OnNetworkUpdate();
-    // }
     Input::Update();
     return true;
 }
@@ -465,29 +426,14 @@ bool Game::keyPressed( const OIS::KeyEvent &arg )
     sys.injectKeyDown(arg.key);
     sys.injectChar(arg.text);
 
-    if (inMultiplayerMenu) {
-        if ((arg.key == OIS::KC_BACK || arg.key == OIS::KC_BACK) && !mNetwork->serverName.empty()) {
-            mNetwork->serverName.erase(mNetwork->serverName.length()-1);
-        }
-        else if (arg.key == OIS::KC_RETURN) {
-            CEGUI::EventArgs e;
-            onConnectToServer(e);
-        }
-        else {
-            mNetwork->serverName.append(string((char *)(&arg.text)));
-        }
-        multiplayerMenu->getChild("hostIP")->setText(mNetwork->serverName);
-    }
     if (arg.key == OIS::KC_ESCAPE) {
-        if (mNetwork != NULL) {
-            gameMode = !gameMode;
-            CEGUI::EventArgs args;
-            if( gameMode == true )
-                disableMainMenu();
-            else{
-                disableGameWindow();
-                enableMainMenu();
-            }
+        gameMode = !gameMode;
+        CEGUI::EventArgs args;
+        if( gameMode == true )
+            disableMainMenu();
+        else{
+            disableGameWindow();
+            enableMainMenu();
         }
     }
     else if (arg.key == OIS::KC_LSHIFT)
@@ -516,10 +462,7 @@ bool Game::keyPressed( const OIS::KeyEvent &arg )
     }
     else if (arg.key == OIS::KC_N)
     {
-        if (mNetwork != NULL && mNetwork->isServer) {
-            mNetwork->SendMessageToClient(ServerMessage());
-            newGame();
-        }
+        newGame();
     }
     else if (arg.key == OIS::KC_M)
     {
@@ -711,30 +654,10 @@ void Game::createGUI(void) {
     newGame->setPosition(CEGUI::UVector2(CEGUI::UDim(0.375f, 0),CEGUI::UDim(0.4f, 0)));
     newGame->subscribeEvent(CEGUI::PushButton::EventClicked, CEGUI::Event::Subscriber(&Game::newGame, this));
 
-    CEGUI::Window *level1 = wmgr.createWindow("TaharezLook/Button", "hostGame");
-    level1->setText("Host Game");
-    level1->setSize(CEGUI::UVector2(CEGUI::UDim(0.15, 0), CEGUI::UDim(0.05, 0))); 
-    level1->setPosition(CEGUI::UVector2(CEGUI::UDim(0.3f, 0),CEGUI::UDim(0.6f, 0)));
-    level1->subscribeEvent(CEGUI::PushButton::EventClicked, CEGUI::Event::Subscriber(&Game::onStartServer, this));
-
-    CEGUI::Window *connectToGame = wmgr.createWindow("TaharezLook/Button", "connectToGame");
-    connectToGame->setText("Connect to Game");  
-    connectToGame->setSize(CEGUI::UVector2(CEGUI::UDim(0.15, 0), CEGUI::UDim(0.05, 0)));
-    connectToGame->setPosition(CEGUI::UVector2(CEGUI::UDim(0.5f, 0),CEGUI::UDim(0.6f, 0)));
-    connectToGame->subscribeEvent(CEGUI::PushButton::EventClicked, CEGUI::Event::Subscriber(&Game::onClickPlayMultiplayer, this));
-    // level2->subscribeEvent(CEGUI::PushButton::EventClicked, CEGUI::Event::Subscriber(&Game::disableMainMenu, this));
-// 
-
     rootWindow->addChildWindow(mainMenu);
     mainMenu->addChildWindow(menuBackground);
     menuBackground->addChildWindow(quit);
     menuBackground->addChildWindow(newGame);
-    menuBackground->addChildWindow(level1);
-    menuBackground->addChildWindow(connectToGame);
-//     mainMenu->addChildWindow(quit);
-//     mainMenu->addChildWindow(newGame);
-//     mainMenu->addChildWindow(level1);
-//     mainMenu->addChildWindow(connectToGame);
 
     // Game Window
     gameWindow = wmgr.createWindow((CEGUI::utf8*)"DefaultWindow", (CEGUI::utf8*)"gameWindow");  
@@ -812,53 +735,13 @@ void Game::createGUI(void) {
     disableTowerMenu();
     enableMainMenu();
     
-
-
-    // Multiplayer Menu
-    multiplayerMenu = wmgr.createWindow((CEGUI::utf8*)"DefaultWindow", (CEGUI::utf8*)"multiplayerMenu");  
-
-    CEGUI::Window *back = wmgr.createWindow("TaharezLook/Button", "CEGUIDemo/BackButton");
-    back->setText("Back");
-    back->setSize(CEGUI::UVector2(CEGUI::UDim(0.15, 0), CEGUI::UDim(0.05, 0)));
-    back->subscribeEvent(CEGUI::PushButton::EventClicked, CEGUI::Event::Subscriber(&Game::onClickBackFromMultiplayerMenu, this));
-
-    CEGUI::Window *connect = wmgr.createWindow("TaharezLook/Button", "CEGUIDemo/ConnectButton");
-    connect->setText("Connect");
-    connect->setSize(CEGUI::UVector2(CEGUI::UDim(0.15, 0), CEGUI::UDim(0.05, 0)));
-    connect->setPosition(CEGUI::UVector2(CEGUI::UDim(0.5f, 0),CEGUI::UDim(0.5f, 0)));
-    connect->subscribeEvent(CEGUI::PushButton::EventClicked, CEGUI::Event::Subscriber(&Game::onConnectToServer, this));
-
-    CEGUI::Window *hostIP = wmgr.createWindow("TaharezLook/Button", "hostIP");
-    hostIP->setText("localhost");
-    hostIP->setSize(CEGUI::UVector2(CEGUI::UDim(0.5, 0), CEGUI::UDim(0.05, 0)));
-    hostIP->setPosition(CEGUI::UVector2(CEGUI::UDim(0.5f, 0),CEGUI::UDim(0.75f, 0)));
-
-    rootWindow->addChildWindow(multiplayerMenu);
-    multiplayerMenu->addChildWindow(back);
-    multiplayerMenu->addChildWindow(connect);
-    multiplayerMenu->addChildWindow(hostIP);
-
-    disableMultiplayerMenu();
-    enableMainMenu();
-
     // mainMenu->addChildWindow(hostIP);
     CEGUI::System::getSingleton().setGUISheet(rootWindow);
     Ogre::Root::getSingleton().renderOneFrame();
 
     cout << "Done creating GUI..." << endl;
 }
-bool Game::onClickPlayMultiplayer(const CEGUI::EventArgs &e) {
-    cout << "onClickPlayMultiplayer()!" << endl;
-    disableMainMenu();
-    enableMultiplayerMenu();
-    Ogre::Root::getSingleton().renderOneFrame();
-}
-bool Game::onClickBackFromMultiplayerMenu(const CEGUI::EventArgs &e) {
-    cout << "onClickBackFromMultiplayerMenu()!" << endl;
-    enableMainMenu();
-    disableMultiplayerMenu();
-    Ogre::Root::getSingleton().renderOneFrame();
-}
+
 //Tower Menu gui functions
 void Game::disableTowerMenu(){
   towerMenu->disable();
@@ -896,25 +779,9 @@ void Game::disableMainMenu() {
 void Game::enableMainMenu() {
     mainMenu->enable();
     mainMenu->setVisible(true);
-
-    if (mNetwork == NULL) {
-        mainMenu->getChild("background")->getChild("hostGame")->setVisible(true);
-        mainMenu->getChild("background")->getChild("newGame")->setVisible(true);
-        mainMenu->getChild("background")->getChild("connectToGame")->setVisible(true);
-    }
-    else {
-        mainMenu->getChild("background")->getChild("hostGame")->setVisible(false);
-        mainMenu->getChild("background")->getChild("newGame")->setVisible(mNetwork->isServer);
-        mainMenu->getChild("background")->getChild("connectToGame")->setVisible(false);
-
-    
-    }
+    mainMenu->getChild("background")->getChild("newGame")->setVisible(true);
 }
-void Game::disableMultiplayerMenu() {
-    multiplayerMenu->disable();
-    multiplayerMenu->setVisible(false);
-    inMultiplayerMenu = false;
-}
+
 void Game::disableGameWindow() {
     gameWindow->disable();
     gameWindow->setVisible(false);
@@ -922,18 +789,6 @@ void Game::disableGameWindow() {
 void Game::enableGameWindow() {
     gameWindow->enable();
     gameWindow->setVisible(true);
-}
-void Game::enableMultiplayerMenu() {
-
-    multiplayerMenu->enable();
-    multiplayerMenu->setVisible(true);
-    inMultiplayerMenu = true;
-
-    if (mNetwork != NULL) {
-        std::cout << "DELETING OLD NETWORK" << std::endl;
-        delete mNetwork;
-    }
-    mNetwork = new Network(this, false);
 }
 
 void Game::createScene(void) {
@@ -1058,9 +913,6 @@ SoundManager* Game::getSoundManager(void) {
 }
 
 bool Game::quit(const CEGUI::EventArgs &e){
-    if (mNetwork != NULL && mNetwork->isServer) {
-        mNetwork->SendMessageToClient(ServerMessage(SERVERQUIT));
-    } 
     mShutDown = true;
     return true;
 }
@@ -1068,29 +920,12 @@ bool Game::quit(const CEGUI::EventArgs &e){
 bool Game::newGame(const CEGUI::EventArgs &e){
     gameMode = true;
 
-    if (mNetwork == NULL) {
-        mNetwork = new Network(this, true);
-        mNetwork->Start();
-    }
-    if (mNetwork->isServer)
-        mNetwork->SendMessageToClient(ServerMessage());
-
-    multiplayer = mNetwork->clientCount != 0 || !mNetwork->isServer;
-
     disableMainMenu();
     enableGameWindow();
     destroyScene();
     createLights();
     createScene();
     
-}
-bool Game::OnServerQuit() {
-    gameMode = false;
-    mNetwork = NULL; //TODO FIX THIS MEMORY LEAK
-    enableMainMenu();
-    destroyScene();
-    createLights();
-    createScene();
 }
 bool Game::newGame() {
     gameMode = true;
@@ -1100,20 +935,6 @@ bool Game::newGame() {
     createScene();
 }
 
-bool Game::onStartServer(const CEGUI::EventArgs &e) {
-    if (mNetwork != NULL) {
-        std::cout << "DELETING OLD NETWORK" << std::endl;
-        delete mNetwork;
-    }
-    mNetwork = new Network(this, true);
-    mNetwork->Start();
-}
-
-bool Game::onConnectToServer(const CEGUI::EventArgs &e) {
-    if (mNetwork->ConnectToServer()) {
-        disableMultiplayerMenu();
-    }
-}
 void Game::destroyGameObject(GameObject* object) {
     delete gameObjects[object->id];
 }

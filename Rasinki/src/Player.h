@@ -5,7 +5,6 @@
 #include "GameObject.h"
 #include <OISEvents.h>
 #include <OISKeyboard.h>
-#include "Network.h"
 
 
 /* Forward Declarations */
