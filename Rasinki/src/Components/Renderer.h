@@ -20,6 +20,7 @@ class Renderer {
 	public:
 		GameObject *gameObject;
 		Ogre::Entity *entity;
+    	Ogre::AnimationState *mAnimationState;
 
 
 		Renderer(GameObject *attachedGameObject);

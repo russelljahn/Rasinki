@@ -21,6 +21,8 @@ using namespace std;
 #include "Objects/Cube.h"
 #include "Objects/Robot.h"
 
+
+
 CEGUI::MouseButton convertButton(OIS::MouseButtonID buttonID);
 
 //-------------------------------------------------------------------------------------
@@ -387,21 +389,29 @@ bool Game::frameRenderingQueued(const Ogre::FrameEvent& evt)
     //Need to capture/update each device
     mKeyboard->capture();
     mMouse->capture();
+
     
     *playerGold = string("Gold: ");
-    int num = playerList[0]->getGold();       // number to be converted to a string
-    ostringstream convert;   // stream used for the conversion
+    int num = playerList[0]->mGold;       // number to be converted to a string
+    ostringstream convert;   // stream used for int to string conversion
     convert << num;      // insert the textual representation of 'Number' in the characters in the stream
     playerGold->append(convert.str()); // set 'Result' to the contents of the stream
     *playerScore = string("Score: ");
-    num = playerList[0]->getScore();       // number to be converted to a string
-    convert;   // stream used for the conversion
-    convert << num;      // insert the textual representation of 'Number' in the characters in the stream
-    playerScore->append(convert.str()); // set 'Result' to the contents of the stream
+    num = playerList[0]->mScore;       // number to be converted to a string
+    ostringstream convert1;   // stream used for int to string conversion
+    convert1 << num;      // insert the textual representation of 'Number' in the characters in the stream
+    playerScore->append(convert1.str()); // set 'Result' to the contents of the stream
+    *playerLives = string("Lives: ");
+    num = playerList[0]->mLives;       // number to be converted to a string
+    ostringstream convert2;   // stream used for int to string conversion
+    convert2 << num;      // insert the textual representation of 'Number' in the characters in the stream
+    playerLives->append(convert2.str()); // set 'Result' to the contents of the stream
     gameWindow->getChild("gold")->setText(*playerGold);
     gameWindow->getChild("score")->setText(*playerScore);
+    gameWindow->getChild("lives")->setText(*playerLives);
     towerMenu->getChild("gold1")->setText(*playerGold);
     towerMenu->getChild("score1")->setText(*playerScore);
+    towerMenu->getChild("lives1")->setText(*playerLives);
 
     mTrayManager->frameRenderingQueued(evt);
     CEGUI::System::getSingleton().injectTimePulse(evt.timeSinceLastFrame);
@@ -566,8 +576,8 @@ void Game::createLights(void) {
 
     Ogre::Light* directionalLight = mSceneManager->createLight("directionalLight");
     directionalLight->setType(Ogre::Light::LT_DIRECTIONAL);
-    directionalLight->setDirection(Ogre::Vector3(0.25,.25,0));
-    directionalLight->setDiffuseColour(Ogre::ColourValue(.5, .5, .5));
+    directionalLight->setDirection(Ogre::Vector3(0.75,.25,0));
+    directionalLight->setDiffuseColour(Ogre::ColourValue(.25, .25, .25));
     directionalLight->setSpecularColour(Ogre::ColourValue(.25, .25, 0));
 
     Ogre::Light *pointLight = mSceneManager->createLight("pointLight");
@@ -576,39 +586,23 @@ void Game::createLights(void) {
     pointLight->setDiffuseColour(1.0, 0.8, 0.8);
     pointLight->setSpecularColour(1.0, 0.8, 0.8);
 
-    Ogre::Light* spotLight1 = mSceneManager->createLight("spotLight1");
-    spotLight1->setType(Ogre::Light::LT_SPOTLIGHT);
-    spotLight1->setDiffuseColour(0.8, 0.8, 1.0);
-    spotLight1->setSpecularColour(0.8, 0.8, 1.0);
-    spotLight1->setDirection(-1, -1, 0);
-    spotLight1->setPosition(Ogre::Vector3(0, 300, 0));
-    spotLight1->setSpotlightRange(Ogre::Degree(35), Ogre::Degree(50));
-
-    Ogre::Light* spotLight2 = mSceneManager->createLight("spotLight2");
-    spotLight2->setType(Ogre::Light::LT_SPOTLIGHT);
-    spotLight2->setDiffuseColour(1.0, 0.8, 0.8);
-    spotLight2->setSpecularColour(1.0, 0.8, 0.8);
-    spotLight2->setDirection(-1, 1, 0);
-    spotLight2->setPosition(Ogre::Vector3(0, -300, 0));
-    spotLight2->setSpotlightRange(Ogre::Degree(35), Ogre::Degree(50));
-
-    Ogre::Light* spotLight3 = mSceneManager->createLight("spotLight3");
-    spotLight3->setType(Ogre::Light::LT_SPOTLIGHT);
-    spotLight3->setDiffuseColour(1.0, 0.8, 0.8);
-    spotLight3->setSpecularColour(1.0, 0.8, 0.8);
-    spotLight3->setDirection(1, -1, 0);
-    spotLight3->setPosition(Ogre::Vector3(0, 300, 0));
-    spotLight3->setSpotlightRange(Ogre::Degree(35), Ogre::Degree(50));
+    // Ogre::Light* spotLight3 = mSceneManager->createLight("spotLight3");
+    // spotLight3->setType(Ogre::Light::LT_SPOTLIGHT);
+    // spotLight3->setDiffuseColour(1.0, 0.8, 0.8);
+    // spotLight3->setSpecularColour(1.0, 0.8, 0.8);
+    // spotLight3->setDirection(1, -1, 0);
+    // spotLight3->setPosition(Ogre::Vector3(0, 300, 0));
+    // spotLight3->setSpotlightRange(Ogre::Degree(35), Ogre::Degree(50));
 
     Ogre::Light* spotLight4 = mSceneManager->createLight("spotLight4");
     spotLight4->setType(Ogre::Light::LT_SPOTLIGHT);
     spotLight4->setDiffuseColour(0.8, 0.8, 1.0);
     spotLight4->setSpecularColour(0.8, 0.8, 1.0);
-    spotLight4->setDirection(1, 1, 0);
+    spotLight4->setDirection(.25, .4, 0);
     spotLight4->setPosition(Ogre::Vector3(0, -300, 0));
     spotLight4->setSpotlightRange(Ogre::Degree(35), Ogre::Degree(50));
 
-    mSceneManager->setAmbientLight(Ogre::ColourValue(.35, .35, .35));
+    mSceneManager->setAmbientLight(Ogre::ColourValue(.5, .5, .5));
     mSceneManager->setShadowTechnique(Ogre::SHADOWTYPE_STENCIL_ADDITIVE);
     mSceneManager->setShadowColour(Ogre::ColourValue::Black);
 
@@ -638,7 +632,12 @@ void Game::createGUI(void) {
 
     //TEST CODE
     // Menu Background
+    CEGUI::ImagesetManager &ismmgr = CEGUI::ImagesetManager::getSingleton();
+    CEGUI::Imageset* background_set = &ismmgr.createFromImageFile("background_set", "test.jpg");
+
+
     CEGUI::Window *menuBackground = wmgr.createWindow("TaharezLook/StaticImage", "background");
+    menuBackground->setProperty( "Image", "set:background_set image:full_image" );
     menuBackground->setPosition( CEGUI::UVector2( CEGUI::UDim( 0.0f, 0.0f ), CEGUI::UDim( 0.0f, 0.0f) ) );
     menuBackground->setSize( CEGUI::UVector2( CEGUI::UDim( 1.0f, 0.0f ), CEGUI::UDim( 1.0f, 0.0f ) ) );  // full screen
     //END OF TEST CODE
@@ -666,9 +665,11 @@ void Game::createGUI(void) {
     
     playerGold = new string(); 
     playerScore = new string();
+    playerLives = new string();
 
     *playerGold = string("Gold: ");
     *playerScore = string("Score: ");
+    *playerLives = string("Lives: ");
 
     CEGUI::Window *gold = wmgr.createWindow("TaharezLook/Button", "gold");
     gold->setText(*playerGold); // + playerList[0]->mGold);
@@ -677,14 +678,30 @@ void Game::createGUI(void) {
 
     CEGUI::Window *score = wmgr.createWindow("TaharezLook/Button", "score");
     score->setText(*playerScore); // + playerList[0]->mScore);
-
     score->setSize(CEGUI::UVector2(CEGUI::UDim(0.15, 0), CEGUI::UDim(0.05, 0)));
     score->setPosition(CEGUI::UVector2(CEGUI::UDim(0.0f, 0),CEGUI::UDim(0.05f, 0)));
     
+    CEGUI::Window *lives = wmgr.createWindow("TaharezLook/Button", "lives");
+    lives->setText(*playerLives); // + playerList[0]->mGold);
+    lives->setSize(CEGUI::UVector2(CEGUI::UDim(0.15, 0), CEGUI::UDim(0.05, 0)));
+    lives->setPosition(CEGUI::UVector2(CEGUI::UDim(0.0f, 0),CEGUI::UDim(0.1f, 0)));
+
+    CEGUI::Window *towerhelp = wmgr.createWindow("TaharezLook/Button", "towerhelp");
+    towerhelp->setText("Tap 1: turret"); // + playerList[0]->mGold);
+    towerhelp->setSize(CEGUI::UVector2(CEGUI::UDim(0.15, 0), CEGUI::UDim(0.05, 0)));
+    towerhelp->setPosition(CEGUI::UVector2(CEGUI::UDim(0.8f, 0),CEGUI::UDim(0.0f, 0)));
+    
+    CEGUI::Window *wallhelp = wmgr.createWindow("TaharezLook/Button", "wallhelp");
+    wallhelp->setText("Tap 2: wall"); // + playerList[0]->mGold);
+    wallhelp->setSize(CEGUI::UVector2(CEGUI::UDim(0.15, 0), CEGUI::UDim(0.05, 0)));
+    wallhelp->setPosition(CEGUI::UVector2(CEGUI::UDim(0.8f, 0),CEGUI::UDim(0.05f, 0)));
 
     rootWindow->addChildWindow(gameWindow);
     gameWindow->addChildWindow(gold);
     gameWindow->addChildWindow(score);
+    gameWindow->addChildWindow(lives);
+    gameWindow->addChildWindow(towerhelp);
+    gameWindow->addChildWindow(wallhelp);
 
     disableGameWindow();
     enableMainMenu();
@@ -698,9 +715,11 @@ void Game::createGUI(void) {
     
     playerGold = new string(); 
     playerScore = new string();
+    playerLives = new string();
 
     *playerGold = string("Gold: ");
     *playerScore = string("Score: ");
+    *playerLives = string("Lives: ");
 
     CEGUI::Window *sell = wmgr.createWindow("TaharezLook/Button", "sell");
     sell->setText("Sell"); 
@@ -722,9 +741,14 @@ void Game::createGUI(void) {
 
     CEGUI::Window *score1 = wmgr.createWindow("TaharezLook/Button", "score1");
     score1->setText(*playerScore); // + playerList[0]->mScore);
-
     score1->setSize(CEGUI::UVector2(CEGUI::UDim(0.15, 0), CEGUI::UDim(0.05, 0)));
     score1->setPosition(CEGUI::UVector2(CEGUI::UDim(0.0f, 0),CEGUI::UDim(0.05f, 0)));
+
+    CEGUI::Window *lives1 = wmgr.createWindow("TaharezLook/Button", "lives1");
+    lives->setText(*playerLives); // + playerList[0]->mGold);
+    lives->setSize(CEGUI::UVector2(CEGUI::UDim(0.15, 0), CEGUI::UDim(0.05, 0)));
+    lives->setPosition(CEGUI::UVector2(CEGUI::UDim(0.0f, 0),CEGUI::UDim(0.1f, 0)));
+
     rootWindow->addChildWindow(towerMenu);
 //     towerMenu->addChildWindow(towerBackground);
 //     towerBackground->addChildWindow(sell);
@@ -733,6 +757,7 @@ void Game::createGUI(void) {
     towerMenu->addChildWindow(upgrade);
     towerMenu->addChildWindow(gold1);
     towerMenu->addChildWindow(score1);
+    towerMenu->addChildWindow(lives1);
 
     disableTowerMenu();
     enableMainMenu();
