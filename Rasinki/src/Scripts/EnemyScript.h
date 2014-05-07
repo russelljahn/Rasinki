@@ -23,7 +23,7 @@ class EnemyScript : public Script {
 		void Initialize(Pathfinder* pathfinder);		
 		void Start(void);
 		void Update(void);
-		void Attacked();
+		void Attacked(int damage = 0);
 		Ogre::Vector3 destination;
 
 		Grid *grid;

@@ -9,7 +9,7 @@
 
 Tower::Tower(Game *attachedGame) : GameObject(attachedGame){
 	weaponCooldownTime = 1;
-	
+	damage = 1;
 	ostringstream nameCoverter;
 	nameCoverter << "tower ";
 	nameCoverter << id;
@@ -58,7 +58,14 @@ Tower::~Tower() {
 void Tower::Start() {
 	
 }
+void Tower::setUpgraded(bool u) {
+	upgraded = u;
+	if (u) {
+		weaponCooldownTime =0.5f;
+		damage *= 5;
+	}
 
+}
 void Tower::Initialize() {
 	Ogre::Vector3 bounds = grid->squares[0]->getBounds();
 	GridSquare *gs0 = grid->gridSquareAtPos( physics->getWorldPosition() );
@@ -249,7 +256,7 @@ void Tower::Update() {
 
 			if (Time::time > timeLastAttack + weaponCooldownTime) {
 				timeLastAttack = Time::time;
-				square->enemy->Attacked();
+				square->enemy->Attacked(damage);
 			}
 			// Lock lookAt() rotation to only along the y-axis
 			Ogre::Quaternion newRotation = this->gameObject->transform->sceneNode->getOrientation();

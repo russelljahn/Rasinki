@@ -83,13 +83,13 @@ void EnemyScript::Update() {
 		}
 	}
 }
-void EnemyScript::Attacked() {
-	hitPoints --;
+void EnemyScript::Attacked(int damage) {
+	hitPoints -= damage;
 	std::cout << "ENEMY SHOT ID: " << gameObject->id << " HP REMAINING: " << hitPoints << std::endl;
 	Explosion* ex = new Explosion(gameObject->game);
 	ex->transform->setWorldPosition(gameObject->transform->getWorldPosition() + Ogre::Vector3(0, 120, 0));
 	ex->transform->setWorldScale(Ogre::Vector3(4,4,4));
-	if (hitPoints == 0) {
+	if (hitPoints <= 0) {
 		gameObject->game->playerList[0]->changeGold(gameObject->game->enemySpawner->waveVector[gameObject->game->enemySpawner->waveNum].reward);
 		currentSquare->RemoveEnemy(this);
 		gameObject->game->playerList[0]->scored();

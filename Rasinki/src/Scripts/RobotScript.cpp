@@ -138,7 +138,7 @@ void RobotScript::sellTower(){
     GridSquare *squarey = grid->gridSquareAtPos(this->gameObject->physics->getWorldPosition() + forward);
     squarey->occupant->renderer->setEnabled(false);
     if (squarey->type == 1){
-        if (((Tower*)squarey->occupant)->upgraded){
+        if (((Tower*)squarey->occupant)->isUpgraded()){
             gameObject->game->playerList[0]->changeGold(63);
         }
         else
@@ -169,9 +169,9 @@ void RobotScript::upgradeTower(){
     Ogre::Vector3 scale = tower->transform->getWorldScale();
     tower->transform->setWorldScale(scale*1.25);
     tower->grid = grid;
-    tower->Initialize();
     tower->physics->setWorldPosition(squareyPosition + Ogre::Vector3(00.0f, 65.0f, 40.0f));
-    tower->upgraded = true;
+    tower->Initialize();
+    tower->setUpgraded(true);
     squarey->occupant = tower;
     upgraded = true;
 
@@ -218,7 +218,7 @@ void RobotScript::HandleTower() {
                     tower->grid = grid;
                     tower->Initialize();
                     squarey->occupant = tower;
-                    tower->upgraded = false;
+                    tower->setUpgraded(false);
                     squarey->type = 1;
                     gameObject->game->playerList[0]->changeGold(-25);
                 }
@@ -242,7 +242,7 @@ void RobotScript::HandleTower() {
           gameObject->game->enableTowerMenu(true); 
           }
           else{
-          gameObject->game->enableTowerMenu(((Tower*)squarey->occupant)->upgraded);
+          gameObject->game->enableTowerMenu(((Tower*)squarey->occupant)->isUpgraded());
           }
           can_move = false;
         }
