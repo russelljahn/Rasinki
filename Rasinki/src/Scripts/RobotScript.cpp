@@ -125,15 +125,14 @@ void RobotScript::upgradeTower(){
     squarey->occupant = NULL;
 
     Ogre::Vector3 squareyPosition = squarey->gameObject->physics->getWorldPosition();
-
     Tower *tower = new Tower(this->gameObject->game,0);
-
     Ogre::Vector3 scale = tower->transform->getWorldScale();
-    tower->transform->setWorldScale(scale*1.1);
+    tower->transform->setWorldScale(scale*1.25);
     tower->grid = grid;
     tower->Initialize();
-    squarey->occupant = tower;
     tower->physics->setWorldPosition(squareyPosition + Ogre::Vector3(00.0f, 65.0f, 40.0f));
+    squarey->occupant = tower;
+    upgraded = true;
     return;
 }
 
@@ -144,7 +143,10 @@ void RobotScript::HandleTower() {
     if (squarey == NULL) {
         return;
     }
-
+    if (upgraded){
+        upgraded = false;
+        return;
+    }
     Ogre::Vector3 squareyPosition = squarey->gameObject->physics->getWorldPosition();    
 
     glowTile->transform->setWorldPosition(squareyPosition + Ogre::Vector3(0.0f, 10.0f, 0.0f));
