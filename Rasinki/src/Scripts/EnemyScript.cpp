@@ -1,5 +1,6 @@
 #include "EnemyScript.h"
 #include "GridSquare.h"
+#include "Time.h"
 
 EnemyScript::EnemyScript(GameObject *attachedGameObject) : Script(attachedGameObject) {
 	//moveSpeed = 500.0f;
@@ -34,10 +35,10 @@ void EnemyScript::Update() {
 	if (_currentPath.size() > 0) {
 		// std::cout << _currentPath.front()->getPosition() << " " << gameObject->physics->getWorldPosition() << std::endl;
 	}
-	while (veloc.squaredLength () < 10 && _currentPath.size() > 0) {
+	while (veloc.squaredLength () < Time::deltaTime*moveSpeed*2 && _currentPath.size() > 0) {
 		veloc = (_currentPath.front()->getPosition() - gameObject->physics->getWorldPosition());
 		veloc.y = 0;
-		if (veloc.squaredLength() < 10) {
+		if (veloc.squaredLength () < Time::deltaTime*moveSpeed*2) {
 
 			assert (grid != NULL);
 			lastSquare = currentSquare;

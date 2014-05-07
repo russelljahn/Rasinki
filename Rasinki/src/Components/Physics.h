@@ -16,7 +16,7 @@ class Physics {
 	
 	public:
 		Physics(){}
-		Physics(GameObject* attachedGameObject, float mass = 1, btCollisionShape* collider = new btSphereShape(1), Ogre::Vector3 opos = Ogre::Vector3::ZERO);
+		Physics(GameObject* attachedGameObject, float mass = 1, btCollisionShape* collider = new btSphereShape(1), Ogre::Vector3 opos = Ogre::Vector3::ZERO, bool collides = true);
 		~Physics();
 
 		void Start();

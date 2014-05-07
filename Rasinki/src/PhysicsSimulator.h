@@ -11,7 +11,7 @@ class PhysicsSimulator {
 	public:
 		PhysicsSimulator(Ogre::Real fixedTimeStep = 1.0/60.0);
 		~PhysicsSimulator();
-		void addObject(btRigidBody* body);
+		void addObject(btRigidBody* body, bool collides = true);
 		void removeObject(btRigidBody* body);
 		void stepSimulation(Ogre::Real elapsedTime);
 		static Ogre::Vector3 gravity;
