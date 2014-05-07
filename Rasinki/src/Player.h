@@ -27,7 +27,7 @@ class Player {
 
 		int mScore;
     int mGold;
-		int currentHealth;
+		int mLives;
 
 		ClientInput* clientInput;
 	private:

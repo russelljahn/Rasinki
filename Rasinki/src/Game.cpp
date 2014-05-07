@@ -25,6 +25,8 @@ using namespace std;
 #include "Objects/Cube.h"
 #include "Objects/Robot.h"
 
+
+
 CEGUI::MouseButton convertButton(OIS::MouseButtonID buttonID);
 
 //-------------------------------------------------------------------------------------
@@ -392,21 +394,29 @@ bool Game::frameRenderingQueued(const Ogre::FrameEvent& evt)
     //Need to capture/update each device
     mKeyboard->capture();
     mMouse->capture();
+
     
     *playerGold = string("Gold: ");
     int num = playerList[0]->mGold;       // number to be converted to a string
-    ostringstream convert;   // stream used for the conversion
+    ostringstream convert;   // stream used for int to string conversion
     convert << num;      // insert the textual representation of 'Number' in the characters in the stream
     playerGold->append(convert.str()); // set 'Result' to the contents of the stream
     *playerScore = string("Score: ");
     num = playerList[0]->mScore;       // number to be converted to a string
-    convert;   // stream used for the conversion
-    convert << num;      // insert the textual representation of 'Number' in the characters in the stream
-    playerScore->append(convert.str()); // set 'Result' to the contents of the stream
+    ostringstream convert1;   // stream used for int to string conversion
+    convert1 << num;      // insert the textual representation of 'Number' in the characters in the stream
+    playerScore->append(convert1.str()); // set 'Result' to the contents of the stream
+    *playerLives = string("Lives: ");
+    num = playerList[0]->mLives;       // number to be converted to a string
+    ostringstream convert2;   // stream used for int to string conversion
+    convert2 << num;      // insert the textual representation of 'Number' in the characters in the stream
+    playerLives->append(convert2.str()); // set 'Result' to the contents of the stream
     gameWindow->getChild("gold")->setText(*playerGold);
     gameWindow->getChild("score")->setText(*playerScore);
+    gameWindow->getChild("lives")->setText(*playerLives);
     towerMenu->getChild("gold1")->setText(*playerGold);
     towerMenu->getChild("score1")->setText(*playerScore);
+    towerMenu->getChild("lives1")->setText(*playerLives);
 
     mTrayManager->frameRenderingQueued(evt);
     CEGUI::System::getSingleton().injectTimePulse(evt.timeSinceLastFrame);
@@ -697,7 +707,12 @@ void Game::createGUI(void) {
 
     //TEST CODE
     // Menu Background
+    CEGUI::ImagesetManager &ismmgr = CEGUI::ImagesetManager::getSingleton();
+    CEGUI::Imageset* background_set = &ismmgr.createFromImageFile("background_set", "test.jpg");
+
+
     CEGUI::Window *menuBackground = wmgr.createWindow("TaharezLook/StaticImage", "background");
+    menuBackground->setProperty( "Image", "set:background_set image:full_image" );
     menuBackground->setPosition( CEGUI::UVector2( CEGUI::UDim( 0.0f, 0.0f ), CEGUI::UDim( 0.0f, 0.0f) ) );
     menuBackground->setSize( CEGUI::UVector2( CEGUI::UDim( 1.0f, 0.0f ), CEGUI::UDim( 1.0f, 0.0f ) ) );  // full screen
     //END OF TEST CODE
@@ -715,26 +730,11 @@ void Game::createGUI(void) {
     newGame->setPosition(CEGUI::UVector2(CEGUI::UDim(0.375f, 0),CEGUI::UDim(0.4f, 0)));
     newGame->subscribeEvent(CEGUI::PushButton::EventClicked, CEGUI::Event::Subscriber(&Game::newGame, this));
 
-    CEGUI::Window *level1 = wmgr.createWindow("TaharezLook/Button", "hostGame");
-    level1->setText("Host Game");
-    level1->setSize(CEGUI::UVector2(CEGUI::UDim(0.15, 0), CEGUI::UDim(0.05, 0))); 
-    level1->setPosition(CEGUI::UVector2(CEGUI::UDim(0.3f, 0),CEGUI::UDim(0.6f, 0)));
-    level1->subscribeEvent(CEGUI::PushButton::EventClicked, CEGUI::Event::Subscriber(&Game::onStartServer, this));
-
-    CEGUI::Window *connectToGame = wmgr.createWindow("TaharezLook/Button", "connectToGame");
-    connectToGame->setText("Connect to Game");  
-    connectToGame->setSize(CEGUI::UVector2(CEGUI::UDim(0.15, 0), CEGUI::UDim(0.05, 0)));
-    connectToGame->setPosition(CEGUI::UVector2(CEGUI::UDim(0.5f, 0),CEGUI::UDim(0.6f, 0)));
-    connectToGame->subscribeEvent(CEGUI::PushButton::EventClicked, CEGUI::Event::Subscriber(&Game::onClickPlayMultiplayer, this));
-    // level2->subscribeEvent(CEGUI::PushButton::EventClicked, CEGUI::Event::Subscriber(&Game::disableMainMenu, this));
-// 
 
     rootWindow->addChildWindow(mainMenu);
     mainMenu->addChildWindow(menuBackground);
     menuBackground->addChildWindow(quit);
     menuBackground->addChildWindow(newGame);
-    menuBackground->addChildWindow(level1);
-    menuBackground->addChildWindow(connectToGame);
 //     mainMenu->addChildWindow(quit);
 //     mainMenu->addChildWindow(newGame);
 //     mainMenu->addChildWindow(level1);
@@ -745,9 +745,11 @@ void Game::createGUI(void) {
     
     playerGold = new string(); 
     playerScore = new string();
+    playerLives = new string();
 
     *playerGold = string("Gold: ");
     *playerScore = string("Score: ");
+    *playerLives = string("Lives: ");
 
     CEGUI::Window *gold = wmgr.createWindow("TaharezLook/Button", "gold");
     gold->setText(*playerGold); // + playerList[0]->mGold);
@@ -756,14 +758,18 @@ void Game::createGUI(void) {
 
     CEGUI::Window *score = wmgr.createWindow("TaharezLook/Button", "score");
     score->setText(*playerScore); // + playerList[0]->mScore);
-
     score->setSize(CEGUI::UVector2(CEGUI::UDim(0.15, 0), CEGUI::UDim(0.05, 0)));
     score->setPosition(CEGUI::UVector2(CEGUI::UDim(0.0f, 0),CEGUI::UDim(0.05f, 0)));
     
+    CEGUI::Window *lives = wmgr.createWindow("TaharezLook/Button", "lives");
+    lives->setText(*playerLives); // + playerList[0]->mGold);
+    lives->setSize(CEGUI::UVector2(CEGUI::UDim(0.15, 0), CEGUI::UDim(0.05, 0)));
+    lives->setPosition(CEGUI::UVector2(CEGUI::UDim(0.0f, 0),CEGUI::UDim(0.1f, 0)));
 
     rootWindow->addChildWindow(gameWindow);
     gameWindow->addChildWindow(gold);
     gameWindow->addChildWindow(score);
+    gameWindow->addChildWindow(lives);
 
     disableGameWindow();
     enableMainMenu();
@@ -777,9 +783,11 @@ void Game::createGUI(void) {
     
     playerGold = new string(); 
     playerScore = new string();
+    playerLives = new string();
 
     *playerGold = string("Gold: ");
     *playerScore = string("Score: ");
+    *playerLives = string("Lives: ");
 
     CEGUI::Window *sell = wmgr.createWindow("TaharezLook/Button", "sell");
     sell->setText("Sell"); 
@@ -801,9 +809,14 @@ void Game::createGUI(void) {
 
     CEGUI::Window *score1 = wmgr.createWindow("TaharezLook/Button", "score1");
     score1->setText(*playerScore); // + playerList[0]->mScore);
-
     score1->setSize(CEGUI::UVector2(CEGUI::UDim(0.15, 0), CEGUI::UDim(0.05, 0)));
     score1->setPosition(CEGUI::UVector2(CEGUI::UDim(0.0f, 0),CEGUI::UDim(0.05f, 0)));
+
+    CEGUI::Window *lives1 = wmgr.createWindow("TaharezLook/Button", "lives1");
+    lives->setText(*playerLives); // + playerList[0]->mGold);
+    lives->setSize(CEGUI::UVector2(CEGUI::UDim(0.15, 0), CEGUI::UDim(0.05, 0)));
+    lives->setPosition(CEGUI::UVector2(CEGUI::UDim(0.0f, 0),CEGUI::UDim(0.1f, 0)));
+
     rootWindow->addChildWindow(towerMenu);
 //     towerMenu->addChildWindow(towerBackground);
 //     towerBackground->addChildWindow(sell);
@@ -812,6 +825,7 @@ void Game::createGUI(void) {
     towerMenu->addChildWindow(upgrade);
     towerMenu->addChildWindow(gold1);
     towerMenu->addChildWindow(score1);
+    towerMenu->addChildWindow(lives1);
 
     disableTowerMenu();
     enableMainMenu();
@@ -900,20 +914,8 @@ void Game::disableMainMenu() {
 void Game::enableMainMenu() {
     mainMenu->enable();
     mainMenu->setVisible(true);
-
-    if (mNetwork == NULL) {
-        mainMenu->getChild("background")->getChild("hostGame")->setVisible(true);
-        mainMenu->getChild("background")->getChild("newGame")->setVisible(true);
-        mainMenu->getChild("background")->getChild("connectToGame")->setVisible(true);
-    }
-    else {
-        mainMenu->getChild("background")->getChild("hostGame")->setVisible(false);
-        mainMenu->getChild("background")->getChild("newGame")->setVisible(mNetwork->isServer);
-        mainMenu->getChild("background")->getChild("connectToGame")->setVisible(false);
-
     
     }
-}
 void Game::disableMultiplayerMenu() {
     multiplayerMenu->disable();
     multiplayerMenu->setVisible(false);
