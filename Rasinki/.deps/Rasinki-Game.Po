@@ -1148,18 +1148,15 @@ Rasinki-Game.o: src/Game.cpp src/Game.h \
  /usr/include/OGRE/Terrain/OgreTerrain.h \
  /usr/include/OGRE/OgreIteratorWrappers.h src/Game.h src/Time.h \
  src/Scripts/RobotScript.h src/Scripts/../Components/Script.h \
- src/Scripts/RobotState.h src/Scripts/Grid.h src/Scripts/GridSquare.h \
+ src/Scripts/Grid.h src/Scripts/GridSquare.h \
  src/Scripts/../Objects/Cube.h src/Scripts/../Objects/Tower.h \
  src/Scripts/../Objects/../Scripts/GridSquare.h \
  src/Scripts/../Objects/../Scripts/Grid.h \
- src/Scripts/../Objects/Barrier.h src/Scripts/PointBlock.h \
- src/Scripts/Wall.h src/Scripts/SphereComponent.h \
- src/Scripts/GameplayScript.h src/Scripts/Grid.h src/Scripts/GridSquare.h \
- src/Scripts/EnemyScript.h src/Scripts/Pathfinder.h \
- src/Scripts/../Components/Script.h src/Scripts/GridSquare.h \
- src/Scripts/Grid.h src/Scripts/Pathfinder.h src/Scripts/EnemySpawner.h \
- src/Objects/Paddle.h src/Objects/Sphere.h src/Objects/Plane.h \
- src/Objects/Cube.h src/Objects/Robot.h
+ src/Scripts/../Objects/Barrier.h src/Scripts/GameplayScript.h \
+ src/Scripts/Grid.h src/Scripts/GridSquare.h src/Scripts/EnemyScript.h \
+ src/Scripts/Pathfinder.h src/Scripts/../Components/Script.h \
+ src/Scripts/GridSquare.h src/Scripts/Grid.h src/Scripts/Pathfinder.h \
+ src/Scripts/EnemySpawner.h src/Objects/Cube.h src/Objects/Robot.h
 
 src/Game.h:
 
@@ -3821,8 +3818,6 @@ src/Scripts/RobotScript.h:
 
 src/Scripts/../Components/Script.h:
 
-src/Scripts/RobotState.h:
-
 src/Scripts/Grid.h:
 
 src/Scripts/GridSquare.h:
@@ -3836,12 +3831,6 @@ src/Scripts/../Objects/../Scripts/GridSquare.h:
 src/Scripts/../Objects/../Scripts/Grid.h:
 
 src/Scripts/../Objects/Barrier.h:
-
-src/Scripts/PointBlock.h:
-
-src/Scripts/Wall.h:
-
-src/Scripts/SphereComponent.h:
 
 src/Scripts/GameplayScript.h:
 
@@ -3862,12 +3851,6 @@ src/Scripts/Grid.h:
 src/Scripts/Pathfinder.h:
 
 src/Scripts/EnemySpawner.h:
-
-src/Objects/Paddle.h:
-
-src/Objects/Sphere.h:
-
-src/Objects/Plane.h:
 
 src/Objects/Cube.h:
 

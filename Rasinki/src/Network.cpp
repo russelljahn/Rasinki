@@ -1,5 +1,4 @@
 #include "Network.h"
-#include "Scripts/SphereComponent.h"
 
 using namespace std;
 
@@ -436,7 +435,6 @@ void Network::ProcessServer(){
                 ServerMessage serverMessage = *((ServerMessage *)(buffer+i));
                 cout << "DISABLING BALL" << serverMessage.objectIndex << endl;
                 game->gameObjects[serverMessage.objectIndex]->renderer->setEnabled(false);
-                SphereComponent::numSpheres--;
                 i += sizeof(ServerMessage);
             }
             else if (messageType == SERVERQUIT) {

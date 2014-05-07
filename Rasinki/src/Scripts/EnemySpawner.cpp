@@ -27,7 +27,7 @@ void EnemySpawner::Update() {
 	}
 	timeSinceLastSpawn += gameObject->game->getDeltaTime();
 	if (timeSinceLastSpawn > waveVector[waveNum].timeBetweenSpawns) {
-		Enemy *enemy = new Enemy(gameObject->game, 1);
+		Enemy *enemy = new Enemy(gameObject->game, 1.0);
 	    Pathfinder *enemyPathfinder = enemy->AddComponentOfType<Pathfinder>();
 	    enemyPathfinder->Initialize(grid);
 	    EnemyScript *enemyScript = enemy->AddComponentOfType<EnemyScript>();

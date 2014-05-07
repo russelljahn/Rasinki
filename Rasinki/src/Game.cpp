@@ -7,9 +7,6 @@ using namespace std;
 #include "Time.h"
 
 #include "Scripts/RobotScript.h"
-#include "Scripts/PointBlock.h"
-#include "Scripts/Wall.h"
-#include "Scripts/SphereComponent.h"
 #include "Scripts/GameplayScript.h"
 #include "Scripts/Grid.h"
 #include "Scripts/GridSquare.h"
@@ -17,10 +14,6 @@ using namespace std;
 #include "Scripts/Pathfinder.h"
 #include "Scripts/EnemySpawner.h"
 
-
-#include "Objects/Paddle.h"
-#include "Objects/Sphere.h"
-#include "Objects/Plane.h"
 #include "Objects/Cube.h"
 #include "Objects/Robot.h"
 
@@ -231,6 +224,7 @@ void Game::createFrameListener(void)
     statsPanelItems.push_back("Score");
     statsPanelItems.push_back("Balls Left");
     mStatsPanel = mTrayManager->createParamsPanel(OgreBites::TL_NONE, "StatsPanel", 200, statsPanelItems);
+    mStatsPanel->hide();
 
     // create a params panel for displaying game over details
     Ogre::StringVector gameOverPanelItems;
@@ -255,9 +249,8 @@ void Game::destroyScene(void)
     mSceneManager->clearScene();
     Time::Reset();
 
-    mStatsPanel->show();
+    mStatsPanel->hide();
     mGameOverPanel->hide();
-    SphereComponent::numSpheres = 0;
 }
 //-------------------------------------------------------------------------------------
 void Game::createViewports(void)

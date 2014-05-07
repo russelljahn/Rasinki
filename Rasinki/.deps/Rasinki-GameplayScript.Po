@@ -1148,8 +1148,7 @@ Rasinki-GameplayScript.o: src/Scripts/GameplayScript.cpp \
  /usr/include/OGRE/OgreIteratorWrappers.h src/Components/Component.h \
  src/Components/Transform.h /usr/include/OGRE/OgreNode.h \
  /usr/include/OGRE/OgreQuaternion.h src/Components/Transform.h \
- src/Components/Physics.h src/Components/Renderer.h \
- src/Scripts/SphereComponent.h src/Scripts/../Time.h
+ src/Components/Physics.h src/Components/Renderer.h src/Scripts/../Time.h
 
 src/Scripts/GameplayScript.h:
 
@@ -3806,7 +3805,5 @@ src/Components/Transform.h:
 src/Components/Physics.h:
 
 src/Components/Renderer.h:
-
-src/Scripts/SphereComponent.h:
 
 src/Scripts/../Time.h:
