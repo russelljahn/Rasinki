@@ -25,9 +25,12 @@ class RobotScript : public Script {
 		void Update(void);
 		void OnCollision(Ogre::Vector3 point, GameObject* collidedWith);
 		void HandleTower();
+    void sellTower();
+    void upgradeTower();
 
 		Grid *grid;
 		Cube *glowTile;
+    bool can_move;
 	private:
 		bool up;
 		bool down;

@@ -18,15 +18,20 @@ void RobotScript::Start() {
     glowTile->renderer->setMaterial("SquareGlow1");
     jumping = false;
     falling = false;
+    can_move = true;
 }
 
 
 
 void RobotScript::Update() {
+  
     Script::Update();
 
     HandleTower();
 
+    if (!can_move){
+        return;
+    }
 
     gameObject->physics->setLinearVelocity(Ogre::Vector3(0, 0, 0));
     float movementSpeed = 1500.0f;
@@ -103,7 +108,34 @@ void RobotScript::Update() {
     // gameObject->game->getCamera()->setNearClipDistance(5);
 }
 
+void RobotScript::sellTower(){
+    Ogre::Vector3 forward = gameObject->transform->sceneNode->getOrientation() * Ogre::Vector3(1,0,0)*250;
+    GridSquare *squarey = grid->gridSquareAtPos(this->gameObject->physics->getWorldPosition() + forward);
+    delete squarey->occupant;
+    squarey->occupant = NULL;
+    gameObject->game->playerList[0]->mGold += 13;
+    return;
+}
 
+void RobotScript::upgradeTower(){
+//TODO: Make this not just sell
+    Ogre::Vector3 forward = gameObject->transform->sceneNode->getOrientation() * Ogre::Vector3(1,0,0)*250;
+    GridSquare *squarey = grid->gridSquareAtPos(this->gameObject->physics->getWorldPosition() + forward);
+    delete squarey->occupant;
+    squarey->occupant = NULL;
+
+    Ogre::Vector3 squareyPosition = squarey->gameObject->physics->getWorldPosition();
+
+    Tower *tower = new Tower(this->gameObject->game,0);
+
+    Ogre::Vector3 scale = tower->transform->getWorldScale();
+    tower->transform->setWorldScale(scale*1.1);
+    tower->grid = grid;
+    tower->Initialize();
+    squarey->occupant = tower;
+    tower->physics->setWorldPosition(squareyPosition + Ogre::Vector3(00.0f, 65.0f, 40.0f));
+    return;
+}
 
 void RobotScript::HandleTower() {
     Ogre::Vector3 forward = gameObject->transform->sceneNode->getOrientation() * Ogre::Vector3(1,0,0)*250;
@@ -127,22 +159,31 @@ void RobotScript::HandleTower() {
         if (!squarey->IsOccupied() && !squarey->HasEnemies()) {
             if (Input::IsKeyDown(OIS::KC_1))
             {
-                Tower *tower = new Tower(this->gameObject->game,0);
-                tower->physics->setWorldPosition(squareyPosition + Ogre::Vector3(00.0f, 65.0f, 40.0f));
-                tower->grid = grid;
-                tower->Initialize();
-                squarey->occupant = tower;
+                if ((gameObject->game->playerList[0]->mGold - 25) >= 0)
+                {
+                    Tower *tower = new Tower(this->gameObject->game,0);
+                    tower->physics->setWorldPosition(squareyPosition + Ogre::Vector3(00.0f, 65.0f, 40.0f));
+                    tower->grid = grid;
+                    tower->Initialize();
+                    squarey->occupant = tower;
+                    gameObject->game->playerList[0]->mGold -= 25;
+                }
             }
             else if(Input::IsKeyDown(OIS::KC_2))
             {
-                Barrier *barrier = new Barrier(this->gameObject->game);
-                barrier->physics->setWorldPosition(squareyPosition);
-                squarey->occupant = barrier;
+                if ((gameObject->game->playerList[0]->mGold - 5) >= 0)
+                {
+                    Barrier *barrier = new Barrier(this->gameObject->game);
+                    barrier->physics->setWorldPosition(squareyPosition);
+                    squarey->occupant = barrier;
+                    gameObject->game->playerList[0]->mGold -= 5;
+                }
             }
         }
         else if (squarey->IsOccupied()) {
-            delete squarey->occupant;
-            squarey->occupant = NULL;
+          gameObject->game->disableGameWindow();
+          gameObject->game->enableTowerMenu();
+          can_move = false;
         }
         
     }

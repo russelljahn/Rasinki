@@ -25,10 +25,12 @@ class Player {
 		void reset() {mScore = 0;}
 		bool IsKeyDown(OIS::KeyCode);
 
+		int mScore;
+    int mGold;
+		int currentHealth;
+
 		ClientInput* clientInput;
 	private:
-		int mScore;
-		int currentHealth;
 		ControlType mControlType;
 };
 #endif
