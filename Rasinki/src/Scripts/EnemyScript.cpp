@@ -1,6 +1,7 @@
 #include "EnemyScript.h"
 #include "GridSquare.h"
 #include "Time.h"
+#include "EnemySpawner.h"
 
 EnemyScript::EnemyScript(GameObject *attachedGameObject) : Script(attachedGameObject) {
 	//moveSpeed = 500.0f;
@@ -77,7 +78,7 @@ void EnemyScript::Attacked() {
 	hitPoints --;
 	std::cout << "ENEMY SHOT ID: " << gameObject->id << " HP REMAINING: " << hitPoints << std::endl;
 	if (hitPoints == 0) {
-		gameObject->game->playerList[0]->changeGold(2);
+		gameObject->game->playerList[0]->changeGold(gameObject->game->enemySpawner->waveVector[gameObject->game->enemySpawner->waveNum].reward);
 		currentSquare->RemoveEnemy(this);
 		gameObject->game->playerList[0]->scored();
 		gameObject->Kill();

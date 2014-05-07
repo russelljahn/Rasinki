@@ -24,6 +24,7 @@ void Tower::Start() {
 
 	ostringstream nameCoverter;
 	nameCoverter << "tower ";
+  upgraded = false;
 	nameCoverter << id;
 	grid = NULL;
 

@@ -7,13 +7,18 @@ EnemySpawner::EnemySpawner(GameObject* game) : Script(game) {
 	timeSinceLastSpawn = 5;
 	waveNum = 0;
 	numSpawned = 0;
-	//MoveSpeed, hitPoints, numToSpawn, timeBetweenSpawns
+	//MoveSpeed, hitPoints, numToSpawn, timeBetweenSpawns, reward
 	spawning = false;
-	Wave wave1(700, 1, 30, 0.4f);
-	Wave wave2(500, 3, 20, 1);
-	Wave wave3(300, 10, 5, 2);
-	Wave wave4(700, 3, 20, 1);
-	Wave wave5(500, 5, 20, 0.7f);
+  //Lots of fast easy to kill guys
+	Wave wave1(1000, 2, 30, 0.4f, 1);
+  //Normal
+	Wave wave2(700, 5, 30, 1, 2);
+  //Slow and tough
+	Wave wave3(300, 20, 5, 6, 10);
+  //Fast
+	Wave wave4(1000, 10, 50, 0.4f, 3);
+  //Boss
+	Wave wave5(500, 200, 1, 0.7f, 50);
 	waveVector.push_back(wave1);
 	waveVector.push_back(wave2);
 	waveVector.push_back(wave3);

@@ -104,7 +104,7 @@ public:
     virtual void disableGameWindow();
     virtual void enableGameWindow();
     virtual void disableTowerMenu();
-    virtual void enableTowerMenu();
+    virtual void enableTowerMenu(bool);
     virtual bool sell(const CEGUI::EventArgs &e);
     virtual bool upgrade(const CEGUI::EventArgs &e);
 

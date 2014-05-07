@@ -25,6 +25,9 @@ class Tower : public GameObject {
 		std::vector<GridSquare *> inRangeSquares;
 		std::vector<Cube *> glowTiles;
 		Grid *grid;
+
+    //Upgrades
+    bool upgraded;
 	private:
 		float weaponCooldownTime;
 		float timeLastAttack;

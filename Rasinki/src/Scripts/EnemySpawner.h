@@ -4,6 +4,7 @@
 #include "GameObject.h"
 
 class Grid;
+class EnemySpawner;
 
 struct Wave {
 public:
@@ -11,11 +12,13 @@ public:
 	int hitPoints;
 	int numToSpawn;
 	float timeBetweenSpawns;
-	Wave(int moveSpeed, int hitPoints, int numToSpawn, float timeBetweenSpawns) {
+  int reward;
+	Wave(int moveSpeed, int hitPoints, int numToSpawn, float timeBetweenSpawns, int reward) {
 		this->moveSpeed = moveSpeed;
 		this->hitPoints = hitPoints;
 		this->numToSpawn = numToSpawn;
 		this->timeBetweenSpawns = timeBetweenSpawns; 
+    this->reward = reward;
 	}
 };
 
@@ -29,11 +32,11 @@ public:
 	void startSpawning() { spawning = true; }
 
 	Grid *grid;
+	int waveNum;
+	std::vector<Wave> waveVector; 
 private:
 	float timeSinceLastSpawn;
 	int numSpawned;
-	int waveNum;
-	std::vector<Wave> waveVector; 
 	bool spawning;
 };
 #endif
