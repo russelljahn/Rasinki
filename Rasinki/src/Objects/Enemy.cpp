@@ -18,6 +18,7 @@ void Enemy::Start() {
 
 	renderer->entity = game->getSceneManager()->createEntity(nameCoverter.str(), "ninja.mesh");
 	transform->sceneNode->attachObject(renderer->entity);
+
 	physics = new Physics(this, mass , new btBoxShape(btVector3(colliderScale,colliderScale,colliderScale)), Ogre::Vector3::ZERO, false);
 	renderer->setMaterial("Examples/Ninja");
 	gameObject->renderer->mAnimationState = gameObject->renderer->entity->getAnimationState("Walk");

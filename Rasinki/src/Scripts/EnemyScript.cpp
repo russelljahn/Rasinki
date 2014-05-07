@@ -31,6 +31,7 @@ void EnemyScript::Update() {
 	Ogre::Vector3 veloc = Ogre::Vector3::ZERO;
 	if (_currentPath.size() == 0) {
 	 	//_currentPath = pathfinder->FindPath(0, 0);
+	 	gameObject->renderer->setEnabled(false);
 	 	gameObject->physics->setLinearVelocity(veloc);
 	 	gameObject->game->playerList[0]->loseHealth();
 	 	gameObject->Kill();
@@ -63,6 +64,13 @@ void EnemyScript::Update() {
 		}
 	}
 	veloc.normalise();
+	Ogre::Vector3 src = gameObject->transform->sceneNode->getOrientation() * Ogre::Vector3::UNIT_Z;
+	src.y = 0;
+	src.normalise();
+	Ogre::Quaternion quat = src.getRotationTo(veloc);
+	gameObject->transform->sceneNode->rotate(quat);
+	gameObject->transform->sceneNode->yaw(Ogre::Degree(180));
+
 	veloc *= moveSpeed;
 	//std::cout << "VELOC: " << veloc << std::endl;
 	gameObject->physics->setLinearVelocity(veloc);
@@ -82,5 +90,6 @@ void EnemyScript::Attacked() {
 		currentSquare->RemoveEnemy(this);
 		gameObject->game->playerList[0]->scored();
 		gameObject->Kill();
+		gameObject->renderer->setEnabled(false);
 	}
 }

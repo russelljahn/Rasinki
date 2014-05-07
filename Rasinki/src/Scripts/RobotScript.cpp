@@ -53,11 +53,11 @@ void RobotScript::Update() {
     }
     else if( quat.z <= -0.2 )
     {
-        gameObject->game->getCameraNode()->setOrientation(quat.w, quat.x, quat.y, -0.1999);
+        gameObject->game->getCameraNode()->setOrientation(quat.w, quat.x, quat.y, -0.1999999);
     }
     else
     {
-        gameObject->game->getCameraNode()->setOrientation(quat.w, quat.x, quat.y, .3499);
+        gameObject->game->getCameraNode()->setOrientation(quat.w, quat.x, quat.y, .3499999);
     }
     
     if (Input::IsKeyDown(OIS::KC_LEFT) || Input::IsKeyDown(OIS::KC_A)) {
@@ -86,6 +86,7 @@ void RobotScript::Update() {
     }
     if (Input::IsKeyDown(OIS::KC_1)) {
         if (currentTower != 1) {
+            glowTile->renderer->setEnabled(false);
             delete glowTile;
             glowTile = new Tower(this->gameObject->game, 0);
             //glowTile->transform->setWorldScale(Ogre::Vector3(2.5, .125, 2.5));
@@ -96,6 +97,7 @@ void RobotScript::Update() {
     }
     if (Input::IsKeyDown(OIS::KC_2)) {
         if (currentTower != 2) {
+            glowTile->renderer->setEnabled(false);
             delete glowTile;
             glowTile = new Cube(this->gameObject->game, 0);
             glowTile->transform->setWorldScale(Ogre::Vector3(2.5, .5, 2.5));
@@ -134,6 +136,7 @@ void RobotScript::Update() {
 void RobotScript::sellTower(){
     Ogre::Vector3 forward = gameObject->transform->sceneNode->getOrientation() * Ogre::Vector3(1,0,0)*250;
     GridSquare *squarey = grid->gridSquareAtPos(this->gameObject->physics->getWorldPosition() + forward);
+    squarey->occupant->renderer->setEnabled(false);
     delete squarey->occupant;
     squarey->occupant = NULL;
     gameObject->game->playerList[0]->changeGold(13);
@@ -145,6 +148,7 @@ void RobotScript::upgradeTower(){
 //TODO: Make this not just sell
     Ogre::Vector3 forward = gameObject->transform->sceneNode->getOrientation() * Ogre::Vector3(1,0,0)*250;
     GridSquare *squarey = grid->gridSquareAtPos(this->gameObject->physics->getWorldPosition() + forward);
+    squarey->occupant->renderer->setEnabled(false);
     delete squarey->occupant;
     squarey->occupant = NULL;
 

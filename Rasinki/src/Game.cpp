@@ -91,9 +91,9 @@ void Game::createCamera()
     mCamera = &playerCamera;
 
     // Position it at 500 in Z direction
-    worldCamera->setPosition(Ogre::Vector3(-3000,8000,-3000));
+    worldCamera->setPosition(Ogre::Vector3(-1500,6000,-1500));
     // Look back along -Z
-    worldCamera->lookAt(Ogre::Vector3(250*25/2,0,250*25/2));
+    worldCamera->lookAt(Ogre::Vector3(250*25/2 - 1000,0,250*25/2 - 1000));
     worldCamera->setNearClipDistance(5);
     worldCamera->setFarClipDistance(50000);
  
@@ -157,12 +157,12 @@ void Game::createFrameListener(void)
 //-------------------------------------------------------------------------------------
 void Game::destroyScene(void)
 {
-    /*for (auto gameObjectIter = gameObjects.begin(); gameObjectIter != gameObjects.end(); ++gameObjectIter) {
-       delete (*gameObjectIter).second;
-    }*/
+    for (auto gameObjectIter = gameObjects.begin(); gameObjectIter != gameObjects.end(); ++gameObjectIter) {
+       delete (*gameObjectIter).second;; 
+    }
+    mSceneManager->clearScene();
     gameObjects.clear();
     playerList[0]->reset();
-    mSceneManager->clearScene();
     Time::Reset();
 
     mStatsPanel->hide();
@@ -868,13 +868,11 @@ bool Game::quit(const CEGUI::EventArgs &e){
 
 bool Game::newGame(const CEGUI::EventArgs &e){
     gameMode = true;
-
     disableMainMenu();
     enableGameWindow();
     destroyScene();
     createLights();
     createScene();
-    
 }
 bool Game::newGame() {
     gameMode = true;
