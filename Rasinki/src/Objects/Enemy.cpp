@@ -24,5 +24,7 @@ void Enemy::Start() {
 	gameObject->renderer->mAnimationState = gameObject->renderer->entity->getAnimationState("Walk");
 	gameObject->renderer->mAnimationState->setLoop(true);
     gameObject->renderer->mAnimationState->setEnabled(true);
+
+    transform->setWorldScale(Ogre::Vector3(0.5f, 0.5f, 0.5f));
 }
 

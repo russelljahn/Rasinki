@@ -232,4 +232,19 @@ material Robot_01
 
 
 
+material Robot_02
+{
+	technique
+	{
+		pass
+		{
+			texture_unit
+			{
+				texture orange.png
+			}
+		}
+	}
+}
+
+
 

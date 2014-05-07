@@ -5,13 +5,48 @@
 #include <btBulletDynamicsCommon.h>
 #include "Time.h"
 
+
+
 Tower::Tower(Game *attachedGame) : GameObject(attachedGame){
 	weaponCooldownTime = 1;
-	Start();
+	
+	ostringstream nameCoverter;
+	nameCoverter << "tower ";
+	nameCoverter << id;
+	grid = NULL;
+
+	float scale = 35;
+	transform = new Transform(this, game->getSceneRoot());
+	renderer->entity = game->getSceneManager()->createEntity(nameCoverter.str(), "turret_01.mesh");
+	transform->sceneNode->attachObject(renderer->entity);
+	Ogre::Vector3 halfExtents = transform->getLocalScale()/2.0f;
+	physics = new Physics(this, 0, new btBoxShape(btVector3(scale, scale, scale)));
+	physics->setLinearFactor(Ogre::Vector3(1,0,1));
+
+	renderer->setMaterial("Robot_02");
+	transform->setWorldScale(Ogre::Vector3(0.05, 0.05, 0.05));
+
 }
-Tower::Tower(Game *attachedGame, int pNum) : GameObject(attachedGame, pNum){
+Tower::Tower(Game *attachedGame, std::string entityName) : GameObject(attachedGame){
 	weaponCooldownTime = 1;
-	Start();
+	
+	ostringstream nameCoverter;
+	nameCoverter << "tower ";
+  upgraded = false;
+	nameCoverter << id;
+	grid = NULL;
+
+	float scale = 35;
+	transform = new Transform(this, game->getSceneRoot());
+	renderer->entity = game->getSceneManager()->createEntity(nameCoverter.str(), entityName);
+	transform->sceneNode->attachObject(renderer->entity);
+	Ogre::Vector3 halfExtents = transform->getLocalScale()/2.0f;
+	physics = new Physics(this, 0, new btBoxShape(btVector3(scale, scale, scale)));
+	physics->setLinearFactor(Ogre::Vector3(1,0,1));
+
+	renderer->setMaterial("Turret_02");
+	transform->setWorldScale(Ogre::Vector3(2.5, 2.5, 2.5));
+
 }
 Tower::~Tower() {
 	for (int i = 0; i < glowTiles.size(); ++i)
@@ -21,24 +56,7 @@ Tower::~Tower() {
 	glowTiles.clear();
 }
 void Tower::Start() {
-
-	ostringstream nameCoverter;
-	nameCoverter << "tower ";
-  upgraded = false;
-	nameCoverter << id;
-	grid = NULL;
-
-	float scale = 35;
-	transform = new Transform(this, game->getSceneRoot());
-	renderer->entity = game->getSceneManager()->createEntity(nameCoverter.str(), "turret_02.mesh");
-	transform->sceneNode->attachObject(renderer->entity);
-	Ogre::Vector3 halfExtents = transform->getLocalScale()/2.0f;
-	physics = new Physics(this, 0, new btBoxShape(btVector3(scale, scale, scale)));
-	physics->setLinearFactor(Ogre::Vector3(1,0,1));
-
-	renderer->setMaterial("Turret_02");
-	transform->setWorldScale(Ogre::Vector3(2.5, 2.5, 2.5));
-
+	
 }
 
 void Tower::Initialize() {

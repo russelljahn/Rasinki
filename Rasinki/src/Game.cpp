@@ -20,6 +20,8 @@ using namespace std;
 #include "Objects/HomeBase.h"
 #include "Objects/Cube.h"
 #include "Objects/Robot.h"
+#include "Objects/Mountain.h"
+
 
 
 
@@ -777,6 +779,8 @@ void Game::createScene(void) {
     mAnimationState->setLoop(true);
     mAnimationState->setEnabled(true);
 
+    // Mountain *mountain1 = new Mountain(this);
+    // mountain1->transform->setWorldPosition(Ogre::Vector3(-1000, -100, -1000));
 
     HomeBase *homeBase = new HomeBase(this);
 
