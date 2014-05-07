@@ -173,11 +173,16 @@ void RobotScript::HandleTower() {
         glowTile->transform->setWorldPosition(squareyPosition + Ogre::Vector3(0.0f, 10.0f, 0.0f));
     if (currentTower == 1)
         glowTile->transform->setWorldPosition(squareyPosition + Ogre::Vector3(0, 68, 40));
-    if (squarey->IsOccupied() || squarey->HasEnemies() || !Pathfinder::ExistsValidPath(grid, 24, 24, 0, 0, squarey)) {
+    if (squarey->IsOccupied() || squarey->HasEnemies()) {
+        glowTile->renderer->setEnabled(false);
+    }
+    else if (!Pathfinder::ExistsValidPath(grid, 24, 24, 0, 0, squarey)) {
         glowTile->renderer->setMaterial("SquareGlow3");
+        glowTile->renderer->setEnabled(true);
     }
     else {
         glowTile->renderer->setMaterial("SquareGlow1"); 
+        glowTile->renderer->setEnabled(true);
     }
 
     if (Input::mouseReleased) {
