@@ -27,6 +27,7 @@ class GridSquare : public Script {
 
 
 		GameObject *occupant;
+    int type;
 
 		EnemyScript *enemy;
 

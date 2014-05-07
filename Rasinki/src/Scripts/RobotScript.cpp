@@ -137,15 +137,27 @@ void RobotScript::sellTower(){
     Ogre::Vector3 forward = gameObject->transform->sceneNode->getOrientation() * Ogre::Vector3(1,0,0)*250;
     GridSquare *squarey = grid->gridSquareAtPos(this->gameObject->physics->getWorldPosition() + forward);
     squarey->occupant->renderer->setEnabled(false);
+    if (squarey->type == 1){
+        if (((Tower*)squarey->occupant)->upgraded){
+            gameObject->game->playerList[0]->changeGold(63);
+        }
+        else
+          gameObject->game->playerList[0]->changeGold(13);
+    }
+    else
+    gameObject->game->playerList[0]->changeGold(1);
+    sold = true;
     delete squarey->occupant;
     squarey->occupant = NULL;
-    gameObject->game->playerList[0]->changeGold(13);
-    sold = true;
+    squarey->type = 0;
     return;
 }
 
 void RobotScript::upgradeTower(){
-//TODO: Make this not just sell
+  if ((gameObject->game->playerList[0]->getGold() - 100) < 0)
+    return;
+  gameObject->game->playerList[0]->changeGold(-100);
+
     Ogre::Vector3 forward = gameObject->transform->sceneNode->getOrientation() * Ogre::Vector3(1,0,0)*250;
     GridSquare *squarey = grid->gridSquareAtPos(this->gameObject->physics->getWorldPosition() + forward);
     squarey->occupant->renderer->setEnabled(false);
@@ -162,6 +174,7 @@ void RobotScript::upgradeTower(){
     tower->upgraded = true;
     squarey->occupant = tower;
     upgraded = true;
+
     return;
 }
 
@@ -205,23 +218,32 @@ void RobotScript::HandleTower() {
                     tower->grid = grid;
                     tower->Initialize();
                     squarey->occupant = tower;
+                    tower->upgraded = false;
+                    squarey->type = 1;
                     gameObject->game->playerList[0]->changeGold(-25);
                 }
             }
             else if(currentTower == 2)
             {
-                if ((gameObject->game->playerList[0]->getGold() - 5) >= 0)
+                if ((gameObject->game->playerList[0]->getGold() - 1) >= 0)
                 {
                     Barrier *barrier = new Barrier(this->gameObject->game);
                     barrier->physics->setWorldPosition(squareyPosition);
                     squarey->occupant = barrier;
-                    gameObject->game->playerList[0]->changeGold(-5);
+                    squarey->type = 2;
+                    gameObject->game->playerList[0]->changeGold(-1);
                 }
             }
         }
         else if (squarey->IsOccupied()) {
           gameObject->game->disableGameWindow();
+          if (squarey->type == 2){
+          cout << "This is a barrier." << endl;
+          gameObject->game->enableTowerMenu(true); 
+          }
+          else{
           gameObject->game->enableTowerMenu(((Tower*)squarey->occupant)->upgraded);
+          }
           can_move = false;
         }
         

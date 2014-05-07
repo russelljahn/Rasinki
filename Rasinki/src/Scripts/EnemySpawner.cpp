@@ -10,11 +10,11 @@ EnemySpawner::EnemySpawner(GameObject* game) : Script(game) {
 	//MoveSpeed, hitPoints, numToSpawn, timeBetweenSpawns, reward
 	spawning = false;
   //Lots of fast easy to kill guys
-	Wave wave1(1000, 2, 30, 0.4f, 1);
+	Wave wave1(1000, 3, 30, 0.4f, 1);
   //Normal
-	Wave wave2(700, 5, 30, 1, 2);
+	Wave wave2(700, 5, 30, 0.4, 2);
   //Slow and tough
-	Wave wave3(300, 20, 5, 6, 10);
+	Wave wave3(300, 20, 10, 6, 10);
   //Fast
 	Wave wave4(1000, 10, 50, 0.4f, 3);
   //Boss
