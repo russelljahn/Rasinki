@@ -16,6 +16,7 @@ using namespace std;
 #include "Scripts/EnemyScript.h"
 #include "Scripts/RobotScript.h"
 
+#include "Objects/SpawnPoint.h"
 #include "Objects/HomeBase.h"
 #include "Objects/Cube.h"
 #include "Objects/Robot.h"
@@ -620,7 +621,7 @@ void Game::createLights(void) {
 
     Ogre::Light* directionalLight = mSceneManager->createLight("directionalLight");
     directionalLight->setType(Ogre::Light::LT_DIRECTIONAL);
-    directionalLight->setDirection(Ogre::Vector3(0.5,-1,0));
+    directionalLight->setDirection(Ogre::Vector3(0.25,.25,0));
     directionalLight->setDiffuseColour(Ogre::ColourValue(.5, .5, .5));
     directionalLight->setSpecularColour(Ogre::ColourValue(.25, .25, 0));
 
@@ -662,7 +663,7 @@ void Game::createLights(void) {
     spotLight4->setPosition(Ogre::Vector3(0, -300, 0));
     spotLight4->setSpotlightRange(Ogre::Degree(35), Ogre::Degree(50));
 
-    mSceneManager->setAmbientLight(Ogre::ColourValue(.15, .15, .15));
+    mSceneManager->setAmbientLight(Ogre::ColourValue(.35, .35, .35));
     mSceneManager->setShadowTechnique(Ogre::SHADOWTYPE_STENCIL_ADDITIVE);
     mSceneManager->setShadowColour(Ogre::ColourValue::Black);
 
@@ -974,7 +975,6 @@ void Game::createScene(void) {
 
 
     HomeBase *homeBase = new HomeBase(this);
-
 
     cout << "Done creating scene!" << endl;
 }

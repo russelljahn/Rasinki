@@ -24,9 +24,10 @@ void HomeBase::Start() {
 	physics = new Physics(this, 0, new btBoxShape(btVector3(scale, scale, scale)), Ogre::Vector3::ZERO, false);
 	// physics->setLinearFactor(Ogre::Vector3(1,0,1));
 
-	renderer->setMaterial("Rock1");
+	renderer->setMaterial("Chrome_Red");
 
-	transform->setWorldScale(Ogre::Vector3(2.5, 5, 2.5));
+	transform->setWorldScale(Ogre::Vector3(2.5, 2.5, 2.5));
+	transform->setLocalRotationEuler(Ogre::Vector3(0, 180, 0));
 
 }
 
