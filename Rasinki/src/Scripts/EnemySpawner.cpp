@@ -9,10 +9,16 @@ EnemySpawner::EnemySpawner(GameObject* game) : Script(game) {
 	numSpawned = 0;
 	//MoveSpeed, hitPoints, numToSpawn, timeBetweenSpawns
 	spawning = false;
-	Wave wave1(500, 5, 10, 2);
-	Wave wave2(500, 1, 40, 1);
+	Wave wave1(700, 1, 30, 0.4f);
+	Wave wave2(500, 3, 20, 1);
+	Wave wave3(300, 10, 5, 2);
+	Wave wave4(700, 3, 20, 1);
+	Wave wave5(500, 5, 20, 0.7f);
 	waveVector.push_back(wave1);
 	waveVector.push_back(wave2);
+	waveVector.push_back(wave3);
+	waveVector.push_back(wave4);
+	waveVector.push_back(wave5);
 }
 void EnemySpawner::Start(){}
 
@@ -41,7 +47,7 @@ void EnemySpawner::Update() {
 	    enemyScript->grid = grid;
 	    enemy->name = "enemy";
 	    numSpawned++;
-	    if (numSpawned > waveVector[waveNum].numToSpawn) {
+	    if (numSpawned >= waveVector[waveNum].numToSpawn) {
 	    	numSpawned = 0;
 	    	waveNum++;
 	    	spawning = false;
