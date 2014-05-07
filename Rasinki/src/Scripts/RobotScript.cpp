@@ -112,6 +112,7 @@ void RobotScript::Update() {
 void RobotScript::sellTower(){
     Ogre::Vector3 forward = gameObject->transform->sceneNode->getOrientation() * Ogre::Vector3(1,0,0)*250;
     GridSquare *squarey = grid->gridSquareAtPos(this->gameObject->physics->getWorldPosition() + forward);
+    squarey->occupant->renderer->setEnabled(false);
     delete squarey->occupant;
     squarey->occupant = NULL;
     gameObject->game->playerList[0]->changeGold(13);
@@ -122,6 +123,7 @@ void RobotScript::upgradeTower(){
 //TODO: Make this not just sell
     Ogre::Vector3 forward = gameObject->transform->sceneNode->getOrientation() * Ogre::Vector3(1,0,0)*250;
     GridSquare *squarey = grid->gridSquareAtPos(this->gameObject->physics->getWorldPosition() + forward);
+    squarey->occupant->renderer->setEnabled(false);
     delete squarey->occupant;
     squarey->occupant = NULL;
 

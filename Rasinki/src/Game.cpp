@@ -246,11 +246,13 @@ void Game::createFrameListener(void)
 void Game::destroyScene(void)
 {
     for (auto gameObjectIter = gameObjects.begin(); gameObjectIter != gameObjects.end(); ++gameObjectIter) {
+       std::cout << "Destroying gameObject: " << (*gameObjectIter).second->name << std::endl; 
        delete (*gameObjectIter).second;
+       std::cout << "Destroyed gameObject: " << std::endl; 
     }
+    mSceneManager->clearScene();
     gameObjects.clear();
     playerList[0]->reset();
-    mSceneManager->clearScene();
     Time::Reset();
 
     mStatsPanel->hide();
@@ -831,6 +833,10 @@ void Game::createScene(void) {
 
     HomeBase *homeBase = new HomeBase(this);
 
+    for (auto gameObjectIter = gameObjects.begin(); gameObjectIter != gameObjects.end(); ++gameObjectIter) {
+       std::cout << "Created gameObjects: " << (*gameObjectIter).first << std::endl; 
+    }
+
     cout << "Done creating scene!" << endl;
 }
 
@@ -919,13 +925,11 @@ bool Game::quit(const CEGUI::EventArgs &e){
 
 bool Game::newGame(const CEGUI::EventArgs &e){
     gameMode = true;
-
     disableMainMenu();
     enableGameWindow();
     destroyScene();
     createLights();
     createScene();
-    
 }
 bool Game::newGame() {
     gameMode = true;
