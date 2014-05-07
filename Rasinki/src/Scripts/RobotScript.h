@@ -38,6 +38,7 @@ class RobotScript : public Script {
 		bool right;
 		bool jumping;
 		bool falling;
+		bool upgraded;
 };
 
 
