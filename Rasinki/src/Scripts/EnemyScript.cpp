@@ -24,6 +24,9 @@ void EnemyScript::Initialize(Pathfinder* pathfinder) {
 	_currentPath = pathfinder->FindPath(0, 0);
 }
 void EnemyScript::Update() {
+
+	gameObject->renderer->mAnimationState->addTime(0.5f*Time::deltaTime);
+
 	Ogre::Vector3 veloc = Ogre::Vector3::ZERO;
 	if (_currentPath.size() == 0) {
 	 	//_currentPath = pathfinder->FindPath(0, 0);
