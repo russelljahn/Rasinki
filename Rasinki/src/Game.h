@@ -51,6 +51,7 @@ class Player;
 class SoundManager;
 class Network;
 class EnemySpawner;
+class RobotScript;
 
 using namespace std;
 
@@ -100,10 +101,23 @@ public:
     bool OnServerQuit();
     bool multiplayer;
 
+    //Gui
+    virtual void disableMainMenu();
+    virtual void enableMainMenu();
+    virtual void disableGameWindow();
+    virtual void enableGameWindow();
+    virtual void disableMultiplayerMenu();
+    virtual void enableMultiplayerMenu();
+    virtual void disableTowerMenu();
+    virtual void enableTowerMenu();
+    virtual bool sell(const CEGUI::EventArgs &e);
+    virtual bool upgrade(const CEGUI::EventArgs &e);
+
     // Miscellaneous
     vector<Player *> playerList;
     map<int, GameObject *> gameObjects;
     EnemySpawner* enemySpawner;
+    RobotScript *robotScript;
     float getDeltaTime() { return deltaTime; }
 protected:
     virtual bool setup();
@@ -125,16 +139,6 @@ protected:
     virtual bool onConnectToServer(const CEGUI::EventArgs &e);
     virtual bool onClickPlayMultiplayer(const CEGUI::EventArgs &e);
     virtual bool onClickBackFromMultiplayerMenu(const CEGUI::EventArgs &e);
-    virtual void disableMainMenu();
-    virtual void enableMainMenu();
-    virtual void disableGameWindow();
-    virtual void enableGameWindow();
-    virtual void disableMultiplayerMenu();
-    virtual void enableMultiplayerMenu();
-    virtual void disableTowerMenu();
-    virtual void enableTowerMenu();
-    virtual void sell();
-    virtual void upgrade();
 
 
     // OIS::KeyListener
@@ -201,7 +205,6 @@ protected:
     CEGUI::Window* towerMenu;
 
 
-    RobotScript *robotScript;
     
     
     //Strings

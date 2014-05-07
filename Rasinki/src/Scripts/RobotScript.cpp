@@ -18,15 +18,20 @@ void RobotScript::Start() {
     glowTile->renderer->setMaterial("SquareGlow1");
     jumping = false;
     falling = false;
+    can_move = true;
 }
 
 
 
 void RobotScript::Update() {
+  
     Script::Update();
 
     HandleTower();
 
+    if (!can_move){
+        return;
+    }
 
     gameObject->physics->setLinearVelocity(Ogre::Vector3(0, 0, 0));
     float movementSpeed = 1500.0f;
@@ -108,9 +113,15 @@ void RobotScript::sellTower(){
     GridSquare *squarey = grid->gridSquareAtPos(this->gameObject->physics->getWorldPosition() + forward);
     delete squarey->occupant;
     squarey->occupant = NULL;
-
 }
 
+void RobotScript::upgradeTower(){
+//TODO: Make this not just sell
+    Ogre::Vector3 forward = gameObject->transform->sceneNode->getOrientation() * Ogre::Vector3(1,0,0)*250;
+    GridSquare *squarey = grid->gridSquareAtPos(this->gameObject->physics->getWorldPosition() + forward);
+    delete squarey->occupant;
+    squarey->occupant = NULL;
+}
 
 void RobotScript::HandleTower() {
     Ogre::Vector3 forward = gameObject->transform->sceneNode->getOrientation() * Ogre::Vector3(1,0,0)*250;
@@ -148,7 +159,9 @@ void RobotScript::HandleTower() {
             }
         }
         else if (squarey->IsOccupied()) {
+          gameObject->game->disableGameWindow();
           gameObject->game->enableTowerMenu();
+          can_move = false;
         }
         
     }

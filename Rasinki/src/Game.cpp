@@ -405,7 +405,8 @@ bool Game::frameRenderingQueued(const Ogre::FrameEvent& evt)
     playerScore->append(convert.str()); // set 'Result' to the contents of the stream
     gameWindow->getChild("gold")->setText(*playerGold);
     gameWindow->getChild("score")->setText(*playerScore);
-
+    towerMenu->getChild("gold1")->setText(*playerGold);
+    towerMenu->getChild("score1")->setText(*playerScore);
 
     mTrayManager->frameRenderingQueued(evt);
     CEGUI::System::getSingleton().injectTimePulse(evt.timeSinceLastFrame);
@@ -752,14 +753,12 @@ void Game::createGUI(void) {
     gold->setText(*playerGold); // + playerList[0]->mGold);
     gold->setSize(CEGUI::UVector2(CEGUI::UDim(0.15, 0), CEGUI::UDim(0.05, 0)));
     gold->setPosition(CEGUI::UVector2(CEGUI::UDim(0.0f, 0),CEGUI::UDim(0.0f, 0)));
-    gold->subscribeEvent(CEGUI::PushButton::EventClicked, CEGUI::Event::Subscriber(&Game::quit, this));
 
     CEGUI::Window *score = wmgr.createWindow("TaharezLook/Button", "score");
     score->setText(*playerScore); // + playerList[0]->mScore);
 
     score->setSize(CEGUI::UVector2(CEGUI::UDim(0.15, 0), CEGUI::UDim(0.05, 0)));
     score->setPosition(CEGUI::UVector2(CEGUI::UDim(0.0f, 0),CEGUI::UDim(0.05f, 0)));
-    score->subscribeEvent(CEGUI::PushButton::EventClicked, CEGUI::Event::Subscriber(&Game::newGame, this));
     
 
     rootWindow->addChildWindow(gameWindow);
@@ -771,9 +770,10 @@ void Game::createGUI(void) {
 
     // Tower Menu
     towerMenu = wmgr.createWindow((CEGUI::utf8*)"DefaultWindow", (CEGUI::utf8*)"towerMenu");  
-    CEGUI::Window *towerBackground = wmgr.createWindow("TaharezLook/StaticImage", "tbackground");
-    towerBackground->setPosition( CEGUI::UVector2( CEGUI::UDim( 0.4f, 0.0f ), CEGUI::UDim( 0.4f, 0.0f) ) );
-    towerBackground->setSize( CEGUI::UVector2( CEGUI::UDim( 0.6f, 0.0f ), CEGUI::UDim( 0.6f, 0.0f ) ) );  // full screen
+//     CEGUI::Window *towerBackground = wmgr.createWindow("TaharezLook/StaticImage", "tbackground");
+//     towerBackground->setPosition( CEGUI::UVector2( CEGUI::UDim( 0.0f, 0.0f ), CEGUI::UDim( 0.0f, 0.0f) ) );
+//     towerBackground->setSize( CEGUI::UVector2( CEGUI::UDim( 1.0f, 0.0f ), CEGUI::UDim( 1.0f, 0.0f ) ) );  // full screen
+
     
     playerGold = new string(); 
     playerScore = new string();
@@ -788,17 +788,30 @@ void Game::createGUI(void) {
     sell->subscribeEvent(CEGUI::PushButton::EventClicked, CEGUI::Event::Subscriber(&Game::sell, this));
 
     CEGUI::Window *upgrade = wmgr.createWindow("TaharezLook/Button", "upgrade");
-    upgrade->setText(Upgrade);
-
+    upgrade->setText("Upgrade");
     upgrade->setSize(CEGUI::UVector2(CEGUI::UDim(0.15, 0), CEGUI::UDim(0.05, 0)));
     upgrade->setPosition(CEGUI::UVector2(CEGUI::UDim(0.375f, 0),CEGUI::UDim(0.4f, 0)));
     upgrade->subscribeEvent(CEGUI::PushButton::EventClicked, CEGUI::Event::Subscriber(&Game::upgrade, this));
     
 
+    CEGUI::Window *gold1 = wmgr.createWindow("TaharezLook/Button", "gold1");
+    gold1->setText(*playerGold); // + playerList[0]->mgold1);
+    gold1->setSize(CEGUI::UVector2(CEGUI::UDim(0.15, 0), CEGUI::UDim(0.05, 0)));
+    gold1->setPosition(CEGUI::UVector2(CEGUI::UDim(0.0f, 0),CEGUI::UDim(0.0f, 0)));
+
+    CEGUI::Window *score1 = wmgr.createWindow("TaharezLook/Button", "score1");
+    score1->setText(*playerScore); // + playerList[0]->mScore);
+
+    score1->setSize(CEGUI::UVector2(CEGUI::UDim(0.15, 0), CEGUI::UDim(0.05, 0)));
+    score1->setPosition(CEGUI::UVector2(CEGUI::UDim(0.0f, 0),CEGUI::UDim(0.05f, 0)));
     rootWindow->addChildWindow(towerMenu);
-    towerMenu->addChildWindow(towerBackground);
-    towerBackground->addChildWindow(sell);
-    towerBackground->addChildWindow(upgrade);
+//     towerMenu->addChildWindow(towerBackground);
+//     towerBackground->addChildWindow(sell);
+//     towerBackground->addChildWindow(upgrade);
+    towerMenu->addChildWindow(sell);
+    towerMenu->addChildWindow(upgrade);
+    towerMenu->addChildWindow(gold1);
+    towerMenu->addChildWindow(score1);
 
     disableTowerMenu();
     enableMainMenu();
@@ -861,16 +874,22 @@ void Game::enableTowerMenu(){
   towerMenu->setVisible(true);
 }
 
-void Game::sell(){
+bool Game::sell(const CEGUI::EventArgs &e){
+  cout << "Welcome to sell()\n";
   //TODO: update player resources
   robotScript->sellTower();
+  robotScript->can_move = true;
   disableTowerMenu();
+  enableGameWindow();
 }
 
-void Game::upgrade(){
+bool Game::upgrade(const CEGUI::EventArgs &e){
+  cout << "Welcome to upgrade()\n";
   //TODO: This function
+  robotScript->upgradeTower();
+  robotScript->can_move = true;
   disableTowerMenu();
-  return;
+  enableGameWindow();
 }
 
 //Main Menu gui functions

@@ -1,7 +1,7 @@
 #include "Scripts/RobotState.h"
 
 RobotState::RobotState(RobotScripts *attachedRobot) {
-    this->gameObject = attachedGameObject;
+    THis->gameObject = attachedGameObject;
 }
 
 RobotState::~RobotState() {
