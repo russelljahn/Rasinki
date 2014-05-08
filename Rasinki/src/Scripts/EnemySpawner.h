@@ -33,10 +33,10 @@ public:
 
 	Grid *grid;
 	int waveNum;
+	int numSpawned;
 	std::vector<Wave> waveVector; 
 private:
 	float timeSinceLastSpawn;
-	int numSpawned;
 	bool spawning;
 };
 #endif

@@ -61,8 +61,8 @@ void Tower::Start() {
 void Tower::setUpgraded(bool u) {
 	upgraded = u;
 	if (u) {
-		weaponCooldownTime =0.5f;
-		damage *= 5;
+		weaponCooldownTime = 0.5f;
+		damage = 5;
 	}
 
 }

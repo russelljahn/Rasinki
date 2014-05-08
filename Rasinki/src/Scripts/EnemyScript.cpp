@@ -84,6 +84,8 @@ void EnemyScript::Update() {
 	}
 }
 void EnemyScript::Attacked(int damage) {
+// 	std::cout << "ENEMY SHOT ID: " << gameObject->id << " HP BEFORE HIT: " << hitPoints << std::endl;
+// 	std::cout << "ENEMY SHOT ID: " << gameObject->id << " DAMAGE: " << damage << std::endl;
 	hitPoints -= damage;
 	std::cout << "ENEMY SHOT ID: " << gameObject->id << " HP REMAINING: " << hitPoints << std::endl;
 	Explosion* ex = new Explosion(gameObject->game);

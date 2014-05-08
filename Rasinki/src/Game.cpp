@@ -384,6 +384,7 @@ bool Game::keyPressed( const OIS::KeyEvent &arg )
     else if (arg.key == OIS::KC_Z)
     {
         if (!enemySpawner->isSpawning()) {
+	    	enemySpawner->numSpawned = 0;
             enemySpawner->waveNum++;
             enemySpawner->startSpawning();
         }
@@ -645,13 +646,13 @@ void Game::createGUI(void) {
     *playerLives = string("Lives: ");
 
     CEGUI::Window *sell = wmgr.createWindow("TaharezLook/Button", "sell");
-    sell->setText("Sell"); 
+    sell->setText("Sell for half"); 
     sell->setSize(CEGUI::UVector2(CEGUI::UDim(0.15, 0), CEGUI::UDim(0.05, 0)));
     sell->setPosition(CEGUI::UVector2(CEGUI::UDim(0.375f, 0),CEGUI::UDim(0.5f, 0)));
     sell->subscribeEvent(CEGUI::PushButton::EventClicked, CEGUI::Event::Subscriber(&Game::sell, this));
 
     CEGUI::Window *upgrade = wmgr.createWindow("TaharezLook/Button", "upgrade");
-    upgrade->setText("Upgrade");
+    upgrade->setText("Upgrade: 100");
     upgrade->setSize(CEGUI::UVector2(CEGUI::UDim(0.15, 0), CEGUI::UDim(0.05, 0)));
     upgrade->setPosition(CEGUI::UVector2(CEGUI::UDim(0.375f, 0),CEGUI::UDim(0.4f, 0)));
     upgrade->subscribeEvent(CEGUI::PushButton::EventClicked, CEGUI::Event::Subscriber(&Game::upgrade, this));
@@ -803,6 +804,7 @@ bool Game::sell(const CEGUI::EventArgs &e){
 bool Game::cancel(const CEGUI::EventArgs &e){
   cout << "Welcome to not sell()\n";
   //TODO: update player resources
+  robotScript->sold = true;
   robotScript->can_move = true;
   disableTowerMenu();
   enableGameWindow();
@@ -976,7 +978,7 @@ bool Game::newGame(const CEGUI::EventArgs &e){
     playerList[0]->mGold = 150;
     playerList[0]->mScore = 0;
     playerList[0]->mLives = 25;
-    enemySpawner->waveNum = 0;
+    enemySpawner->waveNum = -1;
     lost = false;
 }
 bool Game::newGame() {

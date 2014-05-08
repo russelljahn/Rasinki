@@ -5,7 +5,7 @@
 
 EnemySpawner::EnemySpawner(GameObject* game) : Script(game) {
 	timeSinceLastSpawn = 5;
-	waveNum = 0;
+	waveNum = -1;
 	numSpawned = 0;
 	//MoveSpeed, hitPoints, numToSpawn, timeBetweenSpawns, reward
 	spawning = false;
@@ -14,21 +14,21 @@ EnemySpawner::EnemySpawner(GameObject* game) : Script(game) {
   //Normal
 	Wave wave2(700, 5, 30, 0.4, 5);
   //Slow and tough
-	Wave wave3(300, 25, 10, 6, 50);
+	Wave wave3(300, 30, 10, 1, 50);
   //Fast
-	Wave wave4(1000, 7, 50, 0.4f, 3);
+	Wave wave4(1000, 10, 50, 0.4f, 5);
   //Boss
-	Wave wave5(500, 200, 1, 0.7f, 50);
+	Wave wave5(1000, 1, 200, 0.1f, 5);
   //Boss
-	Wave wave6(500, 200, 1, 0.7f, 50);
+	Wave wave6(500, 50, 50, 0.7f, 50);
   //Boss
-	Wave wave7(500, 200, 1, 0.7f, 50);
+	Wave wave7(500, 100, 40, 0.7f, 100);
   //Boss
-	Wave wave8(500, 200, 1, 0.7f, 50);
+	Wave wave8(100, 800, 10, 0.7f, 500);
   //Boss
-	Wave wave9(500, 200, 1, 0.7f, 50);
+	Wave wave9(500, 400, 50, 0.7f, 300);
   //Boss
-	Wave wave10(500, 200, 1, 0.7f, 50);
+	Wave wave10(1000, 400, 200, 0.1f,1000);
 	waveVector.push_back(wave1);
 	waveVector.push_back(wave2);
 	waveVector.push_back(wave3);
@@ -69,9 +69,9 @@ void EnemySpawner::Update() {
 	    enemy->name = "enemy";
 	    numSpawned++;
 	    if (numSpawned >= waveVector[waveNum].numToSpawn) {
-	    	numSpawned = 0;
 	    	spawning = false;
 	    }
 	    timeSinceLastSpawn = 0;
+      cout << "Wave: " << waveNum << endl;
 	}
 }
