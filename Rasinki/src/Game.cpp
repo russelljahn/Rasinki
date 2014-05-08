@@ -384,6 +384,7 @@ bool Game::keyPressed( const OIS::KeyEvent &arg )
     else if (arg.key == OIS::KC_Z)
     {
         if (!enemySpawner->isSpawning()) {
+            enemySpawner->waveNum++;
             enemySpawner->startSpawning();
         }
     }
@@ -655,6 +656,11 @@ void Game::createGUI(void) {
     upgrade->setPosition(CEGUI::UVector2(CEGUI::UDim(0.375f, 0),CEGUI::UDim(0.4f, 0)));
     upgrade->subscribeEvent(CEGUI::PushButton::EventClicked, CEGUI::Event::Subscriber(&Game::upgrade, this));
     
+    CEGUI::Window *cancel = wmgr.createWindow("TaharezLook/Button", "cancel");
+    cancel->setText("Cancel");
+    cancel->setSize(CEGUI::UVector2(CEGUI::UDim(0.15, 0), CEGUI::UDim(0.05, 0)));
+    cancel->setPosition(CEGUI::UVector2(CEGUI::UDim(0.375f, 0),CEGUI::UDim(0.6f, 0)));
+    cancel->subscribeEvent(CEGUI::PushButton::EventClicked, CEGUI::Event::Subscriber(&Game::cancel, this));
 
     CEGUI::Window *gold1 = wmgr.createWindow("TaharezLook/Button", "gold1");
     gold1->setText(*playerGold); // + playerList[0]->mgold1);
@@ -677,6 +683,7 @@ void Game::createGUI(void) {
 //     towerBackground->addChildWindow(upgrade);
     towerMenu->addChildWindow(sell);
     towerMenu->addChildWindow(upgrade);
+    towerMenu->addChildWindow(cancel);
     towerMenu->addChildWindow(gold1);
     towerMenu->addChildWindow(score1);
     towerMenu->addChildWindow(lives1);
@@ -792,6 +799,14 @@ bool Game::sell(const CEGUI::EventArgs &e){
   enableGameWindow();
 }
 
+
+bool Game::cancel(const CEGUI::EventArgs &e){
+  cout << "Welcome to not sell()\n";
+  //TODO: update player resources
+  robotScript->can_move = true;
+  disableTowerMenu();
+  enableGameWindow();
+}
 bool Game::upgrade(const CEGUI::EventArgs &e){
   cout << "Welcome to upgrade()\n";
   //TODO: This function

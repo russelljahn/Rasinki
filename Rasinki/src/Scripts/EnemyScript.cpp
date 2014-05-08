@@ -89,6 +89,8 @@ void EnemyScript::Attacked(int damage) {
 	Explosion* ex = new Explosion(gameObject->game);
 	ex->transform->setWorldPosition(gameObject->transform->getWorldPosition() + Ogre::Vector3(0, 120, 0));
 	ex->transform->setWorldScale(Ogre::Vector3(4,4,4));
+  if (gameObject->destroyed)
+    return;
 	if (hitPoints <= 0) {
 		gameObject->game->playerList[0]->changeGold(gameObject->game->enemySpawner->waveVector[gameObject->game->enemySpawner->waveNum].reward);
 		currentSquare->RemoveEnemy(this);
