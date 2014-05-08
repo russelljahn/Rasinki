@@ -45,6 +45,11 @@ Click while highlighting a square that contains a structure: opens a menu lettin
 ---------------------
 New Features:
 ---------------------
+Completly New Game:  Our game for project 2 and 3 was a 3D version of
+breakout.  For this project we through that out, and started over almost
+completely.  Luckily the foundation we built in the previous projects made
+this transition less painful.
+
 Pathfinding: Our game features a pathfinding system for the ninjas.  The ninjas use A* to find a 
 route from their spawn point to the players castle.  Additionally, our pathfinding system 
 immediately updates the path of ninjas who have obstacles placed in their way.  We also use the 
