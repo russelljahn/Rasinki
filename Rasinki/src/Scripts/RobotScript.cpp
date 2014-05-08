@@ -209,7 +209,7 @@ void RobotScript::HandleTower() {
         if (!squarey->IsOccupied() && !squarey->HasEnemies() && Pathfinder::ExistsValidPath(grid, 24, 24, 0, 0, squarey)) {
             if (currentTower == 1)
             {
-                if ((gameObject->game->playerList[0]->getGold() - 25) >= 0)
+                if ((gameObject->game->playerList[0]->getGold() - 20) >= 0)
                 {
                     Tower *tower = new Tower(this->gameObject->game);
                     tower->physics->setWorldPosition(squareyPosition + Ogre::Vector3(00.0f, 65.0f, 40.0f));
@@ -218,7 +218,7 @@ void RobotScript::HandleTower() {
                     squarey->occupant = tower;
                     tower->setUpgraded(false);
                     squarey->type = 1;
-                    gameObject->game->playerList[0]->changeGold(-25);
+                    gameObject->game->playerList[0]->changeGold(-20);
                 }
             }
             else if(currentTower == 2)

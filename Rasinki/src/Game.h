@@ -143,6 +143,8 @@ protected:
 
     bool quit(const CEGUI::EventArgs &e);
     bool newGame(const CEGUI::EventArgs &e);
+    bool cancel(const CEGUI::EventArgs &e);
+
 
 
     // Ogre::WindowEventListener
