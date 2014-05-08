@@ -12,32 +12,48 @@ Team 13:
 Russell Jahn
 Kevin Wade
 Safaa Hansen
+Noah Gregg
 
 ---------------------
 Description:
 ---------------------
-Rasinki is a 3D rendition of the popular game breakout, where you use a paddle
-to block balls and destroy all the bricks in the stage.
+Rasinki is a third person tower defense game.
 
 ---------------------
 Rules:
 ---------------------
-The goal is to knock out all of the bricks in the stage by blocking balls with the 
-paddle. If a ball touches the ground, it disappears. Once all blocks have been destroyed, 
-or all balls have touched the ground, then the game is over.
+The goal is to kill all of the ninjas before they reach your castle.  To do this, you must
+place towers and construct a maze.  Towers will automatically attack nearby ninjas as they
+go by.  There are 10 increasingly difficult levels to survive.  If too many ninjas reach
+your castle, you lose.
 
-Different blocks give different point amounts:
-Blue - 25 Points
-Red  - 10 Points
-Grey -  1 Point
+Ninjas give the player points and gold when they are killed.  The gold is used to purchase
+walls and towers.  Small towers cost 20 gold, walls cost 1 gold, and upgraded towers cost 100 gold.
+Structuers can be sold for a small refund.
+
 
 ---------------------
 Controls:
 ---------------------
-WASD to move the paddle left/right/up/down
-ZX to rotate the camera 90 degrees left/right
-[SPACE] to force gravity on the balls, especially useful if you get them in a tricky position
-N to start a new game
+WASD to move the robot around
+1 and 2 to swap between building a tower or a wall
+z to send the next wave of ninjas
+Shift to change the camera perspective
+Mouse click to place a structure on an empty grid square
+Click while highlighting a square that contains a structure: opens a menu letting the player sell or upgrade
+ the structure.
+---------------------
+New Features:
+---------------------
+Pathfinding: Our game features a pathfinding system for the ninjas.  The ninjas use A* to find a 
+route from their spawn point to the players castle.  Additionally, our pathfinding system 
+immediately updates the path of ninjas who have obstacles placed in their way.  We also use the 
+pathfinding system to guarantee that there is always a valid route from the ninja spawn to the
+castle. 
+
+Animated character controller: 
+
+Simple particle system:  When a ninja is hit by a tower we briefly display an explosion particle effect
 
 ---------------------
 Engine Features:
@@ -59,4 +75,4 @@ Physics: Required, contains info on how the GameObject should react to forces an
 Script: Optional, these can be attached to GameObjects to provide gameplay logic to them. For instance, the paddle has 2 scripts attached: one handling keyboard control for the paddle, and another gameplay manager script, which handles the gameover/winning state logic for the game.
 
 
-Since each of the components abstract away so much of the gritty, underlying engine details for actual gameplay programming, building it ended up being a big win for programmer productivity, and we believe it will pay off immensely as our game becomes much more complicated for future projects. As we need more features from each of the components, or more components as we go, our GameObject/Component system is structured such that it's easy to expand upon.
+Since each of the components abstract away so much of the gritty, underlying engine details for actual gameplay programming, building it ended up being a big win for programmer productivity.
